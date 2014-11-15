@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<constant name="struts.multipart.parser" value="jakarta"></constant>
+	<constant name="struts.multipart.maxSize" value="2097152"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.i18n.reload" value="true"></constant>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	
+	<package name="Carpg" extends="struts-default">
+		<action name="test" class = "com.carpg.controller.TestAction">
+			<result>index.jsp</result>
+			<result name="login" >MyJsp.jsp</result>
+		</action>
+		
+		<action name="userOperate" class = "com.carpg.controller.UserAction">
+			<result>index.jsp</result>
+			<result name="login" >index.jsp</result>
+		</action>
+	</package>
+
+
+</struts>
