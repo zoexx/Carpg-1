@@ -12,6 +12,7 @@ public class User {
 	private String section;
 	private int state;         //表示注册是用户状态0：未验证；1：验证成功
 	private String code;       //用于邮箱验证和找回密码时的code匹配验证
+	private String name;       //别名
 	public int getId() {
 		return id;
 	}
@@ -71,6 +72,12 @@ public class User {
 	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

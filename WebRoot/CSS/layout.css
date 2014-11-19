@@ -97,3 +97,23 @@ h5,h6{margin: 0;padding: 0;}
 .foot{width: 100%;height: 300px;float: none;background-color: #000000;}
 .foot_content{width: 1228px;height: 250px;margin: 0 auto;}
 .copyright{width: 100%;height: 50px;border-top: 3px solid #B40000;text-align: center;}
+/*------------login.html注册登录页面--------------*/
+.login{width: 100%;height: 100%;}
+.color_black{height: 100px;width: 100%;background: black;}
+.color_yellow{height:500px;width: 100%;background: #D5B970;}
+.login_content{height: 366px;width: 400px;position: absolute;left: 500px;top: 40px;padding-top: 110px; background-image: url(../Images/img/carpg_logo.png);background-repeat: no-repeat;background-position:top center;}
+
+#login_reg{width: 234px;height: 250px;margin: 0 auto;}
+.login_input{width: 232px;height: 32px;border: 1px dashed #253A69;border-radius: 4px;display: block;overflow: hidden;}
+#varify{width: 100px;height: 32px; border: 1px dashed #253A69;border-radius: 4px;float: left;line-height: 32px;text-align: center;}
+#validate{width: 126px;height: 32px;border: 1px dashed #253A69;border-radius: 4px;float: right;}
+#login_reg span{margin-bottom: 6px;}
+#login_reg span input{width: 232px;height: 32px;border: none;text-align: center;font-size: 14px;}
+#agreement{float: right;}
+.login_button_type1{width: 100px;height: 32px;}
+.login_button_type2{width: 126px;height: 32px;float: right;}
+.login_quickin{width: 32px;height: 32px;display: block;float: left;margin-left: 15px;border-radius: 26px;}
+.login_quickin:hover{background-color: #F6F6F6;}
+.login_forget{text-decoration: underline;display: block;float: right;margin-right: 10px;}
+.login_yjdl{float: right;margin-right: 20px;}
+

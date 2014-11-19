@@ -17,7 +17,7 @@
 		
 		<action name="userOperate" class = "com.carpg.controller.UserAction">
 			<result>index.jsp</result>
-			<result name="login" >index.jsp</result>
+			<result name="test" >../MyJsp.jsp</result>
 		</action>
 	</package>
 

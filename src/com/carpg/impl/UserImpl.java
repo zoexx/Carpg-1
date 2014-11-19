@@ -41,7 +41,7 @@ public class UserImpl implements UserDao {
 		Calendar c = Calendar.getInstance();
 		user.setCode(String.valueOf(c.getTimeInMillis()));
 		conn = DBHelper.getConn();
-		sql = "insert into user value(null, ?,?,?,?,?,?,?,0,?)";
+		sql = "insert into user value(null, ?,?,?,?,?,?,?,0,?,?)";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, user.getUsername());
@@ -52,6 +52,7 @@ public class UserImpl implements UserDao {
 			pstmt.setString(6, user.getCity());
 			pstmt.setString(7, user.getSection());
 			pstmt.setString(8, user.getCode());
+			pstmt.setString(9, user.getName());
 			pstmt.executeUpdate();
 			//发送邮件验证信息
 			JavaMail mail = new JavaMail();

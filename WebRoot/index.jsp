@@ -4,6 +4,16 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%
+	String username = request.getParameter("username");
+	if (username.equals("yan")){
+		//out.println("用户名称["+username+"]已经被注册，请更换其他用户名称再注册。");
+		out.print("false");
+	}
+	else{
+		out.println("用户名可用");
+	}
+ %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -22,14 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  
-    <s:form action="userOperate" >                
-              <s:textfield name="username" label=" 用户名"/>
-              <s:textfield name="password"  label=" 密码" /> 
-              <s:textfield name="type" id="type" value="login" />
-              <s:property value="type"/>       
-              <s:submit value="确定" onclick="show();"/>            
-          </s:form>
+
   </body>
 <script type="text/javascript" language="javascript">
 function show(){
