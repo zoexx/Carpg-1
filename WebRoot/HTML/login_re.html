@@ -2,10 +2,10 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>è½¦æ›ç½‘-ä¿ƒè¿›è½¦è¾†è´¨é‡æå‡</title>
-		<meta name="title" content="è½¦æ›ç½‘" />
-		<meta name="keywords" content="è½¦æ›ç½‘,æ±½è½¦,è½¿è½¦,äºŒæ‰‹è½¦,æ›å…‰,è´¨é‡,é©¾é©¶å®‰å…¨,åé¦ˆ,è°ƒæŸ¥æŠ¥å‘Š,æ•°æ®åˆ†æž,å¬å›ž,æ‹å–,ç«žä»·,æ¶ˆè´¹è€…æƒç›Š,315,è½¦"/>
-		<meta name="description" content="è½¦æ›ç½‘æ˜¯å›½å†…é¦–å®¶æ”¶é›†æ•´ç†è½¦ä¸»é©¾é©¶ä½“éªŒä¿¡æ¯çš„å®Œå…¨å…¬å¼€å®Œå…¨å¼€æ”¾çš„æ°‘é—´ç½‘ç«™ï¼Œè½¦æ›ç½‘ä¸ºå¹¿å¤§è½¦ä¸»ä»¥åŠå‡†è½¦ä¸»æä¾›å¤§é‡æ±½è½¦è´¨é‡çš„æ•°æ®åˆ†æžæœåŠ¡ä»¥åŠäºŒæ‰‹è½¦äº¤æ˜“ä¿¡æ¯æœåŠ¡ã€‚" />
+		<title>³µÆØÍø-´Ù½ø³µÁ¾ÖÊÁ¿ÌáÉý</title>
+		<meta name="title" content="³µÆØÍø" />
+		<meta name="keywords" content="³µÆØÍø,Æû³µ,½Î³µ,¶þÊÖ³µ,ÆØ¹â,ÖÊÁ¿,¼ÝÊ»°²È«,·´À¡,µ÷²é±¨¸æ,Êý¾Ý·ÖÎö,ÕÙ»Ø,ÅÄÂô,¾º¼Û,Ïû·ÑÕßÈ¨Òæ,315,³µ"/>
+		<meta name="description" content="³µÆØÍøÊÇ¹úÄÚÊ×¼ÒÊÕ¼¯ÕûÀí³µÖ÷¼ÝÊ»ÌåÑéÐÅÏ¢µÄÍêÈ«¹«¿ªÍêÈ«¿ª·ÅµÄÃñ¼äÍøÕ¾£¬³µÆØÍøÎª¹ã´ó³µÖ÷ÒÔ¼°×¼³µÖ÷Ìá¹©´óÁ¿Æû³µÖÊÁ¿µÄÊý¾Ý·ÖÎö·þÎñÒÔ¼°¶þÊÖ³µ½»Ò×ÐÅÏ¢·þÎñ¡£" />
 		<link href="../CSS/layout.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
@@ -13,33 +13,35 @@
 			<div class="color_black"></div>
 			<div class="color_yellow"></div>
 			<div class="login_content">
-				<form id="login_reg">
+				<form id="login_reg" method="post" >
 					<span class="login_input">
-						<input type="text" name="email" id="email" placeholder="é‚®ç®±"/>
+						<input type="text" name="email" id="email" placeholder="ÓÊÏä"/>
 					</span>
 					<span class="login_input">
-						<input type="text" name="password" id="password" placeholder="å¯†ç "/>
+						<input type="text" name="password" id="password" placeholder="ÃÜÂë"/>
 					</span>
 					<span class="login_input">
-						<input type="text" name="username" id="username" placeholder="èµ·ä¸ªæ±Ÿæ¹–åå·å§"/>
+						<input type="text" name="name" id="name" placeholder="Æð¸ö½­ºþÃûºÅ°É"/>
 					</span>
 					<span >
-						<span id="varify">å¡«å†™éªŒè¯ç </span>
+						<span id="varify">ÌîÐ´ÑéÖ¤Âë</span>
 						<span id="validate">validate</span>
 					</span>
-					<p><input type="radio" name="radiobutton" value="radiobutton" style="width: 12px;height: 12px;"/>
-						<span>æˆ‘å·²é˜…è¯»å¹¶åŒæ„è½¦æ›ç½‘</span>
-						<a href="#" id="agreement">ã€Šä½¿ç”¨åè®®ã€‹</a>
+					<p><input type="radio" id = "radiobutton" name="radiobutton" value="radiobutton" style="width: 12px;height: 12px;"/>
+						<span>ÎÒÒÑÔÄ¶Á²¢Í¬Òâ³µÆØÍø</span>
+						<a href="#" id="agreement">¡¶Ê¹ÓÃÐ­Òé¡·</a>
 					</p>
-					<button class="dashButtons login_button_type1">æ³¨å†Œ</button>
-					<button class="dashButtons login_button_type2">ç™»é™†</button>
+					<button class="dashButtons login_button_type1" onclick="return doCheck(this.value);" value="×¢²á">×¢²á</button>
+					<button class="dashButtons login_button_type2" onclick="return doCheck(this.value);" value="µÇÂ½">µÇÂ½</button>
 					<p>						
 						<a href="#" class="login_quickin"><img src="../Images/img/login_weibo.png" style="width: 32px;height: 32px;"/></a>
 						<a href="#" class="login_quickin"><img src="../Images/img/login_qq.png" style="width: 32px;height: 32px;"/></a>
 						<a href="#" class="login_quickin"><img src="../Images/img/login_weichat.png" style="width: 32px;height: 32px;"/></a>
-						<span class="login_yjdl">ä¸€é”®ç™»å½•</span>
-						<a href="#" class="login_forget">å¿˜è®°å¯†ç ï¼Ÿ</a>
+						<span class="login_yjdl">Ò»¼üµÇÂ¼</span>
+						<a href="#" class="login_forget">Íü¼ÇÃÜÂë£¿</a>
 					</p>
+					<input type="text" id="type" name="type" hidden="true" value="login" />
+					<input type="text" id="check_email" hidden="true" value="true" />
 				</form>
 			</div>
 		</div>

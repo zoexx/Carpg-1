@@ -39,7 +39,7 @@ public class JavaMail {
 	   message.setRecipient(RecipientType.TO,new InternetAddress(email));
 	   message.setSentDate(new Date());
 	   message.setSubject("Carpg");
-	   String m="<a href="+"http://127.0.01:8080/test/index.jsp?stu_nameMd5="+name+"&randMd5="+code+">" +
+	   String m="<a href="+"http://127.0.01:8080/Carpg/index.jsp?name="+name+"&randMd5="+code+">" +
 	     "http:/127.0.01:8080/test/index.jsp?stu_nameMd5="+name+"&randMd5="+code+"</a>";
 	   message.setContent(m,"text/html;charset=utf-8");
 	   Transport.send(message);
