@@ -24,6 +24,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 
 	private final static String ERROR = "error";
 	private final static String LOGIN = "login";
+	private final static String LOGIN_RE = "login_re";
 	private final static String REGIST = "regist";
 	private final static String VERIFY = "verify";
 	private final static String BACK_PSW = "back_psw";
@@ -40,12 +41,12 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 	
 	public String execute() throws Exception{
 		System.out.println(type+"  "+user.getUsername() + "  "+user.getPassword());
-		String Newsid[] =(String []) ActionContext.getContext().getParameters().get("username");
-		System.out.println(Newsid[0]);
+		//String Newsid[] =(String []) ActionContext.getContext().getParameters().get("username");
+		//System.out.println(Newsid[0]);
 		//表示是登陆操作
 		if (type.equals(LOGIN)){
-			Cookie cookie = new Cookie("carpg", user.getPassword()+"~"+user.getUsername());
-			response.addCookie(cookie);
+			//Cookie cookie = new Cookie("carpg", user.getPassword()+"~"+user.getUsername());
+			//response.addCookie(cookie);
 			/*
 			if (userDao.checkLogin(user.getUsername(), user.getPassword())){
 				//表示登陆成功，返回接下来要跳转和操作的页面
@@ -55,6 +56,9 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 				//返回失败的页面操作
 			}*/
 			//return LOGIN;
+		}else if (type.equals(LOGIN_RE)){
+			return "regist";
+			
 		}else if (type.equals(REGIST)){
 			if (userDao.Regist(user)){
 				return "test";

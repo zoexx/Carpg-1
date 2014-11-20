@@ -52,7 +52,7 @@ function showFeedbackInfo() {
     用户注册<br>
     <span id="feedback">测试ajax</span>
     <s:form action="userOperate">
-    	<s:textfield name="username" id="username" label=" 用户名" onblur="doCheck();" />
+    	<s:textfield name="name" id="name" label=" 用户名" onblur="doCheck();" />
         <s:password name="password"  label=" 密码" />
         <s:password name="password1"  label=" 确认密码" />  
         <s:select name="province" id="id_provSelect" list="{}" label="省" onChange="loadCity(this.value);" />
