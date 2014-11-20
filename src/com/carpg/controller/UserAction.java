@@ -33,7 +33,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 	 private HttpServletResponse response;  
 	 private HttpServletRequest request;  
 	 private Map<String, Object> session;
-	//´«ÈëµÄtypeÀàĞÍ±íÊ¾½øĞĞµÄ²Ù×÷
+	 //æ ¹æ®typeæ‰§è¡Œæ“ä½œ
 	private String type;
 	private User user = new User();
 	private UserDao userDao = new UserImpl();
@@ -43,17 +43,17 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 		System.out.println(type+"  "+user.getUsername() + "  "+user.getPassword());
 		//String Newsid[] =(String []) ActionContext.getContext().getParameters().get("username");
 		//System.out.println(Newsid[0]);
-		//±íÊ¾ÊÇµÇÂ½²Ù×÷
+		//è¡¨ç¤ºæ˜¯ç™»é™†æ“ä½œ
 		if (type.equals(LOGIN)){
 			//Cookie cookie = new Cookie("carpg", user.getPassword()+"~"+user.getUsername());
 			//response.addCookie(cookie);
 			/*
 			if (userDao.checkLogin(user.getUsername(), user.getPassword())){
-				//±íÊ¾µÇÂ½³É¹¦£¬·µ»Ø½ÓÏÂÀ´ÒªÌø×ªºÍ²Ù×÷µÄÒ³Ãæ
+
 				return "loginSucess";
 			}
 			else{
-				//·µ»ØÊ§°ÜµÄÒ³Ãæ²Ù×÷
+
 			}*/
 			//return LOGIN;
 		}else if (type.equals(LOGIN_RE)){
@@ -78,7 +78,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 	}
 	
 	public String MyJson() throws Exception{
-		message = "²âÊÔAjax";
+		message = "Ajax";
 		return "login";
 		
 	}

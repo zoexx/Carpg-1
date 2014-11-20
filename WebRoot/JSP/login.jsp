@@ -5,8 +5,9 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <jsp:include page="../HTML/login_re.html"></jsp:include>
-<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="../JS/ajax.js"></script>
+
+<script type="text/javascript" src="../JS/jquery-1.7.2.min.js" ></script>
+<script type="text/javascript" src="../JS/ajax.js" ></script>
   <script type="text/javascript">
 	function doCheck(obj){
 		var temp = obj;
