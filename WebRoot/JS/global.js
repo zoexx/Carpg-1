@@ -53,7 +53,7 @@ function highlightPage() {
   }
 }
 
-//add date
+//index.html
 function addDate () {
 	if (!document.getElementById) return false;
 	var aaa=document.getElementById("current_time");
