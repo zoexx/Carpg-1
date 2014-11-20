@@ -15,7 +15,7 @@
 			<div class="login_content">
 				<form id="login_reg" method="post" >
 					<span class="login_input">
-						<input type="text" name="email" id="email" placeholder="邮箱"/>
+						<input type="text" name="email" id="email" placeholder="邮箱" onblur="checkEmail()" />
 					</span>
 					<span class="login_input">
 						<input type="text" name="password" id="password" placeholder="密码"/>
@@ -27,10 +27,6 @@
 						<span id="varify">填写验证码</span>
 						<span id="validate">validate</span>
 					</span>
-					<p><input type="radio" id = "radiobutton" name="radiobutton" value="radiobutton" style="width: 12px;height: 12px;"/>
-						<span>我已阅读并同意车曝网</span>
-						<a href="#" id="agreement">《使用协议》</a>
-					</p>
 					<button class="dashButtons login_button_type1" onclick="return doCheck(this.value);" value="注册">注册</button>
 					<button class="dashButtons login_button_type2" onclick="return doCheck(this.value);" value="登陆">登陆</button>
 					<p>						
