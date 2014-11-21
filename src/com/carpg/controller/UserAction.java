@@ -33,7 +33,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 	 private HttpServletResponse response;  
 	 private HttpServletRequest request;  
 	 private Map<String, Object> session;
-	 //æ ¹æ®typeæ‰§è¡Œæ“ä½œ
+	 //¸ù¾İtype½øĞĞÏàÓ¦µÄ²Ù×÷
 	private String type;
 	private User user = new User();
 	private UserDao userDao = new UserImpl();
@@ -43,7 +43,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 		System.out.println(type+"  "+user.getUsername() + "  "+user.getPassword());
 		//String Newsid[] =(String []) ActionContext.getContext().getParameters().get("username");
 		//System.out.println(Newsid[0]);
-		//è¡¨ç¤ºæ˜¯ç™»é™†æ“ä½œ
+		//±íÊ¾µÇÂ½²Ù×÷
 		if (type.equals(LOGIN)){
 			//Cookie cookie = new Cookie("carpg", user.getPassword()+"~"+user.getUsername());
 			//response.addCookie(cookie);

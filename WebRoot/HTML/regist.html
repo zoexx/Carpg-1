@@ -16,7 +16,7 @@
 			<div class="login_content">
 				<form id="login_reg">
 					<span class="login_input">
-						<input type="text" name="username" id="username" placeholder="江湖名号"/>
+						<input type="text" name="name" id="name" placeholder="江湖名号"/>
 					</span>
 					<span class="login_input">
 						<input type="text" name="email" id="email" placeholder="邮箱"/>
@@ -28,13 +28,13 @@
 						<input type="text" name="re_password" id="re_password" placeholder="请确认密码"/>
 					</span>
 					<span id="login_select">
-						<select name="province">
+						<select name="province" id="id_provSelect" onChange="loadCity(this.value)">
 							<option value="default">湖北省</option>
 						</select>
-						<select name="city">
+						<select name="city" id="id_citySelect" onChange="loadArea(this.value)">
 							<option value="default">武汉市</option>
 						</select>
-						<select name="section">
+						<select name="section" id="id_areaSelect" >
 							<option value="default">江夏区</option>
 						</select>
 					</span>
