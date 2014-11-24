@@ -27,8 +27,8 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 	private final static String LOGIN_RE = "login_re";
 	private final static String REGIST = "regist";
 	private final static String VERIFY = "verify";
-	private final static String BACK_PSW = "back_psw";
-	private final static String UPDATE_PSW = "update_psw";
+	private final static String BACK_PSW = "return_psw";
+	private final static String UPDATE_PSW = "set_psw";
 	
 	 private HttpServletResponse response;  
 	 private HttpServletRequest request;  
@@ -56,7 +56,9 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 
 			}*/
 			//return LOGIN;
-		}else if (type.equals(LOGIN_RE)){
+			System.out.println("Session的值为："+session.get("vcode").toString());
+		}//注册详细信息页面跳转
+		else if (type.equals(LOGIN_RE)){
 			return "regist";
 			
 		}else if (type.equals(REGIST)){
@@ -69,9 +71,11 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 			
 		}else if (type.equals(VERIFY)){
 			
-		}else if (type.equals(BACK_PSW)){
+		}//找回密码邮箱验证
+		else if (type.equals(BACK_PSW)){
 			
-		}else if (type.equals(UPDATE_PSW)){
+		}//更新密码
+		else if (type.equals(UPDATE_PSW)){
 			
 		}
 		return "test";

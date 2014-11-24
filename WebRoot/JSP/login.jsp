@@ -9,6 +9,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="../JS/jquery-1.7.2.min.js" ></script>
 <script type="text/javascript" src="../JS/ajax.js" ></script>
   <script type="text/javascript">
+  	//验证邮箱的合法性
+  function check_format(){
+    var mail = document.getElementById("email").value;
+    //对电子邮件的验证
+    var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    if(!myreg.test(mail)){
+      alert("请输入正确的邮箱!");
+      return false;
+    }
+  }
 	function doCheck(obj){
 		var temp = obj;
 		//判断是否是登陆操作
@@ -19,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var psw = document.getElementById("password").value;
 			if (username=="" || psw == ""){
 				alert("用户名或密码不能为空！");
+				return false;
 			}
 			else{
 				document.getElementById("login_reg").action="userOperate";
@@ -33,22 +44,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var name = document.getElementById("name").value;
 			if (email=="" || psw1=="" || name==""){
 				alert("请保证注册的信息不为空");
+				return false;
 			}else{
-				if(document.getElementById("check_email").value == "true"){
-					//跳转到注册详细页面
-					document.getElementById("login_reg").action="userOperate";
-				    document.getElementById("login_reg").submit();
-				}else{
-					alert("该用户名不可用");
-				}
+				checkEmail();
 			}
 		}else{alert("test");}
+		return false;
 	}
 	function checkEmail() {
+		check_format();
     	var u = document.getElementById("email");
         if(u.value!="") {
             //document.getElementById("feedback").innerHTML = "系统正在处理您的请求，请稍后。";
-            send_request("GET","../index.jsp?username="+u.value,null,"text",showFeedbackInfo);
+            send_request("GET","../servlet/AjaxServlet.sl?username="+u.value,null,"text",showFeedbackInfo);
         }
 	}
 	function showFeedbackInfo() {
@@ -57,9 +65,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	document.getElementById("check_email").value = http_request.responseText;
             	if (document.getElementById("check_email").value == "false"){
             		document.getElementById("email").value = "该邮箱已经被注册";
+            		return false;
+            	}
+            	else if (document.getElementById("check_email").value == "true"){
+            		//跳转到注册详细页面
+					document.getElementById("login_reg").action="userOperate";
+				    document.getElementById("login_reg").submit();
             	}
         	} else { //页面不正常
             	alert("您所请求的页面有异常。");
+            	return false;
         	}
         }
     }
