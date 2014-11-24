@@ -3,4 +3,19 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<script type="text/javascript">
+	//检验两次输入的密码一致
+  function checkEquel(obj){
+    var psw = document.getElementById("password").value;
+    if (obj != psw){
+      alert("请保证两次输入的密码一致!");
+      return false;
+    }
+  }
+	function update(){
+		document.getElementById("login_reg").action="userOperate";
+		document.getElementById("login_reg").submit();
+	}
+	
+</script>  
 <jsp:include page="../HTML/login_setpsw.html"></jsp:include>

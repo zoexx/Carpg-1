@@ -36,6 +36,34 @@ String psw = request.getParameter("password");
 	//添加需要预加载的onload事件
 	addLoadEvent(addInfo);
 	addLoadEvent(loadPro);
+	//检验两次输入的密码一致
+  	function checkEquel(obj){
+    	var psw = document.getElementById("password").value;
+    	if (obj != psw){
+      		alert("请保证两次输入的密码一致!");
+      		return false;
+    	}
+ 	}
+ 	//将省市区的值由地区码变为文字
+  function changeToText(){
+    var province = document.getElementById("id_provSelect");
+    var city = document.getElementById("id_citySelect");
+    var area = document.getElementById("id_areaSelect");
+    //得到地区码对应的文字
+    var p = province.childNodes[province.selectedIndex].innerHTML;
+    var c = city.childNodes[city.selectedIndex].innerHTML;
+    var a = area.childNodes[area.selectedIndex].innerHTML;
+    document.getElementById("id_provSelect").innerHTML = p;
+    document.getElementById("id_citySelect").innerHTML = c;
+    document.getElementById("id_areaSelect").innerHTML = a;
+  }
+  //验证信息
+  function doCheck(){
+  	//将地区码转变为对应的文字
+  	changeToText();
+  	document.getElementById("login_reg").action="userOperate";
+	document.getElementById("login_reg").submit();
+  }
 </script>
 <jsp:include page="../HTML/regist.html"></jsp:include>
 

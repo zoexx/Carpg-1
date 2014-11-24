@@ -15,7 +15,7 @@
 			<div class="login_content">
 				<form id="login_reg" method="post" >
 					<span class="login_input">
-						<input type="text" name="email" id="email" placeholder="邮箱" onblur="checkEmail()" />
+						<input type="text" name="email" id="email" placeholder="邮箱" onblur="check_format()" />
 					</span>
 					<span class="login_input">
 						<input type="text" name="password" id="password" placeholder="密码"/>
@@ -25,7 +25,7 @@
 					</span>
 					<span >
 						<span id="varify">请输入验证码</span>
-						<span id="validate">validate</span>
+						<span id="validate"><img src="../servlet/VerifyImage.sl" alt="验证码" name="checkImg" id="checkImg" onClick="document.getElementById('checkImg').src='../servlet/VerifyImage.sl?temp='+ (new Date().getTime().toString(36)); return false"/></span>
 					</span>
 					<button class="dashButtons login_button_type1" onclick="return doCheck(this.value);" value="注册">注册</button>
 					<button class="dashButtons login_button_type2" onclick="return doCheck(this.value);" value="登陆">登陆</button>
@@ -37,7 +37,7 @@
 						<a href="../JSP/return_psw.jsp" class="login_forget">忘记密码？</a>
 					</p>
 					<input type="text" id="type" name="type" hidden="true" value="login" />
-					<input type="text" id="check_email" hidden="true" value="true" />
+					<input type="text" id="check_email" hidden="true" value="" />
 				</form>
 			</div>
 		</div>
