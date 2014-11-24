@@ -25,7 +25,7 @@ public class CarImpl implements CarDao {
 	public void addCar(Car car) {
 		// TODO Auto-generated method stub
 		conn = DBHelper.getConn();
-		sql = "insert into car value(null,?,?,?,?,?,?,?)";
+		sql = "insert into car value(null,?,?,?,?,?,?,?,?)";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, car.getBrand());
@@ -35,6 +35,7 @@ public class CarImpl implements CarDao {
 			pstmt.setString(5, car.getCategory());
 			pstmt.setString(6, car.getConfigure());
 			pstmt.setString(7, car.getAlias());
+			pstmt.setString(8, car.getTransmission());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -62,6 +63,7 @@ public class CarImpl implements CarDao {
 				car.setCategory(rs.getString("category"));
 				car.setConfigure(rs.getString("configure"));
 				car.setAlias(rs.getString("alias"));
+				car.setTransmission(rs.getString("transmission"));
 				cars.add(car);
 				
 			}

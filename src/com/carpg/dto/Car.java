@@ -10,6 +10,14 @@ public class Car {
 	private String category;
 	private String configure;
 	private String alias;
+	
+	private String transmission;
+	public String getTransmission() {
+		return transmission;
+	}
+	public void setTransmission(String transmission) {
+		this.transmission = transmission;
+	}
 	public int getId() {
 		return id;
 	}
