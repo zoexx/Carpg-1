@@ -47,24 +47,30 @@
 			</div>
 			<ul class="add_carinfo">
 				<li>
-				<h2>-汽车上市时间-</h2>
+				<h2>-上市&购入-</h2>
 			    <select id="sale_time" name="sale_time" onfocus="addcar_addtime(15);">
 				<option value="default" >----选择上市时间----</option>
-				<option value="2014">2014</option>
-
+			    </select>
+			    <select id="buy_time" name="buy_time" onfocus="addcar_addtime(15);">
+			     <option value="default">----选择购入时间----</option>
 			    </select>
 				</li>
 				<li>
 					<h2>-排量-</h2>
-					<input type="text" id="displacement" name="displacement" style="width: 60px;"/>
-					<p><i>如：3.2（升）</i></p>
+					<input type="text" id="displacement" name="displacement"/>
+					<p><i>如：3.2L</i></p>
 				</li>
 				<li>
 					<h2>-黄标-</h2>
 					<select id="standard" name="standard">
-						<option value="国五">----国五----</option>
+						<option value="国五">-国五-</option>
+						
 					</select>
-					
+				</li>
+				<li>
+					<h2>-里程-</h2>
+					<input type="text" id="mileage" name="mileage"/>
+					<p><i>可写大致范围</i></p>
 				</li>
 				<li>
 					<h2>-配置-</h2>
@@ -72,12 +78,12 @@
 					<p><i>如（雷克萨斯）：NX200 锋行版</i></p>
 				</li>
 				<li>
-					<h2>-汽车VIN码-</h2>
+					<h2>-VIN码-</h2>
 					<input type="text" id="vin" name="vin"/>
 					<p><i>车辆识别码，由17位字符组成</i></p>
 
 				</li>
-				<li class="addcar_blank">
+				<li >
 					<h2>-漆色-</h2>
 					<button class="dashButtons carcolor black" id="carColorBlack" value="1" name="carColor" onclick="addcar_color(this.value);">黑</button>
 					<button class="dashButtons carcolor white" id="carColorWhite" value="2" name="carColor" onclick="addcar_color(this.value);">白</button>
@@ -88,12 +94,17 @@
 				</li>
 			</ul>
 
-			</form>
+			
 			<div class="instruction">
 				<h2>说明:</h2>
 				<h3>· 上市时间并非购买时间</h3>
 			</div>
+			<div id="text_forVIN">
+			
+				<p>为了给您争取到更大的优势以及统计更可信的结果，请您务必填写车辆识别码</p>
+			</div>
 			<span class="dashButtons thenext_btn">下一步</span>
+			</form>
 		</div>
 	</body>
 </html>
