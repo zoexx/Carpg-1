@@ -143,5 +143,13 @@ h5,h6,h2{margin: 0;padding: 0;}
 .content2 h1{margin: 0;text-align: center;background: #F6F6F6;}
 .thenext_btn{width: 100px;height: 30px;margin: 0 auto;display: block;line-height: 30px;font-size: 16px;}
 /*------------complain_addcar.html-----------------*/
-.content3{width: 800px;height: 600px;margin: 50px auto;background: #FFFFFF;border-radius: 4px;overflow: hidden;}
+.content3{width: 600px;height: 600px;margin: 50px auto;background: #FFFFFF;border-radius: 4px;overflow: hidden;position: relative;}
 .content3 h1{background: #B40000;color: #FFFFFF;}
+.add_carinfo{height: 100px;}
+.add_carinfo li{float: left;list-style: none;}
+.instruction{position: absolute;top: 50px;right:0;background: #F6F6F6;width: 300px;height: 150px;}
+.carcolor{width: 30px;height: 30px;border:none;color: #FFFFFF;}
+.black{background: #313131;}
+.white{background: #F6F6F6;color: #000000;border: 1px solid black;}
+.red{background: #B40000;}
+.blue{background: #003399;}
