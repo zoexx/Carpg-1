@@ -37,6 +37,13 @@
     <servlet-name>AjaxServlet</servlet-name>
     <servlet-class>com.carpg.servlet.AjaxServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>test</servlet-name>
+    <servlet-class>com.carpg.servlet.test</servlet-class>
+  </servlet>
+
 
 
   <servlet-mapping>
@@ -47,6 +54,21 @@
     <servlet-name>AjaxServlet</servlet-name>
     <url-pattern>/servlet/AjaxServlet.sl</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/servlet/test.ln</url-pattern>
+  </servlet-mapping>
+  
+  <!-- jfreechart 的servlet -->
+<servlet> 
+<servlet-name>DisplayChart</servlet-name> 
+<servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class>
+</servlet>
+ 
+<servlet-mapping> 
+<servlet-name>DisplayChart</servlet-name>
+<url-pattern>/servlet/DisplayChart.ln</url-pattern>
+</servlet-mapping>
   
   <jsp-config>
         <jsp-property-group>
