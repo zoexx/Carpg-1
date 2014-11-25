@@ -12,6 +12,7 @@ public class Car {
 	private String alias;
 	
 	private String transmission;
+	private String standard;
 	public String getTransmission() {
 		return transmission;
 	}
@@ -65,6 +66,12 @@ public class Car {
 	}
 	public void setAlias(String alias) {
 		this.alias = alias;
+	}
+	public String getStandard() {
+		return standard;
+	}
+	public void setStandard(String standard) {
+		this.standard = standard;
 	}
 
 }
