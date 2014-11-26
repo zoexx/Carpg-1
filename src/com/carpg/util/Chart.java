@@ -9,7 +9,10 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.StandardChartTheme;
 import org.jfree.chart.axis.DateAxis;
+import org.jfree.chart.labels.ItemLabelAnchor;
+import org.jfree.chart.labels.ItemLabelPosition;
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
+import org.jfree.chart.labels.StandardXYItemLabelGenerator;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.PiePlot3D;
 import org.jfree.chart.plot.XYPlot;
@@ -19,8 +22,10 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.time.Month;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
+import org.jfree.data.time.Year;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.ui.RectangleInsets;
+import org.jfree.ui.TextAnchor;
 import org.jfree.util.Rotation;
 
 //主要是作为jfreechart的一个工具类进行处理
@@ -43,8 +48,14 @@ public class Chart {
 
 	//创建折线图数据源
 	public static XYDataset createXYDataset() {
-        TimeSeries timeseries = new TimeSeries("商户注册",
-                org.jfree.data.time.Month.class);
+        TimeSeries timeseries = new TimeSeries("吐槽问题量",
+                org.jfree.data.time.Year.class);
+        timeseries.add(new Year(2008), 10.1D);
+        timeseries.add(new Year(2009), 15.1D);
+        timeseries.add(new Year(2010), 12.1D);
+        timeseries.add(new Year(2011), 14.1D);
+        timeseries.add(new Year(2012), 13.1D);
+        /*
         timeseries.add(new Month(2, 2013), 10.1D);
         timeseries.add(new Month(3, 2013), 12.3D);
         timeseries.add(new Month(4, 2013), 13.2D);
@@ -62,7 +73,7 @@ public class Chart {
         timeseries.add(new Month(4, 2014), 35.0D);
         timeseries.add(new Month(5, 2014), 36.1D);
         timeseries.add(new Month(6, 2014), 35.0D);
-        timeseries.add(new Month(7, 2014), 34.5D);
+        timeseries.add(new Month(7, 2014), 34.5D); */
         /*
         TimeSeries timeseries1 = new TimeSeries("L&G UK Index Trust",
                 org.jfree.data.time.Month.class);
@@ -94,7 +105,7 @@ public class Chart {
 	//创建折线图chart
 	public static JFreeChart createXYChart() {
         JFreeChart jfreechart = ChartFactory.createTimeSeriesChart(
-                "商户注册数量", "日期", "注册量数量",
+                "汽车品牌问题统计", "日期", "吐槽量",
                 Chart.createXYDataset(), true, true, true);
         jfreechart.setBackgroundPaint(Color.white);
         XYPlot xyplot = (XYPlot) jfreechart.getPlot();
@@ -110,9 +121,16 @@ public class Chart {
             XYLineAndShapeRenderer xylineandshaperenderer = (XYLineAndShapeRenderer) xyitemrenderer;
             xylineandshaperenderer.setBaseShapesVisible(true);
             xylineandshaperenderer.setBaseShapesFilled(true);
+         // 显示节点的值  
+            xylineandshaperenderer.setBaseItemLabelsVisible(true);  
+            xylineandshaperenderer  
+                    .setBasePositiveItemLabelPosition(new ItemLabelPosition(  
+                            ItemLabelAnchor.OUTSIDE7, TextAnchor.BASELINE_CENTER));  
+            xylineandshaperenderer  
+                    .setBaseItemLabelGenerator(new StandardXYItemLabelGenerator());
         }
         DateAxis dateaxis = (DateAxis) xyplot.getDomainAxis();
-        dateaxis.setDateFormatOverride(new SimpleDateFormat("MMM-yyyy"));
+        dateaxis.setDateFormatOverride(new SimpleDateFormat("——yyyy——"));
         return jfreechart;
     }
 	
