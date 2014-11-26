@@ -1,26 +1,21 @@
-﻿@improt color.css
+﻿@import url("color.css");
 /*--------global-css-----------*/
-*{margin: 0;padding: 0;border: 0 none;}
-a{color: #000000;text-decoration: none;display: block;}
-a:hover{text-decoration: underline;}
+*{margin: 0;padding: 0;}
+select{height: 23px;}
 body,input,button,ul,li{margin: 0;padding: 0;font-family: "微软雅黑",arial,verdana;font-size: 12px;}
-body{background: #D5B970;}
 h5,h6,h2{margin: 0;padding: 0;}
 .left{float: left;}
 .right{float: right;}
 /*-------------header.html------------------*/
-.header_black{width: 100%;height: 70px;background-color: #000000;position: fixed;top:0;z-index:100;}
+.header_black{width: 100%;height: 70px;position: fixed;top:0;z-index:100;}
 .header_content{width: 1228px;margin: 0 auto;}
-.logo{width: 202px;height: 80px;float: left;background-image: url(../Images/img/carpg_logo.png);background-position: center;background-repeat: no-repeat;background-size: 60%;}
-#current{background-color: #B40000;-webkit-linear-gradient(bottom,#960000,#B40000);}
-#current:hover{background-color: red;text-decoration: none;}
-.main_nav{width: 1026px;height:70px;float: right;background: #B40000;}
-.main_nav ul{}
+.logo{width: 202px;height: 80px;float: left;}
+
+.main_nav{width: 1026px;height:70px;float: right;}
 .main_nav ul li{list-style: none;display: block;width: 171px;line-height: 70px;text-align: center;float: left;font-size: 24px;font-weight: bold;letter-spacing: 4px;}
-.main_nav ul li a{color: #F6F6F6;}
-.main_nav ul li a:hover{background: #000000;text-decoration: none;}
+
 /*--------footer.html--------*/
-.foot{width: 100%;height: 300px;float: none;color: dimgrey;background: #000000;}
+.foot{width: 100%;height: 300px;float: none;}
 .foot_content{width: 1228px;height: 250px;margin: 0 auto;}
 .aboutUs{width: 33%;height: 100%;display: block;float: left;}
 .aboutUs p{font-size: 14px;text-indent: 28px;}
@@ -28,31 +23,29 @@ h5,h6,h2{margin: 0;padding: 0;}
 .follwUs li{list-style: none;float: left;}
 .media{width: 100%;height: 90%;}
 .media li{list-style: none;width:40%;float: left;text-align: center;font-size: 14px;height:24px;line-height: 24px;display: block;}
-.media li a{color: dimgrey;font-weight: bold;}
+.media li a{font-weight: bold;}
 
-.copyright{width: 100%;height: 50px;border-top: 3px solid #B40000;text-align: center;}
+.copyright{width: 100%;height: 50px;text-align: center;}
 .copyright ul{width: 450px;margin: 10px auto;}
 .copyright ul li{float: left;width: 20%;display: block;text-align: center;}
-.copyright ul li a{color: dimgrey;}
+
 
 
 /*-----------------------index.html begin----------------------------*/
 /*---------index-ADs-------------*/
-#index_banner{width: 1228px;height: 200px;margin: 0 auto;background: #D5B970;margin-top: 70px;}
-#lastestNews{ width: 202px;height: 200px;float: left;background-color: #F6F6F6;}
+#index_banner{width: 1228px;height: 200px;margin: 0 auto;margin-top: 70px;}
+#lastestNews{ width: 202px;height: 200px;float: left;}
 .newsText{margin-top: 60px;margin-left: 10px;}
 /*--------- content--------*/
 .content{width: 1228px;margin: 0 auto;height: 1261px;}
 .content_left{width: 50%;float: left;}
 .content_right{width: 50%;float: right;}
-.carKeyWords{width: 600px;height: 150px; border-bottom: 1px dashed #313131;}
+.carKeyWords{width: 600px;height: 150px; }
 .carKeyWords li{list-style: none; float: left;line-height: 20px;padding: 10px 5px;font-size: 16px;}
-#car_market{height: 470px;width: 598px;border: 1px dashed #313131;border-top: none;float: right;}
-#car_list{width: 100%;height: 352px;background-color: #F6F6F6;}
-#car_list li{list-style: none;}
+#car_market{height: 470px;width: 598px;float: right;}
+#car_list{width: 100%;height: 352px;}
 .hot_complaints{width: 600px;height: 400px;float: right;}
-#complaints_online{width: 598px;height: 298px;background-color: #F6F6F6;border: 1px dashed #313131;border-top: none;float: right;}
-#complaints_online li{list-style: none;}
+#complaints_online{width: 598px;height: 298px;float: right;}
 .quicklook_buttons{width: 600px;float: right;}
 /*-----------titles-------------*/
 .left_title1{width:600px ;height: 43px;}
@@ -62,18 +55,14 @@ h5,h6,h2{margin: 0;padding: 0;}
 .left_text_title img{float: left;display: block;width: 38px;height: 38px;}
 .left_text_title h1{display: block;margin-left: 50px;}
 /*---------problems----------*/
-.problemRank{float:none;width: 600px;height: 170px;background-color: #313131;margin-top: 10px;}
+.problemRank{float:none;width: 600px;height: 170px;margin-top: 10px;}
 .problemText{width: 190px;height: 170px;float: left;}
 .problemText li{width: 160px;height:30%;text-align: center;display: block;padding-left: 30px;padding-top: 10px;}
-.rank1 li{background-image: url(../Images/img/attention.png);background-repeat: no-repeat;background-position: 20px 20px;background-size: 20px 20px;}
-.rank2 li{background-image: url(../Images/img/ranks.png);background-repeat: no-repeat;background-position: 20px 20px;background-size: 20px 20px;}
-.rank3 li{background-image: url(../Images/img/love.png);background-repeat: no-repeat;background-position: 20px 20px;background-size: 20px 20px;}
-.problemText li a{color: #EACD2E;text-decoration: none;}
 .problemText h3{margin: 0 auto;}
 .problemText h4{margin: 0 auto;}
-.problemRank_bar{position:relative;float: right;width: 400px;height: 164px;margin-top: 3px;margin-right: 3px;background-color: #F6F6F6;}
-.problemRank_bar_s1{margin-bottom:8px;height:27px ;margin-left:20px;margin-top: 20px;border: none;border-radius: 4px;background-image: url(../Images/img/warningbelt.png);}
-.problemRank_bar_s3{margin-bottom:8px;height:27px ;margin-left:20px;margin-top: 20px;border: none;border-radius: 4px;background-image: url(../Images/img/lovebelt.png);}
+.problemRank_bar{position:relative;float: right;width: 400px;height: 164px;margin-top: 3px;margin-right: 3px;}
+.problemRank_bar_s1{margin-bottom:8px;height:27px ;margin-left:20px;margin-top: 20px;}
+.problemRank_bar_s3{margin-bottom:8px;height:27px ;margin-left:20px;margin-top: 20px;}
 /*---------rank-bar----------*/
 .pr11{width: 290px;}
 .pr12{width: 240px;}
@@ -85,17 +74,15 @@ h5,h6,h2{margin: 0;padding: 0;}
 .pr32{width: 290px;}
 .pr33{width: 290px;}
 /*------------research-box----------------*/
-.research_box_bycar{margin: 5px 10px; width: 580px;height: 35px;border: 1px dashed #313131;border-radius: 4px;overflow: hidden;}
-.research_box_bycar input{float: left;width:500px;height: 35px;line-height 35px;font-size: 14px;border: none; text-align: center;color: #626262;background-color: #F6F6F6;}
-.research_box_bycar button{float: right;width: 80px ;height: 35px;border: none;background-image: url(../Images/img/research.png);background-repeat: no-repeat;background-position: center; background-color: #eacd2e;}
-.research_box_bycar button:hover{background-color: #B40000;}
-.research_box_complaints{margin-top: 10px;margin-right: 10px;width: 580px;height: 35px;border: 1px dashed #313131;border-radius: 4px;overflow: hidden;float: right;}
-.research_box_complaints input{float: left;width: 500px;height: 35px;line-height: 35px;font-size: 16px;border: none;text-align: center;color: #626262;background-color: #F6F6F6;}
-.research_box_complaints button{float: right;width: 80px;height: 35px;border: none;background-image: url(../Images/img/research.png);background-repeat: no-repeat;background-position: center; background-color: #eacd2e;}
-.research_box_complaints button:hover{background-color: #B40000;}
+.research_box_bycar{margin: 5px 10px; width: 580px;height: 35px;overflow: hidden;}
+.research_box_bycar input{float: left;width:500px;height: 35px;line-height 35px;font-size: 14px;}
+.research_box_bycar button{float: right;width: 80px ;height: 35px;}
+
+.research_box_complaints{margin-top: 10px;margin-right: 10px;width: 580px;height: 35px;overflow: hidden;float: right;}
+.research_box_complaints input{float: left;width: 500px;height: 35px;line-height: 35px;}
+.research_box_complaints button{float: right;width: 80px;height: 35px;}
 /*---------------buttons---------------*/
-.dashButtons{background: #EACD2E;border: 1px dashed #313131;border-radius: 4px;text-align: center;}
-.dashButtons:hover{background: #B40000;color: #FFFFFF;}
+
 .button_type1{width: 280px;height: 50px;font-size: 20px;margin-left: 13px;margin-top: 10px;margin-bottom: 20px;}
 .button_type2{width: 100px;height: 30px;float: right;margin-right: 10px;font-size: 16px;}
 .button_type3{width: 70px;height: 25px;float: right;margin-right: 3px;position: relative;top: 24px;font-size: 14px;}
@@ -117,11 +104,10 @@ h5,h6,h2{margin: 0;padding: 0;}
 
 /*------------login.html--------------*/
 .login{width: 100%;height: 100%;}
-.color_black{height: 100px;width: 100%;background: black;}
-.color_yellow{height:500px;width: 100%;background: #D5B970;}
+.color_black{height: 100px;width: 100%;}
+.color_yellow{height:500px;width: 100%;}
 .login_content{height: 380px;width: 400px;position: absolute;left: 500px;top: 40px;padding-top: 110px; background-image: url(../Images/img/carpg_logo.png);background-repeat: no-repeat;background-position:top center;}
 #login_reg{width: 234px;height: 380px;margin: 0 auto;}
-
 .login_input{width: 232px;height: 32px;border: 1px dashed #253A69;border-radius: 4px;display: block;overflow: hidden;}
 #varify{width: 100px;height: 32px; border: 1px dashed #253A69;border-radius: 4px;float: left;line-height: 32px;text-align: center;}
 #validate{width: 126px;height: 32px;border: 1px dashed #253A69;border-radius: 4px;float: right;}
@@ -143,5 +129,20 @@ h5,h6,h2{margin: 0;padding: 0;}
 .content2 h1{margin: 0;text-align: center;background: #F6F6F6;}
 .thenext_btn{width: 100px;height: 30px;margin: 0 auto;display: block;line-height: 30px;font-size: 16px;}
 /*------------complain_addcar.html-----------------*/
-.content3{width: 800px;height: 600px;margin: 50px auto;background: #FFFFFF;border-radius: 4px;overflow: hidden;}
-.content3 h1{background: #B40000;color: #FFFFFF;}
+.content3{width: 620px;height: 530px;margin: 50px auto;background: #FFFFFF;border-radius: 4px;overflow: hidden;position: relative;}
+.content3 h1{background: #B40000;color: #FFFFFF; margin-top: 5px;}
+.addcar_left{margin-left: 15px;}
+
+.add_carinfo{height: 150px;}
+.add_carinfo li{float: left;list-style: none;margin: 10px 15px;height: 50px;}
+.addcar_blank{padding-left: 90px;}
+.instruction{position: absolute;top: 50px;right:0;background: #F6F6F6;width: 300px;height: 150px;}
+.carcolor{width: 30px;height: 30px;border:none;color: #FFFFFF;}
+.black{background: #313131;}
+.white{background: #F6F6F6;color: #000000;border: 1px solid black;}
+.red{background: #B40000;}
+.blue{background: #003399;}
+
+#displacement,#mileage{width: 50px;}
+#text_forVIN{width: 200px;margin: 0 auto;padding-top: 40px;background-image: url(../Images/img/arrow.png);background-position: center top;background-repeat: no-repeat;}
+
