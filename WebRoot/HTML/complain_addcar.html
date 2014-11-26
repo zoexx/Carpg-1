@@ -7,11 +7,11 @@
 		<meta name="keywords" content="车曝网,汽车,轿车,二手车,曝光,质量,驾驶安全,反馈,调查报告,数据分析,召回,拍卖,竞价,消费者权益,315,车"/>
 		<meta name="description" content="车曝网是国内首家收集整理车主驾驶体验信息的完全公开完全开放的民间网站，车曝网为广大车主以及准车主提供大量汽车质量的数据分析服务以及二手车交易信息服务。" />
 		<link href="../CSS/layout.css" rel="stylesheet" type="text/css" />
-		<script src="../JS/addtime.js" type="text/javascript" charset="utf-8"></script>
+  		<script src="../JS/add.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div class="content3">
-			<form action="" method="post">
+			<form  method="post" onsubmit="return false;">
 			<h1>-添加车型-</h1>
 			<div class="addcar_left">
 			<h2>-汽车品牌-</h2>
@@ -48,10 +48,10 @@
 			<ul class="add_carinfo">
 				<li>
 				<h2>-上市&购入-</h2>
-			    <select id="sale_time" name="sale_time" onfocus="addcar_addtime(15);">
+			    <select id="sale_time" name="sale_time" onfocus="addcar_addtime(15,this.id);">
 				<option value="default" >----选择上市时间----</option>
 			    </select>
-			    <select id="buy_time" name="buy_time" onfocus="addcar_addtime(15);">
+			    <select id="buy_time" name="buy_time" onfocus="addcar_addtime(15,this.id);">
 			     <option value="default">----选择购入时间----</option>
 			    </select>
 				</li>
@@ -70,7 +70,7 @@
 				<li>
 					<h2>-里程-</h2>
 					<input type="text" id="mileage" name="mileage"/>
-					<p><i>可写大致范围</i></p>
+					<p><i>(公里)</i></p>
 				</li>
 				<li>
 					<h2>-配置-</h2>
@@ -83,13 +83,18 @@
 					<p><i>车辆识别码，由17位字符组成</i></p>
 
 				</li>
+				<li>
+					<h2>-爱车别名-</h2>
+					<input type="text" id="alias" name="alias"/>
+					<p><i>如（雷克萨斯）：凌志</i></p>
+				</li>
 				<li >
 					<h2>-漆色-</h2>
-					<button class="dashButtons carcolor black" id="carColorBlack" value="1" name="carColor" onclick="addcar_color(this.value);">黑</button>
-					<button class="dashButtons carcolor white" id="carColorWhite" value="2" name="carColor" onclick="addcar_color(this.value);">白</button>
-					<button class="dashButtons carcolor yellow" id="carColorYellow" value="3" name="carColor" onclick="addcar_color(this.value);">黄</button>
-					<button class="dashButtons carcolor red" id="carColorRad" value="4" name="carColor" onclick="addcar_color(this.value);">红</button>
-					<button class="dashButtons carcolor blue" id="carColorBlue" value="5" name="carColor" onclick="addcar_color(this.value);">蓝</button>
+					<button class="carcolor black " id="carColorBlack" value="黑" name="carColor" onclick="addcar_color(this);">黑</button>
+					<button class="carcolor white carcolor_checked" id="carColorWhite" value="白" name="carColor" onclick="addcar_color(this);">白</button>
+					<button class=" carcolor yellow" id="carColorYellow" value="黄" name="carColor" onclick="addcar_color(this);">黄</button>
+					<button class=" carcolor red" id="carColorRad" value="红" name="carColor" onclick="addcar_color(this);">红</button>
+					<button class=" carcolor blue" id="carColorBlue" value="蓝" name="carColor" onclick="addcar_color(this);">蓝</button>
 					<input type="text" name="color" id="color" hidden="hidden" />
 				</li>
 			</ul>
@@ -99,8 +104,7 @@
 				<h2>说明:</h2>
 				<h3>· 上市时间并非购买时间</h3>
 			</div>
-			<div id="text_forVIN">
-			
+			<div id="text_forVIN">	
 				<p>为了给您争取到更大的优势以及统计更可信的结果，请您务必填写车辆识别码</p>
 			</div>
 			<span class="dashButtons thenext_btn">下一步</span>
