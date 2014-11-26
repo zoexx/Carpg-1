@@ -45,7 +45,9 @@ car_id int not null,                            /*车的分类编号，主要和
 vin varchar(17) not null,						/*汽车的vin码，可用于识别汽车*/
 color varchar(10),								/*汽车的颜色*/
 buy_time varchar(20) not null,                  /*汽车购买的时间*/
-mileage int not null,							/*汽车行驶的里程(单位为公里)*/
+/*2014-11-26* 修改用户车的属性，将里程添加到抱怨表/
+/*mileage int not null,							汽车行驶的里程(单位为公里) */
+mileage int,
 remark varchar(100)								/*备注信息*/
 );
 
@@ -63,7 +65,9 @@ course varchar(50),								/*照成的事故*/
 solution varchar(50),							/*解决的方法*/
 fee int,										/*花费的金额（单位为元）*/
 image varchar(30),                              /*图片详情，存储的是图片的路径*/
-mark varchar(100)								/*备注信息*/
+mark varchar(100),								/*备注信息*/
+/*2014-11-26添加抱怨表的里程属性*/
+mileage int not null                            /*汽车行驶里程（单位公里)*/
 );
 
 /*汽车问题分类表car_problem(主要是归纳一些普遍存在的汽车问题类别)*/
