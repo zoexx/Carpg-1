@@ -20,6 +20,11 @@
 			<result name="test" >../MyJsp.jsp</result>
 			<result name="regist" >regist.jsp</result>
 		</action>
+		<action name="carOperate" class = "com.carpg.controller.CarAction">
+			<result>index.jsp</result>
+			<result name="test" >../MyJsp.jsp</result>
+			<result name="regist" >regist.jsp</result>
+		</action>
 	</package>
 
 

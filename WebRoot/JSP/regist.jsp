@@ -53,9 +53,9 @@ String psw = request.getParameter("password");
     var p = province.childNodes[province.selectedIndex].innerHTML;
     var c = city.childNodes[city.selectedIndex].innerHTML;
     var a = area.childNodes[area.selectedIndex].innerHTML;
-    document.getElementById("id_provSelect").innerHTML = p;
-    document.getElementById("id_citySelect").innerHTML = c;
-    document.getElementById("id_areaSelect").innerHTML = a;
+    document.getElementById("province").value = p;
+    document.getElementById("city").value = c;
+    document.getElementById("section").value = a;
   }
   //验证信息
   function doCheck(){

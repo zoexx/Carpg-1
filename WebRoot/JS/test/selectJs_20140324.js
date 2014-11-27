@@ -96,8 +96,8 @@ function showCar() {
 	}
 }
 
-
-window.onload = function showBrand1() {
+//初始载入品牌
+   function showBrand1() {
 	var brand = document.getElementById("brand");
 	var corp = document.getElementById("serial");
 	brand.options.length = 0;
@@ -123,7 +123,7 @@ window.onload = function showBrand1() {
 		}
 		brand.options.add(newItem);
 	}
-};
+}
 function showCorp1() {
 	var b = document.getElementById("brand");
 	var obj = document.getElementsByTagName("optgroup");
@@ -185,7 +185,8 @@ function showCorp1() {
 				//corp.options.add(newItem);
 				var newItem = new Option();
 				newItem.value=bss[j].i;
-				newItem.innerHTML = "&nbsp;&nbsp;" + bss[j].n;
+				//newItem.innerHTML = "&nbsp;&nbsp;" + bss[j].n;
+				newItem.value=bss[j].i;
 				corp.appendChild(newItem);
 			}
 		}
