@@ -60,6 +60,7 @@ user_car_id int not null,                       /*抱怨的车辆，外键，主
 problem_id int not null,						/*抱怨的问题，外键，主要和汽车问题类别car_problem联立起来*/
 time varchar(20) not null,						/*发送抱怨的时间*/
 start_time varchar(20) not null,				/*问题开始的时间*/
+/*下面的字段未使用11-27*/
 frequency varchar(10),							/*问题出现的频率， 比如经常，偶尔，一两次等状况*/
 course varchar(50),								/*照成的事故*/
 solution varchar(50),							/*解决的方法*/

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>车曝网-促进车辆质量提升</title>
+        <meta charset="utf-8" />
+		<meta name="title" content="车曝网" />
+		<meta name="keywords" content="车曝网,汽车,轿车,二手车,曝光,质量,驾驶安全,反馈,调查报告,数据分析,召回,拍卖,竞价,消费者权益,315,车"/>
+		<meta name="description" content="车曝网是国内首家收集整理车主驾驶体验信息的完全公开完全开放的民间网站，车曝网为广大车主以及准车主提供大量汽车质量的数据分析服务以及二手车交易信息服务。" />
+		<link href="../CSS/layout.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../JS/calander.js" ></script>
+  		<script src="../JS/add.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="content3 content4">
+			<form  id="form" method="post" onsubmit="return false;">
+			<h1>-吐槽的问题-</h1>
+	
+			<div class="addcar_left">
+			<h2>-问题部位-</h2>
+			<select id="type" name="type">
+				<option value="default">----选择问题部位----</option>
+				<option value="">空调制冷/加热</option>
+				<option value="">汽车外部配件：如后视镜</option>
+				<option value="">汽车内部配件</option>
+				<option value="">车体/油漆</option>
+				<option value="">刹车</option>
+				<option value="">离合器</option>
+				<option value="">冷却系统</option>
+				<option value="">动力传动系统</option>
+				<option value="">汽车电力系统</option>
+				<option value="">引擎</option>
+				<option value="">排气系统</option>
+				<option value="">能源系统</option>
+				<option value="">灯</option>
+				<option value="">安全带/安全气囊</option>
+				<option value="">转向</option>
+				<option value="">汽车悬架</option>
+				<option value="">变速器</option>
+				<option value="">车轮/轮毂</option>
+				<option value="">车窗/挡风玻璃</option>
+				<option value="">其他</option>
+			</select>
+			<h2>-问题-</h2>
+			<select id="problem" name="problem" onchange="add_problem(this.value)">
+				<option value="default">----添加问题描述----</option>
+				<option value="none">其他</option>
+			</select>
+			<p id="add_problem_text" hidden="hidden">
+				<input type="text" style="margin-top: 5px;" id="add_problem" name="add_problem" placeholder="请简述您的问题"/>
+			</p>
+			<h2>-解决办法-</h2>
+				<textarea id="solution" name="solution"></textarea>
+			</div>
+			
+			
+			<ul class="add_complaininfo">
+				<li>
+					<h2>-发生时间-</h2>
+					<input type="text" id="start_time" name="start_time" readonly="readonly"/>
+					<!--/*-------------------日历*/-->
+					<h2>-里程-</h2>
+					<input type="text" id="mileage" name="mileage" style="width: 50px;"/>
+					（公里Km）
+					<p><i>· 问题发生时您的里程</i></p>
+				
+				<li>
+				<h2>-修理费用-</h2>
+				<p style="font-family:Arial;">
+					&yen;
+					<input type="text" id="fee" name="fee" style="width: 50px;"/>
+					人民币
+				</p>
+				<ul id="fee_feel">
+					<li><input type="checkbox" name="fee_feel1" id="fee_feel1" value="交强险理赔" />交强险理赔</li>
+					<li><input type="checkbox" name="fee_feel2" id="fee_feel2" value="商业险理赔" />商业险理赔</li>
+					<li><input type="checkbox" name="fee_feel3" id="fee_feel3" value="部分自费" />部分自费</li>
+					<li><input type="checkbox" name="fee_feel4" id="fee_feel4" value="完全自费" />完全自费</li>
+				</ul>
+ 				</li>
+				<li class="course">
+					<h2>-造成的事故-</h2>
+					<input type="text" id="course" name="course" hidden="hidden"/>
+					
+					
+					
+					
+					<p ><input type="checkbox" id="crash" onchange="golSelect(this.id,this.checked);"/>
+						车祸
+						<select hidden="hidden">
+							<option value=""></option>
+							<option value="追尾">追尾</option>
+						</select>
+					</p>
+					<p><input type="checkbox" id="fire" onchange="golSelect(this.id,this.checked);"/>
+						火灾
+						<select hidden="hidden">
+							<option value=""></option>
+							<option value="意外">意外</option>
+						</select>
+					</p>
+					<p><input type="checkbox" id="injured" onchange="golSelect(this.id,this.checked);"/>
+						伤员
+						<select hidden="hidden">
+							<option value=""></option>
+							<option value="≤4人">≤4人</option>
+							<option value="≤8人">≤8人</option>
+							<option value="≤12人">≤12人</option>
+							<option value="≤32人">≤32人</option>
+						</select>
+					</p>
+					<p><input type="checkbox" id="death" onchange="golSelect(this.id,this.checked);"/>
+						亡员
+						<select hidden="hidden">
+							<option value=""></option>
+							<option value="≤4人">≤4人</option>
+							<option value="≤8人">≤8人</option>
+							<option value="≤12人">≤12人</option>
+							<option value="≤32人">≤32人</option>
+						</select>
+					</p>
+					
+					
+					
+					
+				</li>
+				<li>
+					<h2>-事故感受-</h2>
+					<select name="course_feel">
+						<option value=""></option>
+					</select>
+				</li>
+			</ul>
+			<div class="addcar_left">	
+					<h2>-事件的详细经过-</h2>
+					<textarea name="mark" id="mark"></textarea>
+					<h2>-图解真相-</h2>
+				        <!--图片上传-->
+					<h2>-视频链接-</h2>
+					<input type="text" id="complain_video" name="complain_video" placeholder="http://可接受优酷,美拍等视频网站的链接"/>
+			</div>	
+			
+
+			
+			<div class="instruction">
+				<h2>说明:</h2>
+				<h3>· 上市时间并非购买时间</h3>
+			</div>
+			<button class="dashButtons thenext_btn" onClick="return doCheck();">下一步</button>
+
+			</form>
+		</div>
+	</body>
+</html>
