@@ -57,7 +57,7 @@ public class UserImpl implements UserDao {
 			//发送邮件验证信息
 			JavaMail mail = new JavaMail();
 			try {
-				mail.sendVerify(user.getEmail(), user.getName(), user.getCode());
+				mail.sendVerify(user.getEmail(), user.getName(), user.getCode(),"regist");
 				ok = true;
 			} catch (MessagingException e) {
 				// TODO Auto-generated catch block
@@ -97,26 +97,25 @@ public class UserImpl implements UserDao {
 		return ok;
 	}
 
-	public boolean backPsw(String username, String email) {
+	public boolean backPsw(String email) {
 		// TODO Auto-generated method stub
 		boolean ok = false;
 		Calendar c = Calendar.getInstance();
 		String code = String.valueOf(c.getTimeInMillis());
 		//更新匹配字用于验证
 		conn = DBHelper.getConn();
-		sql = "update user set code=? where username=? && email=?";
+		sql = "update user set code=? where email=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, code);
-			pstmt.setString(2, username);
-			pstmt.setString(3, email);
+			pstmt.setString(2, email);
 			int count = 0;
 			count = pstmt.executeUpdate();
 			//邮箱验证成功
 			if (count == 1){
 				JavaMail mail = new JavaMail();
 				try {
-					mail.sendVerify(email, username, code);
+					mail.sendVerify(email, email, code, "return_password");
 					ok = true;
 				} catch (MessagingException e) {
 					// TODO Auto-generated catch block

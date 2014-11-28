@@ -31,16 +31,16 @@ public class JavaMail {
 	  return message;
 	 }
 	 
-	 //发送邮箱验证信息
-	 public void sendVerify(String email,String name,String code)
+	 //发送邮箱验证信息,根据type类型表示验证的操作,"regist",和"return_password"
+	 public void sendVerify(String email,String name,String code,String type)
 	 throws MessagingException {	 
 	   Message message=getMessage();
 	   message.setFrom(new InternetAddress(username));
 	   message.setRecipient(RecipientType.TO,new InternetAddress(email));
 	   message.setSentDate(new Date());
 	   message.setSubject("Carpg");
-	   String m="<a href="+"http://127.0.01:8080/Carpg/index.jsp?name="+name+"&randMd5="+code+">" +
-	     "http:/127.0.01:8080/Carpg/index.jsp?name="+name+"&randMd5="+code+"</a>";
+	   String m="<a href="+"http://127.0.01:8080/Carpg/servlet/MailServlet.sl?name="+email+"&randMd5="+code+">" +
+	     "http:/127.0.01:8080/Carpg/servlet/MailServlet.sl?name="+email+"&randMd5="+code+"</a>";
 	   message.setContent(m,"text/html;charset=utf-8");
 	   Transport.send(message);
 	  }

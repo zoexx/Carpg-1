@@ -11,7 +11,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		JavaMail mail = new JavaMail();
 		try {
-			mail.sendVerify("1054974640@qq.com", "yan", "12345678");
+			mail.sendVerify("1054974640@qq.com", "yan", "12345678", "");
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

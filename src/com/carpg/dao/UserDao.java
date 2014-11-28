@@ -16,8 +16,8 @@ public interface UserDao {
 	//邮箱验证,传递参数为用户名和匹配的code码
 	public boolean verifyUser(String username, String code);
 	
-	//发送邮件找回密码,参数为用户名和绑定邮箱,发送修改密码邮箱验证
-	public boolean backPsw(String username, String email);
+	//发送邮件找回密码,参数为绑定邮箱,发送修改密码邮箱验证
+	public boolean backPsw(String email);
 	
 	//找回密码后进行修改,参数为验证匹配的code和新密码
 	public boolean updatePsw(String username, String code, String newPsw);
