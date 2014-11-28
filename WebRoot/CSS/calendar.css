@@ -1,0 +1,13 @@
+#calendar{ margin:20px auto; width:200px;}  
+tr#nino_calendar_weekname,td.nino_calendar_tomonth,td.nino_calendar_nottomonth,td.nino_calendar_today{ font-family:"Arial","Microsoft Yahei"; text-align:center; padding:3px; cursor:crosshair;}  
+tr#nino_calendar_weekname td {background:#EEE; color:#000; }  
+tr#nino_calendar_weekname td:hover{background:#666; color:#FFF;}  
+td.nino_calendar_tomonth{ background:#EEE; color:#000;}  
+td.nino_calendar_tomonth:hover{background:#666; color:#FFF;}  
+td.nino_calendar_nottomonth{ background:#EEE; color:#FFF;}  
+td.nino_calendar_nottomonth:hover{background:#CCC; color:#666;}  
+td.nino_calendar_today{ background:#999; color:#FFF;}  
+td.nino_calendar_today:hover{background:#666; color:#FFF;}  
+input#nino_calendar_year_i,input#nino_calendar_month_i,input#nino_calendar_day_i{ width:40px;}  
+select#nino_calendar_year_select,select#nino_calendar_month_select{background:#444; color:#FFF;}  
+input#nino_calendar_b{ width:100%;} 
