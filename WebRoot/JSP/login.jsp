@@ -32,8 +32,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				return false;
 			}
 			else{
-				document.getElementById("login_reg").action="userOperate";
-				document.getElementById("login_reg").submit();
+				//登陆用ajax判断
+				checkLogin();
+				
 			}
 		}
 		else if (temp == "注册"){
@@ -50,6 +51,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		}else{alert("test");}
 		return false;
+	}
+	function checkLogin() {
+		var v = document.getElementById("email").value;
+		var p = document.getElementById("password").value;
+		send_request("GET","userOperate?type=loginC&username="+v+"&password="+p, null, "text", showBack);
+	}
+	function showBack(){
+		if (http_request.readyState == 4){
+			if (http_request.status == 200) {
+				var temp = http_request.responseText;
+				if (temp == "success"){
+					//登陆成功跳转
+					document.getElementById("login_reg").action="userOperate";
+				    document.getElementById("login_reg").submit();
+				}else if (temp == "fail"){
+					//给出页面提示
+					document.getElementById("email").value = "登陆失败, 用户名或密码失败";
+				}
+			}
+		}
 	}
 	function checkEmail() {
 		check_format();

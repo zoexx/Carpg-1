@@ -18,6 +18,7 @@
 		<action name="userOperate" class = "com.carpg.controller.UserAction">
 			<result>index.jsp</result>
 			<result name="test" >../MyJsp.jsp</result>
+			<result name="login" >login.jsp</result>
 			<result name="regist" >regist.jsp</result>
 		</action>
 		<action name="carOperate" class = "com.carpg.controller.CarAction">

@@ -44,7 +44,7 @@ public class UserImpl implements UserDao {
 		sql = "insert into user value(null, ?,?,?,?,?,?,?,0,?,?)";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, user.getUsername());
+			pstmt.setString(1, user.getEmail());
 			pstmt.setString(2, user.getPassword());
 			pstmt.setString(3, user.getEmail());
 			pstmt.setString(4, user.getTel());
@@ -57,7 +57,7 @@ public class UserImpl implements UserDao {
 			//发送邮件验证信息
 			JavaMail mail = new JavaMail();
 			try {
-				mail.sendVerify(user.getEmail(), user.getUsername(), user.getCode());
+				mail.sendVerify(user.getEmail(), user.getName(), user.getCode());
 				ok = true;
 			} catch (MessagingException e) {
 				// TODO Auto-generated catch block
@@ -77,6 +77,7 @@ public class UserImpl implements UserDao {
 		boolean ok = false;
 		//需要添加MD5加密的过程
 		String psw = Tools.getMD5(password);
+		System.out.println("密码："+psw);
 		conn = DBHelper.getConn();
 		sql = "select * from user where username=? && password=? && state=1";
 		try {

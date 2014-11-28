@@ -1,5 +1,6 @@
 package com.carpg.controller;
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,20 +45,27 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 		//String Newsid[] =(String []) ActionContext.getContext().getParameters().get("username");
 		//System.out.println(Newsid[0]);
 		//表示登陆操作
-		if (type.equals(LOGIN)){
+		if (type.equals("loginC")){
 			//Cookie cookie = new Cookie("carpg", user.getPassword()+"~"+user.getUsername());
 			//response.addCookie(cookie);
-			/*
+			response.setCharacterEncoding("utf-8");
+			PrintWriter out = response.getWriter();
+			//登陆成功
 			if (userDao.checkLogin(user.getUsername(), user.getPassword())){
-
-				return "loginSucess";
+				System.out.println("登陆成功");
+				out.print("success");
 			}
 			else{
-
-			}*/
+				System.out.println("登陆失败");
+				out.print("fail");
+			}
 			//return LOGIN;
-			System.out.println("Session的值为："+session.get("vcode").toString());
-		}//注册详细信息页面跳转
+			//System.out.println("Session的值为："+session.get("vcode").toString());
+		}else if (type.equals(LOGIN)){
+			//跳转到登陆成功页面
+			return "test";
+		}
+		//注册详细信息页面跳转
 		else if (type.equals(LOGIN_RE)){
 			return "regist";
 			
@@ -70,6 +78,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 			}
 			
 		}else if (type.equals(VERIFY)){
+			System.out.println("测试action");
 			
 		}//找回密码邮箱验证
 		else if (type.equals(BACK_PSW)){
@@ -78,7 +87,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 		else if (type.equals(UPDATE_PSW)){
 			
 		}
-		return "test";
+		return null;
 	}
 	
 	public String MyJson() throws Exception{

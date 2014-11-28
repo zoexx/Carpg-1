@@ -34,6 +34,7 @@ public class CarAction extends ActionSupport implements ServletRequestAware,Serv
 
 	//action执行处理操作
 	public String execute() throws Exception{
+		//表示添加新的用户车辆
 		if (type.equals(ADD_CAR)){
 			
 			System.out.println("添加新的车辆"+car.getBrand()+"  "+car.getCar_type());
