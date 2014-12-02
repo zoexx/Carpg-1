@@ -4,6 +4,12 @@ import java.awt.Color;
 import java.awt.Font;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
@@ -28,8 +34,13 @@ import org.jfree.ui.RectangleInsets;
 import org.jfree.ui.TextAnchor;
 import org.jfree.util.Rotation;
 
+import com.carpg.dao.StatisticDao;
+import com.carpg.impl.StatisticImpl;
+
 //主要是作为jfreechart的一个工具类进行处理
 public class Chart {
+	
+	private StatisticDao statistic = new StatisticImpl();
 	
 	
 	//创建主题样式，主要是解决中文乱码问题
@@ -46,67 +57,32 @@ public class Chart {
 		 return standardChartTheme;
 	}
 
-	//创建折线图数据源
-	public static XYDataset createXYDataset() {
-        TimeSeries timeseries = new TimeSeries("吐槽问题量",
+	//创建按品牌-年份统计折线图数据源
+	private XYDataset createXYDataset(String brand) {
+        TimeSeries timeseries = new TimeSeries("问题状况数量",
                 org.jfree.data.time.Year.class);
-        timeseries.add(new Year(2008), 10.1D);
-        timeseries.add(new Year(2009), 15.1D);
-        timeseries.add(new Year(2010), 12.1D);
-        timeseries.add(new Year(2011), 14.1D);
-        timeseries.add(new Year(2012), 13.1D);
-        /*
-        timeseries.add(new Month(2, 2013), 10.1D);
-        timeseries.add(new Month(3, 2013), 12.3D);
-        timeseries.add(new Month(4, 2013), 13.2D);
-        timeseries.add(new Month(5, 2013), 14.2D);
-        timeseries.add(new Month(6, 2013), 16.8D);
-        timeseries.add(new Month(7, 2013), 20.7D);
-        timeseries.add(new Month(8, 2013), 28.4D);
-        timeseries.add(new Month(9, 2013), 30.3D);
-        timeseries.add(new Month(10, 2013), 32.2D);
-        timeseries.add(new Month(11, 2013), 35.4D);
-        timeseries.add(new Month(12, 2013), 40.0D);
-        timeseries.add(new Month(1, 2014), 38.4D);
-        timeseries.add(new Month(2, 2014), 36.5D);
-        timeseries.add(new Month(3, 2014), 34.0D);
-        timeseries.add(new Month(4, 2014), 35.0D);
-        timeseries.add(new Month(5, 2014), 36.1D);
-        timeseries.add(new Month(6, 2014), 35.0D);
-        timeseries.add(new Month(7, 2014), 34.5D); */
-        /*
-        TimeSeries timeseries1 = new TimeSeries("L&G UK Index Trust",
-                org.jfree.data.time.Month.class);
-        timeseries1.add(new Month(2, 2001), 129.59999999999999D);
-        timeseries1.add(new Month(3, 2001), 123.2D);
-        timeseries1.add(new Month(4, 2001), 117.2D);
-        timeseries1.add(new Month(5, 2001), 124.09999999999999D);
-        timeseries1.add(new Month(6, 2001), 122.59999999999999D);
-        timeseries1.add(new Month(7, 2001), 119.2D);
-        timeseries1.add(new Month(8, 2001), 116.5D);
-        timeseries1.add(new Month(9, 2001), 112.7D);
-        timeseries1.add(new Month(10, 2001), 101.5D);
-        timeseries1.add(new Month(11, 2001), 106.09999999999999D);
-        timeseries1.add(new Month(12, 2001), 110.3D);
-        timeseries1.add(new Month(1, 2002), 111.7D);
-        timeseries1.add(new Month(2, 2002), 111D);
-        timeseries1.add(new Month(3, 2002), 109.59999999999999D);
-        timeseries1.add(new Month(4, 2002), 113.2D);
-        timeseries1.add(new Month(5, 2002), 111.59999999999999D);
-        timeseries1.add(new Month(6, 2002), 108.8D);
-        timeseries1.add(new Month(7, 2002), 101.59999999999999D);
-        */
+        
+        Map<String, Integer> map = statistic.getCountByYear_brand(brand);
+        //得到当前的年份
+        Calendar c = Calendar.getInstance();
+        int currentYear = c.getTime().getYear();
+        //展示出过去5年的问题状况
+        for (int k=currentYear; k>= currentYear-4; k--){
+        	//暂时确定单位为百数量级
+        	double value = map.get(String.valueOf(k)) / 100;
+        	timeseries.add(new Year(k), value);
+        }
         TimeSeriesCollection timeseriescollection = new TimeSeriesCollection();
         timeseriescollection.addSeries(timeseries);
         //timeseriescollection.addSeries(timeseries1);
         
         return timeseriescollection;
     }
-	//创建折线图chart
-	public static JFreeChart createXYChart() {
+	//创建按品牌-年份折线图chart
+	public JFreeChart createXYChart(String brand) {
         JFreeChart jfreechart = ChartFactory.createTimeSeriesChart(
-                "汽车品牌问题统计", "日期", "吐槽量",
-                Chart.createXYDataset(), true, true, true);
+                "汽车品牌问题统计", "年份", "吐槽量",
+                createXYDataset(brand), true, true, true);
         jfreechart.setBackgroundPaint(Color.white);
         XYPlot xyplot = (XYPlot) jfreechart.getPlot();
         xyplot.setBackgroundPaint(Color.lightGray);
@@ -134,22 +110,28 @@ public class Chart {
         return jfreechart;
     }
 	
-	//创建饼状图数据源
-	public static DefaultPieDataset createPeiDataset(){
+	//创建哪一年份各个品牌的问题状况统计饼状图数据源
+	private DefaultPieDataset createPeiDataset(String year){
 		//设置饼图数据集  
-		DefaultPieDataset dataset = new DefaultPieDataset();  
-		dataset.setValue("经院送", 720);  
-		dataset.setValue("开吃吧", 530);  
-		dataset.setValue("经院人家", 210);  
-		dataset.setValue("中百", 91);  
-		dataset.setValue("其他", 66);
+		DefaultPieDataset dataset = new DefaultPieDataset();
+		//得到统计量
+		LinkedHashMap<String, Integer> map = (LinkedHashMap<String, Integer>) statistic.getCountByYear(year);
+		Set set = map.entrySet();
+		Iterator iterator = set.iterator();
+		//遍历hashMap并载入到数据源
+		while (iterator.hasNext()){
+			 Map.Entry element = (Map.Entry)iterator.next(); 
+	         String  key = (String)element.getKey(); 
+	         int  value = (Integer)element.getValue();
+	         dataset.setValue(key, value);
+		}
 		
 		return dataset;
 	}
 	//创建饼状图的jfreechart
-	public static JFreeChart createPeiChart(){
+	public JFreeChart createPeiChart(String year){
 		//通过工厂类生成JFreeChart对象  
-		JFreeChart chart = ChartFactory.createPieChart3D("商户被关注度统计", Chart.createPeiDataset(), true, true, false);  
+		JFreeChart chart = ChartFactory.createPieChart3D("商户被关注度统计", createPeiDataset(year), true, true, false);  
 		chart.addSubtitle(new TextTitle("2014上半年"));  
 		PiePlot pieplot = (PiePlot) chart.getPlot();  
 		pieplot.setLabelFont(new Font("宋体", 0, 11));  

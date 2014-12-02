@@ -57,9 +57,11 @@ id int primary key not null auto_increment,     /*主键，编号*/
 user_id int not null,                           /*抱怨人，外键，主要和用户表联立起来*/
 user_name varchar(20) not null,                 /*用户名，添加冗余字段*/
 user_car_id int not null,                       /*抱怨的车辆，外键，主要和用户汽车表user_car联立起来*/
+/*2014-12-1添加冗余字段*/
+car_brand varchar(20) not null,					/*添加汽车品牌冗余字段，便于统计*/
 problem_id int not null,						/*抱怨的问题，外键，主要和汽车问题类别car_problem联立起来*/
 time varchar(20) not null,						/*发送抱怨的时间*/
-start_time varchar(20) not null,				/*问题开始的时间*/
+start_time varchar(20) not null,				/*问题开始的时间,便于统计，只存储年份-月份*/
 /*下面的字段未使用11-27*/
 frequency varchar(10),							/*问题出现的频率， 比如经常，偶尔，一两次等状况*/
 course varchar(50),								/*照成的事故*/
