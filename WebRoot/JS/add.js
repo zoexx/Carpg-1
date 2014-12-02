@@ -76,6 +76,11 @@ function doCheck () {
 	if (document.getElementById("problem").value=="default") {
 		alert("请添加问题描述")；
 	}
+	if (document.getElementById("start_time").value=="") {
+		alert("请选择发生时间")；
+		document.getElementById("start_time").style.border="1px solid #ABADB3";
+	}
+	
 	document.getElementById("form").action="";
 	document.getElementById("form").submit();
 }
