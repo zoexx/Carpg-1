@@ -15,6 +15,8 @@ public class Complaint {
 	private int fee;
 	private String image;           //图片信息的地址
 	private String mark;
+	
+	private String car_brand;
 	public int getId() {
 		return id;
 	}
@@ -92,6 +94,12 @@ public class Complaint {
 	}
 	public void setMark(String mark) {
 		this.mark = mark;
+	}
+	public String getCar_brand() {
+		return car_brand;
+	}
+	public void setCar_brand(String car_brand) {
+		this.car_brand = car_brand;
 	}
 	
 

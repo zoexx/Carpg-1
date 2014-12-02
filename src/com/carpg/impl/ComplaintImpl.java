@@ -21,21 +21,22 @@ public class ComplaintImpl implements ComplaintDao {
 	public void addComplaint(Complaint complaint) {
 		// TODO Auto-generated method stub
 		conn = DBHelper.getConn();
-		sql = "insert into complaint value(null,?,?,?,?,?,?,?,?,?,?,?,?)";
+		sql = "insert into complaint value(null,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, complaint.getUser_id());
 			pstmt.setString(2, complaint.getUser_name());
 			pstmt.setInt(3, complaint.getUser_car_id());
-			pstmt.setInt(4, complaint.getProblem_id());
-			pstmt.setString(5, complaint.getTime());
-			pstmt.setString(6, complaint.getStart_time());
-			pstmt.setString(7, complaint.getFrequency());
-			pstmt.setString(8, complaint.getCourse());
-			pstmt.setString(9, complaint.getSolution());
-			pstmt.setInt(10, complaint.getFee());
-			pstmt.setString(11, complaint.getImage());
-			pstmt.setString(12, complaint.getMark());
+			pstmt.setString(4, complaint.getCar_brand());
+			pstmt.setInt(5, complaint.getProblem_id());
+			pstmt.setString(6, complaint.getTime());
+			pstmt.setString(7, complaint.getStart_time());
+			pstmt.setString(8, complaint.getFrequency());
+			pstmt.setString(9, complaint.getCourse());
+			pstmt.setString(10, complaint.getSolution());
+			pstmt.setInt(11, complaint.getFee());
+			pstmt.setString(12, complaint.getImage());
+			pstmt.setString(13, complaint.getMark());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -75,6 +76,7 @@ public class ComplaintImpl implements ComplaintDao {
 				com.setUser_id(rs.getInt("user_id"));
 				com.setUser_name(rs.getString("user_name"));
 				com.setUser_car_id(rs.getInt("user_car_id"));
+				com.setCar_brand(rs.getString("car_brand"));
 				com.setProblem_id(rs.getInt("problem_id"));
 				com.setTime(rs.getString("time"));
 				com.setStart_time(rs.getString("start_time"));
