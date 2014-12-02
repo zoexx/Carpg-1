@@ -17,8 +17,8 @@
 	
 			<div class="addcar_left">
 			<h2>-问题部位-</h2>
-			<select id="type" name="type">
-				<option value="default">----选择问题部位----</option>
+			<select id="type" name="type" onblur="checkSelect(this.id);">
+				<option value="default">----请选择问题部位----</option>
 				<option value="">空调制冷/加热</option>
 				<option value="">汽车外部配件：如后视镜</option>
 				<option value="">汽车内部配件</option>
@@ -41,7 +41,7 @@
 				<option value="">其他</option>
 			</select>
 			<h2>-问题-</h2>
-			<select id="problem" name="problem" onchange="add_problem(this.value)">
+			<select id="problem" name="problem" onchange="addproblem( this.value );" onblur="checkSelect(this.id);">
 				<option value="default">----添加问题描述----</option>
 				<option value="none">其他</option>
 			</select>
@@ -126,21 +126,28 @@
 				<li>
 					<h2>-事故感受-</h2>
 					<select name="course_feel">
-						<option value=""></option>
+						<option value="不值一提">不值一提</option>
+						<option value="任谁都会生气">任谁都会生气</option>
+						<option value="难以忘怀的经历">难以忘怀的经历</option>
+						<option value="烦不胜烦">烦不胜烦</option>
+						<option value="难以忍受不愿再提起">难以忍受不愿再提起</option>
 					</select>
 				</li>
 			</ul>
 			<div class="addcar_left">	
 					<h2>-事件的详细经过-</h2>
 					<textarea name="mark" id="mark"></textarea>
-					<h2>-图解真相-</h2>
+					<p><h2>-图解真相-</h2>请上传清晰的现场图片</p>
+					<input type="file" name="pic1" accept="image/gif" />
+					<input type="file" name="pic2" accept="image/gif" />
+					<input type="file" name="pic3" accept="image/gif" />
+					<input type="file" name="pic4" accept="image/gif" />
+					<input type="file" name="pic5" accept="image/gif" />
+					<input type="file" name="pic6" accept="image/gif" />
 				        <!--图片上传-->
 					<h2>-视频链接-</h2>
 					<input type="text" id="complain_video" name="complain_video" placeholder="http://可接受优酷,美拍等视频网站的链接"/>
 			</div>	
-			
-
-			
 			<div class="instruction">
 				<h2>说明:</h2>
 				<h3>· 上市时间并非购买时间</h3>

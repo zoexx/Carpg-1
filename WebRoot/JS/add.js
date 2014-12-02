@@ -42,7 +42,7 @@ function addcar_color (obj) {
 	return false;
 }
 //添加车辆问题
-function add_problem (opValue) {
+function addproblem (opValue) {
 	if (opValue=="none") {
 		document.getElementById("add_problem_text").hidden=false;
 	}else{
@@ -57,4 +57,25 @@ function golSelect (objID,objValue) {
 	}else{
 		document.getElementById(objID).nextSibling.nextSibling.hidden=true;
 	}
+}
+//检查表单
+function checkSelect (objID) {
+	var objs=document.getElementById(objID);
+	if(objs.value=="default") {
+		objs.style.color="#FF0000";
+		objs.style.border="1px solid #FF0000";
+	}else{
+		objs.style.color="#000000";
+		objs.style.border="1px solid #ABADB3";
+	}
+}
+function doCheck () {
+	if (document.getElementById("type").value=="default") {
+		alert("请填写问题部位")；
+	}
+	if (document.getElementById("problem").value=="default") {
+		alert("请添加问题描述")；
+	}
+	document.getElementById("form").action="";
+	document.getElementById("form").submit();
 }
