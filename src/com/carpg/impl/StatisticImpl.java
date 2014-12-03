@@ -24,8 +24,7 @@ public class StatisticImpl implements StatisticDao {
 		// TODO Auto-generated method stub
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		conn = DBHelper.getConn();
-		sql = "select start_time, count(*),user_car_id from complaint group by start_time" +
-						"having user_car_id =(select user_car.id  from user_car,car where user_car.car_id = car.id && car.brand = ?)";
+		sql = "select start_time, count(*),user_car_id from complaint where car_brand=? group by start_time";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, brand);
@@ -54,6 +53,26 @@ public class StatisticImpl implements StatisticDao {
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				map.put(rs.getString("car_brand"), rs.getInt(2));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DBHelper.close(rs, pstmt);
+		return map;
+	}
+
+	public Map<String, Integer> getCountByBrand_carType(String brand) {
+		// TODO Auto-generated method stub
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		conn = DBHelper.getConn();
+		sql = "select car_type, count(*) from complaint where car_brand=? group by car_type order by count(*) DESC";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, brand);
+			rs = pstmt.executeQuery();
+			while (rs.next()){
+				map.put(rs.getString("car_type"), rs.getInt(2));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
