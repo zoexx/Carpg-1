@@ -14,7 +14,7 @@ select{border: 1px solid #ABADB3;}
 .header_content{width: 1228px;margin: 0 auto;}
 .logo{width: 202px;height: 80px;float: left;}
 .main_nav{width: 1026px;height:70px;float: right;}
-.main_nav ul li{list-style: none;display: block;width: 171px;line-height: 70px;text-align: center;float: left;font-size: 24px;font-weight: bold;letter-spacing: 4px;}
+.main_nav ul li{list-style: none;display: block;width: 130px;line-height: 66px;text-align: center;float: left;font-size: 22px;letter-spacing: 4px;}
 
 /*--------footer.html--------*/
 .foot{width: 100%;height: 300px;float: none;}
