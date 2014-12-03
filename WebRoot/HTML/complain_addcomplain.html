@@ -84,21 +84,21 @@
 					
 					
 					
-					<p ><input type="checkbox" id="crash" onchange="golSelect(this.id,this.checked);"/>
+					<p ><input type="checkbox" id="crash" name="course_detile" onchange="golSelect(this.id,this.checked);"/>
 						车祸
 						<select hidden="hidden">
 							<option value=""></option>
 							<option value="追尾">追尾</option>
 						</select>
 					</p>
-					<p><input type="checkbox" id="fire" onchange="golSelect(this.id,this.checked);"/>
+					<p><input type="checkbox" id="fire" name="course_detile" onchange="golSelect(this.id,this.checked);"/>
 						火灾
 						<select hidden="hidden">
 							<option value=""></option>
 							<option value="意外">意外</option>
 						</select>
 					</p>
-					<p><input type="checkbox" id="injured" onchange="golSelect(this.id,this.checked);"/>
+					<p><input type="checkbox" id="injured" name="course_detile" onchange="golSelect(this.id,this.checked);"/>
 						伤员
 						<select hidden="hidden">
 							<option value=""></option>
@@ -108,7 +108,7 @@
 							<option value="≤32人">≤32人</option>
 						</select>
 					</p>
-					<p><input type="checkbox" id="death" onchange="golSelect(this.id,this.checked);"/>
+					<p><input type="checkbox" id="death" name="course_detile" onchange="golSelect(this.id,this.checked);"/>
 						亡员
 						<select hidden="hidden">
 							<option value=""></option>
@@ -125,12 +125,14 @@
 				</li>
 				<li>
 					<h2>-事故感受-</h2>
-					<select name="course_feel">
+					<select name="course_feel" id="course_feel" onblur="checkSelect(this.id);>
+						<option value="default">----请选择----</option>
 						<option value="不值一提">不值一提</option>
 						<option value="任谁都会生气">任谁都会生气</option>
 						<option value="难以忘怀的经历">难以忘怀的经历</option>
 						<option value="烦不胜烦">烦不胜烦</option>
 						<option value="难以忍受不愿再提起">难以忍受不愿再提起</option>
+						<option value="都不是我要写下来">都不是,我要写下来</option>
 					</select>
 				</li>
 			</ul>

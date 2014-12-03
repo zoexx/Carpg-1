@@ -10,17 +10,17 @@
 a{color: #000000;}
 a{text-decoration: none;display: block;}
 a:hover{text-decoration: underline;}
-body{background: #D5B970;}
+body{/*background: #D5B970;*/}
 
 
 /*--------header.html------*/
 .logo{background-image: url(../Images/img/carpg_logo.png);background-position: center;background-repeat: no-repeat;background-size: 60%;}
 .header_black{background-color: #000000;}
-#current{background-color: #B40000;}
+#current{}
 #current:hover{background-color: red;text-decoration: none;}
-.main_nav{background: #B40000;}
+.main_nav{}
 .main_nav ul li a{color: #F6F6F6;}
-.main_nav ul li a:hover{background: #000000;text-decoration: none;}
+.main_nav ul li a:hover{background: #000000;color: #FFFFFF;text-decoration: none;border-bottom: 4px solid #0000FF;}
 
 /*----------footer.html-------*/
 .foot{color: dimgrey;background: #000000;}
