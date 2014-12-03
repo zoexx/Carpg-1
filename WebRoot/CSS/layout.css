@@ -116,11 +116,14 @@ select{border: 1px solid #ABADB3;}
 /*----------complain1.html--------------*/
 .content2{width: 500px;margin: 50px auto;border-radius: 4px;overflow: hidden;}
 .content2 h1{margin: 0;}
-.thenext_btn{width: 100px;margin: 0 auto;display: block;line-height: 30px;}
+.content2 button{line-height: 20px;padding: 0 5px ;}
+.thenext_btn{width: 100px;display: block;line-height: 30px;margin: 20px auto;}
+.leftBlank{margin-left: 10px;margin-top: 10px;}
 
 /*------------complain_addcar.html-----------------*/
-.content3{width: 620px;height: 530px;margin: 50px auto;overflow: hidden;position: relative;}
+.content3{width: 620px;height: 550px;margin: 50px auto;overflow: hidden;position: relative;}
 .content3 h1{margin-top: 5px;}
+.content3 p{margin: 0;}
 .addcar_left{margin-left: 15px;margin-top: 10px;}
 .add_carinfo{height: 150px;}
 .add_carinfo li{float: left;list-style: none;margin: 10px 15px;height: 50px;}
