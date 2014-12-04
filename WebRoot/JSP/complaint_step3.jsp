@@ -3,6 +3,10 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%
+	//得到上一个页面传到的车辆信息
+	String msg = request.getParameter("msg");
+ %>
 <script type="text/javascript">
 function doCheck () {
 	if (document.getElementById("type").value=="default") {
@@ -33,7 +37,9 @@ function doCheck () {
 		alert("您的详细经过将更有助于维护您的权益，请填写事件的详细经过");
 		return false;
 	}
-	document.getElementById("form").action="carOperate";
+	//将选中的车的信息给到后台
+	document.getElementById("select_car").value = <%=msg %>;
+	document.getElementById("form").action="complaintOperate";
 	document.getElementById("form").submit();
 }
 </script>

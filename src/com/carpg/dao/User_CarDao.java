@@ -14,7 +14,7 @@ public interface User_CarDao {
 	public void updateUser_Car(User_Car userCar);
 	
 	//得到用户车,通过用户名获取用户车辆信息
-	public List<User_Car> getUser_Car(String username);
+	public List<User_Car> getUser_Car(int userid);
 	
 	//删除用户车辆信息,通过用户车辆信息编号
 	public void delUser_Car(int id);

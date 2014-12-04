@@ -63,7 +63,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 			//return LOGIN;
 			//System.out.println("Session的值为："+session.get("vcode").toString());
 		}else if (type.equals(LOGIN)){
-			//将用户信息保存在session中
+			//将用户信息保存在session中,用户信息为userid+user_name(别名)
 			Calendar c = Calendar.getInstance();
 			String info = c.getTimeInMillis()+"~"+user.getEmail();
 			request.getSession().setAttribute("sessioninfo", info);			
