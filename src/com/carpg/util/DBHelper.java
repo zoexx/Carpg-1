@@ -16,7 +16,7 @@ public class DBHelper {
     // MySQL配置时的用户名
     private final static String user = "root"; 
     // MySQL配置时的密码
-    private final static String password = "carpg";
+    private final static String password = "123456";
     private static Connection conn = null;
     
     // 一个连接对象

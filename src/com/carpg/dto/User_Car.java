@@ -11,6 +11,9 @@ public class User_Car {
 	private String buy_time;
 	private int mileage;
 	private String remark;
+	
+	private String car_brand;
+	private String car_type;
 	public int getId() {
 		return id;
 	}
@@ -64,6 +67,18 @@ public class User_Car {
 	}
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+	public String getCar_brand() {
+		return car_brand;
+	}
+	public void setCar_brand(String car_brand) {
+		this.car_brand = car_brand;
+	}
+	public String getCar_type() {
+		return car_type;
+	}
+	public void setCar_type(String car_type) {
+		this.car_type = car_type;
 	}
 
 }

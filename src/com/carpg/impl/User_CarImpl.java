@@ -21,12 +21,14 @@ public class User_CarImpl implements User_CarDao {
 	public void addUser_Car(User_Car userCar) {
 		// TODO Auto-generated method stub
 		conn = DBHelper.getConn();
-		sql = "insert into user_car value(null,?,?,?,?,?,?,?,?)";
+		sql = "insert into user_car value(null,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, userCar.getUser_id());
 			pstmt.setString(2, userCar.getUser_name());
 			pstmt.setInt(3, userCar.getCar_id());
+			pstmt.setString(4, userCar.getCar_brand());
+			pstmt.setString(5, userCar.getCar_type());
 			pstmt.setString(4, userCar.getVin());
 			pstmt.setString(5, userCar.getColor());
 			pstmt.setString(6, userCar.getBuy_time());
@@ -57,14 +59,15 @@ public class User_CarImpl implements User_CarDao {
 
 	}
 
-	public List<User_Car> getUser_Car(String username) {
+	public List<User_Car> getUser_Car(int userid) {
 		// TODO Auto-generated method stub
 		List<User_Car> list = new ArrayList<User_Car>();
 		conn = DBHelper.getConn();
-		sql = "select * from user_car where user_name=?";
+		sql = "select * from user_car where user_id=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, username);
+			//pstmt.setString(1, username);
+			pstmt.setInt(1, userid);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				User_Car userCar = new User_Car();
@@ -72,6 +75,8 @@ public class User_CarImpl implements User_CarDao {
 				userCar.setUser_id(rs.getInt("user_id"));
 				userCar.setUser_name(rs.getString("user_name"));
 				userCar.setCar_id(rs.getInt("car_id"));
+				userCar.setCar_brand(rs.getString("car_brand"));
+				userCar.setCar_type(rs.getString("car_type"));
 				userCar.setVin(rs.getString("vin"));
 				userCar.setColor(rs.getString("color"));
 				userCar.setBuy_time(rs.getString("buy_time"));
