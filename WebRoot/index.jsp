@@ -9,8 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<form action="servlet/FileServlet.sl" method="post"
-                        enctype="multipart/form-data">
-<input type="file" name="file" size="50" />
+                        enctype="multipart/form-data" >
+<input type="file" name="file" />
 <br />
 <input type="submit" value="Upload File" />
 </form>

@@ -1,6 +1,7 @@
 package com.carpg.controller;
 
 import java.io.PrintWriter;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,7 +63,11 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 			//return LOGIN;
 			//System.out.println("Session的值为："+session.get("vcode").toString());
 		}else if (type.equals(LOGIN)){
-			//跳转到登陆成功页面
+			//将用户信息保存在session中
+			Calendar c = Calendar.getInstance();
+			String info = c.getTimeInMillis()+"~"+user.getEmail();
+			request.getSession().setAttribute("sessioninfo", info);			
+			//跳转到登陆成功页面,并将用户信息反馈到该页面，保存sessioninfo
 			return "test";
 		}
 		//注册详细信息页面跳转

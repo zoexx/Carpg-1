@@ -4,7 +4,7 @@
 	<constant name="struts.i18n.encoding" value="utf-8"></constant>
 	<constant name="struts.multipart.parser" value="jakarta"></constant>
 	<constant name="struts.multipart.maxSize" value="2097152"></constant>
-	<constant name="struts.multipart.saveDir" value="/tmp"/>
+	<constant name="struts.multipart.saveDir" value="/test"/>
 	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
 	<constant name="struts.devMode" value="true"></constant>
 	<constant name="struts.i18n.reload" value="true"></constant>
@@ -24,6 +24,11 @@
 			<result name="regist" >regist.jsp</result>
 		</action>
 		<action name="carOperate" class = "com.carpg.controller.CarAction">
+			<result>index.jsp</result>
+			<result name="test" >../MyJsp.jsp</result>
+			<result name="regist" >regist.jsp</result>
+		</action>
+		<action name="complaintOperate" class = "com.carpg.controller.ComplaintAction">
 			<result>index.jsp</result>
 			<result name="test" >../MyJsp.jsp</result>
 			<result name="regist" >regist.jsp</result>
