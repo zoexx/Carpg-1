@@ -13,7 +13,12 @@ function removeClass( elements,cName ){
     };    
 }; 
 
-
+//new_index.html
+//更改banner图片
+function indexBannerChange (thisID,tarID) {
+	//解析thisID获得banner图片地址
+	//更改tarID的背景图url
+}
 //添加年限时间
 function addcar_addtime (year,selectID) {
 	var selectItem= document.getElementById(selectID);

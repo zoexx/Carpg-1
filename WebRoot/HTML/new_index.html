@@ -61,7 +61,7 @@
 		</div>
 		<div id="header" class="global_content">
 			<ul>
-				<li id="logo"><img src="../Images/img/carpg_logo.png"/></li>
+				<a href="index.html" id="logo"><li><img src="../Images/img/carpg_01.jpg"/></li></a>
 				<li><a href="index.html" >首&nbsp;&nbsp;页</a></li>
  			    <li><a href="#">缺陷排行</a></li>
  				<li><a href="#">缺陷调查</a></li>
@@ -72,60 +72,69 @@
 			</ul>
 		</div>
 		<div  class="global_content">
-			<ul id="index_banner">
-				<li id="current_pic"></li>
-				<li><a href=""><img src="../Images/img/carpg3.jpg"/></a></li>
-				<li><a href=""><img src="../Images/img/carpg5.jpg"/></a></li>
-				<li><a href=""><img src="../Images/img/carpg4.jpg"/></a></li>
-			</ul>
-			<div id="index_rank">
-                  <div class="problemRank">
-                  	<a href="#"><h3><img src="../Images/img/attention.png"/>最热问题榜 》 》 》</h3></a>
-                  	 <ul class="problemRank_text"> 
-                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011吉普-大切诺基</h6></a></li>
-                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011道奇-杜兰戈</h6></a></li>
-                         	<li><a href="#"><h5>缸裂：冷却剂泄露</h5><h6>2006日产Pathfinder</h6></a></li>
-                         </ul>
-                         <ul class="problemRank_bar">
-                            <li  id="pr11"></li>
-                         	<li  id="pr12"></li>
-                         	<li  id="pr13"></li>
-                         	<button type="button" class="dashButtons">查看全部</button>
-                         </ul>
-                  </div>
-                  <div class="problemRank">
-                  	<a href="#"><h3><img src="../Images/img/attention.png"/>最热问题榜 》 》 》</h3></a>
-                  	 <ul class="problemRank_text"> 
-                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011吉普-大切诺基</h6></a></li>
-                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011道奇-杜兰戈</h6></a></li>
-                         	<li><a href="#"><h5>缸裂：冷却剂泄露</h5><h6>2006日产Pathfinder</h6></a></li>
-                         </ul>
-                         <ul class="problemRank_bar">
-                            <li  id="pr11"></li>
-                         	<li  id="pr12"></li>
-                         	<li  id="pr13"></li>
-                         	<button type="button" class="dashButtons">查看全部</button>
-                         </ul>
-                  </div>
-                  <div class="problemRank">
-                  	<a href="#"><h3><img src="../Images/img/attention.png"/>最热问题榜 》 》 》</h3></a>
-                  	 <ul class="problemRank_text"> 
-                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011吉普-大切诺基</h6></a></li>
-                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011道奇-杜兰戈</h6></a></li>
-                         	<li><a href="#"><h5>缸裂：冷却剂泄露</h5><h6>2006日产Pathfinder</h6></a></li>
-                         </ul>
-                         <ul class="problemRank_bar">
-                            <li  id="pr11"></li>
-                         	<li  id="pr12"></li>
-                         	<li  id="pr13"></li>
-                         	<button type="button" class="dashButtons">查看全部</button>
-                         </ul>
-                  </div>
-	    	 </div>
-		</div>
-		<div id="index_content">
+			<div id="index_banner">
 			<ul>
-				<h4>您关心的车</h3>
+				<li><a onclick="indexBannerChange(this.id,"index_banner");" id="bannerClick1"><img src="../Images/img/carpg3.jpg"/></a></li>
+				<li><a onclick="indexBannerChange(this.id,"index_banner");" id="bannerClick2"><img src="../Images/img/carpg5.jpg"/></a></li>
+				<li><a onclick="indexBannerChange(this.id,"index_banner");" id="bannerClick3"><img src="../Images/img/carpg4.jpg"/></a></li>
+			</ul>
+			</div>
+			<div id="index_rank" class="right">
+                  <div class="problemRank">
+                  	<a href="#"><h3><img src="../Images/img/attention.png"/>最热问题榜 》 》 》</h3></a>
+                  	 <ul class="problemRank_text"> 
+                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011吉普-大切诺基</h6></a></li>
+                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011道奇-杜兰戈</h6></a></li>
+                         	<li><a href="#"><h5>缸裂：冷却剂泄露</h5><h6>2006日产Pathfinder</h6></a></li>
+                         </ul>
+                         <ul class="problemRank_bar">
+                            <li  id="pr11"></li>
+                         	<li  id="pr12"></li>
+                         	<li  id="pr13"></li>
+                         	<button type="button" class="dashButtons">查看全部</button>
+                         </ul>
+                  </div>
+                  <div class="problemRank">
+                  	<a href="#"><h3><img src="../Images/img/attention.png"/>最热问题榜 》 》 》</h3></a>
+                  	 <ul class="problemRank_text"> 
+                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011吉普-大切诺基</h6></a></li>
+                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011道奇-杜兰戈</h6></a></li>
+                         	<li><a href="#"><h5>缸裂：冷却剂泄露</h5><h6>2006日产Pathfinder</h6></a></li>
+                         </ul>
+                         <ul class="problemRank_bar">
+                            <li  id="pr11"></li>
+                         	<li  id="pr12"></li>
+                         	<li  id="pr13"></li>
+                         	<button type="button" class="dashButtons">查看全部</button>
+                         </ul>
+                  </div>
+                  <div class="problemRank">
+                  	<a href="#"><h3><img src="../Images/img/attention.png"/>最热问题榜 》 》 》</h3></a>
+                  	 <ul class="problemRank_text"> 
+                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011吉普-大切诺基</h6></a></li>
+                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011道奇-杜兰戈</h6></a></li>
+                         	<li><a href="#"><h5>缸裂：冷却剂泄露</h5><h6>2006日产Pathfinder</h6></a></li>
+                         </ul>
+                         <ul class="problemRank_bar">
+                            <li  id="pr11"></li>
+                         	<li  id="pr12"></li>
+                         	<li  id="pr13"></li>
+                         	<button type="button" class="dashButtons">查看全部</button>
+                         </ul>
+                  </div>
+                  <ul class="index_news">
+                  	<a><h3>缺陷调查</h3></a>
+                  	<li></li>
+                  </ul>
+                  <ul class="index_news">
+                  	<a><h3>最新车讯</h3></a>
+                  	<li></li>
+                  </ul>
+	    	 </div>
+		
+		<div id="index_content" class="left">
+			<ul id="index_hotCars">
+				<h2>您关心的车&nbsp;》</h3>
 				    <li><a href="#">奥拓</a></li>
                 	<li><a href="#">奥拓</a></li>
                 	<li><a href="#">奥拓</a></li>
@@ -162,12 +171,14 @@
                 	<li><a href="#">奥拓</a></li>
                 	<li><a href="#">奥拓</a></li>
                 	<li><a href="#">奥拓</a></li>
-                	<span id="showAllCars">
-                		<h4>查看全部 》</h4>
-                	</span>
+                	<a class="showAll">
+                		<h5>查看全部 》</h5>
+                	</a>
 			</ul>
-			<ul>
-				<h4>常见问题</h3>
+			
+			
+			<ul id="index_hotProblem">
+				<h2>常见问题&nbsp;》</h3>
 				    <li><a href="#">空调制冷/加热</a></li>
                 	<li><a href="#">汽车外部配件</a></li>
                 	<li><a href="#">汽车内部配件</a></li>
@@ -187,81 +198,120 @@
                 	<li><a href="#">变速器</a></li>
                 	<li><a href="#">车轮/轮毂</a></li>
                 	<li><a href="#">车窗/挡风玻璃</a></li>
-                	<span id="showAllProblems">
-                		<h4>查看全部 》</h4>
-                	</span>
+                	<a class="showAll">
+                		<h5>查看全部 》</h5>
+                	</a>
 			</ul>
-			<div id="index_left">
-				<h1>最新车市</h1>
+			<ul id="index_quickBtns">
+				<h2>车友吐槽&nbsp;》</h2>
+    				<a href="#"><li class="dashButtons  quicklook1"><h4><b>图解真相 》 》</b></h4><h6>一图省万语</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook2"><h4><b>风趣的吐槽》 》</b></h4><h6>自黑式嘲讽</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook3"><h4><b>惊险故事 》 》</b></h4><h6>幸运儿的吐槽</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook4"><h4><b>车主心声 》 》</b></h4><h6>真诚完整的述说</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook5"><h4><b>车主权益》 》</b></h4><h6>最新相关政策</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook6"><h4><b>热点新闻 》 》</b></h4><h6>聚焦汽车制造</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook7"><h4><b>车友互助 》 》</b></h4><h6>互助信息交流</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook8"><h4><b>媒体报道 》 》</b></h4><h6>更多曝光带来更多权益</h6></li></a>
+					<a href="#"><li class="dashButtons"><h2>我要吐槽 》 》</h2></li></a>
+
+    		</ul>
+			
+			<div id="index_carMarket">
+				<h2>最新车市&nbsp;》
+				<a class="right">查看更多 》</a>
+				</h2>
 				<ul id="secondHandCars_list">
 					<li>
 						<img src="../Images/img/carpg2.jpg"/>
-						<h2>别克君威&nbsp;2005款</h2>
-						<h3>3.48万元</h3>
+						<h4 class="right">别克君威</h4>
+						<h4 class="right">2005款</h4>
+						<h4 class="right myred">3.48万元</h4>
 					</li>
 					<li>
 						<img src="../Images/img/carpg2.jpg"/>
-						<h2>别克君威&nbsp;2005款</h2>
-						<h3>3.48万元</h3>
+						<h4 class="right">别克君威</h4>
+						<h4 class="right">2005款</h4>
+						<h4 class="right myred">3.48万元</h4>
 					</li>
 					<li>
 						<img src="../Images/img/carpg2.jpg"/>
-						<h2>别克君威&nbsp;2005款</h2>
-						<h3>3.48万元</h3>
-					</li>
-					<li>
-						<img src="../Images/img/carpg2.jpg"/>
-						<h2>别克君威&nbsp;2005款</h2>
-						<h3>3.48万元</h3>
-					</li>
-					<li>
-						<img src="../Images/img/carpg2.jpg"/>
-						<h2>别克君威&nbsp;2005款</h2>
-						<h3>3.48万元</h3>
-					</li>
-					<li>
-						<img src="../Images/img/carpg2.jpg"/>
-						<h2>别克君威&nbsp;2005款</h2>
-						<h3>3.48万元</h3>
-					</li>
-					<li>
-						<img src="../Images/img/carpg2.jpg"/>
-						<h2>别克君威&nbsp;2005款</h2>
-						<h3>3.48万元</h3>
-					</li>
-					<li>
-						<img src="../Images/img/carpg2.jpg"/>
-						<h2>别克君威&nbsp;2005款</h2>
-						<h3>3.48万元</h3>
+						<h4 class="right">别克君威</h4>
+						<h4 class="right">2005款</h4>
+						<h4 class="right myred">3.48万元</h4>
 					</li>
 				</ul>
-				<h4><a href="">查看更多 》</a></h4>
+				
 			</div>
-			<div id="index_right">
-				<ul>
-					<li>
-						<h2><a href="">最热问题榜</a></h2>
-						<span id="hotProblem1"><a href="">集成式电源模块故障 2011吉普-大切诺基</a></span>
-						<span id="hotProblem2"><a href="">集成式电源模块故障 2011吉普-大切诺基</a></span>
-						<span id="hotProblem3"><a href="">集成式电源模块故障 2011吉普-大切诺基</a></span>
-					</li>
-					<li>
-						<h2><a href="">最热问题榜</a></h2>
-						<span id="hotProblem1"><a href="">集成式电源模块故障 2011吉普-大切诺基</a></span>
-						<span id="hotProblem2"><a href="">集成式电源模块故障 2011吉普-大切诺基</a></span>
-						<span id="hotProblem3"><a href="">集成式电源模块故障 2011吉普-大切诺基</a></span>
-					</li>
-					<li>
-						<h2><a href="">最热问题榜</a></h2>
-						<span id="hotProblem1"><a href="">集成式电源模块故障 2011吉普-大切诺基</a></span>
-						<span id="hotProblem2"><a href="">集成式电源模块故障 2011吉普-大切诺基</a></span>
-						<span id="hotProblem3"><a href="">集成式电源模块故障 2011吉普-大切诺基</a></span>
-					</li>
+
+		</div>
+		</div>
+		<div class="foot">
+	    	<div class="foot_content">
+	    		<div class="aboutUs">
+	    			<h2>关于车曝网</h2>
+	    			<p>车曝网是国内首家收集整理车主驾驶体验信息的完全公开完全开放的民间网站，车曝网为广大车主以及准车主提供大量汽车质量的数据分析服务以及二手车交易信息服务。</p>
+	    			<h2>关注车曝网的SNS账号，掌握一手资讯</h2>
+	    			<ul class="follwUs">
+	    				<li><a href="#" class="login_quickin"><img src="../Images/img/login_weibo.png"/></a></li>
+	    				<li><a href="#" class="login_quickin"><img src="../Images/img/login_weichat.png"/></a></li>
+	    				<li><a href="#" class="login_quickin"><img src="../Images/img/login_qq.png"/></a></li>
+	    				<li><a href="#" class="login_quickin"><img src="../Images/img/login_weibo.png"/></a></li>
+	    			</ul>
+	    		</div>
+	    		<div class="aboutUs">
+	    			<h2>友情链接&合作媒体:</h2>
+	    			<ul class="media">
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    			</ul>
+	    		</div>
+	    		<div class="aboutUs">
+	    			<h2>友情链接&合作媒体:</h2>
+	    			<ul class="media">
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    			</ul>
+	    		</div>
+	    		<div class="links"></div>
+	    	</div>
+	    	<div class="copyright">
+	    		<ul>
+					<li><a href="#">加入我们</a></li>
+					<li><a href="#">合作/入驻</a></li>
+					<li><a href="#">常见问题解答</a></li>
+					<li><a href="#">版权说明</a></li>
+					<li><a href="#">提交建议</a></li>
 				</ul>
-			</div>
-		</div>
-		<div id="footer">
-			
-		</div>
+				<p>Copyright&copy;淘曝网 鄂ICP备14008196</p>
+	    	</div>
+	    </div>
 	</body>
 </html>
