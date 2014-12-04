@@ -42,6 +42,10 @@ id int primary key not null auto_increment,     /*主键，编号*/
 user_id int not null,                           /*用户id，外键，主要和用户表user联立起来*/
 user_name varchar(20) not null,                 /*用户名，添加冗余字段*/
 car_id int not null,                            /*车的分类编号，主要和汽车分类表car联立起来*/
+/*2014-12-4添加冗余字段*/
+car_brand varchar(20) not null,					/*添加汽车品牌冗余字段，便于展示*/
+car_type varchar(20) not null,					/*添加汽车车型冗余字段，便于展示*/
+/*----*/
 vin varchar(17) not null,						/*汽车的vin码，可用于识别汽车*/
 color varchar(10),								/*汽车的颜色*/
 buy_time varchar(20) not null,                  /*汽车购买的时间*/
@@ -59,6 +63,8 @@ user_name varchar(20) not null,                 /*用户名，添加冗余字段
 user_car_id int not null,                       /*抱怨的车辆，外键，主要和用户汽车表user_car联立起来*/
 /*2014-12-1添加冗余字段*/
 car_brand varchar(20) not null,					/*添加汽车品牌冗余字段，便于统计*/
+car_type varchar(20) not null,					/*添加汽车车型冗余字段，便于统计*/
+/*----*/
 problem_id int not null,						/*抱怨的问题，外键，主要和汽车问题类别car_problem联立起来*/
 time varchar(20) not null,						/*发送抱怨的时间*/
 start_time varchar(20) not null,				/*问题开始的时间,便于统计，只存储年份-月份*/

@@ -6,14 +6,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <html>
 <head>
-<script language="javascript">
-function setImage(obj){
-    image.src = obj.value;
-}
-</script>
 </head>
 <body>
-	<img id="image" name="image" src="" />
-	<input type="file" name="file" onchange="setImage(this)"/>
+	<form action="servlet/FileServlet.sl" method="post"
+                        enctype="multipart/form-data" >
+<input type="file" name="file" />
+<br />
+<input type="submit" value="Upload File" />
+</form>
 </body>
 </html>

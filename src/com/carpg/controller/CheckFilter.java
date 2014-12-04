@@ -27,8 +27,8 @@ public class CheckFilter implements Filter{
         String uri = request.getRequestURI();
         String context=request.getContextPath();
         uri = uri.substring(context.length());
-        System.out.println("过滤器"+ request.getSession().getAttribute("username"));
-        if(null == request.getSession().getAttribute("username")) {
+        System.out.println("过滤器"+ request.getSession().getAttribute("sessioninfo"));
+        if(null == request.getSession().getAttribute("sessioninfo")) {
             request.setAttribute("message","您没有这个权限");
             System.out.println("权限不够");
             //request.getRequestDispatcher("/JSP/login.jsp").forward(arg0,arg1);

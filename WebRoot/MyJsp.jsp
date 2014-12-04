@@ -3,7 +3,12 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%
+		String info = (String)request.getSession().getAttribute("sessioninfo");
+		if (null == info){
+			info = "";
+		}
+ %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -19,10 +24,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+<script type="text/javascript">
+function complaint(){
 
+}
+</script>
   </head>
   
   <body>
-    This is my JSP page. <br>
-  </body>
+  	<form id="form" method="post" >
+  	<input type="text" value="<%=info %>" />
+    <a href="JSP/login.jsp" >登陆</a>
+    <input type="button" name="complaint" id="complaint" value="吐槽" onclick="complaint();"/>
+  </form></body>
 </html>

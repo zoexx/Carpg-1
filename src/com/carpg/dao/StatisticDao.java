@@ -12,5 +12,8 @@ public interface StatisticDao {
 	//按年份统计各个品牌的问题状况量,返回值为Map类型<品牌，数量>,并是按照降序排列
 	public Map<String, Integer> getCountByYear(String year);
 	
+	//统计按品牌中的车型统计问题状况量，返回值为Map类型<车型，数量>,并按照降序排列
+	public Map<String, Integer> getCountByBrand_carType(String brand);
+	
 
 }

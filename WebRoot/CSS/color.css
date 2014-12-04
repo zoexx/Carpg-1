@@ -82,7 +82,7 @@ body{/*background: #D5B970;*/}
 
 /*----------complain1.html--------------*/
 .content2{border-radius: 4px;background: #FFFFFF;}
-.content2 h1{text-align: center;background: #F6F6F6;}
+.content2 h1{text-align: center;background: #B40000;color: #FFFFFF;}
 .thenext_btn{font-size: 16px;}
 
 /*------------complain_addcar.html-----------------*/
@@ -93,7 +93,7 @@ body{/*background: #D5B970;*/}
 .carcolor_checked{border: 2px solid #FF6600;}
 .black{background: #313131;}
 .white{background: #F6F6F6;color: #000000;}
-.red{background: #B40000;}
+.myred{background: #B40000;}
 .blue{background: #003399;}
 .yellow{background: #EACD2E;}
 #text_forVIN{background-image: url(../Images/img/arrow.png);background-position: center top;background-repeat: no-repeat;}
