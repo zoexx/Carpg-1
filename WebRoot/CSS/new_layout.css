@@ -103,3 +103,11 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 /*index.html--end*/
 
 /*----------------------view_complain.html-----------------------------------*/
+#view_left{width: 190px;height: 1040px;overflow: hidden;background-color: #CCCCCC;margin-right: 10px;}
+#view_left ul a li{padding-left: 50px;line-height: 20px;margin: 10px 0;}
+#view_main{width: 540px;height: 1040px;overflow: hidden;background-color: #ABADB3;margin-right: 10px;}
+
+#view_right{width: 290px;height: 1040px;overflow: hidden;background-color: #CCCCCC;}
+
+
+
