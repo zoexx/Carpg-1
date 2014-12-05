@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -6,181 +6,261 @@
 		<meta name="title" content="车曝网" />
 		<meta name="keywords" content="车曝网,汽车,轿车,二手车,曝光,质量,驾驶安全,反馈,调查报告,数据分析,召回,拍卖,竞价,消费者权益,315,车"/>
 		<meta name="description" content="车曝网是国内首家收集整理车主驾驶体验信息的完全公开完全开放的民间网站，车曝网为广大车主以及准车主提供大量汽车质量的数据分析服务以及二手车交易信息服务。" />
-		<link href="../CSS/layout.css" rel="stylesheet" type="text/css" />
-		<script src="../JS/global.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="../CSS/new_layout.css" />
 	</head>
 	<body>
-		<noscript><p style="height: 30px;line-height: 30px;text-align: center;font-size: 20px;background: #D5B970;">您的浏览器不支持（或未启用）Javascript</p></noscript>
+		<div id="header" class="global_content">
+			<ul>
+				<a href="index.html" id="logo"><li><img src="../Images/img/carpg_01.jpg"/></li></a>
+				<li><a href="index.html" >首&nbsp;&nbsp;页</a></li>
+ 			    <li><a href="#">缺陷排行</a></li>
+ 				<li><a href="#">缺陷调查</a></li>
+ 				<li><a href="#">二手车市</a></li>
+ 				<li><a href="#">我要吐槽</a></li>
+ 				<li><a href="#">车&nbsp;&nbsp;讯</a></li>
+				<li><a href="login_re.html">登录&nbsp;|&nbsp;注册</a></li>
+			</ul>
+		</div>
+		<div  class="global_content">
+			<div id="index_banner">
+			<ul>
+				<li><a onclick="indexBannerChange(this.id,"index_banner");" id="bannerClick1"><img src="../Images/img/carpg3.jpg"/></a></li>
+				<li><a onclick="indexBannerChange(this.id,"index_banner");" id="bannerClick2"><img src="../Images/img/carpg5.jpg"/></a></li>
+				<li><a onclick="indexBannerChange(this.id,"index_banner");" id="bannerClick3"><img src="../Images/img/carpg4.jpg"/></a></li>
+			</ul>
+			</div>
+			<div id="index_rank" class="right">
+                  <div class="problemRank">
+                  	<a href="#"><h3><img src="../Images/img/attention.png"/>最热问题榜 》 》 》</h3></a>
+                  	 <ul class="problemRank_text"> 
+                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011吉普-大切诺基</h6></a></li>
+                         	<li><a href="#"><h5>集成式电源模块故障</h5><h6>2011道奇-杜兰戈</h6></a></li>
+                         	<li><a href="#"><h5>缸裂：冷却剂泄露</h5><h6>2006日产Pathfinder</h6></a></li>
+                         </ul>
+                         <ul class="problemRank_bar warningRank">
+                            <li  id="pr11"></li>
+                         	<li  id="pr12"></li>
+                         	<li  id="pr13"></li>
+                         	<button type="button" class="dashButtons">查看全部</button>
+                         </ul>
+                  </div>
+                  <div class="problemRank rankMid">
+                  	<a href="#"><h3><img src="../Images/img/ranks.png"/>吐槽最多的车 》 》 》</h3></a>
+                  	 <ul class="problemRank_text"> 
+                         	<li><a href="#"><h5>2002福特Explorer</h5><h6>传动系统问题</h6></a></li>
+                         	<li><a href="#"><h5>2003本田雅阁</h5><h6>传动系统问题</h6></a></li>
+                         	<li><a href="#"><h5>2004福特Explorer</h5><h6>车体/油漆问题</h6></a></li>
+                         </ul>
+                         <ul class="problemRank_bar warningRank">
+                            <li  id="pr11"></li>
+                         	<li  id="pr12"></li>
+                         	<li  id="pr13"></li>
+                         	<button type="button" class="dashButtons">查看全部</button>
+                         </ul>
+                  </div>
+                  <div class="problemRank">
+                  	<a href="#"><h3><img src="../Images/img/love.png"/>优质车榜 》 》 》</h3></a>
+                  	 <ul class="problemRank_text "> 
+                         	<li><a href="#"><h5>2010讴歌MDX</h5><h6>综合评分XXX</h6></a></li>
+                         	<li><a href="#"><h5>2014特斯拉Model S</h5><h6>综合评分XXX</h6></a></li>
+                         	<li><a href="#"><h5>2014雷克萨斯GX470</h5><h6>综合评分XXX</h6></a></li>
+                         </ul>
+                         <ul class="problemRank_bar loveRank">
+                            <li  id="pr11"></li>
+                         	<li  id="pr12"></li>
+                         	<li  id="pr13"></li>
+                         	<button type="button" class="dashButtons">查看全部</button>
+                         </ul>
+                  </div>
+                  <ul class="index_news">
+                  	<a><h3>缺陷调查</h3></a>
+                  	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
+                  	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
+                  	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
+                  	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
+                  	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
+                  	<li>查看更多 》</li>
+                  </ul>
+                  <ul class="index_news">
+                  	<a><h3>最新车讯</h3></a>
+                  	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
+                  	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
+                  	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
+                  	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
+                  	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
+                  	<li>查看更多 》</li>
+                  </ul>
+	    	 </div>
+		
+		<div id="index_content" class="left">
+			<ul id="index_hotCars">
+				<h3>您关心的车&nbsp;》</h3>
+				    <li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<li><a href="#">奥拓</a></li>
+                	<a class="showAll">
+                		<h5>查看全部 》</h5>
+                	</a>
+			</ul>
+			
+			
+			<ul id="index_hotProblem">
+				<h3>常见问题&nbsp;》</h3>
+				    <li><a href="#">空调制冷/加热</a></li>
+                	<li><a href="#">汽车外部配件</a></li>
+                	<li><a href="#">汽车内部配件</a></li>
+                	<li><a href="#">车体/油漆</a></li>
+                	<li><a href="#">刹车</a></li>
+                	<li><a href="#">离合器</a></li>
+                	<li><a href="#">冷却系统</a></li>
+                	<li><a href="#">动力传动系统</a></li>
+                	<li><a href="#">汽车电力系统</a></li>
+                	<li><a href="#">引擎</a></li>
+                	<li><a href="#">排气系统</a></li>
+                	<li><a href="#">能源系统</a></li>
+                	<li><a href="#">灯</a></li>
+                	<li><a href="#">安全带/安全气囊</a></li>
+                	<li><a href="#">转向</a></li>
+                	<li><a href="#">汽车悬架</a></li>
+                	<li><a href="#">变速器</a></li>
+                	<li><a href="#">车轮/轮毂</a></li>
+                	<li><a href="#">车窗/挡风玻璃</a></li>
+                	<a class="showAll">
+                		<h5>查看全部 》</h5>
+                	</a>
+			</ul>
+			<ul id="index_quickBtns">
+				<h3>车友吐槽&nbsp;》</h3>
+    				<a href="#"><li class="dashButtons  quicklook1"><h4><b>图解真相 》 》</b></h4><h6>一图省万语</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook2"><h4><b>风趣的吐槽》 》</b></h4><h6>自黑式嘲讽</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook3"><h4><b>惊险故事 》 》</b></h4><h6>幸运儿的吐槽</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook4"><h4><b>车主心声 》 》</b></h4><h6>真诚完整的述说</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook5"><h4><b>车主权益》 》</b></h4><h6>最新相关政策</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook6"><h4><b>热点新闻 》 》</b></h4><h6>聚焦汽车制造</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook7"><h4><b>车友互助 》 》</b></h4><h6>互助信息交流</h6></li></a>
+    				<a href="#"><li class="dashButtons  quicklook8"><h4><b>媒体报道 》 》</b></h4><h6>更多曝光带来更多权益</h6></li></a>
+					<a href="#"><li class="dashButtons"><h2>我要吐槽 》 》</h2></li></a>
 
-	    <div id="index_banner">
-	    	<div id="lastestNews">
-	    			<div class="newsText">
-	    			<h2 id="current_time"> 2014-11-07星期五</h2>
-	    			<h3><a href="#">》》本田车的安全气囊会导致严重的伤害甚至致死吗？</a></h3>
-	    			<h3><a href="#">》》速腾召回官方方案</a></h3></div>
-	    	</div>
-	    </div>
-	    <div class="content">
-	    	<div class="content_left">
-	    		<img src="../Images/img/carpg_title1.png" class="left_title1" onclick=""/>
-                <ul class="carKeyWords">
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li class="carKeyWords_all"><a href="#">查看全部车型 >></a></li>
-                </ul>
-                <form action="" method="get" class="research_box_bycar">               	
-                	<input type="text" name="researchByCar" placeholder="搜索您关心的车" />
-                	<button type="submit"></button>
-                </form>
-                <img src="../Images/img/carpg_title2.png" class="left_title1" onclick=""/>
-                <ul class="carKeyWords">
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                	<li><a href="#">奥拓</a></li>
-                    <li class="carKeyWords_all"><a href="#">补充问题 >></a></li>
-                </ul>
-	    	    <button type="submit" class="dashButtons button_type1">点我吐槽</button>
-	    	    <button type="submit" class="dashButtons button_type1">咨询工程师</button>
-	    	    <img src="../Images/img/carpg_title3.png" class="left_title2"/>
-	    	    <a href="#" class="left_text_title"><img src="../Images/img/attention.png"/><h1>最热问题榜 》 》 》</h1></a>
-	    	    
-	    	     <div class="problemRank ">
-                         <ul class="problemText rank1"> 
-                         	<li><a href="#"><h3>集成式电源模块故障</h3><h4>2011吉普-大切诺基</h4></a></li>
-                         	<li><a href="#"><h3>集成式电源模块故障</h3><h4>2011道奇-杜兰戈</h4></a></li>
-                         	<li><a href="#"><h3>缸裂：冷却剂泄露</h3><h4>2006日产Pathfinder</h4></a></li>
-                         </ul>
-                         <div class="problemRank_bar">
-                            <button type="button" class="problemRank_bar_s1 pr11"></button>
-                         	<button type="button" class="problemRank_bar_s1 pr12"></button>
-                         	<button type="button" class="problemRank_bar_s1 pr13"></button>
-                         	<button type="button" class="button_type3 dashButtons">查看全部</button>
-                         </div>
-	    	     </div>
-	    	     
-	    	     
-	    	    <a href="#" class="left_text_title"><img src="../Images/img/ranks.png"/><h1>吐槽最多的车 》 》 》</h1></a>
-	    	     <div class="problemRank ">
-                         <ul class="problemText rank2"> 
-                         	<li><a href="#"><h3>2002福特Explorer<h3><h4>传动系统问题</h4></a></li>
-                         	<li><a href="#"><h3>2003本田雅阁</h3><h4>传动系统问题</h4></a></li>
-                         	<li><a href="#"><h3>2004福特Explorer</h3><h4>车体/油漆问题</h4></a></li>
-                         </ul>
-                         <div class="problemRank_bar">
-                            <button type="button" class="problemRank_bar_s1 pr21"></button>
-                         	<button type="button" class="problemRank_bar_s1 pr22"></button>
-                         	<button type="button" class="problemRank_bar_s1 pr23"></button>
-                         	<button type="button" class="button_type3 dashButtons">查看全部</button>
-                         </div>
-	    	     </div>
-	    	     
-	    	     
-	    	     
-	    	    <a href="#" class="left_text_title"><img src="../Images/img/love.png"/><h1>优质车榜 》 》 》</h1></a>	    	     
-	    	     <div class="problemRank ">
-                         <ul class="problemText rank3"> 
-                         	<li><a href="#"><h3>2010讴歌MDX</h3><h4>综合评分XXX</h4></a></li>
-                         	<li><a href="#"><h3>2014特斯拉Model S</h3><h4>综合评分XXX</h4></a></li>
-                         	<li><a href="#"><h3>2014雷克萨斯GX470</h3><h4>综合评分XXX</h4></a></li>
-                         </ul>
-                         <div class="problemRank_bar">
-                            <button type="button" class="problemRank_bar_s3 pr31"></button>
-                         	<button type="button" class="problemRank_bar_s3 pr32"></button>
-                         	<button type="button" class="problemRank_bar_s3 pr33"></button>
-                         	<button type="button" class="button_type3 dashButtons">查看全部</button>
-                         </div>
-	    	     </div>
-	    	</div>
-	    	<div class="content_right">
-	    		<img src="../Images/img/carpg_title4.png" class="right_title1" onclick=""/>
-	    		<div id="car_market">
-	    			<ul id="car_list">
-	    				<li></li>
-	    				<li></li>
+    		</ul>
+			
+			<div id="index_carMarket">
+				<h3>最新车市&nbsp;》
+				<a class="right">更多超值二手车 》</a>
+				</h3>
+				<ul id="secondHandCars_list">
+					<li>
+						<img src="../Images/img/index_sedcar.jpg"/>
+					</li>
+					<li>
+						<img src="../Images/img/index_sedcar.jpg"/>
+					</li>
+				</ul>
+				
+			</div>
+
+		</div>
+		</div>
+		<div class="foot">
+	    	<div class="foot_content">
+	    		<div class="aboutUs">
+	    			<h2>关于车曝网</h2>
+	    			<p>车曝网是国内首家收集整理车主驾驶体验信息的完全公开完全开放的民间网站，车曝网为广大车主以及准车主提供大量汽车质量的数据分析服务以及二手车交易信息服务。</p>
+	    			<h3>关注车曝网的SNS账号，掌握一手资讯</h3>
+	    			<ul class="follwUs">
+	    				<li><a href="#" class="login_quickin"><img src="../Images/img/login_weibo.png"/></a></li>
+	    				<li><a href="#" class="login_quickin"><img src="../Images/img/login_weichat.png"/></a></li>
+	    				<li><a href="#" class="login_quickin"><img src="../Images/img/login_qq.png"/></a></li>
+	    				<li><a href="#" class="login_quickin"><img src="../Images/img/login_weibo.png"/></a></li>
 	    			</ul>
-                <form action="" method="get" class="research_box_bycar">               	
-                	<input type="text" name="research_valuablecar" placeholder="您想要的二手车" />
-                	<button type="submit"></button>
-                </form>  
-	    			<button type="button" class="dashButtons button_type4">更多超值二手车</button>
-	    		    <button type="button" class="dashButtons button_type4">点我卖车</button>              	
 	    		</div>
-	    		<div class="hot_complaints">
-	    			<img src="../Images/img/carpg_title5.png" class="right_title1" />
-	    			<ul id="complaints_online">
-	    				<li></li>
-	    			<button type="button" class="dashButtons button_type5">查看全部趣评</button>
+	    		<div class="aboutUs footMi">
+	    			<h2>友情链接&合作媒体:</h2>
+	    			<ul class="media ">
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
 	    			</ul>
-                <form action="" method="get" class="research_box_complaints">               	
-                	<input type="text" name="research_complaints" placeholder="搜索吐槽-例如：黄标车,引擎，福特..." />
-                	<button type="submit"></button>
-                </form> 
 	    		</div>
+	    		<div class="aboutUs ">
+	    			<h2>友情链接&合作媒体:</h2>
+	    			<ul class="media">
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    				<li><a href="#">新浪汽车</a></li>
+	    			</ul>
+	    		</div>
+	    		<div class="links"></div>
+	    	</div>
 	    	
-	    	    <ul class="quicklook_buttons">
-    				<a href="#"><li class="dashButtons button_type1 quicklook1"><h5>图解真相 》 》</h5><h6>一图省万语</h6></li></a>
-    				<a href="#"><li class="dashButtons button_type1 quicklook2"><h5>风趣的吐槽》 》</h5><h6>自黑式嘲讽</h6></li></a>
-    				<a href="#"><li class="dashButtons button_type1 quicklook3"><h5>惊险故事 》 》</h5><h6>幸运儿的吐槽</h6></li></a>
-    				<a href="#"><li class="dashButtons button_type1 quicklook4"><h5>车主心声 》 》</h5><h6>真诚完整的述说</h6></li></a>
-    				<a href="#"><li class="dashButtons button_type1 quicklook5"><h5>车主权益》 》</h5><h6>最新相关政策</h6></li></a>
-    				<a href="#"><li class="dashButtons button_type1 quicklook6"><h5>热点新闻 》 》</h5><h6>聚焦汽车制造</h6></li></a>
-    				<a href="#"><li class="dashButtons button_type1 quicklook7"><h5>车友互助 》 》</h5><h6>互助信息交流</h6></li></a>
-    				<a href="#"><li class="dashButtons button_type1 quicklook8"><h5>媒体报道 》 》</h5><h6>更多曝光带来更多权益</h6></li></a>
-
-    			</ul>
-    		</div>
+	    	<div class="copyright">
+	    		<ul>
+					<li><a href="#">加入我们</a></li>
+					<li><a href="#">合作/入驻</a></li>
+					<li><a href="#">常见问题解答</a></li>
+					<li><a href="#">版权说明</a></li>
+					<li><a href="#">提交建议</a></li>
+				</ul>
+				<p>Copyright&copy;淘曝网 鄂ICP备14008196</p>
+	    	</div>
 	    </div>
 	</body>
 </html>

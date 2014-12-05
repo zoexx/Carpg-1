@@ -1,4 +1,12 @@
 @charset "utf-8";
+/*--------全局布局-------*/
+*{margin: 0;padding: 0;}
+select{height: 23px;}
+body,input,button,ul,li{margin: 0;padding: 0;font-family: “Microsoft YaHei”, "微软雅黑",arial,sans-serif;font-size: 12px;}
+h5,h6,h2{margin: 0;padding: 0;}
+.left{float: left;}
+.right{float: right;}
+select{border: 1px solid #ABADB3;}
 /*------全局配色-------*/
 .color_test li{width: 50px;height: 50px;display: block;list-style: none;}
 .myLightBlue{background-color: #1857DE;}
@@ -86,9 +94,9 @@ body{/*background: #D5B970;*/}
 .thenext_btn{font-size: 16px;}
 
 /*------------complain_addcar.html-----------------*/
-.content3{background: #FFFFFF;border-radius: 4px;}
+.content3{background: #CCCCCC;border-radius: 4px;}
 .content3 h1{background: #B40000;color: #FFFFFF; }
-.instruction{background: #F6F6F6;}
+.instruction{background: #999999;}
 .carcolor{border:2px solid #FFFFFF;color: #FFFFFF;}
 .carcolor_checked{border: 2px solid #FF6600;}
 .black{background: #313131;}
