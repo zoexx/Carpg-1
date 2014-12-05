@@ -1,4 +1,4 @@
-
+@charset "utf-8";
 /*--------new_index.html---------*/
 
 /*通用*/
@@ -13,16 +13,6 @@ a:hover{color: #B40000;}
 .dashButtons:hover{background: #B40000;color: #FFFFFF;}
 .right{float: right;}
 .left{float: left;}
-/*gridsys*/
-#gridsysX{width: 1040px;height:40px;margin: 0 auto;}
-#gridsysX ul{margin: 0;padding: 0;position: fixed;z-index: 100;}
-#gridsysX ul li{list-style: none;line-height: 40px;width: 40px;float: left;margin-right: 10px;text-align: center;color: #FFFFFF;background: #1857DE;}
-#gridsysX ul li:last-child{margin-right: 0;}
-#gridsysY{width: 40px;height: 1040px;position: absolute;right: 70px;top: 40px;}
-#gridsysY ul{margin: 0;padding: 0;}
-#gridsysY ul li{list-style: none;line-height: 40px;width: 40px;margin-bottom: 10px;text-align: center;color: #666666;background: #CCCCCC;}
-#gridsysY ul li:last-child{margin-bottom: 0;}
-
 
 
 #header{height:100px;position: relative;}
@@ -108,3 +98,8 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 .copyright{width: 100%;height: 50px;text-align: center;}
 .copyright ul{width: 450px;margin: 10px auto;}
 .copyright ul li{float: left;width: 20%;display: block;text-align: center;}
+
+
+/*index.html--end*/
+
+/*----------------------view_complain.html-----------------------------------*/

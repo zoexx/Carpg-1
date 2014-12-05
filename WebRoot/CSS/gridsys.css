@@ -1,0 +1,10 @@
+@charset "utf-8";
+/*gridsys*/
+#gridsysX{width: 1040px;height:40px;margin: 0 auto;}
+#gridsysX ul{margin: 0;padding: 0;position: fixed;z-index: 100;}
+#gridsysX ul li{list-style: none;line-height: 40px;width: 40px;float: left;margin-right: 10px;text-align: center;color: #FFFFFF;background: #1857DE;}
+#gridsysX ul li:last-child{margin-right: 0;}
+#gridsysY{width: 40px;height: 1040px;position: absolute;right: 70px;top: 40px;}
+#gridsysY ul{margin: 0;padding: 0;}
+#gridsysY ul li{list-style: none;line-height: 40px;width: 40px;margin-bottom: 10px;text-align: center;color: #666666;background: #CCCCCC;}
+#gridsysY ul li:last-child{margin-bottom: 0;}
