@@ -103,11 +103,22 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 /*index.html--end*/
 
 /*----------------------view_complain.html-----------------------------------*/
-#view_left{width: 190px;height: 1040px;overflow: hidden;background-color: #CCCCCC;margin-right: 10px;}
+#view_left{width: 190px;height: 1040px;overflow: hidden;background-color: #F6F6F6;margin-right: 10px;}
 #view_left ul a li{padding-left: 50px;line-height: 20px;margin: 10px 0;}
-#view_main{width: 540px;height: 1040px;overflow: hidden;background-color: #ABADB3;margin-right: 10px;}
+#view_left ul a:hover{color: #444444;background-color: #CCCCCC;}
 
-#view_right{width: 290px;height: 1040px;overflow: hidden;background-color: #CCCCCC;}
+#view_main{width: 540px;height: 1040px;overflow: hidden;background-color: #F6F6F6;margin-right: 10px;}
+#view_mainNav{width: 100%;height: 39px;margin-top: 10px;border-bottom: 1px solid #999999;}
+#view_mainNav ul li{margin-left: 10px;float: left;height: 37px;border-bottom: 2px solid #B40000;}
+#view_mainRule {width: 100%;margin: 10px 0;border-bottom: 1px solid #999999;}
+#view_mainRule a{margin-left: 10px;line-height: 19px;}
+#view_mainChooseTime ul{height: 40px;overflow: hidden;background-color: #CCCCCC;}
+#view_mainChooseTime ul a li {float: left;margin-left: 10px;line-height: 38px;border-bottom: 2px solid #B40000;}
+#view_mainComplains{margin-top: 10px;background-color: #F0F0F0;}
+#view_mainComplains ul li{overflow: hidden;margin: 10px;}
+
+
+#view_right{width: 290px;height: 1040px;overflow: hidden;background-color: #F6F6F6;}
 
 
 
