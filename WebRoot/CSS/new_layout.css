@@ -16,7 +16,7 @@ a:hover{color: #B40000;}
 .view_complainBorder{border: 1px solid #CCCCCC;border-radius: 4px;}
 
 #header{height:100px;position: relative;}
-#header ul{height: 90px;width: 100%;position: fixed;margin: 0 auto;background-color: #FFFFFF;z-index: 100;}
+#header ul{height: 90px;width: 1040px;position: fixed;margin: 0 auto;z-index: 100;background-color: #FFFFFF;-moz-box-shadow: 0px 2px 2px #888888; /* 老的 Firefox */box-shadow: 0px 2px 2px #888888;}
 #header ul li{line-height: 86px;list-style: none;float: left;width: 90px;text-align: center;margin-right: 10px;
               font-size: 22px;}             
 #header ul li:first-child{width: 290px;height: 90px;}
@@ -118,8 +118,8 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 #view_mainChooseTime ul a li {float: left;margin-left: 10px;line-height: 38px;border-bottom: 2px solid #B40000;}
 .view_mainComplains{margin-top: 10px; height:480px;overflow: hidden;background-color: #FFFFFF;}
 .avatar{float: left;width: 70px;height:70px;display: block;}
-.avatarPic{margin: 10px;background-color: #F0F0F0;}
-.avatarName{margin-left: 10px;background-color: #F0F0F0;font-size: 12px;}
+.avatarPic{margin: 10px;}
+.avatarName{margin-left: 5px;font-size: 12px;text-align: center;}
 .view_complainContent{width: 450px;float: right;}
 .view_complainContent h4{margin: 10px 0;}
 .view_complainTips{overflow: hidden;}
@@ -150,4 +150,4 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 #view_rightNav ul li a:hover{background-color: #B40000;color: #FFFFFF;border-radius: 4px;}
 #view_banner1{height: 190px;margin: 10px 0;background-image: url(../Images/img/368x184.jpg);}
 #view_banner2{height: 190px;background-image: url(../Images/img/reporter.jpg);}
-
+/*-------------------------view_complain.html-----end------------------------*/
