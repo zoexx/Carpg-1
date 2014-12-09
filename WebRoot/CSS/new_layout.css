@@ -9,11 +9,11 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 li{list-style: none;}
 a{color: #000000;text-decoration: none;display: block;}
 a:hover{color: #B40000;}
-.dashButtons{background: #EACD2E;border: 1px dashed #313131;border-radius: 4px;text-align: center;}
+.dashButtons{background: #EACD2E;border: 1px solid #FFFFFF;border-radius: 4px;text-align: center;}
 .dashButtons:hover{background: #B40000;color: #FFFFFF;}
 .right{float: right;}
 .left{float: left;}
-
+.view_complainBorder{border: 1px solid #CCCCCC;border-radius: 4px;}
 
 #header{height:100px;position: relative;}
 #header ul{height: 90px;width: 100%;position: fixed;margin: 0 auto;background-color: #FFFFFF;z-index: 100;}
@@ -108,13 +108,15 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 #view_left ul a:hover{color: #444444;background-color: #CCCCCC;}
 
 #view_main{width: 540px;overflow: hidden;background-color: #F6F6F6;margin-right: 10px;}
-#view_mainNav{width: 100%;height: 39px;margin-top: 10px;border-bottom: 1px solid #999999;}
-#view_mainNav ul li{margin-left: 10px;float: left;height: 37px;border-bottom: 2px solid #B40000;}
-#view_mainRule {width: 100%;margin: 10px 0;border-bottom: 1px solid #999999;}
+#view_mainNav{width: 100%;height: 39px;margin-top: 10px;}
+#view_mainNav ul li{margin-left: 10px;float: left;height: 37px;border-bottom: 2px solid #B40000;border-radius: 4px;}
+#view_mainRule {margin: 10px 0;background-color: #FFFFFF;}
 #view_mainRule a{margin-left: 10px;line-height: 19px;}
-#view_mainChooseTime ul{height: 40px;overflow: hidden;background-color: #CCCCCC;}
+#view_mainRule:hover{border-bottom: 2px solid #B40000;}
+#view_mainChooseTime{overflow: hidden;}
+#view_mainChooseTime ul{height: 40px;background-color: #FFFFFF;}
 #view_mainChooseTime ul a li {float: left;margin-left: 10px;line-height: 38px;border-bottom: 2px solid #B40000;}
-.view_mainComplains{margin-top: 10px; height:480px;overflow: hidden;border: 1px solid #CCCCCC;border-radius: 4px;background-color: #FFFFFF;}
+.view_mainComplains{margin-top: 10px; height:480px;overflow: hidden;background-color: #FFFFFF;}
 .avatar{float: left;width: 70px;height:70px;display: block;}
 .avatarPic{margin: 10px;background-color: #F0F0F0;}
 .avatarName{margin-left: 10px;background-color: #F0F0F0;font-size: 12px;}
@@ -132,11 +134,20 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 .view_complainAction a{color: #444444;float: left;width: 25%;text-align: center;border-bottom: 2px solid #CCCCCC;}
 .view_complainAction a:hover{color: #B40000;border-bottom: 2px solid #B40000;}
 .view_complainAction a li{line-height: 39px;border-left: 1px solid #CCCCCC;}
-#view_mainComplains_more{margin:10px 0;line-height: 30px;text-align: center;border: 1px solid #CCCCCC;border-radius: 4px;background-color: #FFFFFF;}
+#view_mainComplains_more{margin:10px 0;line-height: 30px;text-align: center;background-color: #FFFFFF;}
 #view_mainComplains_more:hover{border-bottom: 2px solid #B40000;}
 
 
 #view_right{width: 290px;overflow: hidden;background-color: #F6F6F6;}
-
-
+#view_researchComplains{margin: 10px 0;height: 38px;overflow: hidden;border: 1px solid #EACD2E;border-radius: 4px;}
+#view_researchComplains input{height: 100%;width: 80%;float: left;border: none;}
+#view_researchComplains button{height: 100%;width: 20%;margin: 0;padding: 0;float: left;border-style: none;border-radius: 0;background-color: #EACD2E;}
+#view_researchComplains button:hover{background-color: #B40000;}
+#view_rightNav{overflow:hidden;border: 1px solid #CCCCCC;border-radius: 4px;color: #626262;}
+#view_rightNav h3{margin: 5px 0;}
+#view_rightNav ul{padding-left: 10px;background-color: #FFFFFF;overflow: hidden;}
+#view_rightNav ul li a{color: inherit;font-size:14px ;float: left;margin: 5px;}
+#view_rightNav ul li a:hover{background-color: #B40000;color: #FFFFFF;border-radius: 4px;}
+#view_banner1{height: 190px;margin: 10px 0;background-image: url(../Images/img/368x184.jpg);}
+#view_banner2{height: 190px;background-image: url(../Images/img/reporter.jpg);}
 
