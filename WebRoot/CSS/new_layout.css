@@ -13,6 +13,7 @@ a:hover{color: #B40000;}
 .dashButtons:hover{background: #B40000;color: #FFFFFF;}
 .right{float: right;}
 .left{float: left;}
+.center{text-align: center;}
 .view_complainBorder{border: 1px solid #CCCCCC;border-radius: 4px;}
 .redLineNub{color: #B40000;text-decoration: underline;}
 
@@ -52,7 +53,7 @@ ul.problemRank_bar button{position: absolute;bottom: 5px;right: 5px;}
 #pr13{width: 50%;}
 /*index_news*/
 .index_news{height: 240px;margin-top: 10px;border-bottom: 1px solid #F0F0F0;}
-.index_news a h3{line-height: 40px;margin-bottom: 10px;padding-left: 30px;border-left: 4px solid #003399;}
+.index_news h3{line-height: 40px;margin-bottom: 10px;padding-left: 30px;text-align: left;border-left: 4px solid #003399;}
 .index_news li{line-height: 30px;text-align: center;}
 .index_news li span{color: #003399;font-weight: bold;}
 /*内容部分*/
@@ -158,15 +159,22 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 .view_rankContent li ul{overflow: hidden;}
 .view_rankNav ul{border-bottom:1px solid #CCCCCC ;padding-left: 10px;}
 .view_rankNav ul form{line-height: 29px;}
-.view_rankNav ul a{float: left;line-height: 29px;}
+.view_rankNav ul li{float: left;line-height: 29px;}
 .view_rankTitle h4,h1,h3{text-align: center;}
 .view_rankTitle h1{margin: 5px 0;}
 .view_rankTitle h3{margin-bottom: 10px;}
 .view_rankTitle p{font-size: 14px;}
 #view_rankCarpic{width: 290px;height: 140px;background-color: #CCCCCC;}
 .view_rankDetailNav ul{height: 38px;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;}
-.view_rankDetailNav ul a{float: left;padding: 0 10px;line-height: 36px;}
-.view_rankDetailNav ul a li:after{content: ;}
-.view_rankDetailNav ul a:hover{border-bottom: 2px solid #B40000;background-color: #CCCCCC;}
-.redPoint{position: absolute;background-color: #B40000;color: #FFFFFF;border-radius: 5px;padding: 0 3px;font-size: 12px;}
-
+.view_rankDetailNav ul li{float: left;padding: 0 20px;line-height: 36px;}
+/*.view_rankDetailNav ul li:after{content: "5";line-height: 15px;background-color: #B40000;color: #FFFFFF;border-radius: 5px;padding: 0 3px;font-size: 12px;position: absolute;top:0;right: 0;}
+*/
+.view_rankDetailNav ul li:hover{border-bottom: 2px solid #B40000;background-color: #CCCCCC;}
+.redPoint{line-height: 15px;background-color: #B40000;color: #FFFFFF;border-radius: 5px;padding: 0 3px;font-size: 12px;position: absolute;top:0;right: 0;}
+.tips{color: #626262; margin: 5px 20px;}
+#view_rank_Share li{float: right;margin: 5px;line-height: 32px;}
+#view_rank_Share li a{width: 32px;height: 32px;border-radius: 16px;}
+#view_rank_Share li a:hover{background-color: #D5B970;}
+#view_rank_Share li a img{width: 32px;height: 32px;}
+.view_rankChart{width: 100%;height: 340px;background-color: #253A69;}
+.view_rankContent .dashButtons{width: 190px;}
