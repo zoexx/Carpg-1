@@ -22,7 +22,7 @@ body{/*background: #D5B970;*/}
 
 
 /*--------header.html------*/
-.logo{background-image: url(../Images/img/carpg_logo.png);background-position: center;background-repeat: no-repeat;background-size: 60%;}
+.logo{background-image: url(../images/img/carpg_logo.png);background-position: center;background-repeat: no-repeat;background-size: 60%;}
 .header_black{background-color: #000000;}
 #current{}
 #current:hover{background-color: red;text-decoration: none;}
@@ -46,41 +46,41 @@ body{/*background: #D5B970;*/}
 #complaints_online{background-color: #F6F6F6;border: 1px dashed #313131;border-top: none;}
 #complaints_online li{list-style: none;}
 .problemRank{background-color: #313131;}
-.rank1 li{background-image: url(../Images/img/attention.png);background-repeat: no-repeat;background-position: 20px 20px;background-size: 20px 20px;}
-.rank2 li{background-image: url(../Images/img/ranks.png);background-repeat: no-repeat;background-position: 20px 20px;background-size: 20px 20px;}
-.rank3 li{background-image: url(../Images/img/love.png);background-repeat: no-repeat;background-position: 20px 20px;background-size: 20px 20px;}
+.rank1 li{background-image: url(../images/img/attention.png);background-repeat: no-repeat;background-position: 20px 20px;background-size: 20px 20px;}
+.rank2 li{background-image: url(../images/img/ranks.png);background-repeat: no-repeat;background-position: 20px 20px;background-size: 20px 20px;}
+.rank3 li{background-image: url(../images/img/love.png);background-repeat: no-repeat;background-position: 20px 20px;background-size: 20px 20px;}
 .problemText li a{color: #EACD2E;text-decoration: none;}
 .problemRank_bar{background-color: #F6F6F6;}
-.problemRank_bar_s1{border: none;border-radius: 4px;background-image: url(../Images/img/warningbelt.png);}
-.problemRank_bar_s3{border: none;border-radius: 4px;background-image: url(../Images/img/lovebelt.png);}
+.problemRank_bar_s1{border: none;border-radius: 4px;background-image: url(../images/img/warningbelt.png);}
+.problemRank_bar_s3{border: none;border-radius: 4px;background-image: url(../images/img/lovebelt.png);}
 .research_box_bycar{border: 1px dashed #313131;border-radius: 4px;}
 .research_box_bycar input{border: none; text-align: center;color: #626262;background-color: #F6F6F6;}
-.research_box_bycar button{border: none;background-image: url(../Images/img/research.png);background-repeat: no-repeat;background-position: center; background-color: #eacd2e;}
+.research_box_bycar button{border: none;background-image: url(../images/img/research.png);background-repeat: no-repeat;background-position: center; background-color: #eacd2e;}
 .research_box_bycar button:hover{background-color: #B40000;}
 .research_box_complaints{border: 1px dashed #313131;border-radius: 4px;}
 .research_box_complaints input{font-size: 16px;border: none;text-align: center;color: #626262;background-color: #F6F6F6;}
-.research_box_complaints button{border: none;background-image: url(../Images/img/research.png);background-repeat: no-repeat;background-position: center; background-color: #eacd2e;}
+.research_box_complaints button{border: none;background-image: url(../images/img/research.png);background-repeat: no-repeat;background-position: center; background-color: #eacd2e;}
 .research_box_complaints button:hover{background-color: #B40000;}
 
 /*------------buttons----------*/
 .dashButtons{background: #EACD2E;border: 1px dashed #313131;border-radius: 4px;text-align: center;}
 .dashButtons:hover{background: #B40000;color: #FFFFFF;}
 .button_type5{background-color: #F6F6F6;}
-.quicklook1{background-image: url(../Images/img/pics.png);background-position: 20px 10px;background-repeat: no-repeat;}
-.quicklook2{background-image: url(../Images/img/humerus.png);background-position: 20px 10px;background-repeat: no-repeat;}
-.quicklook3{background-image: url(../Images/img/horrible.png);background-position: 20px 10px;background-repeat: no-repeat;}
-.quicklook4{background-image: url(../Images/img/wellwritten.png);background-position: 20px 10px;background-repeat: no-repeat;}
-.quicklook5{background-image: url(../Images/img/right.png);background-position: 20px 10px;background-repeat: no-repeat;}
-.quicklook6{background-image: url(../Images/img/hot.png);background-position: 20px 10px;background-repeat: no-repeat;}
-.quicklook7{background-image: url(../Images/img/help.png);background-position: 20px 10px;background-repeat: no-repeat;}
-.quicklook8{background-image: url(../Images/img/media.png);background-position: 20px 10px;background-repeat: no-repeat;}
+.quicklook1{background-image: url(../images/img/pics.png);background-position: 20px 10px;background-repeat: no-repeat;}
+.quicklook2{background-image: url(../images/img/humerus.png);background-position: 20px 10px;background-repeat: no-repeat;}
+.quicklook3{background-image: url(../images/img/horrible.png);background-position: 20px 10px;background-repeat: no-repeat;}
+.quicklook4{background-image: url(../images/img/wellwritten.png);background-position: 20px 10px;background-repeat: no-repeat;}
+.quicklook5{background-image: url(../images/img/right.png);background-position: 20px 10px;background-repeat: no-repeat;}
+.quicklook6{background-image: url(../images/img/hot.png);background-position: 20px 10px;background-repeat: no-repeat;}
+.quicklook7{background-image: url(../images/img/help.png);background-position: 20px 10px;background-repeat: no-repeat;}
+.quicklook8{background-image: url(../images/img/media.png);background-position: 20px 10px;background-repeat: no-repeat;}
 /*--------------------------------index.html end----------------------------*/
 
 
 /*-----------login_re.html-------------*/
 .color_black{background: black;}
 .color_yellow{background: #D5B970;}
-.login_content{padding-top: 110px; background-image: url(../Images/img/carpg_logo.png);background-repeat: no-repeat;background-position:top center;}
+.login_content{padding-top: 110px; background-image: url(../images/img/carpg_logo.png);background-repeat: no-repeat;background-position:top center;}
 .login_input{border: 1px dashed #253A69;border-radius: 4px;}
 #varify{border: 1px dashed #253A69;border-radius: 4px;}
 #validate{border: 1px dashed #253A69;border-radius: 4px;}
@@ -104,4 +104,4 @@ body{/*background: #D5B970;*/}
 .myred{background: #B40000;}
 .blue{background: #003399;}
 .yellow{background: #EACD2E;}
-#text_forVIN{background-image: url(../Images/img/arrow.png);background-position: center top;background-repeat: no-repeat;}
+#text_forVIN{background-image: url(../images/img/arrow.png);background-position: center top;background-repeat: no-repeat;}
