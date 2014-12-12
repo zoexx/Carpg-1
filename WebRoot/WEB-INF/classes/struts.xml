@@ -14,7 +14,7 @@
 	<package name="Carpg" extends="struts-default">
 		<action name="test" class = "com.carpg.controller.TestAction">
 			<result>index.jsp</result>
-			<result name="login" >MyJsp.jsp</result>
+			<result name="test" >MyJsp.jsp</result>
 		</action>
 		
 		<action name="userOperate" class = "com.carpg.controller.UserAction">

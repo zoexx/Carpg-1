@@ -44,15 +44,19 @@ public class CarAction extends ActionSupport implements ServletRequestAware,Serv
 			
 			//将页面反馈到用户抱怨选车页面
 			//通过session中的用户信息取出用户车给到用户车列表
-			String info = (String)request.getSession().getAttribute("sessioninfo");
+			String info = (String)request.getSession().getAttribute("user");
 			int userid = Integer.valueOf(info.split("~")[1]);
 			List<User_Car> list = user_carDao.getUser_Car(userid);
 			msg = "";
 			//将取得的汽车信息拼接起来反馈给页面
-			for(int i=0; i < list.size(); i++){
+			for(int i=0; i < list.size()-1; i++){
 				msg += list.get(i).getId() +"," +list.get(i).getCar_brand()+"," +list.get(i).getCar_type();
 				msg +="~";
 			}
+			msg += list.get(list.size()-1).getId() +"," +list.get(list.size()-1).getCar_brand()+"," +list.get(list.size()-1).getCar_type();
+			System.out.println("返回的信息:" +msg);
+			//将车辆信息添加到session中
+			request.getSession().setAttribute("user_carinfo", msg);
 			return "step2";
 		}
 		return "test";
