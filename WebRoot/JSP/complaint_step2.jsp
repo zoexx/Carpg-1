@@ -5,11 +5,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <%
 	//得到返回的用户车列表信息
-	String msg = request.getParameter("msg");
+	String msg = (String)request.getSession().getAttribute("user_carinfo");
 	String[] carinfo = msg.split("~");
 	
+	
  %>
- <script type="text/javascript" src="../JS/util/js"></script>
+ <script type="text/javascript" src="../JS/util.js"></script>
  <script type="text/javascript">
  	//将用户车的信息载入到汽车选择列表
  	function loadCar(){

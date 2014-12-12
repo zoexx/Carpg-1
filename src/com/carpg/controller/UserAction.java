@@ -42,9 +42,10 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 	private String message;
 	
 	public String execute() throws Exception{
-		System.out.println(type+"  "+user.getUsername() + "  "+user.getPassword());
 		//String Newsid[] =(String []) ActionContext.getContext().getParameters().get("username");
 		//System.out.println(Newsid[0]);
+		//用来存储用户表中的id，保存在session中
+		String check = "";
 		//表示登陆操作
 		if (type.equals("loginC")){
 			//Cookie cookie = new Cookie("carpg", user.getPassword()+"~"+user.getUsername());
@@ -52,8 +53,14 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 			response.setCharacterEncoding("utf-8");
 			PrintWriter out = response.getWriter();
 			//登陆成功
-			if (userDao.checkLogin(user.getUsername(), user.getPassword())){
+			check = userDao.checkLogin(user.getUsername(), user.getPassword());
+			if (!check.equals("error")){
 				System.out.println("登陆成功");
+				//将用户信息保存在session中,用户信息为userid+user_name(别名)
+				Calendar c = Calendar.getInstance();
+				String info = c.getTimeInMillis()+"~"+check;
+				request.getSession().setAttribute("user", info);	
+				
 				out.print("success");
 			}
 			else{
@@ -63,10 +70,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 			//return LOGIN;
 			//System.out.println("Session的值为："+session.get("vcode").toString());
 		}else if (type.equals(LOGIN)){
-			//将用户信息保存在session中,用户信息为userid+user_name(别名)
-			Calendar c = Calendar.getInstance();
-			String info = c.getTimeInMillis()+"~"+user.getEmail();
-			request.getSession().setAttribute("sessioninfo", info);			
+					
 			//跳转到登陆成功页面,并将用户信息反馈到该页面，保存sessioninfo
 			return "test";
 		}
