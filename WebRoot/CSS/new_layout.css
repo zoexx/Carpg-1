@@ -178,3 +178,6 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 #view_rank_Share li a img{width: 32px;height: 32px;}
 .view_rankChart{width: 100%;height: 340px;background-color: #253A69;}
 .view_rankContent .dashButtons{width: 190px;}
+/*------------------view_rank-------end--------------*/
+/*--------------------view_news----------------------------*/
+.view_newsTitle h2{line-height: 40px;padding-left: 20px;border-bottom: 1px solid #CCCCCC;}
