@@ -66,13 +66,15 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 		}//表示是选择了吐槽车型
 		else if (types.equals(SELECT_CAR)){
 			//将选择的车型信息暂存在session中
-			msg = request.getParameter("select_car");
+			msg = request.getParameter("select_cars");
+			System.out.println("选取车型的信息"+msg);
 			request.getSession().setAttribute("user_carinfo", msg);
 			//页面跳转到第3步
 			return "step3";
 		}//表示是吐槽完成的页面
 		else if (types.equals(FINISH)){
-			
+			//先将session中存储的选择车的信息取出
+			String carinfo = (String)request.getSession().getAttribute("user_carinfo");
 		}
 		return "test";
 		
