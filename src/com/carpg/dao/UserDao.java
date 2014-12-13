@@ -4,8 +4,8 @@ import com.carpg.dto.User;
 
 public interface UserDao {
 	
-	//登陆验证,传递参数为用户名和密码
-	public boolean checkLogin(String username, String password);
+	//登陆验证,传递参数为用户名和密码,返回error表示登陆失败，返回用户id+name表示登陆成功
+	public String checkLogin(String username, String password);
 	
 	//用户名是否存在检测，主要用于前台的ajax验证
 	public boolean checkUser(String username);

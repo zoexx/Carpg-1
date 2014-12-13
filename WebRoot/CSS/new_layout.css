@@ -1,4 +1,4 @@
-
+@charset "utf-8";
 /*--------new_index.html---------*/
 
 /*通用*/
@@ -9,24 +9,16 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 li{list-style: none;}
 a{color: #000000;text-decoration: none;display: block;}
 a:hover{color: #B40000;}
-.dashButtons{background: #EACD2E;border: 1px dashed #313131;border-radius: 4px;text-align: center;}
+.dashButtons{background: #EACD2E;border: 1px solid #FFFFFF;border-radius: 4px;text-align: center;}
 .dashButtons:hover{background: #B40000;color: #FFFFFF;}
 .right{float: right;}
 .left{float: left;}
-/*gridsys*/
-#gridsysX{width: 1040px;height:40px;margin: 0 auto;}
-#gridsysX ul{margin: 0;padding: 0;position: fixed;z-index: 100;}
-#gridsysX ul li{list-style: none;line-height: 40px;width: 40px;float: left;margin-right: 10px;text-align: center;color: #FFFFFF;background: #1857DE;}
-#gridsysX ul li:last-child{margin-right: 0;}
-#gridsysY{width: 40px;height: 1040px;position: absolute;right: 70px;top: 40px;}
-#gridsysY ul{margin: 0;padding: 0;}
-#gridsysY ul li{list-style: none;line-height: 40px;width: 40px;margin-bottom: 10px;text-align: center;color: #666666;background: #CCCCCC;}
-#gridsysY ul li:last-child{margin-bottom: 0;}
-
-
+.center{text-align: center;}
+.view_complainBorder{border: 1px solid #CCCCCC;border-radius: 4px;}
+.redLineNub{color: #B40000;text-decoration: underline;}
 
 #header{height:100px;position: relative;}
-#header ul{height: 90px;width: 100%;position: fixed;margin: 0 auto;background-color: #FFFFFF;z-index: 100;}
+#header ul{height: 90px;width: 1040px;position: fixed;margin: 0 auto;z-index: 100;background-color: #FFFFFF;-moz-box-shadow: 0px 2px 2px #888888; /* 老的 Firefox */box-shadow: 0px 2px 2px #888888;}
 #header ul li{line-height: 86px;list-style: none;float: left;width: 90px;text-align: center;margin-right: 10px;
               font-size: 22px;}             
 #header ul li:first-child{width: 290px;height: 90px;}
@@ -34,14 +26,14 @@ a:hover{color: #B40000;}
 #header ul li a:hover{border-bottom: 4px solid #B40000;}
 
 /*banner*/
-#index_banner{float: left;height: 340px;width: 690px;background-image: url(../Images/img/carpg1.jpg);background-size: 100% 100%;background-repeat: no-repeat;background-color: #CCCCCC;position: relative;}
-#index_banner ul{position: absolute;bottom: 0;width: 100%;overflow: hidden;background-image: url(../Images/img/index_bannerBak.png);background-repeat:repeat-x;}
+#index_banner{float: left;height: 340px;width: 690px;margin-bottom: 10px;background-image: url(../images/img/carpg1.jpg);background-size: 100% 100%;background-repeat: no-repeat;background-color: #CCCCCC;position: relative;}
+#index_banner ul{position: absolute;bottom: 0;width: 100%;overflow: hidden;background-image: url(../images/img/index_bannerBak.png);background-repeat:repeat-x;}
 #index_banner ul li{float: left;list-style: none;height: 40px;width: 90px;overflow: hidden;}
 #index_banner ul li a img{opacity:0.6;filter:alpha(opacity=60); /* 针对 IE8 以及更早的版本 */}
 #index_banner ul li a img:hover{opacity:1;filter:alpha(opacity=100);border-top: 2px solid #0000FF;}
 /*未完成*/
 /*排行榜*/
-#index_rank{width: 340px;height: 940px;}
+.index_rank{width: 340px;height: 940px;}
 .problemRank{position: relative;height: 148px;overflow: hidden;zoom: 1;border: 1px solid #CCCCCC;}
 .rankMid{margin: 20px 0;}
 .problemRank a{color: #000000;}
@@ -51,7 +43,9 @@ a:hover{color: #B40000;}
 ul.problemRank_text{width: 140px;height: 106px;text-align: center;float: left;}
 ul.problemRank_text li a h5,h6{font-weight: bold;}
 ul.problemRank_bar{width: 190px;float: right;background-color: #CCCCCC;}
-ul.problemRank_bar li{height: 23px;border-radius: 4px;margin: 10px 0;background-image: url(../Images/img/warningbelt.png);}
+.warningRank li{background-image: url(../images/img/warningbelt.png);}
+.loveRank li{background-image: url(../images/img/lovebelt.png);}
+ul.problemRank_bar li{height: 23px;border-radius: 4px;margin: 10px 0;}
 ul.problemRank_bar button{position: absolute;bottom: 5px;right: 5px;}
 /*problemRank_bars*/
 #pr11{width: 80%;}
@@ -59,11 +53,11 @@ ul.problemRank_bar button{position: absolute;bottom: 5px;right: 5px;}
 #pr13{width: 50%;}
 /*index_news*/
 .index_news{height: 240px;margin-top: 10px;border-bottom: 1px solid #F0F0F0;}
-.index_news a h3{line-height: 40px;margin-bottom: 10px;padding-left: 30px;border-left: 4px solid #003399;}
+.index_news h3{line-height: 40px;margin-bottom: 10px;padding-left: 30px;text-align: left;border-left: 4px solid #003399;}
 .index_news li{line-height: 30px;text-align: center;}
 .index_news li span{color: #003399;font-weight: bold;}
 /*内容部分*/
-#index_content{width: 690px;margin-top: 10px;overflow: hidden;}
+.index_content{width: 690px;overflow: hidden;background-color: #F0F0F0;}
 #index_hotCars{height: 140px;overflow: hidden;position: relative;background: #F9F9F9;}
 #index_hotCars h3{font-weight: bold;line-height: 30px;}
 #index_hotCars li{float: left;line-height: 30px;width: 50px;text-align: center;}
@@ -76,14 +70,14 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 #index_quickBtns a{float: left;width: 33.3%;}
 #index_quickBtns a li{width: 90%;margin:5px 5%;height: 39px;}
 /*按钮背景图标*/
-.quicklook1{background-image: url(../Images/img/pics.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
-.quicklook2{background-image: url(../Images/img/humerus.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
-.quicklook3{background-image: url(../Images/img/horrible.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 12%;}
-.quicklook4{background-image: url(../Images/img/wellwritten.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
-.quicklook5{background-image: url(../Images/img/right.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
-.quicklook6{background-image: url(../Images/img/hot.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
-.quicklook7{background-image: url(../Images/img/help.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
-.quicklook8{background-image: url(../Images/img/media.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
+.quicklook1{background-image: url(../images/img/pics.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
+.quicklook2{background-image: url(../images/img/humerus.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
+.quicklook3{background-image: url(../images/img/horrible.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 12%;}
+.quicklook4{background-image: url(../images/img/wellwritten.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
+.quicklook5{background-image: url(../images/img/right.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
+.quicklook6{background-image: url(../images/img/hot.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
+.quicklook7{background-image: url(../images/img/help.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
+.quicklook8{background-image: url(../images/img/media.png);background-position: 5px 5px;background-repeat: no-repeat;background-size: 14%;}
 
 #index_carMarket{margin-top:10px;overflow: hidden;height: 150px;margin-bottom: 20px;}
 #index_carMarket h3{font-weight: bold;line-height: 30px;}
@@ -106,3 +100,84 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 .copyright{width: 100%;height: 50px;text-align: center;}
 .copyright ul{width: 450px;margin: 10px auto;}
 .copyright ul li{float: left;width: 20%;display: block;text-align: center;}
+
+
+/*index.html--end*/
+
+/*----------------------view_complain.html-----------------------------------*/
+#view_left{width: 190px;overflow: hidden;background-color: #F6F6F6;margin-right: 10px;}
+#view_left ul a li{padding-left: 50px;line-height: 20px;margin: 10px 0;}
+#view_left ul a:hover{color: #444444;background-color: #CCCCCC;}
+
+#view_main{width: 540px;overflow: hidden;background-color: #F6F6F6;margin-right: 10px;}
+#view_mainNav{width: 100%;height: 39px;margin-top: 10px;}
+#view_mainNav ul li{margin-left: 10px;float: left;height: 37px;border-bottom: 2px solid #B40000;border-radius: 4px;}
+#view_mainRule {margin: 10px 0;background-color: #FFFFFF;}
+#view_mainRule a{margin-left: 10px;line-height: 19px;}
+#view_mainRule:hover{border-bottom: 2px solid #B40000;}
+#view_mainChooseTime{overflow: hidden;}
+#view_mainChooseTime ul{height: 40px;background-color: #FFFFFF;}
+#view_mainChooseTime ul a li {float: left;margin-left: 10px;line-height: 38px;border-bottom: 2px solid #B40000;}
+.view_mainComplains{margin-top: 10px; height:480px;overflow: hidden;background-color: #FFFFFF;}
+.avatar{float: left;width: 70px;height:70px;display: block;}
+.avatarPic{margin: 10px;}
+.avatarName{margin-left: 5px;font-size: 12px;text-align: center;}
+.view_complainContent{width: 450px;float: right;}
+.view_complainContent h4{margin: 10px 0;}
+.view_complainTips{overflow: hidden;}
+.view_complainTips li{margin-right: 10px;margin-bottom:5px;float: left;border-radius: 4px;font-size: 12px;color: #F9F9F9;background-color: #253A69;}
+.view_complainContent p{display: block;text-indent: 2em;margin: 5px 0;border-left: 2px solid #CCCCCC;padding-left: 5px;}
+.view_complainPhoto{height: 70px;overflow: hidden;}
+.view_complainPhoto li{opacity:0.8;filter:alpha(opacity=80);width: 65px;height:65px;margin-left:5px;float: left;overflow: hidden;border-radius: 4px;}
+.view_complainPhoto li img{width: 100%;}
+/*.view_complainPhoto li:first-child{opacity:1;filter:alpha(opacity=100);}*/
+.view_complainPhoto li:hover{opacity:1;filter:alpha(opacity=100);border: 1px solid #CCCCCC;}
+.view_complainAction{border-top: 1px solid #CCCCCC;}
+.view_complainAction a{color: #444444;float: left;width: 25%;text-align: center;border-bottom: 2px solid #CCCCCC;}
+.view_complainAction a:hover{color: #B40000;border-bottom: 2px solid #B40000;}
+.view_complainAction a li{line-height: 39px;border-left: 1px solid #CCCCCC;}
+#view_mainComplains_more{margin:10px 0;line-height: 30px;text-align: center;background-color: #FFFFFF;}
+#view_mainComplains_more:hover{border-bottom: 2px solid #B40000;}
+
+
+.view_right{width: 290px;overflow: hidden;background-color: #F6F6F6;}
+#view_researchComplains{margin: 10px 0;height: 38px;overflow: hidden;border: 1px solid #EACD2E;border-radius: 4px;}
+#view_researchComplains input{height: 100%;width: 80%;float: left;border: none;}
+#view_researchComplains button{height: 100%;width: 20%;margin: 0;padding: 0;float: left;border-style: none;border-radius: 0;background-color: #EACD2E;}
+#view_researchComplains button:hover{background-color: #B40000;}
+#view_rightNav{overflow:hidden;border: 1px solid #CCCCCC;border-radius: 4px;color: #626262;}
+#view_rightNav h3{margin: 5px 0;}
+#view_rightNav ul{padding-left: 10px;background-color: #FFFFFF;overflow: hidden;}
+#view_rightNav ul li a{color: inherit;font-size:14px ;float: left;margin: 5px;}
+#view_rightNav ul li a:hover{background-color: #B40000;color: #FFFFFF;border-radius: 4px;}
+#view_banner1{height: 190px;margin: 10px 0;background-image: url(../images/img/368x184.jpg);}
+#view_banner2{height: 190px;background-image: url(../images/img/reporter.jpg);}
+/*-------------------------view_complain.html-----end------------------------*/
+/*------------------------view_rank.html-----------------------------------*/
+.view_rankLeft{width:740px;background-color: #F0F0F0;overflow: hidden;}
+.view_rankContent li{overflow: hidden;}
+.view_rankContent li ul{overflow: hidden;}
+.view_rankNav ul{border-bottom:1px solid #CCCCCC ;padding-left: 10px;}
+.view_rankNav ul form{line-height: 29px;}
+.view_rankNav ul li{float: left;line-height: 29px;}
+.view_rankTitle h4,h1,h3{text-align: center;}
+.view_rankTitle h1{margin: 5px 0;}
+.view_rankTitle h3{margin-bottom: 10px;}
+.view_rankTitle p{font-size: 14px;}
+#view_rankCarpic{width: 290px;height: 140px;background-color: #CCCCCC;}
+.view_rankDetailNav ul{height: 38px;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;}
+.view_rankDetailNav ul li{float: left;padding: 0 20px;line-height: 36px;}
+/*.view_rankDetailNav ul li:after{content: "5";line-height: 15px;background-color: #B40000;color: #FFFFFF;border-radius: 5px;padding: 0 3px;font-size: 12px;position: absolute;top:0;right: 0;}
+*/
+.view_rankDetailNav ul li:hover{border-bottom: 2px solid #B40000;background-color: #CCCCCC;}
+.redPoint{line-height: 15px;background-color: #B40000;color: #FFFFFF;border-radius: 5px;padding: 0 3px;font-size: 12px;position: absolute;top:0;right: 0;}
+.tips{color: #626262; margin: 5px 20px;}
+#view_rank_Share li{float: right;margin: 5px;line-height: 32px;}
+#view_rank_Share li a{width: 32px;height: 32px;border-radius: 16px;}
+#view_rank_Share li a:hover{background-color: #D5B970;}
+#view_rank_Share li a img{width: 32px;height: 32px;}
+.view_rankChart{width: 100%;height: 340px;background-color: #253A69;}
+.view_rankContent .dashButtons{width: 190px;}
+/*------------------view_rank-------end--------------*/
+/*--------------------view_news----------------------------*/
+.view_newsTitle h2{line-height: 40px;padding-left: 20px;border-bottom: 1px solid #CCCCCC;}

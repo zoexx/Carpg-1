@@ -41,7 +41,7 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 		//表示是准备吐槽的的请求
 		if (types.equals(COMPLAINT)){
 			//根据session判断用户是否登陆
-			String info = (String)request.getSession().getAttribute("sessioninfo");
+			String info = (String)request.getSession().getAttribute("user");
 			//如果session为空则表示为登陆
 			if (null == info){
 				//重定向到登陆界面
@@ -52,22 +52,29 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 				List<User_Car> list = user_carDao.getUser_Car(userid);
 				msg = "";
 				//将取得的汽车信息拼接起来反馈给页面
-				for(int i=0; i < list.size(); i++){
+				for(int i=0; i < list.size()-1; i++){
 					msg += list.get(i).getId() +"," +list.get(i).getCar_brand()+"," +list.get(i).getCar_type();
 					msg +="~";
 				}
+				msg += list.get(list.size()-1).getId() +"," +list.get(list.size()-1).getCar_brand()+"," +list.get(list.size()-1).getCar_type();
+				System.out.println("返回的信息:" +msg);
+				//将车辆信息添加到session中
+				request.getSession().setAttribute("user_carinfo", msg);
 				//跳转到吐槽第二步
 				return "step2";
 			}
 		}//表示是选择了吐槽车型
 		else if (types.equals(SELECT_CAR)){
-			//将选择的车型信息回馈到第3步的页面
-			msg = request.getParameter("select_car");
+			//将选择的车型信息暂存在session中
+			msg = request.getParameter("select_cars");
+			System.out.println("选取车型的信息"+msg);
+			request.getSession().setAttribute("user_carinfo", msg);
 			//页面跳转到第3步
 			return "step3";
 		}//表示是吐槽完成的页面
 		else if (types.equals(FINISH)){
-			
+			//先将session中存储的选择车的信息取出
+			String carinfo = (String)request.getSession().getAttribute("user_carinfo");
 		}
 		return "test";
 		

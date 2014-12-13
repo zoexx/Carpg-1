@@ -72,9 +72,9 @@ public class UserImpl implements UserDao {
 		return ok;
 	}
 
-	public boolean checkLogin(String username, String password) {
+	public String checkLogin(String username, String password) {
 		// TODO Auto-generated method stub
-		boolean ok = false;
+		String i = "error";
 		//需要添加MD5加密的过程
 		String psw = Tools.getMD5(password);
 		System.out.println("密码："+psw);
@@ -87,14 +87,16 @@ public class UserImpl implements UserDao {
 			rs = pstmt.executeQuery();
 			//找到用户
 			if (rs.next()){
-				ok = true;
+				//得到用户表中的id
+				i = String.valueOf(rs.getInt("id")) + "~" + rs.getString("name");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		DBHelper.close(rs, pstmt);
-		return ok;
+		System.out.println("用户id："+i);
+		return i;
 	}
 
 	public boolean backPsw(String email) {
