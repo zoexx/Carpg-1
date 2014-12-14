@@ -22,9 +22,16 @@ a:hover{color: #B40000;}
 #header ul li{line-height: 86px;list-style: none;float: left;width: 90px;text-align: center;margin-right: 10px;
               font-size: 22px;}             
 #header ul li:first-child{width: 290px;height: 90px;}
-#header ul li:last-child{font-size: 12px;line-height: 43px;}
+#header ul li:last-child{font-size: 12px;line-height: 43px;line-height: 43px;}
 #header ul li a:hover{border-bottom: 4px solid #B40000;}
-
+#header_function{width: 140px;float: right;line-height: 43px;}
+#header_function a:hover{border-bottom: 4px solid #B40000;}
+#global_Research{height: 20px;}
+#global_Research input,button{line-height: 20px;margin: 0;padding: 0;}
+#global_Research input{width: 100px;}
+#global_Research button{}
+#header_showlogre{text-align: center;}
+#header_showUserName{text-align: center;}
 /*banner*/
 #index_banner{float: left;height: 340px;width: 690px;margin-bottom: 10px;background-image: url(../images/img/carpg1.jpg);background-size: 100% 100%;background-repeat: no-repeat;background-color: #CCCCCC;position: relative;}
 #index_banner ul{position: absolute;bottom: 0;width: 100%;overflow: hidden;background-image: url(../images/img/index_bannerBak.png);background-repeat:repeat-x;}
