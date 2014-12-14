@@ -178,3 +178,22 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 #view_rank_Share li a img{width: 32px;height: 32px;}
 .view_rankChart{width: 100%;height: 340px;background-color: #253A69;}
 .view_rankContent .dashButtons{width: 190px;}
+/*------------------view_rank-------end--------------*/
+/*--------------------view_news----------------------------*/
+.view_newsTitle h2{line-height: 40px;padding-left: 20px;border-bottom: 1px solid #CCCCCC;}
+.newsPreContent{height: 220px;overflow: hidden;margin-bottom: 20px;border-bottom: 1px solid #CCCCCC;background-color: #F9F9F9;}
+.newsPreContent span{line-height: 40px;font-size: 14px;margin: 0 5px;}
+.newsPreContent p{overflow: hidden;}
+.newsCategory{font-weight: bold;color: #003399;}
+.newsGrey{color: #888888;}
+.newsSmallPic{width: 240px;height: 140px;margin: 0 10px;}
+.newsPreText h5{text-indent: 20px;}
+.view_newsTurning button{line-height: 30px;}
+/*--------------------newsDetail--------------------*/
+.newsDetail{width: 590px;margin:10px 50px;}
+.newsDetailContent h2{line-height: 60px;}
+.newsDetailContent p{text-indent: 2em;}
+.newsInteraction{border-bottom: 1px solid #CCCCCC;}
+.newsInteraction a{margin: 10px;}
+.newsAuthor p{margin: 5px 50px;font-weight: bold;}
+.newsAuthor img{margin: 10px 50px;}
