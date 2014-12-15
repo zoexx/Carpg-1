@@ -98,12 +98,6 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 		}
 		return null;
 	}
-	
-	public String MyJson() throws Exception{
-		message = "Ajax";
-		return "login";
-		
-	}
 
 	public String getType() {
 		return type;
