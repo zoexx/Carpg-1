@@ -31,10 +31,7 @@ body{/*background: #D5B970;*/}
 .main_nav ul li a:hover{background: #000000;color: #FFFFFF;text-decoration: none;border-bottom: 4px solid #0000FF;}
 
 /*----------footer.html-------*/
-.foot{color: dimgrey;background: #000000;}
-.media li a{color: dimgrey;}
-.copyright{border-top: 3px solid #B40000;}
-.copyright ul li a{color: dimgrey;}
+
 
 /*--------index.html-------*/
 #index_banner{background: #D5B970;}

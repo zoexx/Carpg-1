@@ -12,4 +12,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		loginUsername = temp[2];	
 	}
  %>
+ <script src="../JS/util.js" type="text/javascript" charset="utf-8"></script>
+ <script type="text/javascript">
+ 	//显示用户登录状态
+ 	function showUser(){
+ 		var username = "<% =loginUsername%>";
+ 		if (username != ""){
+ 			document.getElementById("")
+ 		}
+ 	}
+ 	addLoadEvent(showUser);
+ </script>
 <jsp:include page="../HTML/header.html"></jsp:include>
