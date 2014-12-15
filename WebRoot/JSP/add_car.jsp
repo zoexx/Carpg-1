@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function doCheck(){
 		//将汽车品牌中的汉字和车型转化为汉字
 		changeToBrand();
-		document.getElementById("form").action="carOperate";
+		document.getElementById("form").action="carOperate!addUserCar";
 		document.getElementById("form").submit();
 	}
 	//将汽车品牌中的汉字和车型转化为汉字

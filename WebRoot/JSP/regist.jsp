@@ -4,9 +4,9 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 //得到用户信息
-String name = request.getParameter("name");
-String email = request.getParameter("email");
-String psw = request.getParameter("password");
+String name = (String)request.getAttribute("email");
+String email = (String)request.getAttribute("email");
+String psw = (String)request.getAttribute("password");
 %>
 <script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="../JS/Address/Address.js"></script>
@@ -61,7 +61,7 @@ String psw = request.getParameter("password");
   function doCheck(){
   	//将地区码转变为对应的文字
   	changeToText();
-  	document.getElementById("login_reg").action="userOperate";
+  	document.getElementById("login_reg").action="userOperate!regist";
 	document.getElementById("login_reg").submit();
   }
 </script>

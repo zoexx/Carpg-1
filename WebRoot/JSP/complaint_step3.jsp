@@ -37,7 +37,7 @@ function doCheck () {
 		alert("您的详细经过将更有助于维护您的权益，请填写事件的详细经过");
 		return false;
 	}
-	document.getElementById("form").action="complaintOperate";
+	document.getElementById("form").action="complaintOperate!complaintStep3";
 	document.getElementById("form").submit();
 }
 </script>

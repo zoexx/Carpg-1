@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function checkLogin() {
 		var v = document.getElementById("email").value;
 		var p = document.getElementById("password").value;
-		send_request("GET","userOperate?type=loginC&username="+v+"&password="+p, null, "text", showBack);
+		send_request("GET","../servlet/AjaxServlet.sl?type=login&username="+v+"&password="+p, null, "text", showBack);
 	}
 	function showBack(){
 		if (http_request.readyState == 4){
@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				var temp = http_request.responseText;
 				if (temp == "success"){
 					//登陆成功跳转
-					document.getElementById("login_reg").action="userOperate";
+					document.getElementById("login_reg").action="userOperate!login";
 				    document.getElementById("login_reg").submit();
 				}else if (temp == "fail"){
 					//给出页面提示
@@ -77,20 +77,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	var u = document.getElementById("email");
         if(u.value!="") {
             //document.getElementById("feedback").innerHTML = "系统正在处理您的请求，请稍后。";
-            send_request("GET","../servlet/AjaxServlet.sl?username="+u.value,null,"text",showFeedbackInfo);
+            send_request("GET","../servlet/AjaxServlet.sl?type=username&username="+u.value,null,"text",showFeedbackInfo);
         }
 	}
 	function showFeedbackInfo() {
     	if (http_request.readyState == 4) { // 判断对象状态
         	if (http_request.status == 200) { // 信息已经成功返回，开始处理信息
             	document.getElementById("check_email").value = http_request.responseText;
-            	if (document.getElementById("check_email").value == "false"){
+            	if (document.getElementById("check_email").value == "fail"){
             		document.getElementById("email").value = "该邮箱已经被注册";
             		return false;
             	}
-            	else if (document.getElementById("check_email").value == "true"){
+            	else if (document.getElementById("check_email").value == "success"){
             		//跳转到注册详细页面
-					document.getElementById("login_reg").action="userOperate";
+					document.getElementById("login_reg").action="userOperate!loginRe";
 				    document.getElementById("login_reg").submit();
             	}
         	} else { //页面不正常

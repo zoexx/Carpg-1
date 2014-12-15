@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  			alert("请选择一辆吐槽的车辆");
  			return false;
  		}else {
- 			document.getElementById("form").action = "complaintOperate";
+ 			document.getElementById("form").action = "complaintOperate!complaintStep2";
  			document.getElementById("form").submit();
  			return true;
  		}
