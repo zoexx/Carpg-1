@@ -16,11 +16,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <script type="text/javascript">
  	//显示用户登录状态
  	function showUser(){
- 		var username = "<% =loginUsername%>";
+ 		//var username = "<%= loginUsername%>";
+ 		var username="123";
  		if (username != ""){
- 			document.getElementById("")
+ 			document.getElementById("UserName").innerHTML=""+username;
+ 			document.getElementById("header_showUserName").hidden=false;
+ 		}else{
+ 			document.getElementById("header_log_re").hidden=false;
  		}
  	}
+ 	
  	addLoadEvent(showUser);
  </script>
 <jsp:include page="../HTML/header.html"></jsp:include>

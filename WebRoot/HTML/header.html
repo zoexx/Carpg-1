@@ -7,6 +7,24 @@
 		<meta name="keywords" content="车曝网,汽车,轿车,二手车,曝光,质量,驾驶安全,反馈,调查报告,数据分析,召回,拍卖,竞价,消费者权益,315,车"/>
 		<meta name="description" content="车曝网是国内首家收集整理车主驾驶体验信息的完全公开完全开放的民间网站，车曝网为广大车主以及准车主提供大量汽车质量的数据分析服务以及二手车交易信息服务。" />
 		<link rel="stylesheet" href="../CSS/new_layout.css" />
+		<script type="text/javascript">
+			function onShowIframe (showHref) {
+				var iframe = document.createElement("iframe");
+                iframe.src = ""+showHref;
+                iframe.name="myiframe";
+                iframe.scrolling="no";
+                var closeBtn=document.createElement("button");
+                closeBtn.innerHTML="X";
+                //closeBtn.onclick=closeIframe();
+                closeBtn.id="closeBtn";
+                closeBtn.className="dashButtons";
+                var DIVoverlay_mask=document.createElement("div");
+                DIVoverlay_mask.id="overlay_mask";
+                iframe.appendChild(closeBtn);
+                document.getElementById("header").parentNode.appendChild(iframe);
+                document.getElementById("header").parentNode.appendChild(DIVoverlay_mask);	
+ 	    }
+		</script>
 	</head>
 	<body>
 		<div id="header" class="global_content">
@@ -16,27 +34,22 @@
  			    <li><a href="#">缺陷排行</a></li>
  				<li><a href="#">缺陷调查</a></li>
  				<li><a href="#">二手车市</a></li>
- 				<li><a href="complaint_step1.jsp">我要吐槽</a></li>
+ 				<li><a onclick="onShowIframe('complain1.html');">我要吐槽</a></li>
  				<li><a href="#">召&nbsp;&nbsp;回</a></li>
 				<div id="header_function">		
-					<form action="" method="post" id="global_Research" class="view_complainBorder">		
+					<form action="" method="post" id="global_Research">		
 						<input type="search" value="搜索您关心的"/>
 						<button type="submit" class="dashButtons"><img src="../images/img/research.png"/></button>
 					</form>
-					<div id="header_showlogre">
-					<a href="login.jsp" id="header_log_re">登录&nbsp;|&nbsp;注册</a>	
+					<div id="header_showlogre" hidden="hidden">
+					    <a href="login.jsp" id="header_log_re">登录&nbsp;|&nbsp;注册</a>	
 					</div>
-					<div  id="header_showUserName">
-						<a href="" >
-						<span id="UserName">
-							admin
-						</span>
-						&nbsp;|&nbsp;
-						你好
-					</a>
+					<div  id="header_showUserName" hidden="hidden">
+						<a href="" ><span id="UserName">admin</span>&nbsp;|&nbsp;你好	</a>
 					</div>
 				</div>
 			</ul>
 		</div>
+		
 	</body>
 </html>
