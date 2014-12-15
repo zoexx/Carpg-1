@@ -17,6 +17,7 @@ public class Complaint {
 	private String mark;
 	
 	private String car_brand;
+	private String car_type;
 	public int getId() {
 		return id;
 	}
@@ -100,6 +101,12 @@ public class Complaint {
 	}
 	public void setCar_brand(String car_brand) {
 		this.car_brand = car_brand;
+	}
+	public String getCar_type() {
+		return car_type;
+	}
+	public void setCar_type(String car_type) {
+		this.car_type = car_type;
 	}
 	
 

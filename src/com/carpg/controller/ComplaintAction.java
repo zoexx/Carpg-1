@@ -56,7 +56,7 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 			return "step2";
 		}		
 	}
-	////表示是选择了吐槽车型(吐槽第二步)
+	//表示是选择了吐槽车型(吐槽第二步)
 	public String complaintStep2() throws Exception{
 		//将选择的车型信息暂存在session中
 		msg = request.getParameter("select_cars");
@@ -67,8 +67,19 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 	}
 	//表示完成吐槽的处理操作(吐槽第3步，完成)
 	public String complaintStep3() throws Exception{
-		//先将session中存储的选择车的信息取出
+		//先将session中存储的选择车的信息和用户的信息取出取出
 		String carinfo = (String)request.getSession().getAttribute("user_carinfo");
+		String userinfo = (String)request.getSession().getAttribute("user");
+		int userid = Integer.valueOf(userinfo.split("~")[1]);
+		String username = userinfo.split("~")[2];
+		//将抱怨信息封装到complaint类中
+		complaint.setUser_id(userid);
+		complaint.setUser_name(username);
+		complaint.setUser_car_id(Integer.valueOf(carinfo.split(",")[0]));
+		complaint.setCar_brand(carinfo.split(",")[1]);
+		complaint.setCar_type(carinfo.split(",")[2]);
+		//添加抱怨信息
+		comDao.addComplaint(complaint);
 		return "index";
 	}
 	public void setServletRequest(HttpServletRequest arg0) {

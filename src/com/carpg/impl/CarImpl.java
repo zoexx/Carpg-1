@@ -22,8 +22,11 @@ public class CarImpl implements CarDao {
 		
 	}
 
-	public void addCar(Car car) {
+	public int addCar(Car car) {
 		// TODO Auto-generated method stub
+		int i = -1;
+		PreparedStatement pstmt1=null;
+		ResultSet rs1 = null;
 		conn = DBHelper.getConn();
 		sql = "insert into car value(null,?,?,?,?,?,?,?,?,?)";
 		try {
@@ -38,12 +41,19 @@ public class CarImpl implements CarDao {
 			pstmt.setString(8, car.getTransmission());
 			pstmt.setString(9, car.getStandard());
 			pstmt.executeUpdate();
+			sql = "select max(id) from car";
+			pstmt1 = conn.prepareStatement(sql);
+			rs1 = pstmt1.executeQuery();
+			while (rs.next()){
+				i = rs.getInt(1);
+			}		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		DBHelper.close(rs, pstmt);
-
+		DBHelper.close(rs1, pstmt1);
+		return i;
 	}
 
 	public List<Car> getCars() {

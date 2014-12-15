@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var serial = document.getElementById("serial");
 		//找到对应的汉字
 		var b = brand.selectedOptions[0].innerHTML.split('-')[1];
-		var s = serial.selectedOptions[0].innerHTML;
+		var s = serial.selectedOptions[0].innerHTML.replace('&nbsp;&nbsp;','');
 		document.getElementById("brands").value = b;
 		document.getElementById("car_type").value = s;
 	}

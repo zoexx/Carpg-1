@@ -12,7 +12,7 @@ public interface CarDao {
 	//判断当前车型是否存在
 	public boolean isExist(Car car);
 	
-	//添加车型
-	public void addCar(Car car);
+	//添加车型,返回车的id
+	public int addCar(Car car);
 
 }

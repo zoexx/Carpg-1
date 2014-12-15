@@ -20,8 +20,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 public class CarAction extends ActionSupport implements ServletRequestAware,ServletResponseAware,ModelDriven<Car>{
-
-	private static String ADD_CAR = "add_car";
 	
 	private HttpServletResponse response;  
 	private HttpServletRequest request;  
@@ -35,12 +33,29 @@ public class CarAction extends ActionSupport implements ServletRequestAware,Serv
 	//表示在抱怨页面添加新的用户车辆
 	public String addUserCar() throws Exception{
 		System.out.println("添加新的车辆"+car.getBrand()+"  "+car.getCar_type());
-		//添加新的用户车辆
-		
-		//将页面反馈到用户抱怨选车页面
+		System.out.println("添加新的车辆"+user_car.getVin()+"  "+user_car.getColor());
+		//向车辆库中添加新的车辆
+		int carId = carDao.addCar(car);
 		//通过session中的用户信息取出用户车给到用户车列表
 		String info = (String)request.getSession().getAttribute("user");
 		int userid = Integer.valueOf(info.split("~")[1]);
+		String username = info.split("~")[2];
+		
+		//将表单中的信息封装到user_car类中
+		user_car.setUser_id(userid);
+		user_car.setUser_name(username);
+		user_car.setCar_id(carId);
+		user_car.setCar_brand(car.getBrand());
+		user_car.setCar_type(car.getCar_type());
+		user_car.setVin(request.getParameter("vin"));
+		user_car.setColor(request.getParameter("color"));
+		user_car.setBuy_time(request.getParameter("buy_time"));
+		user_car.setMileage(Integer.valueOf(request.getParameter("mileage")));
+		user_car.setRemark(request.getParameter("remark"));
+		//向用户车库中添加新的用户车
+		user_carDao.addUser_Car(user_car);
+		
+		//将页面反馈到用户抱怨选车页面	
 		List<User_Car> list = user_carDao.getUser_Car(userid);
 		msg = "";
 		//将取得的汽车信息拼接起来反馈给页面
