@@ -2,11 +2,15 @@ package com.carpg.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.carpg.dao.UserDao;
+import com.carpg.impl.UserImpl;
 
 public class AjaxServlet extends HttpServlet {
 
@@ -42,14 +46,44 @@ public class AjaxServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		String username = request.getParameter("username");
-		if (username.equals("yan")){
-			//out.println("用户名称["+username+"]已经被注册，请更换其他用户名称再注册。");
-			out.println("false");
+		//得到需要处理的ajax的业务类型,包括验证用户名是否存在，登陆，验证码的处理
+		String type = request.getParameter("type");
+		String ok = "fail";
+		//表示是验证用户名是否存在的操作
+		if (type.equals("username")){
+			String username = request.getParameter("username");
+			if (!username.equals("yan")){
+				//out.println("用户名称["+username+"]已经被注册，请更换其他用户名称再注册。");
+				ok = "success";
+			}
+		}//表示是利用ajax验证登陆的操作
+		else if (type.equals("login")){
+			String check = "";
+			//登陆成功
+			UserDao userDao = new UserImpl();
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			check = userDao.checkLogin(username, password);
+			if (!check.equals("error")){
+				System.out.println("登陆成功");
+				//将用户信息保存在session中,用户信息为userid+user_name(别名)
+				Calendar c = Calendar.getInstance();
+				String info = c.getTimeInMillis()+"~"+check;
+				request.getSession().setAttribute("user", info);	
+				ok = "success";
+			}
+			
+		}//表示是验证码的处理操作
+		else if (type.equals("vcode")){
+			//得到填写的验证码
+			String verifyTemp = request.getParameter("verify");
+			//获取系统中生成的验证码
+			String verify = (String)request.getSession().getAttribute("vcode");
+			if (verify.equals(verifyTemp)){
+				ok = "success";
+			}
 		}
-		else{
-			out.println("true");
-		}
+		out.print(ok);
 		out.flush();
 		out.close();
 	}
