@@ -9,17 +9,17 @@ import java.sql.SQLException;
 
 public class DBHelper {
 	
-	// Çı¶¯³ÌĞòÃû
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private final static String driver = "com.mysql.jdbc.Driver";
-    // URLÖ¸ÏòÒª·ÃÎÊµÄÊı¾İ¿âÃûscutcs
+    // URLÖ¸ï¿½ï¿½Òªï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½scutcs
     private final static String url = "jdbc:mysql://localhost:3306/carpg?useUnicode=true&characterEncoding=utf-8";
-    // MySQLÅäÖÃÊ±µÄÓÃ»§Ãû
+    // MySQLï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
     private final static String user = "root"; 
-    // MySQLÅäÖÃÊ±µÄÃÜÂë
-    private final static String password = "123456";
+    // MySQLï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private final static String password = "carpg";
     private static Connection conn = null;
     
-    // Ò»¸öÁ¬½Ó¶ÔÏó
+    // Ò»ï¿½ï¿½lï¿½Ó¶ï¿½ï¿½ï¿½
 	public static Connection getConn() {
 		try {
 			Class.forName(driver);
@@ -27,12 +27,12 @@ public class DBHelper {
 					password);
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Á¬½ÓÊ§°Ü");
+			System.out.println("lï¿½ï¿½Ê§ï¿½ï¿½");
 		}
 		return conn;
 	}
 	
-	// ¹Ø±ÕÁ¬½Ó
+	// ï¿½Ø±ï¿½lï¿½ï¿½
 	public static void close(ResultSet rs, PreparedStatement pstmt) {
 		if (null != rs){
 			try {

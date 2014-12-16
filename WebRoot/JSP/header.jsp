@@ -16,8 +16,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <script type="text/javascript">
  	//显示用户登录状态
  	function showUser(){
- 		//var username = "<%= loginUsername%>";
- 		var username="123";
+ 		var username = "<%= loginUsername%>";
+ 		//var username="123";
  		if (username != ""){
  			document.getElementById("UserName").innerHTML=""+username;
  			document.getElementById("header_showUserName").hidden=false;
