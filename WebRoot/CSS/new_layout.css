@@ -9,7 +9,10 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 li{list-style: none;}
 a{color: #000000;text-decoration: none;display: block;}
 a:hover{color: #B40000;}
-iframe{width: 620px;height: 500px;border:0;background-color: #CCCCCC;z-index: 102;position: absolute;left: 30%;top: 100px;}
+iframe{border:0;background-color: #FFFFFF;width: 100%;height: 100%;z-index: 102;position: relative;border: 1px solid #CCCCCC;}
+#content_iframe{width: 620px;height: 500px;z-index: 102;position: absolute;left: 30%;top: 150px;background-color: #000000;}
+#closeBtn{width: 20px;line-height: 20px;position: absolute;top: 1px;right: 0;z-index: 103;background-color: #FFFFFF;border: none;color: #CCCCCC;}
+#closeBtn:hover{background-color: #CCCCCC;color: #FFFFFF;}
 .dashButtons{background: #EACD2E;border: 1px solid #FFFFFF;border-radius: 4px;text-align: center;}
 .dashButtons:hover{background: #B40000;color: #FFFFFF;}
 .right{float: right;}

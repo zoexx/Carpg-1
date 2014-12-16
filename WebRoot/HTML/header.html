@@ -9,21 +9,14 @@
 		<link rel="stylesheet" href="../CSS/new_layout.css" />
 		<script type="text/javascript">
 			function onShowIframe (showHref) {
-				var iframe = document.createElement("iframe");
-                iframe.src = ""+showHref;
-                iframe.name="myiframe";
-                iframe.scrolling="no";
-                var closeBtn=document.createElement("button");
-                closeBtn.innerHTML="X";
-                //closeBtn.onclick=closeIframe();
-                closeBtn.id="closeBtn";
-                closeBtn.className="dashButtons";
-                var DIVoverlay_mask=document.createElement("div");
-                DIVoverlay_mask.id="overlay_mask";
-                iframe.appendChild(closeBtn);
-                document.getElementById("header").parentNode.appendChild(iframe);
-                document.getElementById("header").parentNode.appendChild(DIVoverlay_mask);	
+				document.getElementById("myiframe").src=""+showHref;				       
+				document.getElementById("content_iframe").hidden=false;
+				document.getElementById("overlay_mask").hidden=false;
  	    }
+			function closeIframe () {
+				document.getElementById("content_iframe").hidden=true;				
+				document.getElementById("overlay_mask").hidden=true;
+			}
 		</script>
 	</head>
 	<body>
@@ -34,14 +27,14 @@
  			    <li><a href="#">缺陷排行</a></li>
  				<li><a href="#">缺陷调查</a></li>
  				<li><a href="#">二手车市</a></li>
- 				<li><a onclick="onShowIframe('complain1.html');">我要吐槽</a></li>
+ 				<li><a onclick="onShowIframe('complaint_step1.jsp');">我要吐槽</a></li>
  				<li><a href="#">召&nbsp;&nbsp;回</a></li>
 				<div id="header_function">		
 					<form action="" method="post" id="global_Research">		
 						<input type="search" value="搜索您关心的"/>
 						<button type="submit" class="dashButtons"><img src="../images/img/research.png"/></button>
 					</form>
-					<div id="header_showlogre" hidden="hidden">
+					<div id="header_log_re" hidden="hidden">
 					    <a href="login.jsp" id="header_log_re">登录&nbsp;|&nbsp;注册</a>	
 					</div>
 					<div  id="header_showUserName" hidden="hidden">
@@ -50,6 +43,10 @@
 				</div>
 			</ul>
 		</div>
-		
+		<div id="content_iframe" hidden="hidden">
+			<button id="closeBtn" onclick="closeIframe();">X</button>
+			<iframe src="" name="myiframe" id="myiframe" scrolling="no"></iframe>
+		</div>
+		<div id="overlay_mask" hidden="hidden"></div>		
 	</body>
 </html>
