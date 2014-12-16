@@ -28,15 +28,16 @@ public class ComplaintImpl implements ComplaintDao {
 			pstmt.setString(2, complaint.getUser_name());
 			pstmt.setInt(3, complaint.getUser_car_id());
 			pstmt.setString(4, complaint.getCar_brand());
-			pstmt.setInt(5, complaint.getProblem_id());
-			pstmt.setString(6, complaint.getTime());
-			pstmt.setString(7, complaint.getStart_time());
-			pstmt.setString(8, complaint.getFrequency());
-			pstmt.setString(9, complaint.getCourse());
-			pstmt.setString(10, complaint.getSolution());
-			pstmt.setInt(11, complaint.getFee());
-			pstmt.setString(12, complaint.getImage());
-			pstmt.setString(13, complaint.getMark());
+			pstmt.setString(5, complaint.getCar_type());
+			pstmt.setInt(6, complaint.getProblem_id());
+			pstmt.setString(7, complaint.getTime());
+			pstmt.setString(8, complaint.getStart_time());
+			pstmt.setString(9, complaint.getFrequency());
+			pstmt.setString(10, complaint.getCourse());
+			pstmt.setString(11, complaint.getSolution());
+			pstmt.setInt(12, complaint.getFee());
+			pstmt.setString(13, complaint.getImage());
+			pstmt.setString(14, complaint.getMark());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -77,6 +78,7 @@ public class ComplaintImpl implements ComplaintDao {
 				com.setUser_name(rs.getString("user_name"));
 				com.setUser_car_id(rs.getInt("user_car_id"));
 				com.setCar_brand(rs.getString("car_brand"));
+				com.setCar_type(rs.getString("car_type"));
 				com.setProblem_id(rs.getInt("problem_id"));
 				com.setTime(rs.getString("time"));
 				com.setStart_time(rs.getString("start_time"));
@@ -119,6 +121,48 @@ public class ComplaintImpl implements ComplaintDao {
 		}
 		DBHelper.close(rs, pstmt);
 
+	}
+
+	public List<Object> getNewComplaints(int id) {
+		// TODO Auto-generated method stub
+		List<Object> list = new ArrayList<Object>();
+		conn = DBHelper.getConn();
+		try {
+			//从最新的开始取出数据
+			if (id == -1){
+				sql = "select * from complaint order by id desc limit 20";
+				pstmt = conn.prepareStatement(sql);
+			}else {
+				sql = "select * from complaint where id<=? order by desc limit 20";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, id);
+			}
+			rs = pstmt.executeQuery();
+			while (rs.next()){
+				Complaint com = new Complaint();
+				com.setId(rs.getInt("id"));
+				com.setUser_id(rs.getInt("user_id"));
+				com.setUser_name(rs.getString("user_name"));
+				com.setUser_car_id(rs.getInt("user_car_id"));
+				com.setCar_brand(rs.getString("car_brand"));
+				com.setCar_type(rs.getString("car_type"));
+				com.setProblem_id(rs.getInt("problem_id"));
+				com.setTime(rs.getString("time"));
+				com.setStart_time(rs.getString("start_time"));
+				com.setFrequency(rs.getString("frequency"));
+				com.setCourse(rs.getString("course"));
+				com.setSolution(rs.getString("solution"));
+				com.setFee(rs.getInt("fee"));
+				com.setImage(rs.getString("image"));
+				com.setMark(rs.getString("mark"));
+				list.add(com);				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DBHelper.close(rs, pstmt);
+		return list;
 	}
 
 }

@@ -82,4 +82,22 @@ public class StatisticImpl implements StatisticDao {
 		return map;
 	}
 
+	public Map<String, Integer> getCountByProblem_carTypes(String problem) {
+		// TODO Auto-generated method stub
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		conn = DBHelper.getConn();
+		sql = "";
+		return null;
+	}
+
+	public Map<String, Integer> getCountByProblem_year(String year) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Map<String, Integer> getCountByYear_problem(String problem) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

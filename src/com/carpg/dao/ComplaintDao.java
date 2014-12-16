@@ -18,5 +18,9 @@ public interface ComplaintDao {
 	
 	//获得用户自身的抱怨信息, 参数为用户名
 	public List<Complaint> getComplaints(String username);
+	
+	//宝源信息的展示,主要用于互动展示，一次得到最多20条
+	//参数id主要用于从当前id往前顺序取20条数据,若为最新的一条则id为-1
+	public List<Object> getNewComplaints(int id);
 
 }

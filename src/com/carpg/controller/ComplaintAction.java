@@ -16,6 +16,7 @@ import com.carpg.dto.Complaint;
 import com.carpg.dto.User_Car;
 import com.carpg.impl.ComplaintImpl;
 import com.carpg.impl.User_CarImpl;
+import com.carpg.util.JsonTool;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -81,6 +82,15 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 		//添加抱怨信息
 		comDao.addComplaint(complaint);
 		return "index";
+	}
+	//表示展示吐槽，吐槽互动的页面
+	public String complaintView() throws Exception{
+		//通过id得到需要加载的抱怨信息
+		List<Object> list = comDao.getNewComplaints(complaint.getId());
+		//将取得的信息转化为jsonarray传递给页面
+		JsonTool json = new JsonTool();
+		msg = json.toJsonArrayString(list);
+		return "view";
 	}
 	public void setServletRequest(HttpServletRequest arg0) {
 		// TODO Auto-generated method stub
