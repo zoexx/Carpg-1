@@ -5,7 +5,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <script type="text/javascript">
 	function send(){
-		document.getElementById("login_reg").action="userOperate";
+		document.getElementById("login_reg").action="userOperate!returnPsw";
 		document.getElementById("login_reg").submit();
 	}
 	

@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     }
   }
 	function update(){
-		document.getElementById("login_reg").action="userOperate";
+		document.getElementById("login_reg").action="userOperate!updatePsw";
 		document.getElementById("login_reg").submit();
 	}
 	

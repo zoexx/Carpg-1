@@ -1,4 +1,4 @@
-数据库设计
+/*数据库设计*/
 
 /*数据库名为carpg,数据库字符编码为utf-8*/
 create database carpg default charset utf8;
@@ -7,6 +7,9 @@ create database carpg default charset utf8;
 create table user(
 id int primary key not null auto_increment,     /*主键，编号*/
 username varchar(20) not null unique,           /*用户名，不为空，并且唯一,用邮箱代替*/
+/*添加新的字段（2014-11-19）*/
+name varchar(20) not null,                              /*用户别名*/
+
 password varchar(32) not null,                  /*密码,存放的是加密后的MD5码（32位）*/
 email varchar(30),                              /*邮箱*/
 tel varchar(15),								/*联系方式和邮箱用于注册验证，至少选填一个*/
@@ -15,9 +18,7 @@ city varchar(30) not null,						/*城市， 不为空*/
 section varchar(30),                            /*区*/
 /*添加新的字段（2014-11-7）*/
 state int not null,                             /*用户状态，0:未验证，1：验证成功,主要用于验证用户注册*/
-code varchar(20) not null,                       /*激活码,用于注册验证时匹配使用*/
-/*添加新的字段（2014-11-19）*/
-name varchar(20) not null                              /*用户别名*/
+code varchar(20) not null                       /*激活码,用于注册验证时匹配使用*/
 );
 
 /*汽车分类表car(主要是汽车分类统计的详细信息)*/

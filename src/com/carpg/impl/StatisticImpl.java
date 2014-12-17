@@ -86,18 +86,62 @@ public class StatisticImpl implements StatisticDao {
 		// TODO Auto-generated method stub
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		conn = DBHelper.getConn();
-		sql = "";
-		return null;
+		int problem_id = Integer.valueOf(problem);
+		sql = "select car_brand, count(*) from complaint where problem_id = ? group by car_brand desc;";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, problem_id);
+			rs = pstmt.executeQuery();
+			while (rs.next()){
+				map.put(rs.getString("car_brand"), rs.getInt(2));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DBHelper.close(rs, pstmt);
+		return map;
 	}
 
 	public Map<String, Integer> getCountByProblem_year(String year) {
 		// TODO Auto-generated method stub
-		return null;
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		conn = DBHelper.getConn();
+		sql = "select type, count(*) from complaint, car_problems where start_time = ? group by problem_id desc;";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, year);
+			rs = pstmt.executeQuery();
+			while (rs.next()){
+				map.put(rs.getString("type"), rs.getInt(2));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DBHelper.close(rs, pstmt);
+		return map;
 	}
 
 	public Map<String, Integer> getCountByYear_problem(String problem) {
 		// TODO Auto-generated method stub
-		return null;
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		conn = DBHelper.getConn();
+		int problem_id = Integer.valueOf(problem);
+		sql = "select type, count(*) from complaint, car_problems where problem_id = ? group by start_time desc;";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, problem_id);
+			rs = pstmt.executeQuery();
+			while (rs.next()){
+				map.put(rs.getString("type"), rs.getInt(2));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DBHelper.close(rs, pstmt);
+		return map;
 	}
 
 }
