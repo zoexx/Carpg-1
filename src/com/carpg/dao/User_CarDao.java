@@ -6,8 +6,8 @@ import com.carpg.dto.User_Car;
 
 public interface User_CarDao {
 	
-	//添加用户车
-	public void addUser_Car(User_Car userCar);
+	//添加用户车,返回用户车的id
+	public int addUser_Car(User_Car userCar);
 	
 	//更新用户车,有些信息是不能被更改的
 	//能更改的信息：color, buy_time, mileage, remark

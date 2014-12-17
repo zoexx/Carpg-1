@@ -52,11 +52,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}else{alert("test");}
 		return false;
 	}
+	//登陆的ajax
 	function checkLogin() {
 		var v = document.getElementById("email").value;
 		var p = document.getElementById("password").value;
 		send_request("GET","../servlet/AjaxServlet.sl?type=login&username="+v+"&password="+p, null, "text", showBack);
-	}
+	}//登陆的ajax回调
 	function showBack(){
 		if (http_request.readyState == 4){
 			if (http_request.status == 200) {
@@ -67,11 +68,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    document.getElementById("login_reg").submit();
 				}else if (temp == "fail"){
 					//给出页面提示
-					document.getElementById("email").value = "登陆失败, 用户名或密码失败";
+					document.getElementById("email").value = "登陆失败, 用户名或密码错误";
 				}
 			}
 		}
-	}
+	}//验证邮箱的唯一性的ajax
 	function checkEmail() {
 		check_format();
     	var u = document.getElementById("email");
@@ -79,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             //document.getElementById("feedback").innerHTML = "系统正在处理您的请求，请稍后。";
             send_request("GET","../servlet/AjaxServlet.sl?type=username&username="+u.value,null,"text",showFeedbackInfo);
         }
-	}
+	}//验证邮箱的唯一性的ajax的回调
 	function showFeedbackInfo() {
     	if (http_request.readyState == 4) { // 判断对象状态
         	if (http_request.status == 200) { // 信息已经成功返回，开始处理信息

@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  		var str = "<%= msg %>";
  		var strTemp = new Array();
  		strTemp = str.split("~");
- 		for(var i=0; i< strTemp.length; i++){
+ 		for(var i=0; i< strTemp.length-1; i++){
  			var temp = strTemp[i];
  			var tempStr = temp.split(",");
  			var opt = new Option(tempStr[1]+"--"+tempStr[2], temp);

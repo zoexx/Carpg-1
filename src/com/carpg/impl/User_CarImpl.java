@@ -18,8 +18,11 @@ public class User_CarImpl implements User_CarDao {
 	private ResultSet rs=null;
 	private String sql="";
 
-	public void addUser_Car(User_Car userCar) {
+	public int addUser_Car(User_Car userCar) {
 		// TODO Auto-generated method stub
+		int id = -1;
+		PreparedStatement pstmt1=null;
+		ResultSet rs1=null;
 		conn = DBHelper.getConn();
 		sql = "insert into user_car value(null,?,?,?,?,?,?,?,?,?,?)";
 		try {
@@ -29,18 +32,26 @@ public class User_CarImpl implements User_CarDao {
 			pstmt.setInt(3, userCar.getCar_id());
 			pstmt.setString(4, userCar.getCar_brand());
 			pstmt.setString(5, userCar.getCar_type());
-			pstmt.setString(4, userCar.getVin());
-			pstmt.setString(5, userCar.getColor());
-			pstmt.setString(6, userCar.getBuy_time());
-			pstmt.setInt(7, userCar.getMileage());
-			pstmt.setString(8, userCar.getRemark());
+			pstmt.setString(6, userCar.getVin());
+			pstmt.setString(7, userCar.getColor());
+			pstmt.setString(8, userCar.getBuy_time());
+			pstmt.setInt(9, userCar.getMileage());
+			pstmt.setString(10, userCar.getRemark());
 			pstmt.executeUpdate();
+			//取出刚出入数据的id
+			sql = "select max(id) from user_car";
+			pstmt1 = conn.prepareStatement(sql);
+			rs1 = pstmt1.executeQuery();
+			while (rs1.next()){
+				id = rs1.getInt(1);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		DBHelper.close(rs, pstmt);
-
+		DBHelper.close(rs1, pstmt1);
+		return id;
 	}
 
 	public void delUser_Car(int id) {
