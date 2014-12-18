@@ -70,7 +70,7 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return ok;
 	}
 
@@ -96,7 +96,7 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		System.out.println("用户id："+i);
 		return i;
 	}
@@ -130,7 +130,7 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return ok;
 	}
 
@@ -151,7 +151,7 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return ok;
 	}
 
@@ -174,7 +174,7 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return ok;
 		
 	}
@@ -199,8 +199,29 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return ok;
+	}
+	//关闭ResultSet和pstmt
+	private void close(){
+		if (null != rs){
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if (null != pstmt){
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//关闭数据库连接conn
+		DBHelper.close();
 	}
 
 }

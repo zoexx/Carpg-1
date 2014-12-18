@@ -33,23 +33,7 @@ public class DBHelper {
 	}
 	
 	// 关闭连接
-	public static void close(ResultSet rs, PreparedStatement pstmt) {
-		if (null != rs){
-			try {
-				rs.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		if (null != pstmt){
-			try {
-				pstmt.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+	public static void close() {
 		if (null != conn){
 			try {
 				conn.close();

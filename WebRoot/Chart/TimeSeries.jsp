@@ -3,8 +3,9 @@
 <%@ page import="com.carpg.util.Chart" %>
 <%
     //应用主题样式,主要输解决中文乱码问题
-    ChartFactory.setChartTheme(Chart.createTheme());
+    
     Chart c = new Chart();
+    ChartFactory.setChartTheme(c.createTheme());
     JFreeChart chart = c.createXYChart("brand");
     String filename = ServletUtilities.saveChartAsPNG(chart, 500, 300, null, session);
 	String graphURL = request.getContextPath() + "/servlet/DisplayChart.ln?filename=" + filename;

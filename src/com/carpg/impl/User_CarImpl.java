@@ -49,8 +49,14 @@ public class User_CarImpl implements User_CarDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
-		DBHelper.close(rs1, pstmt1);
+		try {
+			rs1.close();
+			pstmt1.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.close();
 		return id;
 	}
 
@@ -66,7 +72,7 @@ public class User_CarImpl implements User_CarDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 
 	}
 
@@ -99,7 +105,7 @@ public class User_CarImpl implements User_CarDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return list;
 	}
 
@@ -119,8 +125,30 @@ public class User_CarImpl implements User_CarDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 
+	}
+	
+	//关闭ResultSet和pstmt
+	private void close(){
+		if (null != rs){
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if (null != pstmt){
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//关闭数据库连接conn
+		DBHelper.close();
 	}
 
 }

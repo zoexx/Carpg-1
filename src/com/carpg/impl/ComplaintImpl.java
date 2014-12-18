@@ -48,7 +48,7 @@ public class ComplaintImpl implements ComplaintDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 
 	}
 
@@ -64,7 +64,7 @@ public class ComplaintImpl implements ComplaintDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 	}
 
 	public List<Complaint> getComplaints(String username) {
@@ -100,7 +100,7 @@ public class ComplaintImpl implements ComplaintDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return list;
 	}
 
@@ -125,7 +125,7 @@ public class ComplaintImpl implements ComplaintDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 
 	}
 
@@ -168,8 +168,29 @@ public class ComplaintImpl implements ComplaintDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return list;
 	}
 
+	//关闭ResultSet和pstmt
+	private void close(){
+		if (null != rs){
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if (null != pstmt){
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//关闭数据库连接conn
+		DBHelper.close();
+	}
 }

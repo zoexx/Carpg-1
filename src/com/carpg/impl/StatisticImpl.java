@@ -38,7 +38,7 @@ public class StatisticImpl implements StatisticDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return map;
 	}
 
@@ -58,7 +58,7 @@ public class StatisticImpl implements StatisticDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return map;
 	}
 
@@ -78,7 +78,7 @@ public class StatisticImpl implements StatisticDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return map;
 	}
 
@@ -99,7 +99,7 @@ public class StatisticImpl implements StatisticDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return map;
 	}
 
@@ -119,7 +119,7 @@ public class StatisticImpl implements StatisticDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return map;
 	}
 
@@ -140,8 +140,29 @@ public class StatisticImpl implements StatisticDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return map;
 	}
 
+	//关闭ResultSet和pstmt
+	private void close(){
+		if (null != rs){
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if (null != pstmt){
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//关闭数据库连接conn
+		DBHelper.close();
+	}
 }
