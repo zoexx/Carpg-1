@@ -1,5 +1,8 @@
 package com.carpg.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -78,8 +81,15 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 		complaint.setUser_car_id(Integer.valueOf(carinfo.split(",")[0]));
 		complaint.setCar_brand(carinfo.split(",")[1]);
 		complaint.setCar_type(carinfo.split(",")[2]);
+		//添加抱怨的时间
+		Date now = new Date(); 
+		//可以方便地修改日期格式
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		complaint.setTime(dateFormat.format(now));
 		//添加抱怨信息
 		comDao.addComplaint(complaint);
+		//清除暂存在session中的用户车的信息
+		request.getSession().removeAttribute("user_carinfo");
 		return "index";
 	}
 	//表示展示吐槽，吐槽互动的页面

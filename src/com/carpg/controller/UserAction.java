@@ -65,6 +65,13 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 		userDao.updatePsw(temp[0], temp[1], user.getPassword());
 		return "index";
 	}
+	
+	//退出当前登陆
+	public String logout() throws Exception{
+		//将当前登陆用户的session去掉
+		request.getSession().removeAttribute("user");
+		return "index";
+	}
 	public User getModel() {
 		// TODO Auto-generated method stub
 		return user;

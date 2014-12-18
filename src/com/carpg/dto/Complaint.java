@@ -18,6 +18,7 @@ public class Complaint {
 	
 	private String car_brand;
 	private String car_type;
+	private int mileage;
 	public int getId() {
 		return id;
 	}
@@ -107,6 +108,12 @@ public class Complaint {
 	}
 	public void setCar_type(String car_type) {
 		this.car_type = car_type;
+	}
+	public int getMileage() {
+		return mileage;
+	}
+	public void setMileage(int mileage) {
+		this.mileage = mileage;
 	}
 	
 
