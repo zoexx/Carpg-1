@@ -1,5 +1,8 @@
 package com.carpg.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -43,16 +46,15 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 			//通过session中的用户信息取出用户车给到用户车列表
 			int userid = Integer.valueOf(info.split("~")[1]);
 			List<User_Car> list = user_carDao.getUser_Car(userid);
-			msg = "";
+			String carinfo = "";
 			//将取得的汽车信息拼接起来反馈给页面
-			for(int i=0; i < list.size()-1; i++){
-				msg += list.get(i).getId() +"," +list.get(i).getCar_brand()+"," +list.get(i).getCar_type();
-				msg +="~";
+			for(int i=0; i < list.size(); i++){
+				carinfo += list.get(i).getId() +"," +list.get(i).getCar_brand()+"," +list.get(i).getCar_type();
+				carinfo +="~";
 			}
-			msg += list.get(list.size()-1).getId() +"," +list.get(list.size()-1).getCar_brand()+"," +list.get(list.size()-1).getCar_type();
-			System.out.println("返回的信息:" +msg);
+			System.out.println("返回的信息:" +carinfo);
 			//将车辆信息添加到session中
-			request.getSession().setAttribute("user_carinfo", msg);
+			request.getSession().setAttribute("user_carinfo", carinfo);
 			//跳转到吐槽第二步
 			return "step2";
 		}		
@@ -60,9 +62,9 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 	//表示是选择了吐槽车型(吐槽第二步)
 	public String complaintStep2() throws Exception{
 		//将选择的车型信息暂存在session中
-		msg = request.getParameter("select_cars");
-		System.out.println("选取车型的信息"+msg);
-		request.getSession().setAttribute("user_carinfo", msg);
+		String carinfo = request.getParameter("select_cars");
+		System.out.println("选取车型的信息"+carinfo);
+		request.getSession().setAttribute("user_carinfo", carinfo);
 		//页面跳转到第3步
 		return "step3";
 	}
@@ -79,8 +81,15 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 		complaint.setUser_car_id(Integer.valueOf(carinfo.split(",")[0]));
 		complaint.setCar_brand(carinfo.split(",")[1]);
 		complaint.setCar_type(carinfo.split(",")[2]);
+		//添加抱怨的时间
+		Date now = new Date(); 
+		//可以方便地修改日期格式
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		complaint.setTime(dateFormat.format(now));
 		//添加抱怨信息
 		comDao.addComplaint(complaint);
+		//清除暂存在session中的用户车的信息
+		request.getSession().removeAttribute("user_carinfo");
 		return "index";
 	}
 	//表示展示吐槽，吐槽互动的页面

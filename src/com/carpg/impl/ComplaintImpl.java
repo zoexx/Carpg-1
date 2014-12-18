@@ -20,8 +20,12 @@ public class ComplaintImpl implements ComplaintDao {
 
 	public void addComplaint(Complaint complaint) {
 		// TODO Auto-generated method stub
+		//临时调整吐槽问题发生的时间为只截取年份
+		String[] start_time = complaint.getStart_time().split("-");
+		complaint.setStart_time(start_time[0]);
+		
 		conn = DBHelper.getConn();
-		sql = "insert into complaint value(null,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		sql = "insert into complaint value(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, complaint.getUser_id());
@@ -38,12 +42,13 @@ public class ComplaintImpl implements ComplaintDao {
 			pstmt.setInt(12, complaint.getFee());
 			pstmt.setString(13, complaint.getImage());
 			pstmt.setString(14, complaint.getMark());
+			pstmt.setInt(15, complaint.getMileage());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 
 	}
 
@@ -59,7 +64,7 @@ public class ComplaintImpl implements ComplaintDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 	}
 
 	public List<Complaint> getComplaints(String username) {
@@ -88,13 +93,14 @@ public class ComplaintImpl implements ComplaintDao {
 				com.setFee(rs.getInt("fee"));
 				com.setImage(rs.getString("image"));
 				com.setMark(rs.getString("mark"));
+				com.setMileage(rs.getInt("mileage"));
 				list.add(com);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return list;
 	}
 
@@ -119,7 +125,7 @@ public class ComplaintImpl implements ComplaintDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 
 	}
 
@@ -155,14 +161,36 @@ public class ComplaintImpl implements ComplaintDao {
 				com.setFee(rs.getInt("fee"));
 				com.setImage(rs.getString("image"));
 				com.setMark(rs.getString("mark"));
+				com.setMileage(rs.getInt("mileage"));
 				list.add(com);				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return list;
 	}
 
+	//关闭ResultSet和pstmt
+	private void close(){
+		if (null != rs){
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if (null != pstmt){
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//关闭数据库连接conn
+		DBHelper.close();
+	}
 }

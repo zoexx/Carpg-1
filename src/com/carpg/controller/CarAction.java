@@ -33,9 +33,13 @@ public class CarAction extends ActionSupport implements ServletRequestAware,Serv
 	//表示在抱怨页面添加新的用户车辆
 	public String addUserCar() throws Exception{
 		System.out.println("添加新的车辆"+car.getBrand()+"  "+car.getCar_type());
-		System.out.println("添加新的车辆"+user_car.getVin()+"  "+user_car.getColor());
-		//向车辆库中添加新的车辆
-		int carId = carDao.addCar(car);
+		//System.out.println("添加新的车辆"+user_car.getVin()+"  "+user_car.getColor());
+		//先判断该车型是否存在
+		int carId = carDao.isExist(car);
+		//如果返回值为-1,表示不存在，需要添加
+		if (carId == -1){
+			carId = carDao.addCar(car);
+		}
 		//通过session中的用户信息取出用户车给到用户车列表
 		String info = (String)request.getSession().getAttribute("user");
 		int userid = Integer.valueOf(info.split("~")[1]);
@@ -52,21 +56,17 @@ public class CarAction extends ActionSupport implements ServletRequestAware,Serv
 		user_car.setBuy_time(request.getParameter("buy_time"));
 		user_car.setMileage(Integer.valueOf(request.getParameter("mileage")));
 		user_car.setRemark(request.getParameter("remark"));
-		//向用户车库中添加新的用户车
-		user_carDao.addUser_Car(user_car);
+		//向用户车库中添加新的用户车,并得到反馈的id
+		int user_car_id = user_carDao.addUser_Car(user_car);
 		
 		//将页面反馈到用户抱怨选车页面	
-		List<User_Car> list = user_carDao.getUser_Car(userid);
-		msg = "";
-		//将取得的汽车信息拼接起来反馈给页面
-		for(int i=0; i < list.size()-1; i++){
-			msg += list.get(i).getId() +"," +list.get(i).getCar_brand()+"," +list.get(i).getCar_type();
-			msg +="~";
+		String carinfo = (String)request.getSession().getAttribute("user_carinfo");
+		//表示插入新的数据成功,并将新的数据更新到session中
+		if (user_car_id != -1){
+			carinfo += user_car_id +"," + car.getBrand() + "," + car.getCar_type() +"~";
+			request.getSession().setAttribute("user_carinfo", carinfo);
 		}
-		msg += list.get(list.size()-1).getId() +"," +list.get(list.size()-1).getCar_brand()+"," +list.get(list.size()-1).getCar_type();
-		System.out.println("返回的信息:" +msg);
-		//将车辆信息添加到session中
-		request.getSession().setAttribute("user_carinfo", msg);
+		System.out.println("返回的信息:" +carinfo);
 		return "step2";
 	}
 	public void setServletRequest(HttpServletRequest arg0) {

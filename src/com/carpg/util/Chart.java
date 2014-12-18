@@ -40,32 +40,108 @@ import com.carpg.impl.StatisticImpl;
 //主要是作为jfreechart的一个工具类进行处理
 public class Chart {
 	
+	//创建静态字符串便于维护和修改
+	public static String BRAND_YEAR_COUNT = "brand_year_count"; //品牌按年份统计
+	public static String BRAND_COUNT_YEAR = "brand_count_year"; //某一年内各个品牌的状况统计
+	public static String BRAND_CARTYPE_COUNT = "brand_cartype_count"; //某一个品牌中各个车型的状况统计
+	public static String PROBLEM_YEAR_COUNT = "problem_year_count"; //问题按年份统计
+	public static String PROBLEM_COUNT_YEAR = "problem_count_year"; //某一年内各个问题的状况统计
+	public static String PROBLEM_CARTYPE_COUNT = "problem_cartype_count"; //某一个问题中各个车型的状况统计
+	
 	private StatisticDao statistic = new StatisticImpl();
+	private JFreeChart chart;
 	
 	
-	//创建主题样式，主要是解决中文乱码问题
-	public static StandardChartTheme createTheme(){
-		//创建主题样式  
-		 StandardChartTheme standardChartTheme=new StandardChartTheme("CN");
-		//设置标题字体  
-		 standardChartTheme.setExtraLargeFont(new Font("隶书",Font.BOLD,20));  
-		//设置图例的字体  
-		 standardChartTheme.setRegularFont(new Font("宋书",Font.PLAIN,15));  
-		//设置轴向的字体  
-		 standardChartTheme.setLargeFont(new Font("宋书",Font.PLAIN,15));
-		 
-		 return standardChartTheme;
+	
+	//构建chart图表，参数类型如下
+	//type为识别创建图表的类型,主要是折线图，饼状图，柱状图等
+	//operate为操作的类型，主要表示为统计展示的信息类别状况，比如统计品牌以时间为轴的状况量（折线图）
+	//param为前端传递的参数，主要是用于后台获取相应的数据
+	public void createChart(String type, String operate, String param){
+		//表示需要展示折线图
+		if (type.equals("line_chart")){
+			//创建饼状图
+			createPeiChart(operate, param);
+		}//表示需要展示饼状图
+		else if (type.equals("pei_chart")){
+			//创建折线图
+			createXYChart(operate, param);
+		}
 	}
-
-	//创建按品牌-年份统计折线图数据源
-	private XYDataset createXYDataset(String brand) {
-        TimeSeries timeseries = new TimeSeries("问题状况数量",
+	//创建饼状图,参数类型如下
+	//operate主要表示为统计展示的信息类别状况
+	//param主要是用于获取相应的数据
+	private void createPeiChart(String operate, String param){
+		//设置主题样式，主要解决中文乱码问题
+		ChartFactory.setChartTheme(createTheme());
+		//根据operate类型进行相应的获取
+		//表示某一年内各个品牌的问题状况量
+		if (operate.equals(Chart.BRAND_COUNT_YEAR)){
+			Map<String, Integer> map = statistic.getCountByYear_brand(param);
+			chart = ChartFactory.createPieChart3D("各个品牌的状况", 
+					createPeiData(map), true, true, false);
+			chart.addSubtitle(new TextTitle("年份："+param));
+		}
+		//表示该品牌下各个车型的状况统计
+		else if (operate.equals(Chart.BRAND_CARTYPE_COUNT)){
+			Map<String, Integer> map = statistic.getCountByBrand_carType(param);
+			chart = ChartFactory.createPieChart3D("各个车型的状况", 
+					createPeiData(map), true, true, false);
+			chart.addSubtitle(new TextTitle("品牌："+param));
+		}
+		//表示一年内各个问题的状况统计
+		else if (operate.equals(Chart.PROBLEM_COUNT_YEAR)){
+			Map<String, Integer> map = statistic.getCountByProblem_year(param);
+			chart = ChartFactory.createPieChart3D("各个问题的状况", 
+					createPeiData(map), true, true, false);
+			chart.addSubtitle(new TextTitle("年份："+param));
+		}
+		//表示某一个问题下各个车型状况的统计
+		else if (operate.equals(Chart.PROBLEM_CARTYPE_COUNT)){
+			Map<String, Integer> map = statistic.getCountByProblem_carTypes(param);
+			chart = ChartFactory.createPieChart3D("各个车型的状况", 
+					createPeiData(map), true, true, false);
+			chart.addSubtitle(new TextTitle("问题："+param));
+		}
+		//设置饼状图的样式
+		setPeiTheme();
+	}
+	//创建折线图,参数类型如下
+	//operate主要表示为统计展示的信息类别状况
+	//param主要是用于获取相应的数据
+	private void createXYChart(String operate, String param){
+		//设置主题样式，主要解决中文乱码问题
+		ChartFactory.setChartTheme(createTheme());
+		//根据operate类型进行相应的获取
+		
+		//表示品牌按年份统计
+		if (operate.equals(Chart.BRAND_YEAR_COUNT)){
+			//根据传递的品牌参数活动每年的数据量
+			Map<String, Integer> map = statistic.getCountByYear_brand(param);
+			//创建相应的折线图
+			chart = ChartFactory.createTimeSeriesChart(
+	                "汽车品牌问题统计", "年份", "吐槽量",
+	                createXYData(map), true, true, true);
+			
+		}//表示问题按年份统计
+		else if (operate.equals(Chart.PROBLEM_YEAR_COUNT)){
+			Map<String, Integer> map = statistic.getCountByYear_problem(param);
+			//创建相应的折线图
+			chart = ChartFactory.createTimeSeriesChart(
+	                "汽车问题状况统计", "年份", "吐槽量",
+	                createXYData(map), true, true, true);
+		}
+		//给折线图设置样式
+		setXYTheme();
+	}
+	//创建折线图数据源,参数为后台获取的Map数据
+	private XYDataset createXYData(Map<String, Integer> map){
+		TimeSeries timeseries = new TimeSeries("问题状况数量",
                 org.jfree.data.time.Year.class);
         
-        Map<String, Integer> map = statistic.getCountByYear_brand(brand);
         //得到当前的年份
         Calendar c = Calendar.getInstance();
-        int currentYear = c.getTime().getYear();
+        int currentYear = c.get(Calendar.YEAR);
         //展示出过去5年的问题状况
         for (int k=currentYear; k>= currentYear-4; k--){
         	//暂时确定单位为百数量级
@@ -77,14 +153,46 @@ public class Chart {
         //timeseriescollection.addSeries(timeseries1);
         
         return timeseriescollection;
-    }
-	//创建按品牌-年份折线图chart
-	public JFreeChart createXYChart(String brand) {
-        JFreeChart jfreechart = ChartFactory.createTimeSeriesChart(
-                "汽车品牌问题统计", "年份", "吐槽量",
-                createXYDataset(brand), true, true, true);
-        jfreechart.setBackgroundPaint(Color.white);
-        XYPlot xyplot = (XYPlot) jfreechart.getPlot();
+	}
+	//创建饼状图数据源，参数为获取的后台的数据量
+	private DefaultPieDataset createPeiData(Map<String, Integer> map){
+		//设置饼图数据集  
+		DefaultPieDataset dataset = new DefaultPieDataset();
+		//得到统计量
+		LinkedHashMap<String, Integer> linkMap = (LinkedHashMap<String, Integer>)map;
+		Set set = linkMap.entrySet();
+		Iterator iterator = set.iterator();
+		//遍历hashMap并载入到数据源
+		while (iterator.hasNext()){
+			 Map.Entry element = (Map.Entry)iterator.next(); 
+	         String  key = (String)element.getKey(); 
+	         int  value = (Integer)element.getValue();
+	         dataset.setValue(key, value);
+		}
+		
+		return dataset;
+	}
+	
+
+	
+	//创建主题样式，主要是解决中文乱码问题
+	public StandardChartTheme createTheme(){
+		//创建主题样式  
+		 StandardChartTheme standardChartTheme=new StandardChartTheme("CN");
+		//设置标题字体  
+		 standardChartTheme.setExtraLargeFont(new Font("隶书",Font.BOLD,20));  
+		//设置图例的字体  
+		 standardChartTheme.setRegularFont(new Font("宋书",Font.PLAIN,15));  
+		//设置轴向的字体  
+		 standardChartTheme.setLargeFont(new Font("宋书",Font.PLAIN,15));
+		 
+		 return standardChartTheme;
+	}
+	
+	//设置折线图样式
+	public void setXYTheme(){		
+		chart.setBackgroundPaint(Color.white);
+        XYPlot xyplot = (XYPlot) chart.getPlot();
         xyplot.setBackgroundPaint(Color.lightGray);
         xyplot.setDomainGridlinePaint(Color.white);
         xyplot.setRangeGridlinePaint(Color.white);
@@ -107,32 +215,9 @@ public class Chart {
         }
         DateAxis dateaxis = (DateAxis) xyplot.getDomainAxis();
         dateaxis.setDateFormatOverride(new SimpleDateFormat("——yyyy——"));
-        return jfreechart;
-    }
-	
-	//创建哪一年份各个品牌的问题状况统计饼状图数据源
-	private DefaultPieDataset createPeiDataset(String year){
-		//设置饼图数据集  
-		DefaultPieDataset dataset = new DefaultPieDataset();
-		//得到统计量
-		LinkedHashMap<String, Integer> map = (LinkedHashMap<String, Integer>) statistic.getCountByYear(year);
-		Set set = map.entrySet();
-		Iterator iterator = set.iterator();
-		//遍历hashMap并载入到数据源
-		while (iterator.hasNext()){
-			 Map.Entry element = (Map.Entry)iterator.next(); 
-	         String  key = (String)element.getKey(); 
-	         int  value = (Integer)element.getValue();
-	         dataset.setValue(key, value);
-		}
-		
-		return dataset;
 	}
-	//创建饼状图的jfreechart
-	public JFreeChart createPeiChart(String year){
-		//通过工厂类生成JFreeChart对象  
-		JFreeChart chart = ChartFactory.createPieChart3D("商户被关注度统计", createPeiDataset(year), true, true, false);  
-		chart.addSubtitle(new TextTitle("2014上半年"));  
+	//设置饼状图样式
+	public void setPeiTheme(){
 		PiePlot pieplot = (PiePlot) chart.getPlot();  
 		pieplot.setLabelFont(new Font("宋体", 0, 11));  
 		StandardPieSectionLabelGenerator standarPieIG = new StandardPieSectionLabelGenerator("{0}:({1},{2})", NumberFormat.getNumberInstance(), NumberFormat.getPercentInstance());  
@@ -152,7 +237,13 @@ public class Chart {
 		pieplot3d.setDirection(Rotation.CLOCKWISE);  
 		//设置透明度，0.5F为半透明，1为不透明，0为全透明  
 		pieplot3d.setForegroundAlpha(0.7F); 
-		
+	}
+
+	public JFreeChart getChart() {
 		return chart;
+	}
+
+	public void setChart(JFreeChart chart) {
+		this.chart = chart;
 	}
 }

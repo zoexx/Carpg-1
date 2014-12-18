@@ -44,15 +44,21 @@ public class CarImpl implements CarDao {
 			sql = "select max(id) from car";
 			pstmt1 = conn.prepareStatement(sql);
 			rs1 = pstmt1.executeQuery();
-			while (rs.next()){
-				i = rs.getInt(1);
+			while (rs1.next()){
+				i = rs1.getInt(1);
 			}		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
-		DBHelper.close(rs1, pstmt1);
+		try {
+			rs1.close();
+			pstmt1.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.close();
 		return i;
 	}
 
@@ -83,13 +89,54 @@ public class CarImpl implements CarDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return cars;
 	}
 
-	public boolean isExist(Car car) {
+	public int isExist(Car car) {
 		// TODO Auto-generated method stub
-		return false;
+		int id = -1;
+		conn = DBHelper.getConn();
+		sql = "select * from car where brand=? && car_type=? && displacement=? && transmission=? && standard=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, car.getBrand());
+			pstmt.setString(2, car.getCar_type());
+			pstmt.setFloat(3, car.getDisplacement());
+			pstmt.setString(4, car.getTransmission());
+			pstmt.setString(5, car.getStandard());
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				//取出当前的车型id
+				id = rs.getInt("id");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.close();
+		return id;
 	}
 
+	//关闭ResultSet和pstmt
+	private void close(){
+		if (null != rs){
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if (null != pstmt){
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//关闭数据库连接conn
+		DBHelper.close();
+	}
 }

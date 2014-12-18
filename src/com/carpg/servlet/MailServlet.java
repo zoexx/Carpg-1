@@ -47,17 +47,22 @@ public class MailServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		//得到邮箱验证的类型
 		String type = request.getParameter("type");
+		String name = request.getParameter("name");
+		String code = request.getParameter("randMd5");
 		//表示是注册邮箱认证
 		if (type.equals("regist")){
-			String name = request.getParameter("name");
-			String code = request.getParameter("randMd5");
+			
 			UserDao userDao = new UserImpl();
 			if (userDao.verifyUser(name, code)){
 				//跳转到注册成功页面
+				response.sendRedirect("../JSP/index.jsp");
 			}
 		}//表示是找回密码邮箱认证
 		else if (type.equals("return_password")){
 			//跳转到修改密码页面
+			//将用户信息和识别码存在session中用于数据库中修改密码的校验
+			String msg = name + "~" + code;
+			request.getSession().setAttribute("updatePsw", msg);
 			response.sendRedirect("../JSP/set_psw.jsp");
 		}
 		out.flush();

@@ -4,7 +4,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 //得到用户信息
-String name = (String)request.getAttribute("email");
+String name = (String)request.getAttribute("name");
 String email = (String)request.getAttribute("email");
 String psw = (String)request.getAttribute("password");
 %>

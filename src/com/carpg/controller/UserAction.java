@@ -49,15 +49,29 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 	}
 	//注册成功页面,跳转到首页index
 	public String regist() throws Exception{
-		if (userDao.Regist(user)){
-			return "test";
-		}
-		else{
-			
-		}
+		userDao.Regist(user);
 		return "index";
 	}
-
+	//提交找回密码申请
+	public String returnPsw() throws Exception{
+		userDao.backPsw(user.getEmail());
+		return "index";
+	}
+	//找回密码后修改密码请求
+	public String updatePsw() throws Exception{
+		//从session中取出保存的修改密码的用户信息和识别码,格式为：用户信息+“~”+识别码
+		String pswCode = (String)request.getSession().getAttribute("updatePsw");
+		String[] temp = pswCode.split("~");
+		userDao.updatePsw(temp[0], temp[1], user.getPassword());
+		return "index";
+	}
+	
+	//退出当前登陆
+	public String logout() throws Exception{
+		//将当前登陆用户的session去掉
+		request.getSession().removeAttribute("user");
+		return "index";
+	}
 	public User getModel() {
 		// TODO Auto-generated method stub
 		return user;

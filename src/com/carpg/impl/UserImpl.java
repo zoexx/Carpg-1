@@ -33,6 +33,7 @@ public class UserImpl implements UserDao {
 
 	public boolean Regist(User user) {
 		// TODO Auto-generated method stub
+		System.out.println("用户呢称:"+user.getName());
 		boolean ok = false;
 		//将用户密码变成密文
 		String temp = Tools.getMD5(user.getPassword());
@@ -41,18 +42,19 @@ public class UserImpl implements UserDao {
 		Calendar c = Calendar.getInstance();
 		user.setCode(String.valueOf(c.getTimeInMillis()));
 		conn = DBHelper.getConn();
-		sql = "insert into user value(null, ?,?,?,?,?,?,?,0,?,?)";
+		sql = "insert into user value(null, ?,?,?,?,?,?,?,?,0,?)";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, user.getEmail());
-			pstmt.setString(2, user.getPassword());
-			pstmt.setString(3, user.getEmail());
-			pstmt.setString(4, user.getTel());
-			pstmt.setString(5, user.getProvince());
-			pstmt.setString(6, user.getCity());
-			pstmt.setString(7, user.getSection());
-			pstmt.setString(8, user.getCode());
-			pstmt.setString(9, user.getName());
+			pstmt.setString(2, user.getName());
+			pstmt.setString(3, user.getPassword());
+			pstmt.setString(4, user.getEmail());
+			pstmt.setString(5, user.getTel());
+			pstmt.setString(6, user.getProvince());
+			pstmt.setString(7, user.getCity());
+			pstmt.setString(8, user.getSection());
+			pstmt.setString(9, user.getCode());
+			
 			pstmt.executeUpdate();
 			//发送邮件验证信息
 			JavaMail mail = new JavaMail();
@@ -68,7 +70,7 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return ok;
 	}
 
@@ -94,7 +96,7 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		System.out.println("用户id："+i);
 		return i;
 	}
@@ -128,7 +130,7 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return ok;
 	}
 
@@ -149,7 +151,7 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return ok;
 	}
 
@@ -172,7 +174,7 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return ok;
 		
 	}
@@ -186,6 +188,8 @@ public class UserImpl implements UserDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, temp);
+			pstmt.setString(2, code);
+			pstmt.setString(3, username);
 			int count = 0;
 			count = pstmt.executeUpdate();
 			if (count == 1){
@@ -195,8 +199,29 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DBHelper.close(rs, pstmt);
+		this.close();
 		return ok;
+	}
+	//关闭ResultSet和pstmt
+	private void close(){
+		if (null != rs){
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if (null != pstmt){
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//关闭数据库连接conn
+		DBHelper.close();
 	}
 
 }
