@@ -95,7 +95,7 @@
  
 <servlet-mapping> 
 <servlet-name>DisplayChart</servlet-name>
-<url-pattern>/servlet/DisplayChart.ln</url-pattern>
+<url-pattern>/servlet/DisplayChart.sl</url-pattern>
 </servlet-mapping>
   <servlet-mapping>
     <servlet-name>MailServlet</servlet-name>

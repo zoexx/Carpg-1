@@ -6,6 +6,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -58,12 +59,12 @@ public class Chart {
 	//operate为操作的类型，主要表示为统计展示的信息类别状况，比如统计品牌以时间为轴的状况量（折线图）
 	//param为前端传递的参数，主要是用于后台获取相应的数据
 	public void createChart(String type, String operate, String param){
-		//表示需要展示折线图
-		if (type.equals("line_chart")){
+		//表示需要展示饼状图
+		if (type.equals("pei_chart")){
 			//创建饼状图
 			createPeiChart(operate, param);
-		}//表示需要展示饼状图
-		else if (type.equals("pei_chart")){
+		}//表示需要展示折线图
+		else if (type.equals("line_chart")){
 			//创建折线图
 			createXYChart(operate, param);
 		}
@@ -77,7 +78,15 @@ public class Chart {
 		//根据operate类型进行相应的获取
 		//表示某一年内各个品牌的问题状况量
 		if (operate.equals(Chart.BRAND_COUNT_YEAR)){
-			Map<String, Integer> map = statistic.getCountByYear_brand(param);
+			//Map<String, Integer> map = statistic.getCountByYear_brand(param);
+			//测试模块
+			LinkedHashMap<String, Integer> map = new LinkedHashMap<String, Integer>();
+			map.put("2014", 7000);
+			map.put("2013", 2000);
+			map.put("2012", 1000);
+			map.put("2011", 3000);
+			map.put("2010", 3500);
+			map.put("2009", 2500);
 			chart = ChartFactory.createPieChart3D("各个品牌的状况", 
 					createPeiData(map), true, true, false);
 			chart.addSubtitle(new TextTitle("年份："+param));
@@ -117,7 +126,15 @@ public class Chart {
 		//表示品牌按年份统计
 		if (operate.equals(Chart.BRAND_YEAR_COUNT)){
 			//根据传递的品牌参数活动每年的数据量
-			Map<String, Integer> map = statistic.getCountByYear_brand(param);
+			//Map<String, Integer> map = statistic.getCountByYear_brand(param);
+			//测试模块
+			Map<String, Integer> map = new HashMap<String, Integer>();
+			map.put("2014", 7000);
+			map.put("2013", 2000);
+			map.put("2012", 1000);
+			map.put("2011", 3000);
+			map.put("2010", 3500);
+			map.put("2009", 2500);
 			//创建相应的折线图
 			chart = ChartFactory.createTimeSeriesChart(
 	                "汽车品牌问题统计", "年份", "吐槽量",

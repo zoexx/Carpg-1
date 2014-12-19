@@ -1,7 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ page import="org.jfree.chart.ChartFactory,org.jfree.chart.JFreeChart,
-org.jfree.chart.servlet.ServletUtilities"%>
 <%@ page import="com.carpg.util.Chart" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <%
 
     //应用主题样式,主要输解决中文乱码问题

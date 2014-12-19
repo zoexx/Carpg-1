@@ -16,3 +16,4 @@ String filename = ServletUtilities.saveChartAsPNG(chart, 500, 300, null, session
 String graphURL = request.getContextPath() + "/servlet/DisplayChart.ln?filename=" + filename;
 %>
 <img src="<%= graphURL %>" width=900 height=400 border=0 usemap="#<%= filename %>">
+
