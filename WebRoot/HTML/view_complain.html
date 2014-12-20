@@ -41,13 +41,14 @@
 						<a href=""><li>本周热门</li></a>
 					</ul>					
 				</div>
-				<div class="view_mainComplains view_complainBorder">
-							<div href="#" class="avatar">
+				<div id="add_ccshere">	
+				<div  id="complainContent" class="view_mainComplains view_complainBorder">
+							<div class="avatar">
 								<img src="../images/img/avatar.png" class="avatarPic"/>
 								<p class="avatarName"><b>车曝网友</b><br />1小时前<br />2014/12/09</p>								
 							</div>
 							<div class="view_complainContent">
-								<h4>
+								<h4 id="view_complainTitle">
 									[上海通用雪佛兰迈锐宝2.0发动机缸体发裂漏油]
 								</h4>
 								<ul class="view_complainTips">
@@ -58,7 +59,7 @@
 									<li>2012/10/18购入</li>
 									<li>黄石三环瑞通汽车销售服务有限公司(雪佛兰4S店)</li>
 								</ul >
-								<p>
+								<p id="view_complainText">
 									2012年10月18日在当地4S店购车，目前里程6581公里。1500公里首保发现发动机外壳明显油迹，4S店说清洗干净后再看，次日发现漏油。4S店上胶，次日仍然漏油，与4S店师傅一起检查发现漏油原因为缸体发裂，并非上胶的接合处。并拍照！车还在我手上开着，担心一拖再拖，汽车跑垮了、自燃了！
 4S店及上海通用意见：更换发动机中间壳体部位。<br />
 我的意见：<br />1、退换车<br />
@@ -76,56 +77,15 @@
 									<li><img src="../images/img/example1.jpg"/></li>
 								</ul>
 								<ul class="view_complainAction">
-									<a href=""><li>收藏</li></a>
-									<a href=""><li>评论</li></a>
-									<a href=""><li>转发</li></a>
-									<a href=""><li>赞</li></a>
-								</ul>
-							</div>					
-				</div>
-				<div class="view_mainComplains view_complainBorder">
-							<div href="#" class="avatar">
-								<img src="../images/img/avatar.png" class="avatarPic"/>
-								<p class="avatarName"><b>车曝网友</b><br />1小时前<br />2014/12/09</p>								
-							</div>
-							<div class="view_complainContent">
-								<h4>
-									[上海通用雪佛兰迈锐宝2.0发动机缸体发裂漏油]
-								</h4>
-								<ul class="view_complainTips">
-									<li>上海通用雪佛兰</li>
-									<li>发动机</li>									
-									<li>迈锐宝</li>
-									<li>黄石市</li>
-									<li>2012/10/18购入</li>
-									<li>黄石三环瑞通汽车销售服务有限公司(雪佛兰4S店)</li>
-								</ul >
-								<p>
-									2012年10月18日在当地4S店购车，目前里程6581公里。1500公里首保发现发动机外壳明显油迹，4S店说清洗干净后再看，次日发现漏油。4S店上胶，次日仍然漏油，与4S店师傅一起检查发现漏油原因为缸体发裂，并非上胶的接合处。并拍照！车还在我手上开着，担心一拖再拖，汽车跑垮了、自燃了！
-4S店及上海通用意见：更换发动机中间壳体部位。<br />
-我的意见：<br />1、退换车<br />
-          2、赔偿损失<br />
-          3、坚决不同意对发动机进行大修式的更换作业。<br />
-          4、最底限要求：更换发动机总成并赔偿由此带来的损失！<br />
-        上海通用公司出品的这辆车发动机缸体发裂导致漏油，是明显的产品质量问题、是明显的不合格产品，不该上市销售。
-								</p>
-								<ul class="view_complainPhoto">
-									<li><img src="../images/img/example1.jpg"/></li>
-									<li><img src="../images/img/example2.jpg"/></li>
-									<li><img src="../images/img/example3.jpg"/></li>
-									<li><img src="../images/img/example4.jpg"/></li>
-									<li><img src="../images/img/example5.jpg"/></li>
-									<li><img src="../images/img/example1.jpg"/></li>
-								</ul>
-								<ul class="view_complainAction">
-									<a href=""><li>收藏</li></a>
-									<a href=""><li>评论</li></a>
-									<a href=""><li>转发</li></a>
-									<a href=""><li>赞</li></a>
+									<li><a href="">收藏</a></li>
+									<li><a href="">评论</a></li>
+									<li><a href="">转发</a></li>
+									<li><a href="">赞</a></li>
 								</ul>
 							</div>					
 				</div>
 				
+				</div>
 				<a id="view_mainComplains_more" class="view_complainBorder">加载更多</a>
 			</div>
 			
@@ -165,5 +125,108 @@
 				<div id="view_banner2" class="view_complainBorder"></div>
 			</div>
 		</div>
+		<script type="text/javascript">
+	function loadMassage (n) {
+		//解析jsonArray
+		//创建n个评论信息容器
+		
+		createComplainContent(n);
+		//循环填充
+		for (var i = 0; i < n; i++) {
+		//公共变量用来获取当前id
+		var currentID=new String();
+		//img src用户头像
+		//p b用户名称 时间 日期
+		var userName="车曝网友"+i;
+		var nowt=new Date();//test
+		var cTime=""+nowt.getHours()+nowt.getMinutes();
+		var cDate=""+nowt.getFullYear()+"/"+nowt.getMonth()+"/"+nowt.getDay();
+		//id=classname+i
+		currentID="avatarName"+i;
+		document.getElementById(currentID).innerHTML="<b>"+userName+"</b><br/>"+cTime+"<br/>"+cDate;
+		//标题
+		var ctitle="上海通用雪佛兰迈锐宝2.0发动机缸体发裂漏油";
+		currentID="view_complainTitle"+i;
+		document.getElementById(currentID).innerHTML="["+ctitle+"]";
+		//问题标签		
+		var ctips=['上海通用雪佛兰','发动机','迈锐宝','黄石市','2012/10/18购入','黄石三环瑞通汽车销售服务有限公司(雪佛兰4S店)'];
+		currentID="view_complainTips"+i;
+		for (var i = 0; i < ctips.length; i++) {
+			var cli=document.createElement("li");
+			cli.innerHTML=""+ctips[i];
+			document.getElementById(currentID).appendChild(cli);
+		}
+		//正文
+		var ctext="1234561234561234561345613456123456";
+		currentID="view_complainText"+i;
+		document.getElementById(currentID).innerHTML=""+ctext;
+		//图片
+		var cpics=['../images/img/example1.jpg','../images/img/example1.jpg'];
+		currentID="view_complainPhoto"+i;
+		for (var i = 0; i < cpics.length; i++) {
+			var clii=document.createElement("li");
+			var cimg=document.createElement("img");
+			cimg.src=""+cpics[i];
+			clii.appendChild(cimg);
+			document.getElementById(currentID).appendChild(clii);
+		}
+		//显示收藏，转发，赞等数量
+		//添加到。。。
+		currentID="complainContent"+i;
+		
+		}
+		//分步显示
+		
+	}
+	
+	//创建评论框架
+	function createComplainContent (c_nub) {
+		for (var i = 0; i < c_nub; i++) {
+			//整条评论的容器
+			var view_mainComplains=document.createElement("div");
+			view_mainComplains.id="complainContent"+i;
+			view_mainComplains.className="view_mainComplains view_complainBorder";
+			//user信息容器
+			var avatar=document.createElement("div");
+			addSameIdClass(avatar,"avatar",i);
+			var avatarPic=document.createElement("img");
+			addSameIdClass(avatarPic,"avatarPic",i);
+			var avatarName=document.createElement("p");
+			addSameIdClass(avatarName,"avatarName",i);
+			avatar.appendChild(avatarPic);
+			avatar.appendChild(avatarName);
+			view_mainComplains.appendChild(avatar);
+			//吐槽信息容器
+			var view_complainContent=document.createElement("div");
+			addSameIdClass(view_complainContent,"view_complainContent",i);
+			var view_complainTitle=document.createElement("h4");
+			addSameIdClass(view_complainTitle,"view_complainTitle",i);
+			view_complainContent.appendChild(view_complainTitle);
+			var view_complainTips=document.createElement("ul");
+			addSameIdClass(view_complainTips,"view_complainTips",i);
+			view_complainContent.appendChild(view_complainTips);
+			var view_complainText=document.createElement("p");
+			addSameIdClass(view_complainText,"view_complainText",i);
+			view_complainContent.appendChild(view_complainText);
+			var view_complainPhoto=document.createElement("ul");
+			addSameIdClass(view_complainPhoto,"view_complainPhoto",i);
+			view_complainContent.appendChild(view_complainPhoto);
+			var view_complainAction=document.createElement("ul");
+			addSameIdClass(view_complainAction,"view_complainAction",i);
+			view_complainAction.innerHTML="<li><a href=''>收藏</a></li><li><a href=''>评论</a></li><li><a href=''>转发</a></li><li><a href=''>赞</a></li>";
+			view_complainContent.appendChild(view_complainAction);
+			view_mainComplains.appendChild(view_complainContent);
+			//添加到吐槽显示区
+			document.getElementById("add_ccshere").appendChild(view_mainComplains);
+			
+		}
+		 
+	}
+	function addSameIdClass (obj,name,n) {
+		
+		obj.id=""+name+""+n;
+		obj.className=""+name;
+	}
+</script>
 	</body>
 </html>
