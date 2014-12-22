@@ -1,17 +1,18 @@
 package com.carpg.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
-import org.apache.struts2.interceptor.SessionAware;
 
 import com.carpg.dao.ComplaintDao;
 import com.carpg.dao.User_CarDao;
@@ -27,6 +28,12 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 	
 	private HttpServletResponse response;  
 	private HttpServletRequest request; 
+	
+	//文件上传处理(适用于多图上传）
+    private String savePath;// 保存路径     
+    private List<File> files; //对应文件域的file，封装文件内容
+    private List<String> fileTypes; // 封装文件类型 
+    private List<String> fileNames; // 封装文件名 
 	
 	private Complaint complaint = new Complaint();
 	private ComplaintDao comDao = new ComplaintImpl();
@@ -86,11 +93,38 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 		//可以方便地修改日期格式
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		complaint.setTime(dateFormat.format(now));
+		//图片上传处理
+		complaint.setImage(fileUpload(userid));
 		//添加抱怨信息
 		comDao.addComplaint(complaint);
 		//清除暂存在session中的用户车的信息
 		request.getSession().removeAttribute("user_carinfo");
 		return "index";
+	}
+	//文件上传处理函数,传递用户id参数为每个用户创建一个目录,返回图片的相对地址,以分号”;"分割
+	public String fileUpload(int userId) throws Exception{
+		String imagePath = "";
+		if (files != null){
+			String path = getSavePath() +"\\" + "userId";
+			//创建用户单独的目录
+			File dir = new File(path);
+			if (!dir.exists() && !dir.isDirectory()){
+				dir.mkdir();
+			}
+			for (int i=0; i<files.size(); i++){
+				//创建文件的输入输出流
+				FileOutputStream fos = new FileOutputStream(path+"\\" + getFileNames().get(i));
+				FileInputStream fis=new FileInputStream(getFiles().get(i));
+				byte[] buffer=new byte[1024];
+			    int len=0;
+			    while((len=fis.read(buffer))>0){
+			        fos.write(buffer, 0, len);
+			    }
+			    //将图片路径保存
+			    imagePath += userId + "\\" + getFileNames().get(i) +";";
+			}
+		}
+		return imagePath;
 	}
 	//表示展示吐槽，吐槽互动的页面
 	public String complaintView() throws Exception{
@@ -119,9 +153,33 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 	public String getMsg() {
 		return msg;
 	}
-
-
 	public void setMsg(String msg) {
 		this.msg = msg;
+	}
+	
+	public String getSavePath() {
+		//将相对路径转换成绝对路径  
+        return ServletActionContext.getServletContext().getRealPath(savePath);
+	}
+	public void setSavePath(String savePath) {
+		this.savePath = savePath;
+	}
+	public List<File> getFiles() {
+		return files;
+	}
+	public void setFiles(List<File> files) {
+		this.files = files;
+	}
+	public List<String> getFileTypes() {
+		return fileTypes;
+	}
+	public void setFileTypes(List<String> fileTypes) {
+		this.fileTypes = fileTypes;
+	}
+	public List<String> getFileNames() {
+		return fileNames;
+	}
+	public void setFileNames(List<String> fileNames) {
+		this.fileNames = fileNames;
 	}
 }

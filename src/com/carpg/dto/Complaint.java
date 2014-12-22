@@ -19,6 +19,11 @@ public class Complaint {
 	private String car_brand;
 	private String car_type;
 	private int mileage;
+	
+	//创建问题参数
+	private String problem_type;    //问题的类别
+	private String problem_problem; //问题的状况
+	private String problem_detail;  //问题的详细描述
 	public int getId() {
 		return id;
 	}
@@ -114,6 +119,24 @@ public class Complaint {
 	}
 	public void setMileage(int mileage) {
 		this.mileage = mileage;
+	}
+	public String getProblem_type() {
+		return problem_type;
+	}
+	public void setProblem_type(String problem_type) {
+		this.problem_type = problem_type;
+	}
+	public String getProblem_problem() {
+		return problem_problem;
+	}
+	public void setProblem_problem(String problem_problem) {
+		this.problem_problem = problem_problem;
+	}
+	public String getProblem_detail() {
+		return problem_detail;
+	}
+	public void setProblem_detail(String problem_detail) {
+		this.problem_detail = problem_detail;
 	}
 	
 

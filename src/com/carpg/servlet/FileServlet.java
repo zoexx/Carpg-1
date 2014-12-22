@@ -65,7 +65,8 @@ public class FileServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");  
-		response.setContentType("text/html; charset=UTF-8");  
+		response.setContentType("text/html;charset=UTF-8");
+		System.out.println("file upload start");
 		  
 		//保存路径  
 		String savePath = getServletContext().getRealPath("/upload");  
@@ -74,7 +75,7 @@ public class FileServlet extends HttpServlet {
 		if(!saveDir.exists()){  
 		    saveDir.mkdir();  
 		}  
-		  
+		System.out.println("create dir");
 		// 创建文件上传核心类 
 		
 		DiskFileItemFactory factory = new DiskFileItemFactory();  
@@ -87,8 +88,10 @@ public class FileServlet extends HttpServlet {
 		//设置整个表单的最大字节数为10M  
 		sfu.setSizeMax(1024*1024*10);
 		try{  
-		    // 处理表单请求  
+		    // 处理表单请求
+			
 		    List<FileItem> itemList = sfu.parseRequest(request);  
+		    System.out.println("form action: "+itemList);
 		    for (FileItem fileItem : itemList) {  
 		        // 对应表单中的控件的name  
 		        String fieldName = fileItem.getFieldName();  
