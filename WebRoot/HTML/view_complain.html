@@ -126,9 +126,17 @@
 			</div>
 		</div>
 	<script type="text/javascript">
-	addLoadEvent(loadMassage(2));
-	function loadMassage (n) {
-		//解析jsonArray
+	function test(){
+		var json = "";
+		for (var i=0; i < json.length; i++){
+			//生成一个容器
+			json[0].car_type;
+		}
+	}
+	//解析jsonArray
+	
+	function loadMassage (n,imgs,userName,ctime,ctitle，) {
+		
 		//创建n个评论信息容器		
 		createComplainContent(n);
 		//循环填充
@@ -137,16 +145,14 @@
 		var currentID=new String();
 		//img src用户头像
 		currentID="avatarPic"+i;
-		//p b用户名称 时间 日期
-		var userName="车曝网友"+i;
-		var nowt=new Date();//test
-		var cTime=""+nowt.getHours()+":"+nowt.getMinutes();
-		var cDate=""+nowt.getFullYear()+"/"+nowt.getMonth()+"/"+nowt.getDay();
-		//id=classname+i
+		document.getElementById(currentID).src=""+imgs;
+		//用户名称 时间 日期
+		var timeinfo=ctime.split(" ");
+		var cDate=timeinfo[0];
+		var cTime=timeinfo[1];		
 		currentID="avatarName"+i;
 		document.getElementById(currentID).innerHTML="<b>"+userName+"</b><br/>"+cTime+"<br/>"+cDate;
 		//标题
-		var ctitle="上海通用雪佛兰迈锐宝2.0发动机缸体发裂漏油";
 		currentID="view_complainTitle"+i;
 		document.getElementById(currentID).innerHTML="["+ctitle+"]";
 		//问题标签		
@@ -227,7 +233,7 @@
 			var view_complainAction=document.createElement("ul");
 			addSameIdClass(view_complainAction,"view_complainAction",i);
 			var actiontext=['收藏','评论','转发','赞'];
-			for (var b = 0; b < 4; b++) {
+			for (var b = 0; b < actiontext.length; b++) {
 				var acli=document.createElement("li");				
 				var actionBtn=document.createElement("a");
 				actionBtn.id="actionBtn"+i+""+b;
