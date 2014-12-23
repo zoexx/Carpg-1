@@ -136,10 +136,10 @@ public class ComplaintImpl implements ComplaintDao {
 		try {
 			//从最新的开始取出数据
 			if (id == -1){
-				sql = "select * from complaint order by id desc limit 20";
+				sql = "select * from complaint, car_problems order by time desc limit 20";
 				pstmt = conn.prepareStatement(sql);
 			}else {
-				sql = "select * from complaint where id<=? order by desc limit 20";
+				sql = "select * from complaint, car_problems where id<=? order by time desc limit 20";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, id);
 			}
@@ -162,6 +162,10 @@ public class ComplaintImpl implements ComplaintDao {
 				com.setImage(rs.getString("image"));
 				com.setMark(rs.getString("mark"));
 				com.setMileage(rs.getInt("mileage"));
+				
+				com.setProblem_type(rs.getString("type"));
+				com.setProblem_problem(rs.getString("problem"));
+				com.setProblem_detail(rs.getString("detail"));
 				list.add(com);				
 			}
 		} catch (SQLException e) {

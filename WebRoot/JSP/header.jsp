@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  			document.getElementById("header_showUserName").hidden=false;
  		}else{
  			document.getElementById("header_log_re").hidden=false;
+ 			document.getElementById("header_showUserName").hidden=true;
  		}
  	}
  	

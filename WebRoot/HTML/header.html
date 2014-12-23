@@ -28,7 +28,7 @@
  			    <li><a href="#">缺陷排行</a></li>
  				<li><a href="#">缺陷调查</a></li>
  				<li><a href="#">二手车市</a></li>
- 				<li><a onclick="onShowIframe('../HTML/login_re.html');">我要吐槽</a></li>
+ 				<li><a onclick="onShowIframe('complaint_step1.jsp');">我要吐槽</a></li>
  				<li><a href="#">召&nbsp;&nbsp;回</a></li>
 				
 					<ul id="header_function">
@@ -39,20 +39,20 @@
 					    </form>
 						</li>
 						<li id="header_log_re" hidden="hidden">						
-					       <a href="login.jsp" id="header_log_re">登录&nbsp;|&nbsp;注册</a>						    
+					       <a id="header_log_re" onclick="onShowIframe('login.jsp');">登录&nbsp;|&nbsp;注册</a>						    
 						</li>
 						<li id="header_showUserName">						
 						    <a href="" ><span id="UserName">admin</span>&nbsp;|&nbsp;你好</a>				    
 					        <ul id="header_logout" hidden="hidden">
 					           <li><a href="">个人中心</a></li>
-						       <li><a href="../userOperate!logout">退出</a></li>
+						       <li><a href="userOperate!logout">退出</a></li>
 					        </ul>
 						</li>
 					</ul>
 				
 			</ul>
 		</div>
-		<div di="content_content_iframe">
+		<div id="content_content_iframe">
 		<div id="content_iframe" hidden="hidden">
 			<button id="closeBtn" onclick="closeIframe();">X</button>
 			<iframe src="" name="myiframe" id="myiframe" scrolling="no"></iframe>

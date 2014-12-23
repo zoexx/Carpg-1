@@ -3,6 +3,7 @@ package com.carpg.controller;
 import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.jms.Session;
@@ -16,8 +17,11 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.carpg.dao.UserDao;
+import com.carpg.dao.User_CarDao;
 import com.carpg.dto.User;
+import com.carpg.dto.User_Car;
 import com.carpg.impl.UserImpl;
+import com.carpg.impl.User_CarImpl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -41,7 +45,19 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 
 	//登陆成功跳转页面，跳转到首页
 	public String login() throws Exception{
-		return "index";
+		//取出用户的活动状态
+		String step = (String)request.getSession().getAttribute("step");
+		//表示用户上一个活动的状态是在吐槽
+		if (null != step){
+			//调用抱怨的action中的操作
+			ComplaintAction action = new ComplaintAction();
+			action.setServletRequest(request);
+			return action.complaintStep1();
+		}
+		else{
+			return "index";
+		}
+		
 	}
 	//跳转到注册详细页面
 	public String loginRe() throws Exception{

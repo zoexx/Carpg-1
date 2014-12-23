@@ -47,7 +47,9 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 		String info = (String)request.getSession().getAttribute("user");
 		//如果session为空则表示为登陆
 		if (null == info){
-			//重定向到登陆界面
+			//重定向到登陆界面,并保存当前的活动（发送抱怨第一步)
+			request.getSession().setAttribute("step", "step1");
+			
 			return "login";
 		}else{
 			//通过session中的用户信息取出用户车给到用户车列表
