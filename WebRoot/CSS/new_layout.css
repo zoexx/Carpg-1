@@ -153,8 +153,7 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 .view_complainAction li{overflow: hidden;color: #444444;float: left;width: 25%;text-align: center;}
 .view_complainAction li a:hover{color: #B40000;border-bottom: 2px solid #B40000;background-color: #EEEEEE;}
 .view_complainAction li a{line-height: 39px;border-left: 1px solid #CCCCCC;border-bottom: 2px solid #CCCCCC;}
-#view_mainComplains_more{margin:10px 0;line-height: 30px;text-align: center;background-color: #FFFFFF;}
-#view_mainComplains_more:hover{border-bottom: 2px solid #B40000;}
+#view_mainComplains_more{margin:10px 0;line-height: 30px;text-align: center;overflow:hidden;background-color: #FFFFFF;border-bottom: 2px solid #B40000;}
 
 
 .view_right{width: 290px;overflow: hidden;background-color: #F6F6F6;}
