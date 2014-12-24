@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <script type="text/javascript" src="../JS/jquery-1.7.2.min.js" ></script>
 <script type="text/javascript" src="../JS/ajax.js" ></script>
-  <script type="text/javascript">
+<script type="text/javascript">
   	//验证邮箱的合法性
   function check_format(){
     var mail = document.getElementById("email").value;
@@ -66,6 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					//登陆成功跳转
 					document.getElementById("login_reg").action="userOperate!login";
 				    document.getElementById("login_reg").submit();
+				    parent.location.reload();
 				}else if (temp == "fail"){
 					//给出页面提示
 					document.getElementById("email").value = "登陆失败, 用户名或密码错误";
