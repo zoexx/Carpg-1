@@ -1,8 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 
-<html>
-	<body>
-		
-	</body>
-	
-</html>
+<%
+	response.sendRedirect("Carpg/JSP/index.jsp");
+ %>
