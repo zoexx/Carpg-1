@@ -132,7 +132,7 @@
 				<div id="view_banner2" class="view_complainBorder"></div>
 			</div>
 		</div>
-		<script type="text/javascript">
+<script type="text/javascript">
 			var aJson = [
 { "time":"2014/12/23 12:24" , "user_name":"Gates" ,"frequency":"三天一次","course":"unknown","fee":"2000","image":["../images/img/example1.jpg","../images/img/example2.jpg"],"mark":"1234567890","car_brand":"奥迪","car_type":"Q5","mileage":"5000km","problem_type":"引擎","problem_problem":"引擎启动难","problem_detail":"满油发动机依然启动难"},
 { "time":"2014/12/23 12:24" , "user_name":"Gates" ,"frequency":"三天一次","course":"unknown","fee":"2000","image":["../images/img/example1.jpg","../images/img/example2.jpg"],"mark":"1234567890","car_brand":"奥迪","car_type":"Q5","mileage":"5000km","problem_type":"引擎","problem_problem":"引擎启动难","problem_detail":"满油发动机依然启动难"},
@@ -142,7 +142,7 @@
 ];
 	var maxSize=2;//设置每次展示条数
 	var msgCount=0;//单页消息计数器
-    addLoadEvent(loadMassage(maxSize));
+    
 	function loadMassage (maxsize) {
 		for (var i = 0; i < maxsize; i++) {
 			if (msgCount==aJson.length-1) {
@@ -273,10 +273,11 @@ function getWindowHeight(){
 }
 //拼在jsp中时需加上$footer.height
 window.onscroll = function(){
-　　if(getScrollTop() + getWindowHeight() == getScrollHeight()){
-	 window.setTimeout("loadMassage(maxSize);",2000);　　　　
+　　if(getScrollTop() + getWindowHeight()+document.getElementById("foot").offsetHeight == getScrollHeight()){
+	 window.setTimeout("loadMassage(maxSize);",500);　　　　
 　　}
 };
-		</script>
+
+</script>
 	</body>
 </html>
