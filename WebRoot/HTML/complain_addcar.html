@@ -6,26 +6,26 @@
 		<meta name="title" content="车曝网" />
 		<meta name="keywords" content="车曝网,汽车,轿车,二手车,曝光,质量,驾驶安全,反馈,调查报告,数据分析,召回,拍卖,竞价,消费者权益,315,车"/>
 		<meta name="description" content="车曝网是国内首家收集整理车主驾驶体验信息的完全公开完全开放的民间网站，车曝网为广大车主以及准车主提供大量汽车质量的数据分析服务以及二手车交易信息服务。" />
-		<link href="../CSS/layout.css" rel="stylesheet" type="text/css" />
+		<link href="../CSS/new_layout.css" rel="stylesheet" type="text/css" />
   		<script src="../JS/add.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div class="content3">
 			<form  id="form" method="post" onsubmit="return false;">
-			<h1>-添加车型-</h1>
+			<h2>-添加车型-</h2>
 			<div class="addcar_left">
-			<h2>-汽车品牌-</h2>
+			<h4>-汽车品牌-</h4>
 			<select id="brand" name="brandS" onchange="showCorp();">
 				<option value="default">----选择汽车品牌----</option>
 				<option value="volvo">沃尔沃</option>
 				
 			</select>
-			<h2>-车型-</h2>
+			<h4>-车型-</h4>
 			<select id="serial" name="car_typeS">
 				<option value="default">----选择您的车型----</option>
 				
 			</select>
-			<h2>-空间-</h2>
+			<h4>-空间-</h4>
 			<select id="category" name="category">
 				<option value="default">----选择汽车类别----</option>
 				<option value="suv">SUV</option>
@@ -37,7 +37,7 @@
 				<option value="中大型">中大型</option>
 				<option value="mpv">MPV</option>
 			</select>
-			<h2>-变速器-</h2>
+			<h4>-变速器-</h4>
 					<select name="transmission" id="transmission">
 						<option value="default">----请选择变速器----</option>
 						<option value="自动">自动档</option>
@@ -47,7 +47,7 @@
 			</div>
 			<ul class="add_carinfo">
 				<li>
-				<h2>-上市&购入-</h2>
+				<h4>-上市&购入-</h4>
 			    <select id="sale_time" name="sale_time" onfocus="addcar_addtime(15,this.id);">
 				<option value="default" >----选择上市时间----</option>
 			    </select>
@@ -56,40 +56,40 @@
 			    </select>
 				</li>
 				<li>
-					<h2>-排量-</h2>
+					<h4>-排量-</h4>
 					<input type="text" id="displacement" name="displacement"/>
 					<p><i>如：3.2L</i></p>
 				</li>
 				<li>
-					<h2>-黄标-</h2>
+					<h4>-黄标-</h4>
 					<select id="standard" name="standard">
 						<option value="国五">-国五-</option>
 						
 					</select>
 				</li>
 				<li>
-					<h2>-里程-</h2>
+					<h4>-里程-</h4>
 					<input type="text" id="mileage" name="mileage"/>
 					<p><i>(公里)</i></p>
 				</li>
 				<li>
-					<h2>-配置-</h2>
+					<h4>-配置-</h4>
 					<input type="text" id="configure" name="configure"/>
 					<p><i>如（雷克萨斯）：NX200 锋行版</i></p>
 				</li>
 				<li>
-					<h2>-VIN码-</h2>
+					<h4>-VIN码-</h4>
 					<input type="text" id="vin" name="vin"/>
 					<p><i>车辆识别码，由17位字符组成</i></p>
 
 				</li>
 				<li>
-					<h2>-爱车别名-</h2>
+					<h4>-爱车别名-</h4>
 					<input type="text" id="alias" name="alias"/>
 					<p><i>如（雷克萨斯）：凌志</i></p>
 				</li>
 				<li >
-					<h2>-漆色-</h2>
+					<h4>-漆色-</h4>
 					<button class="carcolor black " id="carColorBlack" value="黑" name="carColor" onclick="addcar_color(this);">黑</button>
 					<button class="carcolor white" id="carColorWhite" value="白" name="carColor" onclick="addcar_color(this);">白</button>
 					<button class=" carcolor yellow" id="carColorYellow" value="黄" name="carColor" onclick="addcar_color(this);">黄</button>
@@ -101,7 +101,7 @@
 
 			
 			<div class="instruction">
-				<h2>说明:</h2>
+				<h4>说明:</h4>
 				<h3>· 上市时间并非购买时间</h3>
 			</div>
 			<div id="text_forVIN">	

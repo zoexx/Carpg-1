@@ -2,23 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>车曝网-促进车辆质量提升</title>
-		<meta name="title" content="车曝网" />
-		<meta name="keywords" content="车曝网,汽车,轿车,二手车,曝光,质量,驾驶安全,反馈,调查报告,数据分析,召回,拍卖,竞价,消费者权益,315,车"/>
-		<meta name="description" content="车曝网是国内首家收集整理车主驾驶体验信息的完全公开完全开放的民间网站，车曝网为广大车主以及准车主提供大量汽车质量的数据分析服务以及二手车交易信息服务。" />
+		<meta name="title" content="车曝光" />
+		<meta name="keywords" content="车曝光,汽车,轿车,二手车,曝光,质量,驾驶安全,反馈,调查报告,数据分析,召回,拍卖,竞价,消费者权益,315,车"/>
+		<meta name="description" content="车曝光是国内首家收集整理车主驾驶体验信息的完全公开完全开放的民间网站，车曝光为广大车主以及准车主提供大量汽车质量的数据分析服务以及二手车交易信息服务。" />
 		<link rel="stylesheet" href="../CSS/new_layout.css" />
-		<script type="text/javascript">
-			function onShowIframe (showHref) {
-				document.getElementById("myiframe").src=""+showHref;				       
-				document.getElementById("content_iframe").hidden=false;
-				document.getElementById("overlay_mask").hidden=false;
- 	    }
-			function closeIframe () {
-				document.getElementById("content_iframe").hidden=true;				
-				document.getElementById("overlay_mask").hidden=true;
-			}
-			
-		</script>
+		<script src="../JS/util.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div id="header" class="global_content">
@@ -26,10 +14,10 @@
 				<li id="logo"><img src="../images/img/carpg_01.jpg" /></li>
 				<li><a href="index.jsp" >首&nbsp;&nbsp;页</a></li>
  			    <li><a href="#">缺陷排行</a></li>
- 				<li><a href="#">缺陷调查</a></li>
+ 				<li><a href="news.jsp">缺陷调查</a></li>
  				<li><a href="#">二手车市</a></li>
- 				<li><a onclick="onShowIframe('complaint_step1.jsp');">我要吐槽</a></li>
- 				<li><a href="#">召&nbsp;&nbsp;回</a></li>
+ 				<li class="hot_ico"><a onclick="onShowIframe('complaint_step1.jsp');">我要吐槽</a></li>
+ 				<li><a href="news.jsp">召&nbsp;&nbsp;回</a></li>
 				
 					<ul id="header_function">
 						<li>
@@ -58,6 +46,16 @@
 			<iframe src="" name="myiframe" id="myiframe" scrolling="no"></iframe>
 		</div>
 		</div>
-		<div id="overlay_mask" hidden="hidden"></div>		
+		<div id="overlay_mask" hidden="hidden"></div>
+		<div id="follwUs">			
+			<h2 class="center"><b>关注车曝光</b></h2>
+			<h2 class="center"><b>掌握一手资讯</b></h2>
+			<img src="../images/img/erweima.png"/>
+	    			<ul>
+	    				<li><a href="#" class="login_quickin"><img src="../images/img/login_weibo.png"/></a></li>
+	    				<li><a href="#" class="login_quickin"><img src="../images/img/login_weichat.png"/></a></li>
+	    				<li><a href="#" class="login_quickin"><img src="../images/img/login_qq.png"/></a></li>
+	    			</ul>
+		</div>
 	</body>
 </html>
