@@ -88,3 +88,17 @@ problem varchar(30) not null,					/*问题的状况，比如一个部件下会�
 
 detail varchar(100)								/*问题的详细描述*/
 );
+
+/*汽车问题调查报告，召回信息表，主要用于存储发布的信息*/
+create table report(
+id int primary key not null auto_increment,		/*主键，编号*/
+type int not null,                              /*类别，表示是0: 汽车调查报告还是1: 召回信息*/
+category varchar(10) not null,					/*类别的中文表示*/
+title varchar(40) not null,						/*信息的标题*/
+source varchar(20) not null,                    /*信息的来源*/
+author varchar(20),								/*作者*/
+time varchar(20) not null,						/*信息发布的时间*/
+content varchar(1000) not null,					/*报告的内容,有可能采取存放html格式的形式*/
+image varchar(20),								/*报告的展示图片,存放路径*/
+url varchar(50)									/*报告摘取链接*/
+);

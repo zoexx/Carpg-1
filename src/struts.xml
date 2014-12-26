@@ -56,6 +56,11 @@
             <!-- 配置上传文件的保存的相对路径 -->  
             <param name="savePath">/images/complaint</param>  
 		</action>
+		<action name="reportOperate" class = "com.carpg.controller.ReportAction">
+			<result>index.jsp</result>
+			<result name="index" type="redirect">index.jsp</result>
+			<result name="detail"></result>
+		</action>
 	</package>
 
 
