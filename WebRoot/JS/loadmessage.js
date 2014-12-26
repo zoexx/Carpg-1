@@ -6,9 +6,13 @@ function loadMassage (maxsize) {
 				document.getElementById("view_mainComplains_more").hidden=true;
 				break;
 			}else{
+				showMessage();
 				msgCount++;
-			}
-			//整条评论的容器
+			}					
+		}		 
+	}
+function showMessage () {
+	//整条评论的容器
 			var view_mainComplains=document.createElement("div");
 			view_mainComplains.className="view_mainComplains view_complainBorder";
 			//user信息容器
@@ -83,10 +87,7 @@ function loadMassage (maxsize) {
 			view_mainComplains.appendChild(view_complainContent);
 			//添加到吐槽显示区
 			document.getElementById("add_ccshere").appendChild(view_mainComplains);
-					
-		}
-		 
-	}
+}
 //滚动到底部时加载更多
 //滚动条在Y轴上的滚动距离
 
