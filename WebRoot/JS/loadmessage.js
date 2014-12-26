@@ -1,7 +1,7 @@
 //评论展示页面展示消息
 function loadMassage (maxsize) {
 		for (var i = 0; i < maxsize; i++) {
-			if (msgCount==aJson.length-1) {
+			if (msgCount==aJson.length) {
 				//隐藏“加载更多”
 				document.getElementById("view_mainComplains_more").hidden=true;
 				break;

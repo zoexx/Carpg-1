@@ -3,23 +3,21 @@
 	<head>
         <title>车曝光-添加吐槽1</title>
         <meta charset="utf-8" />
-		<meta name="title" content="车曝网" />
-		<meta name="keywords" content="车曝网,汽车,轿车,二手车,曝光,质量,驾驶安全,反馈,调查报告,数据分析,召回,拍卖,竞价,消费者权益,315,车"/>
-		<meta name="description" content="车曝网是国内首家收集整理车主驾驶体验信息的完全公开完全开放的民间网站，车曝网为广大车主以及准车主提供大量汽车质量的数据分析服务以及二手车交易信息服务。" />
 		<link href="../CSS/new_layout.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-		<div class="content3">
+		<div class="content3" id="iniframe">
 			<form method="post" id="form" name="form" >
 			<h2>-添加车型-</h2>
 			<h3 class="leftBlank">1\选择吐槽的车</h3>
 			<select style="text-align: center;" class="leftBlank" id="select_cars" name="select_cars">
 				<option value="nodefault">----无默认车型----</option>
 			</select>
-			<a href="add_car.jsp"><button class="leftBlank">添加吐槽车型</button></a>
+			<a href="add_car.jsp"  id="addcar" class="dashButtons">添加吐槽车型</a>
 			<p class="leftBlank">说明：</p>
-			<button class="dashButtons thenext_btn" id="next" name="next" onclick="return doCheck();">下一步</button>
+			<button class="dashButtons thenext_btn" id="next" name="next" onclick="return doCheck();setIframeSize(188);">下一步</button>
 			<input type="text" name="types" value="select_car" hidden="true"/>
-		</form></div>
+		</form>
+		</div>
 	</body>
 </html>
