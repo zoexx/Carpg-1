@@ -20,7 +20,7 @@ public class ComplaintImpl implements ComplaintDao {
 
 	public void addComplaint(Complaint complaint) {
 		// TODO Auto-generated method stub
-		//ÁÙÊ±µ÷ÕûÍÂ²ÛÎÊÌâ·¢ÉúµÄÊ±¼äÎªÖ»½ØÈ¡Äê·İ
+		//ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½ï¿½â·¢ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ÎªÖ»ï¿½ï¿½È¡ï¿½ï¿½ï¿½
 		String[] start_time = complaint.getStart_time().split("-");
 		complaint.setStart_time(start_time[0]);
 		
@@ -134,11 +134,11 @@ public class ComplaintImpl implements ComplaintDao {
 		List<Object> list = new ArrayList<Object>();
 		conn = DBHelper.getConn();
 		try {
-			//´Ó×îĞÂµÄ¿ªÊ¼È¡³öÊı¾İ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄ¿ï¿½Ê¼È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (id == -1){
 				sql = "select * from complaint, car_problems order by time desc limit 20";
 				pstmt = conn.prepareStatement(sql);
-				System.out.println("Ö´ĞĞ²éÑ¯Óï¾ä£º");
+				System.out.println("execute sqlä£º");
 			}else {
 				sql = "select * from complaint, car_problems where id<=? order by time desc limit 20";
 				pstmt = conn.prepareStatement(sql);
@@ -146,7 +146,7 @@ public class ComplaintImpl implements ComplaintDao {
 			}
 			rs = pstmt.executeQuery();
 			while (rs.next()){
-				System.out.println("È¡³öÊı¾İ£º "+rs.getRow());
+				System.out.println("row: "+rs.getRow());
 				Complaint com = new Complaint();
 				com.setId(rs.getInt("id"));
 				com.setUser_id(rs.getInt("user_id"));
@@ -175,11 +175,11 @@ public class ComplaintImpl implements ComplaintDao {
 			e.printStackTrace();
 		}
 		this.close();
-		System.out.println("ĞÅÏ¢ÁĞ±í£º"+ list.size());
+		System.out.println("list: ?"+ list.size());
 		return list;
 	}
 
-	//¹Ø±ÕResultSetºÍpstmt
+	//ï¿½Ø±ï¿½ResultSetï¿½ï¿½pstmt
 	private void close(){
 		if (null != rs){
 			try {
@@ -197,7 +197,7 @@ public class ComplaintImpl implements ComplaintDao {
 				e.printStackTrace();
 			}
 		}
-		//¹Ø±ÕÊı¾İ¿âÁ¬½Óconn
+		//ï¿½Ø±ï¿½ï¿½ï¿½İ¿ï¿½lï¿½ï¿½conn
 		DBHelper.close();
 	}
 }
