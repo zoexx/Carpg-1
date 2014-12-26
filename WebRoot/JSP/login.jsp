@@ -114,7 +114,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if (http_request.status == 200) {
 				var temp = http_request.responseText;
 				if (temp == "fail"){
-					//给出页面提示,并将验证码输入框置空，用于登陆验证判断
+					//给出页面提示,并将验证码输入框置空，用于登陆验证判断，若为空则提示填写验证码
 					alert("验证码输入错误");
 					document.getElementById("verify").value = "";
 				}
