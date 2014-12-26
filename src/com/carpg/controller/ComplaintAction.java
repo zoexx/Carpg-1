@@ -131,10 +131,13 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 	//表示展示吐槽，吐槽互动的页面
 	public String complaintView() throws Exception{
 		//通过id得到需要加载的抱怨信息
+		System.out.println("抱怨信息id： "+complaint.getId());
 		List<Object> list = comDao.getNewComplaints(complaint.getId());
+		System.out.println("抱怨信息列表： "+list.size());
 		//将取得的信息转化为jsonarray传递给页面
 		JsonTool json = new JsonTool();
 		msg = json.toJsonArrayString(list);
+		System.out.println("json： "+msg);
 		return "view";
 	}
 	public void setServletRequest(HttpServletRequest arg0) {

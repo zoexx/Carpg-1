@@ -12,11 +12,11 @@ public class DBHelper {
 	//数据库连接驱动
     private final static String driver = "com.mysql.jdbc.Driver";
     // 数据库连接url
-    private final static String url = "jdbc:mysql://localhost:3306/carpgdb?useUnicode=true&characterEncoding=utf-8";
+    private final static String url = "jdbc:mysql://localhost:3306/carpg?useUnicode=true&characterEncoding=utf-8";
     // 用户名
-    private final static String user = "carpgdb"; 
+    private final static String user = "root"; 
     // 密码
-    private final static String password = "143566nls";
+    private final static String password = "123456";
     private static Connection conn = null;
     
     // 创建数据库连接（单例模式）

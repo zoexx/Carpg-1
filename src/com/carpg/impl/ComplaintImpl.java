@@ -138,6 +138,7 @@ public class ComplaintImpl implements ComplaintDao {
 			if (id == -1){
 				sql = "select * from complaint, car_problems order by time desc limit 20";
 				pstmt = conn.prepareStatement(sql);
+				System.out.println("执行查询语句：");
 			}else {
 				sql = "select * from complaint, car_problems where id<=? order by time desc limit 20";
 				pstmt = conn.prepareStatement(sql);
@@ -145,6 +146,7 @@ public class ComplaintImpl implements ComplaintDao {
 			}
 			rs = pstmt.executeQuery();
 			while (rs.next()){
+				System.out.println("取出数据： "+rs.getRow());
 				Complaint com = new Complaint();
 				com.setId(rs.getInt("id"));
 				com.setUser_id(rs.getInt("user_id"));
@@ -173,6 +175,7 @@ public class ComplaintImpl implements ComplaintDao {
 			e.printStackTrace();
 		}
 		this.close();
+		System.out.println("信息列表："+ list.size());
 		return list;
 	}
 
