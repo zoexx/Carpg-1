@@ -6,12 +6,12 @@ function loadMassage (maxsize) {
 				document.getElementById("view_mainComplains_more").hidden=true;
 				break;
 			}else{
-				showMessage();
+				showMessage(i);
 				msgCount++;
 			}					
 		}		 
 	}
-function showMessage () {
+function showMessage (i) {
 	//整条评论的容器
 			var view_mainComplains=document.createElement("div");
 			view_mainComplains.className="view_mainComplains view_complainBorder";
