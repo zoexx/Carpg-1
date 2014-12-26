@@ -49,6 +49,8 @@ public class UserAction extends ActionSupport implements ServletRequestAware,Ser
 		String step = (String)request.getSession().getAttribute("step");
 		//表示用户上一个活动的状态是在吐槽
 		if (null != step){
+			//清除session step
+			request.getSession().removeAttribute("step");
 			//调用抱怨的action中的操作
 			ComplaintAction action = new ComplaintAction();
 			action.setServletRequest(request);
