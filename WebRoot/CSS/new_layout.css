@@ -77,8 +77,8 @@ iframe{border:0;background-color: #CCCCCC;width: 100%;height: 100%;z-index: 102;
 ul.problemRank_text{width: 140px;height: 106px;text-align: center;float: left;}
 ul.problemRank_text li a h5,h6{font-weight: bold;}
 ul.problemRank_bar{width: 190px;float: right;background-color: #CCCCCC;}
-.warningRank li{background-image: url(../images/img/hatebelt.png);}
-.loveRank li{background-image: url(../images/img/lovebelt.png);}
+.warningRank li{background-image: url(../images/img/greenbelt.png);}
+.loveRank li{background-image: url(../images/img/greenbelt.png);}
 ul.problemRank_bar li{height: 23px;border-radius: 4px;margin: 10px 0;}
 ul.problemRank_bar button{position: absolute;bottom: 5px;right: 5px;}
 /*problemRank_bars*/
@@ -94,7 +94,7 @@ ul.problemRank_bar button{position: absolute;bottom: 5px;right: 5px;}
 .index_content{width: 690px;overflow: hidden;background-color: #F0F0F0;}
 #index_hotCars{height: 140px;overflow: hidden;position: relative;background: #F9F9F9;}
 #index_hotCars h3{font-weight: bold;line-height: 30px;}
-#index_hotCars li{float: left;line-height: 30px;width: 50px;text-align: center;}
+#index_hotCars li{float: left;line-height: 30px;margin:0 10px;text-align: center;}
 a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 #index_hotProblem{height: 140px;margin-top:10px;overflow: hidden;position: relative;background: #F6F6F6;}
 #index_hotProblem h3{font-weight: bold;}
