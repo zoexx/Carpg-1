@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   }
 	function doCheck(obj){
 		var temp = obj;
-		var code = doucument.getElementById("verify").value;
+		var code = document.getElementById("verify").value;
 		//判断是否是登陆操作
 		if (temp == "登陆"){
 			document.getElementById("type").value = "login";
@@ -57,8 +57,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function checkLogin() {
 		var v = document.getElementById("email").value;
 		var p = document.getElementById("password").value;
-		var code = doucument.getElementById("verify").value;
-		send_request("GET","../servlet/AjaxServlet.sl?type=login&username="+v+"&password="+p+"&vcode="+code, null, "text", showBack);
+		var code = document.getElementById("verify").value;
+		send_request("GET","../servlet/AjaxServlet.sl?type=login&username="+v+"&password="+p+"&verify="+code, null, "text", showBack);
 	}//登陆的ajax回调
 	function showBack(){
 		if (http_request.readyState == 4){

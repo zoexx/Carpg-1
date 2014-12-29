@@ -64,11 +64,12 @@ public class AjaxServlet extends HttpServlet {
 			UserDao userDao = new UserImpl();
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			String code = request.getParameter("vcode");
+			String code = request.getParameter("verify");
 			//获取系统中生成的验证码
 			String verify = (String)request.getSession().getAttribute("vcode");
+			System.out.println("传递的验证码: "+code +verify);
 			//表示验证码正确
-			if (code.equals(verify)){
+			if (code.toLowerCase().equals(verify.toLowerCase())){
 				check = userDao.checkLogin(username, password);
 				if (!check.equals("error")){
 					System.out.println("登陆成功");
@@ -87,7 +88,7 @@ public class AjaxServlet extends HttpServlet {
 			String verifyTemp = request.getParameter("verify");
 			//获取系统中生成的验证码
 			String verify = (String)request.getSession().getAttribute("vcode");
-			if (verify.equals(verifyTemp)){
+			if (verify.toLowerCase().equals(verifyTemp.toLowerCase())){
 				ok = "success";
 			}
 		}

@@ -15,7 +15,7 @@
 						<input type="text" name="email" id="email" class="login_input" placeholder="邮箱" onblur="checkEmail()" />
 					
 					<div id="verify_content">
-						<input type="text" id="verify" class="login_input" placeholder="请输入验证码"/>
+						<input type="text" id="verify" class="login_input" placeholder="请输入验证码" onblur="checkVerify();"/>
 						<span id="validate" ><img src="../servlet/VerifyImage.sl" alt="验证码" name="checkImg" id="checkImg" onClick="document.getElementById('checkImg').src='../servlet/VerifyImage.sl?temp='+ (new Date().getTime().toString(36)); return false;"/></span>
 					</div>
 					<button class="dashButtons login_button_type3" onclick="send()" value="找回密码">找回密码</button>

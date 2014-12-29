@@ -31,9 +31,9 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 	
 	//文件上传处理(适用于多图上传）
     private String savePath;// 保存路径     
-    private List<File> files; //对应文件域的file，封装文件内容
-    private List<String> fileTypes; // 封装文件类型 
-    private List<String> fileNames; // 封装文件名 
+    private List<File> upload; //对应文件域的file，封装文件内容
+    private List<String> uploadContentType; // 封装文件类型 
+    private List<String> uploadFileName; // 封装文件名 
 	
 	private Complaint complaint = new Complaint();
 	private ComplaintDao comDao = new ComplaintImpl();
@@ -106,24 +106,32 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 	//文件上传处理函数,传递用户id参数为每个用户创建一个目录,返回图片的相对地址,以分号”;"分割
 	public String fileUpload(int userId) throws Exception{
 		String imagePath = "";
-		if (files != null){
-			String path = getSavePath() +"\\" + "userId";
+		System.out.println("用户的id： "+userId);
+		if (upload != null){
+			String path = getSavePath() +"\\" + userId;
+			System.out.println("path： "+path);
 			//创建用户单独的目录
 			File dir = new File(path);
 			if (!dir.exists() && !dir.isDirectory()){
 				dir.mkdir();
+				System.out.println("dir mk");
 			}
-			for (int i=0; i<files.size(); i++){
-				//创建文件的输入输出流
-				FileOutputStream fos = new FileOutputStream(path+"\\" + getFileNames().get(i));
-				FileInputStream fis=new FileInputStream(getFiles().get(i));
-				byte[] buffer=new byte[1024];
-			    int len=0;
-			    while((len=fis.read(buffer))>0){
-			        fos.write(buffer, 0, len);
-			    }
-			    //将图片路径保存
-			    imagePath += userId + "\\" + getFileNames().get(i) +";";
+			System.out.println("文件大小： "+upload.size()+" "+this.getUploadFileName().size());
+			for (int i=0; i<upload.size(); i++){
+				//判断图片流是否为空			
+				if (null != upload.get(i) && null != this.getUploadFileName().get(i)){
+					System.out.println("图片名称: "+this.getUploadFileName().get(i));
+					//创建文件的输入输出流
+					FileOutputStream fos = new FileOutputStream(path+"\\" + this.getUploadFileName().get(i));
+					FileInputStream fis=new FileInputStream(this.getUpload().get(i));
+					byte[] buffer=new byte[1024];
+				    int len=0;
+				    while((len=fis.read(buffer))>0){
+				        fos.write(buffer, 0, len);
+				    }
+				    //将图片路径保存
+				    imagePath += userId + "\\" + this.getUploadFileName().get(i) +";";
+				}			
 			}
 		}
 		return imagePath;
@@ -169,22 +177,23 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 	public void setSavePath(String savePath) {
 		this.savePath = savePath;
 	}
-	public List<File> getFiles() {
-		return files;
+	public List<File> getUpload() {
+		return upload;
 	}
-	public void setFiles(List<File> files) {
-		this.files = files;
+	public void setUpload(List<File> upload) {
+		this.upload = upload;
 	}
-	public List<String> getFileTypes() {
-		return fileTypes;
+	public List<String> getUploadContentType() {
+		return uploadContentType;
 	}
-	public void setFileTypes(List<String> fileTypes) {
-		this.fileTypes = fileTypes;
+	public void setUploadContentType(List<String> uploadContentType) {
+		this.uploadContentType = uploadContentType;
 	}
-	public List<String> getFileNames() {
-		return fileNames;
+	public List<String> getUploadFileName() {
+		return uploadFileName;
 	}
-	public void setFileNames(List<String> fileNames) {
-		this.fileNames = fileNames;
+	public void setUploadFileName(List<String> uploadFileName) {
+		this.uploadFileName = uploadFileName;
 	}
+
 }
