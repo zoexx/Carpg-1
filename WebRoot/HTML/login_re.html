@@ -14,21 +14,21 @@
 			<div class="color_yellow"></div>
 			<div class="login_content">
 				<form id="login_reg" method="post" >
-					<span class="login_input">
-						<input type="text" name="email" id="email" placeholder="邮箱" onblur="check_format()" />
-					</span>
-					<span class="login_input">
-						<input type="password" name="password" id="password" placeholder="密码"/>
-					</span>
-					<span class="login_input">
-						<input type="text" name="name" id="name" placeholder="起个江湖名号吧"/>
-					</span>
-					<span >
-						<span id="varify">请输入验证码</span>
-						<span id="validate"><img src="../servlet/VerifyImage.sl" alt="验证码" name="checkImg" id="checkImg" onClick="document.getElementById('checkImg').src='../servlet/VerifyImage.sl?temp='+ (new Date().getTime().toString(36)); return false"/></span>
-					</span>
-					<button class="dashButtons login_button_type1" onclick="return doCheck(this.value);" value="注册">注册</button>
-					<button class="dashButtons login_button_type2" onclick="return doCheck(this.value);" value="登陆">登陆</button>
+					
+						<input type="text" name="email" id="email" class="login_input" placeholder="邮箱" onblur="check_format()" />
+					
+						<input type="password" name="password" id="password" class="login_input" placeholder="密码"/>
+										
+						<input type="text" name="name" id="name" class="login_input" placeholder="起个江湖名号吧"/>
+					
+					<div id="verify_content">
+						<input type="text" id="verify" class="login_input" placeholder="请输入验证码"/>
+						<span id="validate" ><img src="../servlet/VerifyImage.sl" alt="验证码" name="checkImg" id="checkImg" onClick="document.getElementById('checkImg').src='../servlet/VerifyImage.sl?temp='+ (new Date().getTime().toString(36)); return false;"/></span>
+					</div>
+					<div id="btn_content">
+					<button class="dashButtons left" onclick="return doCheck(this.value);" value="注册">注册</button>
+					<button class="dashButtons right" onclick="return doCheck(this.value);" value="登陆">登陆</button>
+					</div>
 					<p>						
 						<a href="#" class="login_quickin"><img src="../images/img/login_weibo.png" style="width: 32px;height: 32px;"/></a>
 						<a href="#" class="login_quickin"><img src="../images/img/login_qq.png" style="width: 32px;height: 32px;"/></a>
