@@ -21,13 +21,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   }
 	function doCheck(obj){
 		var temp = obj;
+		var code = doucument.getElementById("verify").value;
 		//判断是否是登陆操作
 		if (temp == "登陆"){
 			document.getElementById("type").value = "login";
 			
 			var username = document.getElementById("email").value;
 			var psw = document.getElementById("password").value;
-			if (username=="" || psw == ""){
+			if (username=="" || psw == "" || code == ""){
 				alert("用户名或密码不能为空！");
 				return false;
 			}
@@ -43,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var email = document.getElementById("email").value;
 			var psw1 = document.getElementById("password").value;
 			var name = document.getElementById("name").value;
-			if (email=="" || psw1=="" || name==""){
+			if (email=="" || psw1=="" || name=="" || code==""){
 				alert("请保证注册的信息不为空");
 				return false;
 			}else{
@@ -56,7 +57,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function checkLogin() {
 		var v = document.getElementById("email").value;
 		var p = document.getElementById("password").value;
-		send_request("GET","../servlet/AjaxServlet.sl?type=login&username="+v+"&password="+p, null, "text", showBack);
+		var code = doucument.getElementById("verify").value;
+		send_request("GET","../servlet/AjaxServlet.sl?type=login&username="+v+"&password="+p+"&vcode="+code, null, "text", showBack);
 	}//登陆的ajax回调
 	function showBack(){
 		if (http_request.readyState == 4){

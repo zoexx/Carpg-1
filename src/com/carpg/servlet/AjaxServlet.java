@@ -64,15 +64,22 @@ public class AjaxServlet extends HttpServlet {
 			UserDao userDao = new UserImpl();
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			check = userDao.checkLogin(username, password);
-			if (!check.equals("error")){
-				System.out.println("登陆成功");
-				//将用户信息保存在session中,用户信息为userid+user_name(别名)
-				Calendar c = Calendar.getInstance();
-				String info = c.getTimeInMillis()+"~"+check;
-				request.getSession().setAttribute("user", info);	
-				ok = "success";
+			String code = request.getParameter("vcode");
+			//获取系统中生成的验证码
+			String verify = (String)request.getSession().getAttribute("vcode");
+			//表示验证码正确
+			if (code.equals(verify)){
+				check = userDao.checkLogin(username, password);
+				if (!check.equals("error")){
+					System.out.println("登陆成功");
+					//将用户信息保存在session中,用户信息为userid+user_name(别名)
+					Calendar c = Calendar.getInstance();
+					String info = c.getTimeInMillis()+"~"+check;
+					request.getSession().setAttribute("user", info);	
+					ok = "success";
+				}
 			}
+			
 			
 		}//表示是验证码的处理操作
 		else if (type.equals("vcode")){
