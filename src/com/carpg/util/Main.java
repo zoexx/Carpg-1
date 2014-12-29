@@ -14,10 +14,13 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		id = 4;
-		Main m = new Main();
-		m.setI();
-		System.out.println("id£º"+id);
+		JavaMail mail = new JavaMail();
+		try {
+			mail.sendVerify("1054974640@qq.com", "name", "code", "regist");
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 	public void setI(){
