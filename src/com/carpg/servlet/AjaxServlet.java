@@ -48,10 +48,12 @@ public class AjaxServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		//得到需要处理的ajax的业务类型,包括验证用户名是否存在，登陆，验证码的处理
 		String type = request.getParameter("type");
+		System.out.println("传递的参数: "+type);
 		String ok = "fail";
 		//表示是验证用户名是否存在的操作
 		if (type.equals("username")){
 			String username = request.getParameter("username");
+			System.out.println("传递的参数: "+username);
 			UserDao userDao = new UserImpl();
 			if (!userDao.checkUser(username)){
 				//out.println("用户名称["+username+"]已经被注册，请更换其他用户名称再注册。");

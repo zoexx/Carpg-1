@@ -1,12 +1,18 @@
 @charset "utf-8";
 
 /*------全局配色-------*/
+.color_test{float: left;}
 .color_test li{width: 50px;height: 50px;display: block;list-style: none;}
 .myLightBlue{background-color: #1857DE;}
 .myDarkBlue{background-color: #253A69;}
 .myBrown{background-color: #381818;}
 .myRed{background-color: #992E2E;}
 .myYellow{background-color: #C48621;}
+.a{background-color: #FF4400;}
+.aa{background-color: #FFF703;}
+.aaa{background-color: #9D5CD9;}
+.aaaa{background-color: #FF00B0;}
+.aaaaa{background-color: #FE0000;}
 
 /*-----------login_re.html-------------*/
 .color_black{background: black;}
