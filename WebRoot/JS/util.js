@@ -143,16 +143,36 @@ function setIframeSize(){
 		}
 //控制排行页面柱状图
 function jakeChart () {
-	var bjson=[{"一汽大众":"501"},{"上海通用雪佛兰":"29"}]
+	var bjson=[
+	{"name":"一汽大众","nub":501},
+	{"name":"上海通用雪佛兰","nub":290},
+	{"name":"上海大众","nub":280},
+	{"name":"长安福特","nub":260},
+	{"name":"上海通用福特","nub":230},
+	{"name":"东风日产","nub":210},
+	{"name":"东风悦达起亚","nub":160},
+	{"name":"长城","nub":150},
+	{"name":"东风雪铁龙","nub":140},
+	{"name":"东风标致","nub":140},
+	{"name":"北京现代","nub":140},
+	{"name":"奇瑞汽车","nub":130},
+	];
 	showChartB(bjson);
 }
 function showChartB (bjson) {
+	Number.prototype.toPercent = function(n){n = n || 2;return ( Math.round( this * Math.pow( 10, n + 2 ) ) / Math.pow( 10, n ) ).toFixed( n ) + '%';}
 	var rankBar=document.getElementById("rankBar");
-	rankBar.style.width=60*;
-
-//设置rankBar宽度=n*
-//生成li 
-//显示柱高度=该品牌吐槽数/总吐槽数
-//添加
-//设置
+	rankBar.style.width=60*bjson.length+"px";
+	var sum=0;
+	for (var i = 0; i < bjson.length; i++) {
+		sum+=bjson[i].nub;		
+	}
+	for (var i = 0; i < bjson.length; i++) {
+		var a=document.createElement("li");
+		a.innerHTML=""+bjson[i].name;
+		a.Alt=""+bjson[i].nub;
+		var b=bjson[i].nub/sum+0.3;
+		a.style.backgroundPositionY=""+b.toPercent();
+		rankBar.appendChild(a);
+	}
 }
