@@ -141,3 +141,18 @@ function setIframeSize(){
 				ifm.style.height=b.offsetHeight;
 	}			
 		}
+//控制排行页面柱状图
+function jakeChart () {
+	var bjson=[{"一汽大众":"501"},{"上海通用雪佛兰":"29"}]
+	showChartB(bjson);
+}
+function showChartB (bjson) {
+	var rankBar=document.getElementById("rankBar");
+	rankBar.style.width=60*;
+
+//设置rankBar宽度=n*
+//生成li 
+//显示柱高度=该品牌吐槽数/总吐槽数
+//添加
+//设置
+}
