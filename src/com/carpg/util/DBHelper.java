@@ -23,8 +23,7 @@ public class DBHelper {
 	public static Connection getConn() {
 		try {
 			Class.forName(driver);
-			conn = DriverManager.getConnection(url, user,
-					password);
+			conn = DriverManager.getConnection(url, user, password);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("数据库连接失败");
