@@ -4,6 +4,8 @@
 		<meta charset="utf-8" />
 		<title>车曝光-促进车辆质量提升</title>
 		<link rel="stylesheet" href="../CSS/new_layout.css" />
+		<script type="text/javascript" src="../JS/test/brand.js"></script>
+		<script type="text/javascript" src="../JS/test/selectJs_20140324.js"></script>
 	</head>
 	<body>
 		<div  class="global_content">
@@ -125,10 +127,15 @@
                 	<li><a href="#">力帆</a></li>
                 	<li class="right">
                 	<form action="" method="post" >
-                		<select name="carBrand">
+                		<select name="carBrand" id="brand">
                 			<option value="default">--选择您关心的车--</option>
                 		</select>
+                		<select id="serial" hidden="true"></select>
                 		<input type="submit" value="GO"/>
+                		<script type="text/javascript">
+							//执行品牌加载事件
+							showBrand1();
+						</script>
                 	</form>
                 	</li>
 			</ul>
