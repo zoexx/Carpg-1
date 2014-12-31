@@ -92,7 +92,7 @@
 					<a href="complaintOperate!complaintView?id=-1"><li class="dashButtons"><h2>我要吐槽 》 》</h2></li></a>
 
     		</ul>
-			<ul id="index_hotCars"><form>
+			<ul id="index_hotCars">
 				<h3>您关心的车&nbsp;》</h3>
 				    <li  onclick="postCar(this)"><a href="">大众</a></li>
                 	<li  onclick="postCar(this)"><a href="">五菱</a></li>
@@ -130,13 +130,17 @@
                 			<option value="default">--选择您关心的车--</option>
                 		</select>
                 		<select id="serial" hidden="true"></select>
-                		<input type="submit" value="GO"/>
+                		<form method="post" action="statisticOperate!getRank" id="car_form">
+                		<input type="text" id="param" name="param" hidden="true" />
+                		<input type="text" name="type" hidden="true" />
+                		<input type="submit" id = "go" value="GO" onClick="return postCar(this);"/>
+                		</form>
                 		<script type="text/javascript">
 							//执行品牌加载事件
 							showBrand1();
 						</script>
                 	
-                	</li></form>
+                	</li>
 			</ul>
 			
 			
