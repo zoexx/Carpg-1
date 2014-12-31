@@ -201,8 +201,23 @@ function showChartB (bjson) {
 	}
 }
 function postCar(obj){
-	var value=encodeURI(encodeURI(obj.firstChild.innerHTML));
-    obj.firstChild.href="rank.jsp?param="+value;
+	//表示选择车型进行提交
+	if (obj.tagName.toString() == "INPUT"){
+		var brand = document.getElementById("brand");
+		if (brand.value == "-1"){
+			alert("请选择要查找的车型");
+			return false;
+		}else {
+			//找到对应的汉字
+			var param = brand.selectedOptions[0].innerHTML.split('-')[1];
+		}		
+	}//表示直接点击链接提交
+	else{
+		var param = obj.firstChild.innerHTML;
+	}
+	//给参数赋值
+	document.getElementById("param").value = param;
+	document.getElementById("car_form").submit();
 }
 function setCar(value){
 	

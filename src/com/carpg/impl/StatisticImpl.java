@@ -23,7 +23,7 @@ public class StatisticImpl implements StatisticDao {
 
 	public Map<String, Integer> getCountByYear_brand(String brand) {
 		// TODO Auto-generated method stub
-		Map<String, Integer> map = new HashMap<String, Integer>();
+		Map<String, Integer> map = new LinkedHashMap<String, Integer>();
 		conn = DBHelper.getConn();
 		sql = "select start_time, count(*),user_car_id from complaint where car_brand=? group by start_time";
 		try {
@@ -126,7 +126,7 @@ public class StatisticImpl implements StatisticDao {
 
 	public Map<String, Integer> getCountByYear_problem(String problem) {
 		// TODO Auto-generated method stub
-		Map<String, Integer> map = new HashMap<String, Integer>();
+		Map<String, Integer> map = new LinkedHashMap<String, Integer>();
 		conn = DBHelper.getConn();
 		int problem_id = Integer.valueOf(problem);
 		sql = "select type, count(*) from complaint, car_problems where problem_id = ? group by start_time desc;";
