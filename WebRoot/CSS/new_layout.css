@@ -68,7 +68,7 @@ iframe{border:0;background-color: #CCCCCC;width: 100%;height: 100%;z-index: 102;
 #index_banner ul li a img{opacity:0.6;filter:alpha(opacity=60); /* 针对 IE8 以及更早的版本 */}
 #index_banner ul li a img:hover{opacity:1;filter:alpha(opacity=100);border-top: 2px solid #0000FF;}
 /*排行榜*/
-.index_rank{width: 340px;height: 940px;}
+.index_rank{width: 340px;}
 .problemRank{position: relative;height: 148px;overflow: hidden;zoom: 1;border: 1px solid #CCCCCC;}
 .rankMid{margin: 20px 0;}
 .problemRank a{color: #000000;}
@@ -280,3 +280,11 @@ legend {background: #F6F6F6;font-weight:bold;}
 .center {text-align:center;}
 .red {color:#F00;}
 .keydate{font-weight: bold;}
+/*----------------------edit_news.html--------------------------*/
+#editNewsContent{padding: 10px;margin-bottom: 20px}
+#editNewsContent>span {line-height: 30px;}
+.edit_column{width: 150px;text-align: center;}
+.edit_newsTitle{width: 70%;line-height: 30px;}
+.editContent{height: 400px;background-color: #CCCCCC;}
+.editBtn{width: 200px;line-height: 40px;}
+.editBtnContent{margin-top: 50%;}

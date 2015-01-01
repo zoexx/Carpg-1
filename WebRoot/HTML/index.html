@@ -69,7 +69,7 @@
                   	<li>查看更多 》</li>
                   </ul>
                   <ul class="index_news">
-                  	<a><h3>最新车讯</h3></a>
+                  	<a><h3>召回快讯</h3></a>
                   	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
                   	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
                   	<li><span>12-04</span>别克君越头灯存隐患&nbsp;售后中心即将召回</li>
@@ -125,17 +125,21 @@
                 	<li  onclick="postCar(this)"><a href="#">长城</a></li>
                 	<li  onclick="postCar(this)"><a href="#">力帆</a></li>
                 	<li class="right">
-                	<form action="" method="post" >
+                	
                 		<select name="carBrand" id="brand">
                 			<option value="default">--选择您关心的车--</option>
                 		</select>
                 		<select id="serial" hidden="true"></select>
-                		<input type="submit" value="GO"/>
+                		<form method="post" action="statisticOperate!getRank" id="car_form">
+                		<input type="text" id="param" name="param" hidden="true" />
+                		<input type="text" name="type" hidden="true" />
+                		<input type="submit" id = "go" value="GO" onClick="return postCar(this);"/>
+                		</form>
                 		<script type="text/javascript">
 							//执行品牌加载事件
 							showBrand1();
 						</script>
-                	</form>
+                	
                 	</li>
 			</ul>
 			

@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	String deString = URLDecoder.decode(URLDecoder.decode(param, "utf-8"));
 %>
 <jsp:include page="header.jsp" flush="true" ></jsp:include>
-<jsp:include page="../HTML/view_rank_total.html" ></jsp:include>
+<jsp:include page="../HTML/view_rank_problem.html" ></jsp:include>
 <jsp:include page="../HTML/footer.html" ></jsp:include>
 
 <script type="text/javascript">

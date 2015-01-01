@@ -61,6 +61,11 @@
 			<result name="index" type="redirect">index.jsp</result>
 			<result name="detail"></result>
 		</action>
+		<action name="statisticOperate" class = "com.carpg.controller.StatisticAction">
+			<result>index.jsp</result>
+			<result name="index" type="redirect">index.jsp</result>
+			<result name="rank">rank.jsp</result>
+		</action>
 	</package>
 
 
