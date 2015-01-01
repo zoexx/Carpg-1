@@ -47,7 +47,8 @@ iframe{border:0;background-color: #CCCCCC;width: 100%;height: 100%;z-index: 102;
 .aboutUs{width: 33%;display: block;float: left;}
 .aboutUs p{font-size: 14px;text-indent: 28px;}
 .aboutUs h2{padding-top: 10px;padding-bottom: 10px;}
-#follwUs{position: fixed;top:190px;width: 160px;background-color: #F9F9F9;overflow: hidden;}
+#follwUs{position: fixed;top:190px;width: 138px;background-color: #F9F9F9;overflow: hidden;}
+#follwUs>img{width: 138px;}
 #follwUs ul li{list-style: none;float: right;}
 #follwUs ul li a img{width: 32px;height: 32px;}
 #follwUs ul li a:hover{background-color: #CCCCCC;}
@@ -89,18 +90,19 @@ ul.problemRank_bar button{position: absolute;bottom: 5px;right: 5px;}
 /*index_news*/
 .index_news{height: 240px;margin-top: 10px;border-bottom: 1px solid #F0F0F0;}
 .index_news h3{line-height: 40px;margin-bottom: 10px;padding-left: 30px;text-align: left;border-left: 4px solid #003399;}
-.index_news li{line-height: 30px;text-align: center;}
+.index_news li{line-height: 30px;}
 .index_news li span{color: #003399;font-weight: bold;}
+.index_news li a{display: inline;}
 /*内容部分*/
-.index_content{width: 690px;overflow: hidden;background-color: #F0F0F0;}
-#index_hotCars{height: 140px;overflow: hidden;position: relative;background: #F9F9F9;}
+.index_content{width: 690px;overflow: hidden;}
+#index_hotCars{height: 140px;overflow: hidden;position: relative;}
 #index_hotCars h3{font-weight: bold;line-height: 30px;}
 #index_hotCars li{float: left;line-height: 30px;margin:0 10px;text-align: center;}
 a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
-#index_hotProblem{height: 140px;margin-top:10px;overflow: hidden;position: relative;background: #F6F6F6;}
+#index_hotProblem{height: 140px;margin-top:10px;overflow: hidden;position: relative;}
 #index_hotProblem h3{font-weight: bold;}
 #index_hotProblem li{float: left;display: block;margin: 0 10px ;line-height: 30px;}
-#index_quickBtns{margin-top: 10px;overflow: hidden;background-color: #F6F6F6;}
+#index_quickBtns{margin-top: 10px;overflow: hidden;}
 #index_quickBtns h3{font-weight: bold;line-height: 30px;}
 #index_quickBtns a{float: left;width: 33.3%;}
 #index_quickBtns a li{width: 90%;margin:5px 5%;height: 39px;}
@@ -194,7 +196,7 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 #view_rank_Share li a{width: 32px;height: 32px;border-radius: 16px;}
 #view_rank_Share li a:hover{background-color: #D5B970;}
 #view_rank_Share li a img{width: 32px;height: 32px;}
-.view_rankChart{width: 100%;height: 390px;background-color: #253A69;}
+.view_rankChart{width: 100%;height: 400px;background-color: #253A69;}
 .view_rankContent .dashButtons{width: 190px;}
 /*------------------view_rank-------end--------------*/
 /*--------------------view_news----------------------------*/
