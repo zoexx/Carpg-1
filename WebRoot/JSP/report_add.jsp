@@ -8,6 +8,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <jsp:include page="/HTML/footer.html"></jsp:include>
 
 <script type="text/javascript">
-	var ue = UE.getEditor('editor');
+	function sendReport(){
+		//先将UEditor编辑框中的内容取出
+		var content = UE.getEditor('editor').getContent();
+		document.getElementById('content').value = content;
+		return true;
+	}
 </script>
 

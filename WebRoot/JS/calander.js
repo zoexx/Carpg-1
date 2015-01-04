@@ -12,7 +12,7 @@
 //.red {color:#F00;}
 //.keydate{font-weight: bold;}
 ///////////////调用例子，作为输入控件////////////////
-window.onload = function(){
+function loadCalendar(){
 	var j = new JCalendar();
 	var nowDate=new Date();
 	var beginY=nowDate.getFullYear();

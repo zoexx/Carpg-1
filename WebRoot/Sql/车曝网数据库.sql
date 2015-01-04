@@ -98,7 +98,7 @@ title varchar(40) not null,						/*信息的标题*/
 source varchar(20) not null,                    /*信息的来源*/
 author varchar(20),								/*作者*/
 time varchar(20) not null,						/*信息发布的时间*/
-content varchar(1000) not null,					/*报告的内容,有可能采取存放html格式的形式*/
+content varchar(5000) not null,					/*报告的内容,有可能采取存放html格式的形式*/
 image varchar(20),								/*报告的展示图片,存放路径*/
 url varchar(50)									/*报告摘取链接*/
 );
