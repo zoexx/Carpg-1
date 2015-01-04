@@ -8070,15 +8070,15 @@ UE.Editor.defaultOptions = function(editor){
                             me.fireEvent('serverConfigLoaded');
                             me._serverConfigLoaded = true;
                         } catch (e) {
-                            showErrorMsg(me.getLang('loadconfigFormatError'));
+                            //showErrorMsg(me.getLang('loadconfigFormatError'));
                         }
                     },
                     'onerror':function(){
-                        showErrorMsg(me.getLang('loadconfigHttpError'));
+                        //showErrorMsg(me.getLang('loadconfigHttpError'));
                     }
                 });
             } catch(e){
-                showErrorMsg(me.getLang('loadconfigError'));
+                //showErrorMsg(me.getLang('loadconfigError'));
             }
         });
 

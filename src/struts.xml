@@ -60,6 +60,16 @@
 			<result>index.jsp</result>
 			<result name="index" type="redirect">index.jsp</result>
 			<result name="detail"></result>
+			<!-- 配置fileUpload拦截器 -->  
+            <interceptor-ref name="fileUpload">  
+                <!-- 配置允许上传的文件类型-->  
+                <param name="allowedTypes">image/x-ms-bmp,image/jpeg,image/gif,image/png,image/x-png,application/excel,application/vnd.ms-excel</param>   
+                <!-- 配置允许上传的文件大小 -->  
+                <param name="maximumSize">2048000</param>  
+            </interceptor-ref>  
+            <interceptor-ref name="defaultStack"></interceptor-ref>  
+            <!-- 配置上传文件的保存的相对路径 -->  
+            <param name="savePath">/images/report</param> 
 		</action>
 		<action name="statisticOperate" class = "com.carpg.controller.StatisticAction">
 			<result>index.jsp</result>
