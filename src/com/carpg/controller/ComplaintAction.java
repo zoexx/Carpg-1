@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -117,12 +118,17 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 				System.out.println("dir mk");
 			}
 			System.out.println("文件大小： "+upload.size()+" "+this.getUploadFileName().size());
+			//给图片重新命名
+			Calendar c = Calendar.getInstance();
+			String millis = String.valueOf(c.getTimeInMillis());;
 			for (int i=0; i<upload.size(); i++){
 				//判断图片流是否为空			
 				if (null != upload.get(i) && null != this.getUploadFileName().get(i)){
-					System.out.println("图片名称: "+this.getUploadFileName().get(i));
+					System.out.println("图片名称类型: "+this.getUploadContentType().get(i));
+					//给图片重新命名
+					String tempPath = millis + i + "." + this.getUploadContentType().get(i);
 					//创建文件的输入输出流
-					FileOutputStream fos = new FileOutputStream(path+"\\" + this.getUploadFileName().get(i));
+					FileOutputStream fos = new FileOutputStream(path+"\\" + tempPath);
 					FileInputStream fis=new FileInputStream(this.getUpload().get(i));
 					byte[] buffer=new byte[1024];
 				    int len=0;
@@ -130,7 +136,7 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 				        fos.write(buffer, 0, len);
 				    }
 				    //将图片路径保存
-				    imagePath += userId + "\\" + this.getUploadFileName().get(i) +";";
+				    imagePath += userId + "\\" + tempPath +";";
 				}			
 			}
 		}

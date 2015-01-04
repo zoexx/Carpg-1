@@ -83,17 +83,18 @@ public class ReportAction extends ActionSupport implements ServletRequestAware,S
 				System.out.println("dir mk");
 			}
 			System.out.println("图片名称: "+this.getFileFileName());
+			//将当前时间的毫秒数作为文件名
+		    Calendar c = Calendar.getInstance();
+		    imagePath = String.valueOf(c.getTimeInMillis()) + "." + this.getFileContentType();
 			//创建文件的输入输出流
-			FileOutputStream fos = new FileOutputStream(path+"\\" + this.getFileFileName());
+			FileOutputStream fos = new FileOutputStream(path+"\\" + imagePath);
 			FileInputStream fis=new FileInputStream(this.getFile());
 			byte[] buffer=new byte[1024];
 		    int len=0;
 		    while((len=fis.read(buffer))>0)
 		        fos.write(buffer, 0, len);
 		    
-		    //将当前时间的毫秒数作为文件名
-		    Calendar c = Calendar.getInstance();
-		    imagePath = String.valueOf(c.getTimeInMillis());
+		    
 		}
 		return imagePath;
 	}
