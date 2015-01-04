@@ -63,7 +63,7 @@ iframe{border:0;background-color: #CCCCCC;width: 100%;height: 100%;z-index: 102;
 .copyright{border-top: 3px solid #B40000;}
 .copyright ul li a{color: dimgrey;}
 /*--------new_index.html---------*/
-#index_banner{float: left;height: 340px;width: 690px;margin-bottom: 10px;background-image: url(../images/img/carpg1.jpg);background-size: 100% 100%;background-repeat: no-repeat;background-color: #CCCCCC;position: relative;}
+#index_banner{height: 340px;width: 690px;margin-bottom: 10px;background-image: url(../images/img/carpg1.jpg);background-size: 100% 100%;background-repeat: no-repeat;background-color: #CCCCCC;position: relative;}
 #index_banner ul{position: absolute;bottom: 0;width: 100%;overflow: hidden;background-image: url(../images/img/index_bannerBak.png);background-repeat:repeat-x;}
 #index_banner ul li{float: left;list-style: none;height: 40px;width: 90px;overflow: hidden;}
 #index_banner ul li a img{opacity:0.6;filter:alpha(opacity=60); /* 针对 IE8 以及更早的版本 */}

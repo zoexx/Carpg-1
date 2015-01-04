@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>车曝光-促进车辆质量提升</title>
+		<link rel="stylesheet" href="../CSS/new_layout.css" />
+		
+		<script type="text/javascript" src="../JS/test/brand.js"></script>
+		<script type="text/javascript" src="../JS/test/selectJs_20140324.js"></script>
+	</head>
+	<body>
+		<div  class="global_content">
+			<div  class="index_rank right">
+                  
+	    	 </div>
+		
+		<div class="index_content left">
+			<div id="index_banner">
+			<ul>
+				<li><a onclick="indexBannerChange(this.id,"index_banner");" id="bannerClick1"><img src="../images/img/carpg3.jpg"/></a></li>
+				<li><a onclick="indexBannerChange(this.id,"index_banner");" id="bannerClick2"><img src="../images/img/carpg5.jpg"/></a></li>
+				<li><a onclick="indexBannerChange(this.id,"index_banner");" id="bannerClick3"><img src="../images/img/carpg4.jpg"/></a></li>
+			</ul>
+			</div>
+			
+			<ul id="index_quickBtns">
+				<h3>车友吐槽&nbsp;》</h3>
+    				<a href="complaintOperate!complaintView?id=-1"><li class="dashButtons  quicklook1"><h4><b>图解真相 》 》</b></h4><h6>一图省万语</h6></li></a>
+    				<a href="complaintOperate!complaintView?id=-1"><li class="dashButtons  quicklook2"><h4><b>风趣的吐槽》 》</b></h4><h6>自黑式嘲讽</h6></li></a>
+    				<a href="complaintOperate!complaintView?id=-1"><li class="dashButtons  quicklook3"><h4><b>惊险故事 》 》</b></h4><h6>幸运儿的吐槽</h6></li></a>
+    				<a href="complaintOperate!complaintView?id=-1"><li class="dashButtons  quicklook4"><h4><b>车主心声 》 》</b></h4><h6>真诚完整的述说</h6></li></a>
+    				<a href="complaintOperate!complaintView?id=-1"><li class="dashButtons  quicklook5"><h4><b>车主权益》 》</b></h4><h6>最新相关政策</h6></li></a>
+    				<a href="complaintOperate!complaintView?id=-1"><li class="dashButtons  quicklook6"><h4><b>热点新闻 》 》</b></h4><h6>聚焦汽车制造</h6></li></a>
+    				<a href="complaintOperate!complaintView?id=-1"><li class="dashButtons  quicklook7"><h4><b>车友互助 》 》</b></h4><h6>互助信息交流</h6></li></a>
+    				<a href="complaintOperate!complaintView?id=-1"><li class="dashButtons  quicklook8"><h4><b>媒体报道 》 》</b></h4><h6>更多曝光带来更多权益</h6></li></a>
+					<a href="complaintOperate!complaintView?id=-1"><li class="dashButtons"><h2>我要吐槽 》 》</h2></li></a>
+    		</ul>
+			<ul id="index_hotCars">
+				<h3>您关心的车&nbsp;》</h3>
+				    <li  onclick="postCar(this)"><a href="">大众</a></li>
+                	<li  onclick="postCar(this)"><a href="">五菱</a></li>
+                	<li  onclick="postCar(this)"><a href="#">现代</a></li>
+                	<li	 onclick="postCar(this)"><a href="#">长安</a></li>
+                	<li  onclick="postCar(this)"><a href="#">丰田</a></li>
+                	<li  onclick="postCar(this)"><a href="#">别克</a></li>
+                	<li  onclick="postCar(this)"><a href="#">雪佛兰</a></li>
+                	<li  onclick="postCar(this)"><a href="#">福特</a></li>
+                	<li  onclick="postCar(this)"><a href="#">日产</a></li>
+                	<li  onclick="postCar(this)"><a href="#">本田</a></li>
+                	<li  onclick="postCar(this)"><a href="#">起亚</a></li>
+                	<li  onclick="postCar(this)"><a href="#">东风</a></li>
+                	<li  onclick="postCar(this)"><a href="#">奥迪</a></li>
+                	<li  onclick="postCar(this)"><a href="#">奇瑞</a></li>
+                	<li  onclick="postCar(this)"><a href="#">哈弗</a></li>
+                	<li  onclick="postCar(this)"><a href="#">吉利</a></li>
+                	<li  onclick="postCar(this)"><a href="#">比亚迪</a></li>
+                	<li  onclick="postCar(this)"><a href="#">标致</a></li>
+                	<li  onclick="postCar(this)"><a href="#">雪铁龙</a></li>
+                	<li  onclick="postCar(this)"><a href="#">宝骏</a></li>
+                	<li  onclick="postCar(this)"><a href="#">北京汽车</a></li>
+                	<li  onclick="postCar(this)"><a href="#">斯柯达</a></li>
+                	<li  onclick="postCar(this)"><a href="#">宝马</a></li>
+                	<li  onclick="postCar(this)"><a href="#">铃木</a></li>
+                	<li  onclick="postCar(this)"><a href="#">马自达</a></li>
+                	<li  onclick="postCar(this)"><a href="#">奔腾</a></li>
+                	<li  onclick="postCar(this)"><a href="#">江淮</a></li>
+                	<li  onclick="postCar(this)"><a href="#">众泰</a></li>
+                	<li  onclick="postCar(this)"><a href="#">长城</a></li>
+                	<li  onclick="postCar(this)"><a href="#">力帆</a></li>
+                	<li class="right">
+                	
+                		<select name="carBrand" id="brand">
+                			<option value="default">--选择您关心的车--</option>
+                		</select>
+                		<select id="serial" hidden="true"></select>
+                		<form method="post" action="statisticOperate!getRank" id="car_form" style="display: inline;">
+                		<input type="text" id="param" name="param" hidden="true" />
+                		<input type="text" name="type" hidden="true" />
+                		<input type="submit" id = "go" value="GO" onClick="return postCar(this);"/>
+                		</form>
+                		<script type="text/javascript">
+							//执行品牌加载事件
+							showBrand1();
+						</script>
+                	
+                	</li>
+			</ul>
+			
+			
+			<ul id="index_hotProblem">
+				<h3>常见问题&nbsp;》</h3>
+				    <li><a href="#">空调制冷/加热</a></li>
+                	<li><a href="#">汽车外部配件</a></li>
+                	<li><a href="#">汽车内部配件</a></li>
+                	<li><a href="#">车体/油漆</a></li>
+                	<li><a href="#">刹车</a></li>
+                	<li><a href="#">离合器</a></li>
+                	<li><a href="#">冷却系统</a></li>
+                	<li><a href="#">动力传动系统</a></li>
+                	<li><a href="#">汽车电力系统</a></li>
+                	<li><a href="#">引擎</a></li>
+                	<li><a href="#">排气系统</a></li>
+                	<li><a href="#">能源系统</a></li>
+                	<li><a href="#">灯</a></li>
+                	<li><a href="#">安全带/安全气囊</a></li>
+                	<li><a href="#">转向</a></li>
+                	<li><a href="#">汽车悬架</a></li>
+                	<li><a href="#">变速器</a></li>
+                	<li><a href="#">车轮/轮毂</a></li>
+                	<li><a href="#">车窗/挡风玻璃</a></li>
+                	<a class="showAll">
+                		<h5>查看全部 》</h5>
+                	</a>
+			</ul>
+			
+			
+			<div id="index_carMarket">
+				<h3>最新车市&nbsp;》
+				<a class="right">更多超值二手车 》</a>
+				</h3>
+				<ul id="secondHandCars_list">
+					<li>
+						<img src="../images/img/index_sedcar.jpg"/>
+					</li>
+					<li>
+						<img src="../images/img/index_sedcar.jpg"/>
+					</li>
+				</ul>
+				
+			</div>
+
+		</div>
+		</div>
+		
+	</body>
+</html>
