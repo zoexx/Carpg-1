@@ -224,7 +224,7 @@ function setCar(value){
 	document.getElementById("rankTitle").innerHTML=value+"问题榜";
 }
 		 	//显示用户登录状态
- 	function showUser(username){
+function showUser(username){
  		//var username="123";
  		if (username != ""){
  			document.getElementById("UserName").innerHTML=""+username;
