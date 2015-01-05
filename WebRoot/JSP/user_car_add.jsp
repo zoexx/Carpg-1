@@ -4,14 +4,9 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 	
 %>
-<script type="text/javascript" src="../JS/test/brand.js"> </script>
-<script type="text/javascript" src="../JS/test/selectJs_20140324.js"> </script>
-<script type="text/javascript" src="../JS/util.js"> </script>
+<script type="text/javascript" src="../JS/util_new.js"> </script>
 
 <script type="text/javascript">
-	//window.onload事件
-	//添加载入品牌事件
-	addLoadEvent(showBrand1);
 	//验证判断
 	function doCheck(){
 		//将汽车品牌中的汉字和车型转化为汉字

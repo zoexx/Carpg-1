@@ -4,6 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <script type="text/javascript" src="../JS/ajax.js" />
+<script type="text/javascript" src="../JS/util_new.js" />
 <script type="text/javascript">
 	function send(){
 		if (document.getElementById("verify").value != ""){

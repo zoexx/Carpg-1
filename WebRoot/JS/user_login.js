@@ -1,23 +1,11 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-<jsp:include page="../HTML/login_re.html"></jsp:include>
-
-<script type="text/javascript" src="../JS/jquery-1.7.2.min.js" ></script>
-<script type="text/javascript" src="../JS/ajax.js" ></script>
-<script type="text/javascript">
-  	//验证邮箱的合法性
-  function check_format(){
-    var mail = document.getElementById("email").value;
-    //对电子邮件的验证
-    var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-    if(!myreg.test(mail)){
-      alert("请输入正确的邮箱!");
-      return false;
-    }
-  }
+//user_login.jsp页面的js脚本,前端页面的引用要放在</body>之后
+	
+	//引入外部的js
+	new_element=document.createElement("script");
+ 	new_element.setAttribute("type","text/javascript");
+	new_element.setAttribute("src","../JS/ajax.js");// 在这里引入了ajax.js
+ 	document.body.appendChild(new_element)
+	//表单提交前的判断
 	function doCheck(obj){
 		var temp = obj;
 		var code = document.getElementById("verify").value;
@@ -50,7 +38,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				checkEmail();
 			}
 		}else{alert("test");}
-		return false;
 	}
 	//登陆的ajax
 	function checkLogin() {
@@ -122,4 +109,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		}
     }
-  </script>

@@ -8,9 +8,7 @@ String name = (String)request.getAttribute("name");
 String email = (String)request.getAttribute("email");
 String psw = (String)request.getAttribute("password");
 %>
-<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="../JS/Address/Address.js"></script>
-<script type="text/javascript" src="../JS/Address/ChooseAddress.js"></script>
+<script type="text/javascript" src="../JS/util_new.js"></script>
 <script type="text/javascript">
 	//加载页面信息,主要是填入已经编写的信息，昵称，邮箱，密码
 	function addInfo(){
@@ -18,24 +16,8 @@ String psw = (String)request.getAttribute("password");
 		document.getElementById("email").value = "<%= email%>";
 		document.getElementById("password").value = "<%= psw%>";
 	}
-	function loadPro(){
-		loadProvince('420115');
-	}
-	//window.onload事件
-	function addLoadEvent(func){
-		var oldonload = window.onload;
-		if (typeof window.onload != "function"){
-			window.onload = func;
-		}else{
-			window.onload = function(){
-				oldonload();
-				func();
-			}
-		}
-	}
 	//添加需要预加载的onload事件
 	addLoadEvent(addInfo);
-	addLoadEvent(loadPro);
 	//检验两次输入的密码一致
   	function checkEquel(obj){
     	var psw = document.getElementById("password").value;
