@@ -21,7 +21,12 @@
 	    	</div>
 		
 		    <div class="index_content left">
+		    	<ul class="left-li-clear" id="newsListContent">				
+					<li class="view_newsTitle">
+						<h2 class="newsGrey"><b id="nColumn">汽车召回</b></h2>
+					</li>
 			 <jsp:include page="/HTML/left_newslist.html"></jsp:include>
+			 	</ul>
 		    </div>
 		</div>
 <jsp:include page="/HTML/footer.html"></jsp:include>

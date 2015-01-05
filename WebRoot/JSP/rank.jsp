@@ -18,9 +18,13 @@
 		<link rel="stylesheet" href="../CSS/color.css" />
 	    <script type="text/javascript" src="../JS/util.js" ></script>
 <script type="text/javascript">
+	
+	function rankload(){
 	var carTitle='<%= deString %>';
 	setCar(carTitle);
-	jakeChartProblem();	
+	jakeChartProblem();
+	}
+	addLoadEvent(rankload);	
 </script>
 	</head>
 	<body>
