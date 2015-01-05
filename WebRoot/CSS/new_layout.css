@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url("color.css");
+
 
 /*通用*/
 .global_content{width: 1040px;margin: 0 auto;overflow: hidden;}
@@ -9,10 +9,10 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 li{list-style: none;}
 a{color: #000000;text-decoration: none;display: block;}
 a:hover{color: #B40000;}
-iframe{border:0;background-color: #CCCCCC;width: 100%;height: 100%;z-index: 102;position: relative;}
+iframe{border:0;background-color: #CCCCCC;width: 100%;height: 100%;z-index: 1002;position: relative;}
 #content_content_iframe{}
-#content_iframe{width: 620px;height: 650px;z-index: 102;position: relative;margin: 0 auto;}
-#closeBtn{width: 20px;line-height: 20px;position: absolute;top: 1px;right: 0;z-index: 103;background-color: #FFFFFF;border: none;color: #CCCCCC;}
+#content_iframe{width: 620px;height: 650px;z-index: 1001;position: relative;margin: 0 auto;}
+#closeBtn{width: 20px;line-height: 20px;position: absolute;top: 1px;right: 0;z-index: 1003;background-color: #FFFFFF;border: none;color: #CCCCCC;}
 #closeBtn:hover{background-color: #CCCCCC;color: #FFFFFF;}
 .dashButtons{background: #EACD2E;border: 1px solid #FFFFFF;border-radius: 4px;text-align: center;}
 .dashButtons:hover{background: #B40000;color: #FFFFFF;}
@@ -40,7 +40,7 @@ iframe{border:0;background-color: #CCCCCC;width: 100%;height: 100%;z-index: 102;
 #header_showUserName:hover ul{display: block;}
 #header_logout{display: none;}
 #header_logout li a{background-color: #F9F9F9;line-height: 39px;}
-#overlay_mask{position: absolute;top: 0;left:0;z-index:101;width: 100%;height: 100%;background-color: rgba(111,111,111,0.2);}
+#overlay_mask{position: absolute;top: 0;left:0;z-index:1000;width: 100%;height: 100%;background-color: rgba(111,111,111,0.2);}
 .hot_ico{background-image: url(../images/img/hot32.png);background-position: right top;background-repeat: no-repeat;}
 /*--------footer.html--------*/
 .foot{width: 100%;overflow: hidden;font-family: “Microsoft YaHei”, "微软雅黑",arial,sans-serif;font-size: 12px;}
@@ -63,7 +63,7 @@ iframe{border:0;background-color: #CCCCCC;width: 100%;height: 100%;z-index: 102;
 .copyright{border-top: 3px solid #B40000;}
 .copyright ul li a{color: dimgrey;}
 /*--------new_index.html---------*/
-#index_banner{float: left;height: 340px;width: 690px;margin-bottom: 10px;background-image: url(../images/img/carpg1.jpg);background-size: 100% 100%;background-repeat: no-repeat;background-color: #CCCCCC;position: relative;}
+#index_banner{height: 340px;width: 690px;margin-bottom: 10px;background-image: url(../images/img/carpg1.jpg);background-size: 100% 100%;background-repeat: no-repeat;background-color: #CCCCCC;position: relative;}
 #index_banner ul{position: absolute;bottom: 0;width: 100%;overflow: hidden;background-image: url(../images/img/index_bannerBak.png);background-repeat:repeat-x;}
 #index_banner ul li{float: left;list-style: none;height: 40px;width: 90px;overflow: hidden;}
 #index_banner ul li a img{opacity:0.6;filter:alpha(opacity=60); /* 针对 IE8 以及更早的版本 */}
@@ -173,7 +173,7 @@ a.showAll{display: block;position: absolute;right: 10px;bottom: 5px;}
 /*-------------------------view_complain.html-----end------------------------*/
 /*------------------------view_rank.html-----------------------------------*/
 .view_rankLeft{width:740px;background-color: #F0F0F0;overflow: hidden;}
-.view_rankContent li{overflow: hidden;}
+.left-li-clear li{overflow: hidden;}
 .view_rankNav>ul{border-bottom:1px solid #CCCCCC ;padding-left: 10px;}
 .view_rankNav>ul form{line-height: 29px;}
 .view_rankNav>ul li{float: left;line-height: 29px;}

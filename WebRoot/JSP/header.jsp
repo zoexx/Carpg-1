@@ -1,9 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-<%
 	String user = (String)request.getSession().getAttribute("user");
 	//定义变量保存登陆用户的信息
 	String loginUsername = ""; 
@@ -12,21 +8,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		loginUsername = temp[2];	
 	}
  %>
- <script src="../JS/util.js" type="text/javascript" charset="utf-8"></script>
- <script type="text/javascript">
- 	//显示用户登录状态
- 	function showUser(){
+
+<script type="text/javascript">
+
+ 	function aaa () {
  		var username = "<%= loginUsername%>";
- 		//var username="123";
- 		if (username != ""){
- 			document.getElementById("UserName").innerHTML=""+username;
- 			document.getElementById("header_showUserName").hidden=false;
- 		}else{
- 			document.getElementById("header_log_re").hidden=false;
- 			document.getElementById("header_showUserName").hidden=true;
- 		}
+ 		showUser(username);
  	}
- 	
- 	addLoadEvent(showUser);
- </script>
+ 	    addLoadEvent(aaa);
+</script>
 <jsp:include page="../HTML/header.html"></jsp:include>
