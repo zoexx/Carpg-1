@@ -4,7 +4,7 @@
 	new_element=document.createElement("script");
  	new_element.setAttribute("type","text/javascript");
 	new_element.setAttribute("src","../JS/ajax.js");// 在这里引入了ajax.js
- 	document.body.appendChild(new_element)
+ 	document.body.appendChild(new_element);
 	//表单提交前的判断
 	function doCheck(obj){
 		var temp = obj;

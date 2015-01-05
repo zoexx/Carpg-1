@@ -35,7 +35,7 @@ function addLoadEvent(func) {
  function charOnly(obj){
  	obj.value = obj.value.replace(/[^\d|chun]/g,'');
  }
- //控制输入框只能输入浮点数,调用使用onkeyup， obj为当前对象
+ //控制输入框只能输入浮点数,调用使用onkeyup，obj为当前对象
  function floatOnly(obj){   
 	obj.value = obj.value.replace(/[^\d.]/g,"");  //清除“数字”和“.”以外的字符  
 	obj.value = obj.value.replace(/^\./g,"");  //验证第一个字符是数字而不是. 

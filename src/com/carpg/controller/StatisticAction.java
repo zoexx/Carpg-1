@@ -39,6 +39,11 @@ public class StatisticAction extends ActionSupport implements ServletRequestAwar
 	private String param;	//表示传递的参数
 	private String msg;		//表示回传的数据
 	
+	//获取header导航栏中固定的排行榜
+	public String rank() throws Exception{
+		return "rank";
+	}
+	//根据参数类别获取排行榜
 	public String getRank() throws Exception{
 		//根据type的类别执行操作
 		if (type.equals(BRAND_YEAR_COUNT)){
