@@ -23,7 +23,9 @@ function setNewsColumn (nColumn) {
 }
 function showNews (i) {
 	var ali=document.createElement("li");
-	ali.className="newsPreContent"; 
+	ali.className="newsPreContent";
+	ali.value=newsCount;
+	ali.onclick="toDetailPage(this)";
 	var ap=document.createElement("p");
 	var aspan=document.createElement("span");
 	aspan.className="newsCategory left";
@@ -50,22 +52,41 @@ function showNews (i) {
 	var bp=document.createElement("p");
 	bp.className="newsPreText";
 	var ahref=document.createElement("a");
-	ahref=
+	ahref="#";
 	var ahh=document.createElement("h2");
 	ahh.innerHTML=""+newsJson[i].nTitle;
 	var bhh=document.createElement("h5");
 	bhh.innerHTML=""+getPreviewText(newsJson[i].content);
-	//appendChild
+	bp.appendChild(ahref);
+	bp.appendChild(ahh);
+	bp.appendChild(bhh);
+	ali.appendChild(bp);
 	var espan=document.createElement("span");
 	espan.className="redLineNub right";
 	espan.innerHTML="赞（"+newsJson[i].praise+"）";
 	ali.appendChild(espan);
 	document.getElementById("newsListContent").appendChild(ali);
 }
-function getPreviewText (obj) {
+function getPreviewText (str) {
 	var contentLength=101;//设置截取段落的长度
 	//预览内容，截取文章第一段的101个字，并加上....省略号
 	//获得第一段，拆开第一个p，如果为空拆下一个
+	var a=str.split("</p>");
+	var atext;
+	for (var i = 0; i < a.length; i++) {
+		 var ainner=a[i].split(">");
+		 if (ainner[1]) {
+		 	atext=ainner[1];
+		 }else{
+		 	continue;
+		 }
+	}
+	
+	var stext=ainner[1];
 	//字符串长度如果小于101，如果大于101，只截取到101
 	//加上省略号输出
+}
+function toDetailPage(obj){
+	//传newsJson[obj.value]过去下一个页面；
+	
 }
