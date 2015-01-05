@@ -9,6 +9,8 @@
 		<link href="../CSS/new_layout.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" type="text/css" href="../CSS/color.css"/>
   		<script src="../JS/add.js" type="text/javascript" charset="utf-8"></script>
+  		<script type="text/javascript" src="../JS/test/brand.js"> </script>
+		<script type="text/javascript" src="../JS/test/selectJs_20140324.js"> </script>
 	</head>
 	<body>
 		<div class="content3" id="iniframe">
@@ -26,6 +28,10 @@
 				<option value="default">----选择您的车型----</option>
 				
 			</select>
+			<script type="text/javascript">
+				//品牌，车型库的载入
+				showBrand1();
+			</script>
 			<h4>-空间-</h4>
 			<select id="category" name="category">
 				<option value="default">----选择汽车类别----</option>
@@ -58,7 +64,7 @@
 				</li>
 				<li>
 					<h4>-排量-</h4>
-					<input type="text" id="displacement" name="displacement"/>
+					<input type="text" id="displacement" name="displacement" onkeyup="floatOnly(this);"/>
 					<p><i>如：3.2L</i></p>
 				</li>
 				<li>
@@ -80,7 +86,7 @@
 				</li>
 				<li>
 					<h4>-VIN码-</h4>
-					<input type="text" id="vin" name="vin"/>
+					<input type="text" id="vin" name="vin" onkeyup="charOnly(this);"/>
 					<p><i>车辆识别码，由17位字符组成</i></p>
 
 				</li>

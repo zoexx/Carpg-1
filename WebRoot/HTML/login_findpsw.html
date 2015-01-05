@@ -13,7 +13,7 @@
 			<div class="login_content">
 				<form id="login_reg" method="post" >
 					
-						<input type="text" name="email" id="email" class="login_input" placeholder="邮箱" onblur="checkEmail()" />
+						<input type="text" name="email" id="email" class="login_input" placeholder="邮箱" onblur="check_email_format(this);" />
 					
 					<div id="verify_content">
 						<input type="text" id="verify" class="login_input" placeholder="请输入验证码" onblur="checkVerify();"/>

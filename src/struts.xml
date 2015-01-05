@@ -28,8 +28,8 @@
 		<action name="userOperate" class = "com.carpg.controller.UserAction">
 			<result>index.jsp</result>
 			<result name="index" type="redirect">index.jsp</result>
-			<result name="login" type="redirect">login.jsp</result>
-			<result name="regist">regist.jsp</result>
+			<result name="login" type="redirect">user_login.jsp</result>
+			<result name="regist">user_regist.jsp</result>
 			<result name="step2" type="redirect">complaint_step2.jsp</result>
 		</action>
 		<action name="carOperate" class = "com.carpg.controller.CarAction">
