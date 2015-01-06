@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
  %>
 
-<jsp:include page="header.jsp" flush="true"></jsp:include>
+<jsp:include page="/JSP/module_header.jsp" flush="true"></jsp:include>
 <jsp:include page="/HTML/view_complain.html"></jsp:include>
 <jsp:include page="/HTML/footer.html"></jsp:include>
 <script type="text/javascript">
