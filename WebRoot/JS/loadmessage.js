@@ -128,7 +128,7 @@ function getWindowHeight(){
 　　}
 　　return windowHeight;
 }
-//拼在jsp中时需加上$footer.height
+
 window.onscroll = function(){
 　　if(getScrollTop() + getWindowHeight() == getScrollHeight()){
 	 window.setTimeout("loadMassage(maxSize);",500);　　　　
