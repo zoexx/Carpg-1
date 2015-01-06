@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	
  %>
- <script type="text/javascript" src="../JS/util.js"></script>
+ <script type="text/javascript" src="../JS/util_new.js"></script>
  <script type="text/javascript">
  	//将用户车的信息载入到汽车选择列表
  	function loadCar(){
@@ -39,4 +39,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  		}
  	}
  </script>
-<jsp:include page="../HTML/complain1.html" ></jsp:include>
+<jsp:include page="/HTML/complain1.html" ></jsp:include>

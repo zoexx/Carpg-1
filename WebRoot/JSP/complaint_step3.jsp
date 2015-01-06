@@ -41,4 +41,4 @@ function doCheck () {
 	document.getElementById("form").submit();
 }
 </script>
-<jsp:include page="../HTML/complain_addcomplain.html" ></jsp:include>
+<jsp:include page="/HTML/complain_addcomplain.html" ></jsp:include>

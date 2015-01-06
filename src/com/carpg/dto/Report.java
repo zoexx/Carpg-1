@@ -12,6 +12,9 @@ public class Report {
 	private String content;
 	private String image;
 	private String url;
+	
+	private String car_type;
+	private String agency;
 	public int getId() {
 		return id;
 	}
@@ -71,6 +74,18 @@ public class Report {
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	public String getCar_type() {
+		return car_type;
+	}
+	public void setCar_type(String car_type) {
+		this.car_type = car_type;
+	}
+	public String getAgency() {
+		return agency;
+	}
+	public void setAgency(String agency) {
+		this.agency = agency;
 	}
 
 }

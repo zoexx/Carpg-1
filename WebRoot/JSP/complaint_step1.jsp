@@ -4,4 +4,4 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<jsp:include page="../HTML/complain_notice.html" ></jsp:include>
+<jsp:include page="/HTML/complain_notice.html" ></jsp:include>

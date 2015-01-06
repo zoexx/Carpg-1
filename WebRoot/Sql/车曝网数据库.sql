@@ -100,5 +100,8 @@ author varchar(20),								/*作者*/
 time varchar(20) not null,						/*信息发布的时间*/
 content varchar(5000) not null,					/*报告的内容,有可能采取存放html格式的形式*/
 image varchar(20),								/*报告的展示图片,存放路径*/
-url varchar(50)									/*报告摘取链接*/
+url varchar(50),								/*报告摘取链接*/
+/*2015-1-6*/
+car_type varchar(20) not null,					/*车型*/
+agency varchar(40)								/*经销商*/
 );
