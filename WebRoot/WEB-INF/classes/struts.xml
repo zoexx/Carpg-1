@@ -74,7 +74,7 @@
 		<action name="statisticOperate" class = "com.carpg.controller.StatisticAction">
 			<result>index.jsp</result>
 			<result name="index" type="redirect">index.jsp</result>
-			<result name="rank">rank.jsp</result>
+			<result name="rank">rank_total.jsp</result>
 		</action>
 	</package>
 

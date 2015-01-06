@@ -23,7 +23,7 @@
 </script>
 	</head>
 	<body>
-<jsp:include page="/JSP/header.jsp" flush="true" ></jsp:include>
+<jsp:include page="/JSP/module_header.jsp" flush="true" ></jsp:include>
 
 <jsp:include page="/HTML/edit_news.html"></jsp:include>
 		
