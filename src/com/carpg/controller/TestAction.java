@@ -1,28 +1,28 @@
 package com.carpg.controller;
 
 import com.carpg.dao.UserDao;
+import com.carpg.dto.Report;
 import com.carpg.dto.User;
 import com.carpg.impl.UserImpl;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class TestAction extends ActionSupport implements ModelDriven<User> {
+public class TestAction extends ActionSupport implements ModelDriven<Report> {
 
-	private User user = new User();
-	private UserDao userDao = new UserImpl();
+	private Report report = new Report(); 
 	String msg;
 	public TestAction() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String execute() throws Exception{
-		msg = "≤‚ ‘struts2µƒ∑µªÿ÷µ";
-		return "test";
+	public String test() throws Exception{
+		System.out.println("id: " + report.getId());
+		return "";
 	}
 
-	public User getModel() {
+	public Report getModel() {
 		// TODO Auto-generated method stub
-		return user;
+		return report;
 	}
 
 	public String getMsg() {
