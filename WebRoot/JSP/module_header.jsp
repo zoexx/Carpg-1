@@ -8,14 +8,14 @@
 		loginUsername = temp[2];	
 	}
  %>
-
+<script type="text/javascript" src="../JS/util.js"></script>
 <script type="text/javascript">
 
  	function aaa () {
  		var username = "<%= loginUsername%>";
  		showUser(username);
  	}
- 		//显示用户登录状态
+ 			 	//显示用户登录状态
     function showUser(username){
  		//var username="123";
  		if (username != ""){
@@ -26,31 +26,6 @@
  			document.getElementById("header_showUserName").hidden=true;
  		}
  	}
-
- 	    addLoadEvent(aaa);
-</script>
-<script type="text/javascript">
-//控制iframe的显示与关闭
-function onShowIframe (showHref) {
-				document.getElementById("myiframe").src=""+showHref;								       
-				document.getElementById("content_iframe").hidden=false;//iframe容器
-				document.getElementById("overlay_mask").hidden=false;//遮罩层
-				
- 	    }
-function closeIframe () {
-				document.getElementById("content_iframe").hidden=true;				
-				document.getElementById("overlay_mask").hidden=true;
-		}
-//设置iframe的大小
-function setIframeSize(){
-	if (document.getElementById("myiframe").readyState=="complete") {
-				var ifm=document.getElementById("content_iframe");
-				var a=document.getElementById("myiframe").contentWindow;
-				var b=a.document.getElementById("iniframe");
-				ifm.style.width==b.offsetWidth;				
-				ifm.style.height=b.offsetHeight;
-	}			
-		}
 //当前页面高亮
 function highlightPage() {
   if (!document.getElementsByTagName) return false;
@@ -73,5 +48,6 @@ function highlightPage() {
 	  }
   }
 }
+ addLoadEvent(aaa);
 </script>
 <jsp:include page="/HTML/header.html"></jsp:include>

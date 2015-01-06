@@ -14,7 +14,7 @@
 	    </script>
 	</head>
 	<body>
-<jsp:include page="header.jsp" flush="true" ></jsp:include>
+<jsp:include page="/JSP/module_header.jsp" flush="true" ></jsp:include>
         <div  class="global_content">
 			<div  class="index_rank right">
              <jsp:include page="/JSP/module_rank.jsp"></jsp:include>
