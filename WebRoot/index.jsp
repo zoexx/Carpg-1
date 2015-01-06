@@ -9,10 +9,10 @@
 		<script type="text/javascript" src="../JS/test/selectJs_20140324.js"></script>
 	    <script type="text/javascript" src="../JS/util.js" ></script>
 	    <script src="../JS/setmeta.js" type="text/javascript" charset="utf-8"></script>
+	    <script type="text/javascript">
+        addLoadEvent(setmeta);//设置meta内容
+	    </script>
 	</head>
-	<script type="text/javascript">
-		setmeta();
-	</script>
 	<body>
 <jsp:include page="header.jsp" flush="true" ></jsp:include>
         <div  class="global_content">

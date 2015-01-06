@@ -1,6 +1,6 @@
 
 
-function loadnews (maxsize) {
+function loadmessage(maxsize) {
 	//maxsize设置每页展示新闻条数
 	for (var i = 0; i < maxsize; i++) {
 		if (newsCount==newsJson.length) {
@@ -28,7 +28,6 @@ function showNews (i) {
 	var ali=document.createElement("li");
 	ali.className="newsPreContent";
 	ali.value=newsCount;
-	
 	var ap=document.createElement("p");
 	var aspan=document.createElement("span");
 	aspan.className="newsCategory left";

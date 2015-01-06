@@ -17,8 +17,9 @@
 		<link rel="stylesheet" href="../CSS/new_layout.css" />
 		<link rel="stylesheet" href="../CSS/color.css" />
 	    <script type="text/javascript" src="../JS/util.js" ></script>
+	    <script type="text/javascript" src="../JS/rank_total.js" ></script>
 <script type="text/javascript">
-	
+
 	function rankload(){
 	var carTitle='<%= deString %>';
 	setCar(carTitle);
