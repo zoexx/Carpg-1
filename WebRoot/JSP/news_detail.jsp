@@ -1,5 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-
+<%@ page import="java.net.URLDecoder" %>
+<%
+	String temp = request.getParameter("param");
+	String param = URLDecoder.decode(URLDecoder.decode(temp, "utf-8"));
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,7 +15,9 @@
 		<link rel="stylesheet" href="../CSS/new_layout.css" />
 		<link rel="stylesheet" href="../CSS/color.css" />
 	    <script type="text/javascript" src="../JS/util.js" ></script>
-		
+		<script type="text/javascript">
+			alert("<%= param%>");
+		</script>
 	</head>
 	<body>
 <jsp:include page="header.jsp" flush="true" ></jsp:include>

@@ -134,3 +134,4 @@ window.onscroll = function(){
 	 window.setTimeout("loadMassage(maxSize);",500);　　　　
 　　}
 };
+
