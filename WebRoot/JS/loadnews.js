@@ -3,23 +3,32 @@
 function loadnews (maxsize) {
 	//maxsize设置每页展示新闻条数
 	for (var i = 0; i < maxsize; i++) {
-		showNews(i);
-		newsCount++;
+		if (newsCount==newsJson.length) {
+				//隐藏“加载更多”
+				document.getElementById("view_more").hidden=true;
+				break;
+			}else{
+				showNews(i);
+				newsCount++;
+			}
 	}
 	
 }
 function setNewsColumn (nColumn) {
+	if (nColumn==1) {
+		nColumn="汽车召回";
+	}else if(nColumn==0){
+		nColumn="缺陷调查";
+	}else{
+		nColumn="缺陷&召回";
+	}
 	document.getElementById("nColumn").innerHTML=""+nColumn;
 }
 function showNews (i) {
 	var ali=document.createElement("li");
 	ali.className="newsPreContent";
 	ali.value=newsCount;
-	ali.onclick=function (this){
-	var str=JSON.stringify(newsJson[obj.value]);
-	alert(str);
-	window.location.href=""+encodeURI(encodeURI('news_detail.jsp?param='+str));
-}
+	
 	var ap=document.createElement("p");
 	var aspan=document.createElement("span");
 	aspan.className="newsCategory left";
@@ -30,16 +39,12 @@ function showNews (i) {
 	var cspan=document.createElement("span");
 	cspan.className=aspan.className;
 	cspan.innerHTML="/"+newsJson[i].time;
-	var dspan=document.createElement("span");
-	dspan.className=aspan.className;
-	dspan.innerHTML=""+newsJson[i].source;
 	ap.appendChild(aspan);
 	ap.appendChild(bspan);
 	ap.appendChild(cspan);
-	ap.appendChild(dspan);
 	ali.appendChild(ap);
 	var aimg=document.createElement("img");
-	aimg.src=""+newsJson[i].imgSrc;
+	aimg.src=""+newsJson[i].image;
 	aimg.alt=""+newsJson[i].nTitle;
 	aimg.className="newsSmallPic left";
 	ali.appendChild(aimg);
@@ -80,3 +85,75 @@ function getPreviewText (str) {
 	atext+="......";//加上省略号输出
 	return atext;
 }
+function setLiClick () {
+	var lia=document.getElementsByClassName("newsPreContent");
+	for (var i = 0; i < lia.length; i++) {
+		var value=lia[i].value;
+		lia[i].onclick=function (){
+	var str=JSON.stringify(newsJson[value]);
+	alert(str);
+	window.location.href=""+encodeURI(encodeURI('news_detail.jsp?param='+str));
+}
+	}
+}
+function loadnewsDetail () {
+	document.getElementById("category").innerHTML=""+news.category;
+	document.getElementById("nTitle").innerText=news.nTitle;
+	document.getElementById("info").innerHTML=news.author+"/"+news.time;
+	if (news.image) {
+		document.getElementById("image").src=news.image;
+	}
+	document.getElementById("content").innerHTML=""+news.content;
+	var source=document.getElementById("author");
+	source.innerText=news.author;
+	var aurl=document.createElement("a");
+	aurl.href=""+news.url;
+	aurl.innerText=news.url;
+	source.appendChild(aurl);
+}
+//滚动到底部时加载更多
+//滚动条在Y轴上的滚动距离
+
+function getScrollTop(){
+　　var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+　　if(document.body){
+　　　　bodyScrollTop = document.body.scrollTop;
+　　}
+　　if(document.documentElement){
+　　　　documentScrollTop = document.documentElement.scrollTop;
+　　}
+　　scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+　　return scrollTop;
+}
+
+//文档的总高度
+
+function getScrollHeight(){
+　　var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+　　if(document.body){
+　　　　bodyScrollHeight = document.body.scrollHeight;
+　　}
+　　if(document.documentElement){
+　　　　documentScrollHeight = document.documentElement.scrollHeight;
+　　}
+　　scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+　　return scrollHeight;
+}
+
+//浏览器视口的高度
+
+function getWindowHeight(){
+　　var windowHeight = 0;
+　　if(document.compatMode == "CSS1Compat"){
+　　　　windowHeight = document.documentElement.clientHeight;
+　　}else{
+　　　　windowHeight = document.body.clientHeight;
+　　}
+　　return windowHeight;
+}
+
+window.onscroll = function(){
+　　if(getScrollTop() + getWindowHeight() == getScrollHeight()){
+	 window.setTimeout("loadnews(maxsize);",500);　　　　
+　　}
+};
