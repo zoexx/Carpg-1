@@ -8,7 +8,7 @@
 		loginUsername = temp[2];	
 	}
  %>
-
+<script type="text/javascript" src="../JS/util.js"></script>
 <script type="text/javascript">
 
  	function aaa () {
@@ -48,6 +48,6 @@ function highlightPage() {
 	  }
   }
 }
- 	    addLoadEvent(aaa);
+ addLoadEvent(aaa);
 </script>
-<jsp:include page="../HTML/header.html"></jsp:include>
+<jsp:include page="/HTML/header.html"></jsp:include>
