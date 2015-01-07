@@ -54,7 +54,7 @@ function doCheck () {
 	var toSub=document.getElementById("course");
 	for (var i = 0; i < objss.length; i++) {
 		if (objss[i].checked) {
-			toSub.value=toSub.value+"~"+objss[i].nextSibling.value;
+			toSub.value=toSub.value+"~"+objss[i].value+objss[i].nextSibling.nextSibling.value;		
 		}
 	}
 	if (document.getElementById("course_feel").value=="default") {
@@ -65,6 +65,7 @@ function doCheck () {
 		alert("您的详细经过将更有助于维护您的权益，请填写事件的详细经过");
 		return false;
 	}
+	
 	document.getElementById("form").action="complaintOperate!complaintStep3";
 	document.getElementById("form").submit();
 	parent.location.reload();
