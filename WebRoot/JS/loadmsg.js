@@ -1,19 +1,25 @@
-
-
+//控制信息加载,用于report_show.jsp以及complaint_view.jsp
 function loadmessage(maxsize) {
-	//maxsize设置每页展示新闻条数
+	//maxsize设置每次加载条数
+	//type表示信息展示模式，吐槽模式，新闻模式
+	
 	for (var i = 0; i < maxsize; i++) {
-		if (newsCount==newsJson.length) {
+		if (msgCount==msgJson.length) {
 				//隐藏“加载更多”
 				document.getElementById("view_more").hidden=true;
 				break;
 			}else{
-				showNews(i);
-				newsCount++;
+				if(msgType=="news"){
+				showNews(i);	
+				}else if(msgType=="complain"){
+				showComplain(i);
+				}
+				msgCount++;
 			}
 	}
 	
 }
+//设置新闻列表页面的标题
 function setNewsColumn (nColumn) {
 	if (nColumn==1) {
 		nColumn="汽车召回";
@@ -24,6 +30,7 @@ function setNewsColumn (nColumn) {
 	}
 	document.getElementById("nColumn").innerHTML=""+nColumn;
 }
+//新闻列表页面创建DOM
 function showNews (i) {
 	var ali=document.createElement("li");
 	ali.className="newsPreContent";
@@ -65,9 +72,87 @@ function showNews (i) {
 	ali.appendChild(espan);
 	document.getElementById("newsListContent").appendChild(ali);
 }
+//吐槽展示页面创建DOM
+function showComplain (i) {
+	//整条评论的容器
+			var view_mainComplains=document.createElement("div");
+			view_mainComplains.className="view_mainComplains view_complainBorder";
+			//user信息容器
+			var avatar=document.createElement("div");
+			avatar.className="avatar";
+			var avatarPic=document.createElement("img");//用户头像
+			//if (msgJson[i].img!="") {
+				//avatarPic.src=""+msgJson[i].img;
+			//}else{
+				avatarPic.src="../images/img/avatar.png";//默认用户头像
+			//}
+			avatarPic.className="avatarPic";
+			var avatarName=document.createElement("p");
+			avatarName.className="avatarName";
+			if (msgJson[msgCount].user_name!="") {
+				var timeinfo=msgJson[msgCount].time.split(" ");		       
+				avatarName.innerHTML="<b>"+msgJson[msgCount].user_name+"</b><br/>"+timeinfo[1]+"<br/>"+timeinfo[0];
+				}else{
+				avatarName.innerHTML="<b>"+"车曝网友"+"</b><br/>"+timeinfo[1]+"<br/>"+timeinfo[0];					
+				}
+			avatar.appendChild(avatarPic);
+			avatar.appendChild(avatarName);
+			view_mainComplains.appendChild(avatar);
+			//吐槽信息容器
+			var view_complainContent=document.createElement("div");
+			view_complainContent.className="view_complainContent";
+			//吐槽标题
+			var view_complainTitle=document.createElement("h4");
+			view_complainTitle.className="view_complainTitle";
+			view_complainTitle.innerHTML=""+msgJson[msgCount].car_brand+msgJson[msgCount].car_type+msgJson[msgCount].problem_detail;
+			view_complainContent.appendChild(view_complainTitle);
+			//问题标签
+			var view_complainTips=document.createElement("ul");
+			view_complainTips.className="view_complainTips";
+			var tips=[msgJson[msgCount].problem_type,msgJson[msgCount].problem_problem,msgJson[msgCount].mileage,msgJson[msgCount].frequency];
+			for (var n = 0; n <tips.length ; n++) {
+				var a=document.createElement("li");
+				a.innerHTML=""+tips[n];
+				view_complainTips.appendChild(a);
+			}
+			view_complainContent.appendChild(view_complainTips);
+			//吐槽内容
+			var view_complainText=document.createElement("p");
+			view_complainText.className="view_complainText";
+			view_complainText.innerHTML=""+msgJson[msgCount].mark;
+			view_complainContent.appendChild(view_complainText);
+			//图片列表
+			var view_complainPhoto=document.createElement("ul");
+			view_complainPhoto.className="view_complainPhoto";
+			for (var j = 0; j < msgJson[msgCount].image.length; j++) {
+				var a=document.createElement("li");
+				var b=document.createElement("img");
+			    b.src=""+msgJson[msgCount].image[j];
+			    a.appendChild(b);
+			    view_complainPhoto.appendChild(a);
+			}
+			view_complainContent.appendChild(view_complainPhoto);
+			//功能按键列表
+			var view_complainAction=document.createElement("ul");
+			view_complainAction.className="view_complainAction";
+			var actiontext=['收藏','评论','转发','赞'];
+			for (var b = 0; b < actiontext.length; b++) {
+				var acli=document.createElement("li");				
+				var actionBtn=document.createElement("a");
+				actionBtn.id="actionBtn"+i+""+b;
+				actionBtn.className="actionBtn";
+				actionBtn.innerHTML=""+actiontext[b];
+				acli.appendChild(actionBtn);
+				view_complainAction.appendChild(acli);
+			}
+			view_complainContent.appendChild(view_complainAction);
+			view_mainComplains.appendChild(view_complainContent);
+			//添加到吐槽显示区
+			document.getElementById("add_ccshere").appendChild(view_mainComplains);
+}
+//新闻列表页面截取新闻内容预览，截取文章第一段的101个字，并加上....省略号
 function getPreviewText (str) {
 	var contentLength=100;//设置截取段落的长度
-	//预览内容，截取文章第一段的101个字，并加上....省略号
 	//获得第一段，拆开第一个p，如果为空拆下一个
 	var a=str.split("</p>");
 	var atext;
@@ -84,6 +169,7 @@ function getPreviewText (str) {
 	atext+="......";//加上省略号输出
 	return atext;
 }
+//给新闻列表加上点击事件
 function setLiClick () {
 	var lia=document.getElementsByClassName("newsPreContent");
 	for (var i = 0; i < lia.length; i++) {
@@ -95,6 +181,7 @@ function setLiClick () {
 }
 	}
 }
+//新闻详情页面
 function loadnewsDetail () {
 	document.getElementById("category").innerHTML=""+news.category;
 	document.getElementById("nTitle").innerText=news.nTitle;
@@ -112,7 +199,6 @@ function loadnewsDetail () {
 }
 //滚动到底部时加载更多
 //滚动条在Y轴上的滚动距离
-
 function getScrollTop(){
 　　var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
 　　if(document.body){
@@ -153,6 +239,6 @@ function getWindowHeight(){
 
 window.onscroll = function(){
 　　if(getScrollTop() + getWindowHeight() == getScrollHeight()){
-	 window.setTimeout("loadnews(maxsize);",500);　　　　
+	 window.setTimeout("loadmessage(maxsize);",500);　　　　
 　　}
 };
