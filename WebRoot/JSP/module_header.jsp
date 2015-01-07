@@ -48,6 +48,17 @@ function highlightPage() {
 	  }
   }
 }
+//控制iframe的显示与关闭
+function onShowIframe (showHref) {
+				document.getElementById("myiframe").src=""+showHref;								       
+				document.getElementById("content_iframe").hidden=false;//iframe容器
+				document.getElementById("overlay_mask").hidden=false;//遮罩层
+				
+ 	    }
+function closeIframe () {
+				document.getElementById("content_iframe").hidden=true;				
+				document.getElementById("overlay_mask").hidden=true;
+		}
  addLoadEvent(aaa);
 </script>
 <jsp:include page="/HTML/header.html"></jsp:include>

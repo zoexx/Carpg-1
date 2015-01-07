@@ -94,6 +94,7 @@ public class AjaxServlet extends HttpServlet {
 				ok = "success";
 			}
 		}
+		System.out.println("ok: "+ok);
 		out.print(ok);
 		out.flush();
 		out.close();
