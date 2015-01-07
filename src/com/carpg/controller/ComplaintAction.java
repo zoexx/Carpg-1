@@ -126,7 +126,8 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 				if (null != upload.get(i) && null != this.getUploadFileName().get(i)){
 					System.out.println("图片名称类型: "+this.getUploadContentType().get(i));
 					//给图片重新命名
-					String tempPath = millis + i + "." + this.getUploadContentType().get(i);
+					String[] imageType = this.getUploadContentType().get(i).split("/");
+					String tempPath = millis + i + "." + imageType[1];
 					//创建文件的输入输出流
 					FileOutputStream fos = new FileOutputStream(path+"\\" + tempPath);
 					FileInputStream fis=new FileInputStream(this.getUpload().get(i));
@@ -136,7 +137,7 @@ public class ComplaintAction extends ActionSupport implements ServletRequestAwar
 				        fos.write(buffer, 0, len);
 				    }
 				    //将图片路径保存
-				    imagePath += userId + "\\" + tempPath +";";
+				    imagePath += userId + "/" + tempPath +";";
 				}			
 			}
 		}

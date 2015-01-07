@@ -59,7 +59,8 @@
 		<action name="reportOperate" class = "com.carpg.controller.ReportAction">
 			<result>index.jsp</result>
 			<result name="index" type="redirect">index.jsp</result>
-			<result name="detail"></result>
+			<result name="show">report_show.jsp</result>
+			<result name="detail">report_detail.jsp</result>
 			<!-- 配置fileUpload拦截器 -->  
             <interceptor-ref name="fileUpload">  
                 <!-- 配置允许上传的文件类型-->  

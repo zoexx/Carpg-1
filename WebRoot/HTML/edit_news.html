@@ -7,9 +7,10 @@
 			<span>&nbsp;&nbsp;&nbsp;署名&nbsp;&nbsp;&nbsp;</span>
 				<input type="text" name="source" id="" value="" />
 			<span>新闻日期</span>
-				<input type="text" id="start_time" name="time" readonly="readonly"/>
+				<input type="text" id="time" name="time" readonly="readonly"/>
 				<script type="text/javascript">
-					loadCalendar();
+					var cal = document.getElementById("time");
+					loadCalendar(cal);
 				</script>
 				<br />
 			<span>原作信息</span>
@@ -24,9 +25,9 @@
 			</select>
 			<br />
 			<span>相关车型</span>
-				<input type="text" name="car" id="car" value="" />
+				<input type="text" name="car_type" id="car_type" value="" />
 			<span>经销商</span>
-				<input type="text" name="seller" id="seller" value="" />
+				<input type="text" name="agency" id="agency" value="" />
 				<br />
 			<span>请上传您的新闻图片（JPG, GIF, PNG或BMP，单张最大1M）</span>
 				<input type="file" name="file" accept="image/jpeg" alt="您的浏览器不支持图片上传"/>
