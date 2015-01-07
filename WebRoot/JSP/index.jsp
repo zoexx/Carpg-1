@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="../CSS/new_layout.css" />
 		<link rel="stylesheet" href="../CSS/color.css" />
 		<script type="text/javascript" src="../JS/external/brand.js"></script>
-		<script type="text/javascript" src="../JS/external/selectJs_20140324.js"></script>
+		<script type="text/javascript" src="../JS/external/brand_select.js"></script>
 	    <script type="text/javascript" src="../JS/util.js" ></script>
 	    <script src="../JS/setmeta.js" type="text/javascript" charset="utf-8"></script>
 	    <script type="text/javascript">

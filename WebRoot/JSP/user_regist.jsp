@@ -8,7 +8,7 @@ String name = (String)request.getAttribute("name");
 String email = (String)request.getAttribute("email");
 String psw = (String)request.getAttribute("password");
 %>
-<script type="text/javascript" src="../JS/util_new.js"></script>
+<script type="text/javascript" src="../JS/util.js"></script>
 <script type="text/javascript">
 	//加载页面信息,主要是填入已经编写的信息，昵称，邮箱，密码
 	function addInfo(){
@@ -41,10 +41,18 @@ String psw = (String)request.getAttribute("password");
   }
   //验证信息
   function doCheck(){
-  	//将地区码转变为对应的文字
-  	changeToText();
-  	document.getElementById("login_reg").action="userOperate!regist";
-	document.getElementById("login_reg").submit();
+  	var checkbox = document.getElementById("radiobutton");
+  	if (checkbox.checked == "true"){
+  		//将地区码转变为对应的文字
+  		changeToText();
+  		document.getElementById("login_reg").action="userOperate!regist";
+		document.getElementById("login_reg").submit();
+		//关闭iframe
+		closeIframe();
+  	}else{
+  		alert("请仔细阅读说明协议");
+  	}
+  	
   }
 </script>
 <jsp:include page="../HTML/regist.html"></jsp:include>
