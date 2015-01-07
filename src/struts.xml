@@ -40,7 +40,7 @@
 		<action name="complaintOperate" class = "com.carpg.controller.ComplaintAction">
 			<result>index.jsp</result>
 			<result name="index" type="redirect">/JSP/index.jsp</result>
-			<result name="login" type="redirect">login.jsp</result>
+			<result name="login" type="redirect">user_login.jsp</result>
 			<result name="step2" type="redirect">complaint_step2.jsp</result>
 			<result name="step3" type="redirect">complaint_step3.jsp</result>
 			<result name="view">complaint_view.jsp</result>
