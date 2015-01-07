@@ -74,7 +74,7 @@ frequency varchar(10),							/*问题出现的频率， 比如经常，偶尔，
 course varchar(50),								/*照成的事故*/
 solution varchar(50),							/*解决的方法*/
 fee int,										/*花费的金额（单位为元）*/
-image varchar(30),                              /*图片详情，存储的是图片的路径*/
+image varchar(50),                              /*图片详情，存储的是图片的路径*/
 mark varchar(100),								/*备注信息*/
 /*2014-11-26添加抱怨表的里程属性*/
 mileage int not null                            /*汽车行驶里程（单位公里)*/
@@ -99,7 +99,7 @@ source varchar(20) not null,                    /*信息的来源*/
 author varchar(20),								/*作者*/
 time varchar(20) not null,						/*信息发布的时间*/
 content varchar(5000) not null,					/*报告的内容,有可能采取存放html格式的形式*/
-image varchar(20),								/*报告的展示图片,存放路径*/
+image varchar(50),								/*报告的展示图片,存放路径*/
 url varchar(50),								/*报告摘取链接*/
 /*2015-1-6*/
 car_type varchar(20) not null,					/*车型*/

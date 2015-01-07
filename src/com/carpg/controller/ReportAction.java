@@ -56,7 +56,9 @@ public class ReportAction extends ActionSupport implements ServletRequestAware,S
 		if (report.getCategory().equals("缺陷调查")){
 			report.setType(0);
 		}else{report.setType(1);}
-		System.out.println("type:" +report.getType() +"   category: "+report.getCategory());
+		JsonTool json = new JsonTool();
+		String temp = json.toJsonString(report);
+		System.out.println("report: " + temp);
 		//获得图片的路径
 		report.setImage(fileUpload(1));
 		reportDao.addReport(report);
@@ -74,7 +76,7 @@ public class ReportAction extends ActionSupport implements ServletRequestAware,S
 		List<Object> list = reportDao.getReports(report.getId());
 		JsonTool json = new JsonTool();
 		msg = json.toJsonArrayString(list);
-		return "";
+		return "show";
 	}
 	
 	//文件上传处理函数
@@ -92,7 +94,9 @@ public class ReportAction extends ActionSupport implements ServletRequestAware,S
 			System.out.println("图片名称: "+this.getFileFileName());
 			//将当前时间的毫秒数作为文件名
 		    Calendar c = Calendar.getInstance();
-		    imagePath = String.valueOf(c.getTimeInMillis()) + "." + this.getFileContentType();
+		    String[] imageType = this.getFileContentType().split("/"); 
+		    imagePath = String.valueOf(c.getTimeInMillis()) + "." + imageType[1];
+		    System.out.println("imagePath: "+ imagePath);
 			//创建文件的输入输出流
 			FileOutputStream fos = new FileOutputStream(path+"\\" + imagePath);
 			FileInputStream fis=new FileInputStream(this.getFile());
@@ -103,6 +107,7 @@ public class ReportAction extends ActionSupport implements ServletRequestAware,S
 		    
 		    
 		}
+		imagePath = "report/" + imagePath;
 		return imagePath;
 	}
 	
