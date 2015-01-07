@@ -63,7 +63,7 @@ public class MailServlet extends HttpServlet {
 			//将用户信息和识别码存在session中用于数据库中修改密码的校验
 			String msg = name + "~" + code;
 			request.getSession().setAttribute("updatePsw", msg);
-			response.sendRedirect("../JSP/set_psw.jsp");
+			response.sendRedirect("../JSP/user_psw_set.jsp");
 		}
 		out.flush();
 		out.close();

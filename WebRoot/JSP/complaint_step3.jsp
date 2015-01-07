@@ -8,6 +8,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	//String msg = request.getParameter("msg");
  %>
 <script type="text/javascript">
+//添加车辆问题
+function addproblem (opValue) {
+	if (opValue=="none") {
+		document.getElementById("add_problem_text").hidden=false;
+	}else{
+		document.getElementById("add_problem_text").hidden=true;
+	}
+}
+//添加造成的事故
+function golSelect (objID,objValue) {
+	
+	if(objValue){
+		document.getElementById(objID).nextSibling.nextSibling.hidden=false;
+	}else{
+		document.getElementById(objID).nextSibling.nextSibling.hidden=true;
+	}
+}
+//检查表单
+function checkSelect (objID) {
+	var objs=document.getElementById(objID);
+	if(objs.value=="default") {
+		objs.style.color="#FF0000";
+		objs.style.border="1px solid #FF0000";
+	}else{
+		objs.style.color="#000000";
+		objs.style.border="1px solid #ABADB3";
+	}
+}
 function doCheck () {
 	if (document.getElementById("type").value=="default") {
 		alert("请填写问题部位");
@@ -39,6 +67,7 @@ function doCheck () {
 	}
 	document.getElementById("form").action="complaintOperate!complaintStep3";
 	document.getElementById("form").submit();
+	parent.location.reload();
 }
 </script>
 <jsp:include page="/HTML/complain_addcomplain.html" ></jsp:include>
