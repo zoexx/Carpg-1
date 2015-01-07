@@ -43,9 +43,13 @@ var nColumn=1;//传一个type过来
 var maxsize=4;//设置每次展示条数
 var msgCount=0;//单页消息计数器
 var msgType="news";//设置展示模式，新闻or吐槽
+function rshow(){
 setNewsColumn(nColumn);//设置新闻栏目名称	
 loadmessage(maxsize);//数字表示展示新闻的条数
-addLoadEvent(setLiClick);//添加点击事件
+setLiClick();
+}
+
+addLoadEvent(rshow);//添加点击事件
 					</script>
 			 <!--<jsp:include page="/HTML/left_newslist.html"></jsp:include>-->
 			 

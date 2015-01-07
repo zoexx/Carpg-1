@@ -34,24 +34,24 @@ function setNewsColumn (nColumn) {
 function showNews (i) {
 	var ali=document.createElement("li");
 	ali.className="newsPreContent";
-	ali.value=newsCount;
+	ali.value=msgCount;
 	var ap=document.createElement("p");
 	var aspan=document.createElement("span");
 	aspan.className="newsCategory left";
-	aspan.innerHTML=newsJson[i].car;
+	aspan.innerHTML=msgJson[i].car_type;
 	var bspan=document.createElement("span");
 	bspan.className=aspan.className;
-	bspan.innerHTML="/"+newsJson[i].seller;
+	bspan.innerHTML="/"+msgJson[i].agency;
 	var cspan=document.createElement("span");
 	cspan.className=aspan.className;
-	cspan.innerHTML="/"+newsJson[i].time;
+	cspan.innerHTML="/"+msgJson[i].time;
 	ap.appendChild(aspan);
 	ap.appendChild(bspan);
 	ap.appendChild(cspan);
 	ali.appendChild(ap);
 	var aimg=document.createElement("img");
-	aimg.src=""+newsJson[i].image;
-	aimg.alt=""+newsJson[i].nTitle;
+	aimg.src=""+msgJson[i].image;
+	aimg.alt=""+msgJson[i].title;
 	aimg.className="newsSmallPic left";
 	ali.appendChild(aimg);
 	var bp=document.createElement("p");
@@ -59,16 +59,16 @@ function showNews (i) {
 	var ahref=document.createElement("a");
 	ahref.href="#";
 	var ahh=document.createElement("h2");
-	ahh.innerHTML=""+newsJson[i].nTitle;
+	ahh.innerHTML=""+msgJson[i].title;
 	var bhh=document.createElement("h5");
-	bhh.innerHTML=""+getPreviewText(newsJson[i].content);
+	bhh.innerHTML=""+getPreviewText(msgJson[i].content);
 	ahref.appendChild(ahh);
 	ahref.appendChild(bhh);
 	bp.appendChild(ahref);
 	ali.appendChild(bp);
 	var espan=document.createElement("span");
 	espan.className="redLineNub right";
-	espan.innerHTML="赞（"+newsJson[i].praise+"）";
+	espan.innerHTML="赞";
 	ali.appendChild(espan);
 	document.getElementById("newsListContent").appendChild(ali);
 }
@@ -175,7 +175,7 @@ function setLiClick () {
 	for (var i = 0; i < lia.length; i++) {
 		var value=lia[i].value;
 		lia[i].onclick=function (){
-	var str=JSON.stringify(newsJson[value]);
+	var str=JSON.stringify(msgJson[value]);
 	alert(str);
 	window.location.href=""+encodeURI(encodeURI('news_detail.jsp?param='+str));
 }
@@ -239,6 +239,6 @@ function getWindowHeight(){
 
 window.onscroll = function(){
 　　if(getScrollTop() + getWindowHeight() == getScrollHeight()){
-	 window.setTimeout("loadmessage(maxsize);",500);　　　　
+	 window.setTimeout("loadmessage(maxsize);setLiClick();",500);　　　　
 　　}
 };
