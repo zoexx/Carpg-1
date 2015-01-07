@@ -42,6 +42,16 @@ function addLoadEvent(func) {
 	obj.value = obj.value.replace(/\.{2,}/g,"."); //只保留第一个. 清除多余的.   
 	obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
 }
+//检查表单非空，若为空，弹出提示框
+function validate_required(field,alerttxt)
+{
+with (field)
+{
+if (value==null||value=="")
+  {alert(alerttxt);return false;}
+else {return true;}
+}
+}
 //判断并添加或删除元素的class
 function hasClass( elements,cName ){    
     return !!elements.className.match( new RegExp( "(\\s|^)" + cName + "(\\s|$)") );   

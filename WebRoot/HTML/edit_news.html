@@ -1,11 +1,11 @@
 
 		<div class="global_content" style="background-color: #F0F0F0;">
-			<form action="reportOperate!addReport" method="post" enctype ="multipart/form-data">
+			<form action="" method="post" enctype ="multipart/form-data" onsubmit="return flase;" id="form">
 			<div id="editNewsContent" class="index_content left view_complainBorder">
 			<h3>-标题-</h3>
-				<input type="text" id="" name="title" class="edit_newsTitle"/><br />
+				<input type="text" id="title" name="title" class="edit_newsTitle" maxlength="18"/><br />
 			<span>&nbsp;&nbsp;&nbsp;署名&nbsp;&nbsp;&nbsp;</span>
-				<input type="text" name="source" id="" value="" />
+				<input type="text" name="source" id="source" value="" />
 			<span>新闻日期</span>
 				<input type="text" id="time" name="time" readonly="readonly"/>
 				<script type="text/javascript">
@@ -14,12 +14,13 @@
 				</script>
 				<br />
 			<span>原作信息</span>
-				<input type="text" id="" name="author" />
+				<input type="text" id="author" name="author" />
 			<span>原文链接</span>
-				<input type="text" id="" name="url" />
+				<input type="text" id="url" name="url" />
 				<br />
 			<span>选择栏目</span>			
-			<select name="category" class="edit_column">
+			<select name="category" class="edit_column" id="category">
+				<option value="">----请选择----</option>
 				<option value="缺陷调查">----缺陷调查----</option>
 				<option value="汽车召回">----汽车召回----</option>				
 			</select>
@@ -46,7 +47,7 @@
 			</div>
 			<input type="text" id="content" name="content" hidden="true" />
 			<button class="dashButtons editBtn">取消</button>
-			<button class="dashButtons editBtn" onClick="return sendReport();">投稿</button>
+			<button class="dashButtons editBtn" onClick="sendReport();">投稿</button>
 			
 			</form>
 		</div>

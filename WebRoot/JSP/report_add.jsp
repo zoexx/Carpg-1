@@ -15,10 +15,30 @@
 	    <script type="text/javascript" src="../JS/util.js" ></script>
 <script type="text/javascript">
 	function sendReport(){
+		if (checkReport()) {
 		//先将UEditor编辑框中的内容取出
 		var content = UE.getEditor('editor').getContent();
 		document.getElementById('content').value = content;
-		return true;
+		document.getElementById("form").action="reportOperate!addReport";
+		document.getElementById("form").submit();
+		}else{
+		document.getElementById("form").onsubmit="return false";
+		}
+		
+	}
+	function checkReport(){
+	//检查非空字段
+	var a=["title","source","time","author","url","category","car_type","content"];
+	var b=true;
+	for (i=0;i<a.length;i++){
+		var aobj=document.getElementById(a[i]);
+		var aalert="请您填写完整的新闻信息--"+a[i]+"缺省";
+		if(! validate_required(aobj,aalert)) {
+		b=false;
+		break;
+		}	
+	}
+	return b;
 	}
 </script>
 	</head>
