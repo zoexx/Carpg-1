@@ -93,21 +93,21 @@ public class Chart {
 		}
 		//表示该品牌下各个车型的状况统计
 		else if (operate.equals(Chart.BRAND_CARTYPE_COUNT)){
-			Map<String, Integer> map = statistic.getCountByBrand_carType(param);
+			Map<String, Integer> map = statistic.control("type", param);
 			chart = ChartFactory.createPieChart3D("各个车型的状况", 
 					createPeiData(map), true, true, false);
 			chart.addSubtitle(new TextTitle("品牌："+param));
 		}
 		//表示一年内各个问题的状况统计
 		else if (operate.equals(Chart.PROBLEM_COUNT_YEAR)){
-			Map<String, Integer> map = statistic.getCountByProblem_year(param);
+			Map<String, Integer> map = statistic.control("type", param);
 			chart = ChartFactory.createPieChart3D("各个问题的状况", 
 					createPeiData(map), true, true, false);
 			chart.addSubtitle(new TextTitle("年份："+param));
 		}
 		//表示某一个问题下各个车型状况的统计
 		else if (operate.equals(Chart.PROBLEM_CARTYPE_COUNT)){
-			Map<String, Integer> map = statistic.getCountByProblem_carTypes(param);
+			Map<String, Integer> map = statistic.control("type", param);
 			chart = ChartFactory.createPieChart3D("各个车型的状况", 
 					createPeiData(map), true, true, false);
 			chart.addSubtitle(new TextTitle("问题："+param));
@@ -142,7 +142,7 @@ public class Chart {
 			
 		}//表示问题按年份统计
 		else if (operate.equals(Chart.PROBLEM_YEAR_COUNT)){
-			Map<String, Integer> map = statistic.getCountByYear_problem(param);
+			Map<String, Integer> map = statistic.control("type", param);
 			//创建相应的折线图
 			chart = ChartFactory.createTimeSeriesChart(
 	                "汽车问题状况统计", "年份", "吐槽量",

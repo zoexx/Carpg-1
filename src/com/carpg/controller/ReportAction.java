@@ -64,21 +64,26 @@ public class ReportAction extends ActionSupport implements ServletRequestAware,S
 		reportDao.addReport(report);
 		return "index";
 	}
-	//展示报告信息列表,根据type类型展示信息
+	//展示报告信息列表,根据type类型展示信息(20条）
 	public String showReportByType() throws Exception{
-		List<Object> list = reportDao.getReportsByType(report.getType(), report.getId());
+		List<Object> list = reportDao.getReportsByType(report.getType(), report.getId(), 20);
 		JsonTool json = new JsonTool();
 		msg = json.toJsonArrayString(list);	
 		return "";
 	}
 	//展示所有的报告信息，不分类别
 	public String showReport() throws Exception{
-		List<Object> list = reportDao.getReports(report.getId());
+		List<Object> list = reportDao.getReports(report.getId(), 20);
 		JsonTool json = new JsonTool();
 		msg = json.toJsonArrayString(list);
 		return "show";
 	}
-	
+	//获取首页报告展示模块的新闻数据（5条）,按type类别分开
+	public void getReport_index(int type) throws Exception{
+		List<Object> list = reportDao.getReportsByType(type, -1, 5);
+		JsonTool json = new JsonTool();
+		msg = json.toJsonArrayString(list);
+	}
 	//文件上传处理函数
 	public String fileUpload(int userId) throws Exception{
 		String imagePath = "";
