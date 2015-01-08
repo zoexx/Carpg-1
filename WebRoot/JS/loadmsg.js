@@ -10,11 +10,11 @@ function loadmessage(maxsize) {
 				break;
 			}else{
 				if(msgType=="news"){
-				showNews(i);	
+				showNews();	
 				}else if(msgType=="complain"){
-				showComplain(i);
+				showComplain();
 				}
-				msgCount++;
+				
 			}
 	}
 	
@@ -31,27 +31,28 @@ function setNewsColumn (nColumn) {
 	document.getElementById("nColumn").innerHTML=""+nColumn;
 }
 //新闻列表页面创建DOM
-function showNews (i) {
+function showNews () {
+	if(msgJson[msgCount].car_type){
 	var ali=document.createElement("li");
 	ali.className="newsPreContent";
 	ali.value=msgCount;
 	var ap=document.createElement("p");
 	var aspan=document.createElement("span");
 	aspan.className="newsCategory left";
-	aspan.innerHTML=msgJson[i].car_type;
+	aspan.innerHTML=msgJson[msgCount].car_type;
 	var bspan=document.createElement("span");
 	bspan.className=aspan.className;
-	bspan.innerHTML="/"+msgJson[i].agency;
+	bspan.innerHTML="/"+msgJson[msgCount].agency;
 	var cspan=document.createElement("span");
 	cspan.className=aspan.className;
-	cspan.innerHTML="/"+msgJson[i].time;
+	cspan.innerHTML="/"+msgJson[msgCount].time;
 	ap.appendChild(aspan);
 	ap.appendChild(bspan);
 	ap.appendChild(cspan);
 	ali.appendChild(ap);
 	var aimg=document.createElement("img");
-	aimg.src=""+msgJson[i].image;
-	aimg.alt=""+msgJson[i].title;
+	aimg.src=""+msgJson[msgCount].image;
+	aimg.alt=""+msgJson[msgCount].title;
 	aimg.className="newsSmallPic left";
 	ali.appendChild(aimg);
 	var bp=document.createElement("p");
@@ -59,9 +60,9 @@ function showNews (i) {
 	var ahref=document.createElement("a");
 	ahref.href="#";
 	var ahh=document.createElement("h2");
-	ahh.innerHTML=""+msgJson[i].title;
+	ahh.innerHTML=""+msgJson[msgCount].title;
 	var bhh=document.createElement("h5");
-	bhh.innerHTML=""+getPreviewText(msgJson[i].content);
+	bhh.innerHTML=""+getPreviewText(msgJson[msgCount].content);
 	ahref.appendChild(ahh);
 	ahref.appendChild(bhh);
 	bp.appendChild(ahref);
@@ -71,18 +72,23 @@ function showNews (i) {
 	espan.innerHTML="赞";
 	ali.appendChild(espan);
 	document.getElementById("newsListContent").appendChild(ali);
+	msgCount++;
+	}else{
+	return false;
+	}
 }
 //吐槽展示页面创建DOM
 function showComplain (i) {
 	//整条评论的容器
+			if(msgJson[msgCount].car_brand){
 			var view_mainComplains=document.createElement("div");
 			view_mainComplains.className="view_mainComplains view_complainBorder";
 			//user信息容器
 			var avatar=document.createElement("div");
 			avatar.className="avatar";
 			var avatarPic=document.createElement("img");//用户头像
-			//if (msgJson[i].img!="") {
-				//avatarPic.src=""+msgJson[i].img;
+			//if (msgJson[msgCount].img!="") {
+				//avatarPic.src=""+msgJson[msgCount].img;
 			//}else{
 				avatarPic.src="../images/img/avatar.png";//默认用户头像
 			//}
@@ -151,6 +157,9 @@ function showComplain (i) {
 			view_mainComplains.appendChild(view_complainContent);
 			//添加到吐槽显示区
 			document.getElementById("add_ccshere").appendChild(view_mainComplains);
+			}else{
+			return false;
+			}
 }
 //新闻列表页面截取新闻内容预览，截取文章第一段的101个字，并加上....省略号
 function getPreviewText (str) {
