@@ -719,6 +719,7 @@ a.showAll {
 	height: 38px;
 	overflow: hidden;
 	border: 1px solid #EACD2E;
+	background-color: #EACD2E;
 	border-radius: 4px;
 }
 #view_researchComplains input {
