@@ -30,7 +30,7 @@ public class index extends ActionSupport implements ServletRequestAware,ServletR
 		StatisticAction staAction = new StatisticAction();
 		//得到首页的调查报告，汽车召回的数据
 		ReportAction reAction = new ReportAction();
-		reAction.getReport_index(typeReport);
+		reAction.getReport_index(1);
 		//得到后端请求的信息报告的值
 		msgReport = reAction.getMsg();
 		return "index";
