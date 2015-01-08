@@ -44,20 +44,22 @@ public class ReportImpl implements ReportDao {
 		this.close();
 	}
 
-	public List<Object> getReportsByType(int type, int id) {
+	public List<Object> getReportsByType(int type, int id, int size) {
 		// TODO Auto-generated method stub
 		List<Object> list = new ArrayList<Object>();
 		conn = DBHelper.getConn();
 		try {
 			if (id == -1){
-				sql = "select * from report where type = ? order by time desc limit 20";
+				sql = "select * from report where type = ? order by time desc limit ?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, type);
+				pstmt.setInt(2, size);
 			}else{
-				sql = "select * from report where type=? && id<=? order by time desc limit 20";
+				sql = "select * from report where type=? && id<=? order by time desc limit ?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, type);
 				pstmt.setInt(2, id);
+				pstmt.setInt(3, size);
 			}
 			rs = pstmt.executeQuery();
 			while (rs.next()){
@@ -85,18 +87,20 @@ public class ReportImpl implements ReportDao {
 		return list;
 	}
 	
-	public List<Object> getReports(int id) {
+	public List<Object> getReports(int id, int size) {
 		// TODO Auto-generated method stub
 		List<Object> list = new ArrayList<Object>();
 		conn = DBHelper.getConn();
 		try {
 			if (id == -1){
-				sql = "select * from report order by time desc limit 20";
+				sql = "select * from report order by time desc limit ?";
 				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, size);
 			}else{
-				sql = "select * from report where id<=? order by time desc limit 20";
+				sql = "select * from report where id<=? order by time desc limit ?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, id);
+				pstmt.setInt(2, size);
 			}
 			rs = pstmt.executeQuery();
 			while (rs.next()){
@@ -123,7 +127,7 @@ public class ReportImpl implements ReportDao {
 		this.close();
 		return list;
 	}
-	
+
 	//关闭ResultSet和pstmt
 	private void close(){
 		if (null != rs){
@@ -145,7 +149,5 @@ public class ReportImpl implements ReportDao {
 		//关闭数据库连接conn
 		DBHelper.close();
 	}
-
-	
 
 }
