@@ -124,10 +124,12 @@ function showComplain (i) {
 			//图片列表
 			var view_complainPhoto=document.createElement("ul");
 			view_complainPhoto.className="view_complainPhoto";
-			for (var j = 0; j < msgJson[msgCount].image.length; j++) {
+			var tempImg = msgJson[msgCount].image;
+			var imgurl=tempImg.split(';');
+			for (var j = 0; j < imgurl.length; j++) {
 				var a=document.createElement("li");
 				var b=document.createElement("img");
-			    b.src=""+msgJson[msgCount].image[j];
+			    b.src="../images/"+imgurl[j];
 			    a.appendChild(b);
 			    view_complainPhoto.appendChild(a);
 			}

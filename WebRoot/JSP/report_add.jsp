@@ -16,17 +16,15 @@
 <script type="text/javascript">
 	function sendReport(){
 		if (checkReport()) {
-		//先将UEditor编辑框中的内容取出
-		var content = UE.getEditor('editor').getContent();
-		document.getElementById('content').value = content;
 		document.getElementById("form").action="reportOperate!addReport";
 		document.getElementById("form").submit();
 		}else{
-		document.getElementById("form").onsubmit="return false";
+		return false;
 		}
 		
 	}
 	function checkReport(){
+	getContent();
 	//检查非空字段
 	var a=["title","source","time","author","url","category","car_type","content"];
 	var b=true;
@@ -39,6 +37,11 @@
 		}	
 	}
 	return b;
+	}
+//将UEditor编辑框中的内容取出
+	function getContent(){
+		var content = UE.getEditor('editor').getContent();
+		document.getElementById('content').value = content;	
 	}
 </script>
 	</head>

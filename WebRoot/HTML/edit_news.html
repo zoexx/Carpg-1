@@ -1,6 +1,6 @@
 
 		<div class="global_content" style="background-color: #F0F0F0;">
-			<form action="" method="post" enctype ="multipart/form-data" onsubmit="return flase;" id="form">
+			<form  method="post" enctype ="multipart/form-data" onsubmit="return sendReport();" id="form">
 			<div id="editNewsContent" class="index_content left view_complainBorder">
 			<h3>-标题-</h3>
 				<input type="text" id="title" name="title" class="edit_newsTitle" maxlength="18"/><br />
@@ -47,7 +47,7 @@
 			</div>
 			<input type="text" id="content" name="content" hidden="true" />
 			<button class="dashButtons editBtn">取消</button>
-			<button class="dashButtons editBtn" onClick="sendReport();">投稿</button>
+			<button class="dashButtons editBtn" onClick="">投稿</button>
 			
 			</form>
 		</div>
