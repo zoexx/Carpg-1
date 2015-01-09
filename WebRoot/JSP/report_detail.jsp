@@ -13,11 +13,7 @@
 	    <script type="text/javascript" src="../JS/util.js" ></script>
 	    <script src="../JS/loadmsg.js" type="text/javascript" charset="utf-8"></script>
 	    <script src="../JS/setmeta.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-		var news=<%= param%>;
-		addLoadEvent(loadnewsDetail);
-		addLoadEvent(setmeta);
-		</script>
+
 	</head>
 	<body>
 <jsp:include page="header.jsp" flush="true" ></jsp:include>
@@ -32,6 +28,10 @@
 		    </div>
 		</div>
 <jsp:include page="/HTML/footer.html"></jsp:include>
-	
+		<script type="text/javascript">
+		var news=<%= param%>;
+		addLoadEvent(loadnewsDetail);
+		addLoadEvent(setmeta);
+		</script>	
 	</body>
 </html>
