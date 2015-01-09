@@ -21,25 +21,25 @@
 	
 	<package name="Carpg" extends="struts-default">
 		<action name="test" class = "com.carpg.controller.TestAction">
-			<result>index.jsp</result>
-			<result name="index" >index.jsp</result>
+			<result>/index.jsp</result>
+			<result name="index" >/index.jsp</result>
 		</action>
 		
 		<action name="userOperate" class = "com.carpg.controller.UserAction">
-			<result>index.jsp</result>
-			<result name="index" type="redirect">index.jsp</result>
+			<result>/index.jsp</result>
+			<result name="index" type="redirect">/index.jsp</result>
 			<result name="login" type="redirect">user_login.jsp</result>
 			<result name="regist">user_regist.jsp</result>
 			<result name="step2" type="redirect">complaint_step2.jsp</result>
 		</action>
 		<action name="carOperate" class = "com.carpg.controller.CarAction">
-			<result>index.jsp</result>
-			<result name="index" type="redirect">index.jsp</result>
+			<result>/index.jsp</result>
+			<result name="index" type="redirect">/index.jsp</result>
 			<result name="step2" type="redirect">complaint_step2.jsp</result>
 		</action>
 		<action name="complaintOperate" class = "com.carpg.controller.ComplaintAction">
 			<result>index.jsp</result>
-			<result name="index" type="redirect">/JSP/index.jsp</result>
+			<result name="index" type="redirect">/index.jsp</result>
 			<result name="login" type="redirect">user_login.jsp</result>
 			<result name="step2" type="redirect">complaint_step2.jsp</result>
 			<result name="step3" type="redirect">complaint_step3.jsp</result>
@@ -57,8 +57,8 @@
             <param name="savePath">/images/complaint</param>  
 		</action>
 		<action name="reportOperate" class = "com.carpg.controller.ReportAction">
-			<result>index.jsp</result>
-			<result name="index" type="redirect">index.jsp</result>
+			<result>/index.jsp</result>
+			<result name="index" type="redirect">/index.jsp</result>
 			<result name="show">report_show.jsp</result>
 			<result name="detail">report_detail.jsp</result>
 			<!-- 配置fileUpload拦截器 -->  
@@ -73,12 +73,12 @@
             <param name="savePath">/images/report</param> 
 		</action>
 		<action name="statisticOperate" class = "com.carpg.controller.StatisticAction">
-			<result>index.jsp</result>
-			<result name="index" type="redirect">index.jsp</result>
+			<result>/index.jsp</result>
+			<result name="index" type="redirect">/index.jsp</result>
 			<result name="rank">rank_total.jsp</result>
 		</action>
 		<action name="index" class = "com.carpg.controller.index">
-			<result name="index">/JSP/index.jsp</result>
+			<result name="index" type="redirect">/JSP/module_index.jsp</result>
 		</action>
 	</package>
 

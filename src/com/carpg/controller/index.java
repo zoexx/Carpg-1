@@ -37,6 +37,10 @@ public class index extends ActionSupport implements ServletRequestAware,ServletR
 		reAction.getReport_index(1);
 		msgReport1 = reAction.getMsg();
 		
+		//将数据存储在session中
+		request.getSession().setAttribute("msgReport0", msgReport0);
+		request.getSession().setAttribute("msgReport1", msgReport1);
+		
 		return "index";
 	}
 

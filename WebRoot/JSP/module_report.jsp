@@ -4,9 +4,9 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%
-	//获取首页新闻模块的数据（5条）
-	String msgReport0 = (String)request.getAttribute("msgReport0");
-	String msgReport1 = (String)request.getAttribute("msgReport1");
+	//获取首页新闻模块的数据（各5条）
+	String msgReport0 = (String)request.getSession().getAttribute("msgReport0");
+	String msgReport1 = (String)request.getSession().getAttribute("msgReport1");
 %>
 <script type="text/javascript">
 var newsPreJson1=<%= msgReport0%>;
