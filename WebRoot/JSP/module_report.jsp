@@ -24,16 +24,19 @@ function addnewsPre(objID,mjson){
     lis[i].children[1].innerText=mjson[i].title;
     //给a加href
 	var str=JSON.stringify(mjson[i]);
-	lis[i].children[1].href=""+encodeURI(encodeURI('news_detail.jsp?param='+str));    
+	lis[i].children[1].href=""+encodeURI(encodeURI('report_detail.jsp?param='+str));    
     }
     }
 }
+	function testPost(){
+		document.getElementById("param").value = JSON.stringify(newsPreJson1[0]);
+		return true;
+	}
 function loadnewsPre(){
 addnewsPre("newsPre1",newsPreJson1);
 addnewsPre("newsPre2",newsPreJson2);
 
 }
 addLoadEvent(loadnewsPre);
-
 </script>
 <jsp:include page="/HTML/right_news.html"></jsp:include>
