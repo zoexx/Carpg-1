@@ -75,3 +75,9 @@ function insertAfter(newElement,targetElement) {
     parent.insertBefore(newElement,targetElement.nextSibling);
   }
 }
+//字符转义
+function transStr(){
+  str=str.replace(/\//,"\\\/");
+  str=str.replace(/\&/,"\\\&");
+  str=str.replace(/\?/,"\\\?/");
+}

@@ -51,7 +51,7 @@ function showNews () {
 	ap.appendChild(cspan);
 	ali.appendChild(ap);
 	var aimg=document.createElement("img");
-	aimg.src=""+msgJson[msgCount].image;
+	aimg.src="../images/"+msgJson[msgCount].image;
 	aimg.alt=""+msgJson[msgCount].title;
 	aimg.className="newsSmallPic left";
 	ali.appendChild(aimg);
@@ -88,7 +88,7 @@ function showComplain (i) {
 			avatar.className="avatar";
 			var avatarPic=document.createElement("img");//用户头像
 			//if (msgJson[msgCount].img!="") {
-				//avatarPic.src=""+msgJson[msgCount].img;
+				//avatarPic.src="../images/"+msgJson[msgCount].img;
 			//}else{
 				avatarPic.src="../images/img/avatar.png";//默认用户头像
 			//}
@@ -194,10 +194,10 @@ function setLiClick () {
 //新闻详情页面
 function loadnewsDetail () {
 	document.getElementById("category").innerHTML=""+news.category;
-	document.getElementById("nTitle").innerText=news.nTitle;
+	document.getElementById("nTitle").innerText=news.title;
 	document.getElementById("info").innerHTML=news.author+"/"+news.time;
 	if (news.image) {
-		document.getElementById("image").src=news.image;
+		document.getElementById("image").src="../images/"+news.image;
 	}
 	document.getElementById("content").innerHTML=""+news.content;
 	var source=document.getElementById("author");
