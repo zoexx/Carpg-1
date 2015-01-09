@@ -187,7 +187,7 @@ function setLiClick () {
 		var value=lia[i].value;
 		lia[i].onclick=function (){
 	var str=JSON.stringify(msgJson[value]);
-	window.location.href=""+encodeURI(encodeURI('news_detail.jsp?param='+str));
+	window.location.href=""+encodeURI(encodeURI('report_detail.jsp?param='+str));
 }
 	}
 }

@@ -24,7 +24,10 @@ function addnewsPre(objID,mjson){
     lis[i].children[1].innerText=mjson[i].title;
     //给a加href
 	var str=JSON.stringify(mjson[i]);
-	lis[i].children[1].href=""+encodeURI(encodeURI('news_detail.jsp?param='+str));    
+	str = str.replace(/\//g, "\\\/");
+	str = str.replace(/\&/g, "\\\&");
+	str = str.replace(/\?/g, "\\\?");
+	lis[i].children[1].href=""+encodeURI(encodeURI('report_detail.jsp?param='+str));    
     }
     }
 }
