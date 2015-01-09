@@ -18,7 +18,8 @@ public class index extends ActionSupport implements ServletRequestAware,ServletR
 	
 	//服务器向前端传递的值
 	//信息报告的值
-	private String msgReport;
+	private String msgReport0;
+	private String msgReport1;
 	//统计数据的值
 	private String msgStatistic;
 	
@@ -30,9 +31,12 @@ public class index extends ActionSupport implements ServletRequestAware,ServletR
 		StatisticAction staAction = new StatisticAction();
 		//得到首页的调查报告，汽车召回的数据
 		ReportAction reAction = new ReportAction();
+		//得到后端请求的信息报告的值包括调查报告和信息召回
+		reAction.getReport_index(0);
+		msgReport0 = reAction.getMsg();
 		reAction.getReport_index(1);
-		//得到后端请求的信息报告的值
-		msgReport = reAction.getMsg();
+		msgReport1 = reAction.getMsg();
+		
 		return "index";
 	}
 
@@ -55,20 +59,28 @@ public class index extends ActionSupport implements ServletRequestAware,ServletR
 		this.typeReport = typeReport;
 	}
 
-	public String getMsgReport() {
-		return msgReport;
-	}
-
-	public void setMsgReport(String msgReport) {
-		this.msgReport = msgReport;
-	}
-
 	public String getMsgStatistic() {
 		return msgStatistic;
 	}
 
 	public void setMsgStatistic(String msgStatistic) {
 		this.msgStatistic = msgStatistic;
+	}
+
+	public String getMsgReport0() {
+		return msgReport0;
+	}
+
+	public void setMsgReport0(String msgReport0) {
+		this.msgReport0 = msgReport0;
+	}
+
+	public String getMsgReport1() {
+		return msgReport1;
+	}
+
+	public void setMsgReport1(String msgReport1) {
+		this.msgReport1 = msgReport1;
 	}
 
 

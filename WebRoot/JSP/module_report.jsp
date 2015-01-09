@@ -5,11 +5,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <%
 	//获取首页新闻模块的数据（5条）
-	String msgReport = (String)request.getAttribute("msgReport");
+	String msgReport0 = (String)request.getAttribute("msgReport0");
+	String msgReport1 = (String)request.getAttribute("msgReport1");
 %>
 <script type="text/javascript">
-var newsPreJson1=<%= msgReport%>;
-var newsPreJson2=<%= msgReport%>;
+var newsPreJson1=<%= msgReport0%>;
+var newsPreJson2=<%= msgReport1%>;
 function addnewsPre(objID,mjson){
     var aul=document.getElementById(objID);
     var lis=aul.getElementsByTagName("li");
@@ -23,13 +24,20 @@ function addnewsPre(objID,mjson){
     //给a赋值
     lis[i].children[1].innerText=mjson[i].title;
     //给a加href
-	var str=JSON.stringify(mjson[i]);
-	lis[i].children[1].href=""+encodeURI(encodeURI('report_detail.jsp?param='+str));    
+	//var str=JSON.stringify(mjson[i]); 
     }
     }
 }
-	function testPost(){
-		document.getElementById("param").value = JSON.stringify(newsPreJson1[0]);
+	//向下一个页面发送详细数据
+	function post(i){
+		var myjson = newsPreJson1;
+		var count = i;
+		if (i>=5){
+			myjson = newsPreJson2;
+			count = i - 5;
+		}
+		document.getElementById("param").value = JSON.stringify(myjson[count]);
+		document.getElementById("form").submit();
 		return true;
 	}
 function loadnewsPre(){
